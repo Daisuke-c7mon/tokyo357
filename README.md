@@ -36,12 +36,16 @@ python3 -m http.server 8357
 git add -A && git commit -m "…" && git push
 ```
 
-### 初回の接続手順（Netlify 側で1回だけ必要）
+### Netlify 接続（完了済み）
 
-1. https://app.netlify.com/ → **Add new site → Import an existing project → GitHub**
-2. リポジトリ `Daisuke-c7mon/tokyo357` を選択
-3. Build command は空、**Publish directory は `.`**（`netlify.toml` に記載済みなので通常はそのまま）
-4. Deploy → `xxxx.netlify.app` で表示を確認
+| 項目 | 値 |
+|---|---|
+| プロジェクト名 | `tokyo357` |
+| 暫定URL | https://tokyo357.netlify.app |
+| 管理画面 | https://app.netlify.com/projects/tokyo357 |
+| 連携リポジトリ | `Daisuke-c7mon/tokyo357` の `main` |
+
+Build command は空、Publish directory は `.`（`netlify.toml` の通り）。`main` に push すると自動でビルドが走る。
 
 ### 独自ドメイン（tokyo357.com）
 
@@ -70,11 +74,16 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
 ## 未確定・要対応
 
 - [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
+- [ ] **DNSレコードの追加**（下記「独自ドメイン」参照）。Netlify側の接続とビルドは完了済み。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。
-- [ ] App Store の販売者（Apple Developer アカウント）が **株式会社サウナ** か **株式会社C'mon** かを確定する。
-      `~/othello` 側の `docs/APP_STORE_SUBMISSION.md` と `~/othello-privacy/index.html` は株式会社C'mon名義で書かれているため、
-      サウナ名義で出すなら両方の表記を合わせる必要がある。
 - [ ] App Store 公開後、`/apps/othello` に App Store へのリンクとスクリーンショットを追加する。
+
+### 完了済み
+
+- [x] Netlify 接続（プロジェクト `tokyo357` / https://tokyo357.netlify.app、`main` push で自動デプロイ）
+- [x] App Store 販売者名義を **株式会社サウナ** に確定。`~/othello` と `~/othello-privacy` の表記も統一済み
+      （Bundle ID も `com.tokyo357.othello` に変更した。Apple Developer 側で `com.c7mon.othello` を
+      すでに登録済みだった場合はここを戻すこと）
 
 ## 設計メモ
 
