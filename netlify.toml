@@ -1,0 +1,68 @@
+# Sauna Inc. — tokyo357.com
+# ビルド不要の静的サイト。リポジトリのルートをそのまま配信する。
+
+[build]
+  publish = "."
+  command = ""
+
+# 拡張子なしのURL（/support など）で配信する
+[build.processing]
+  skip_processing = false
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/support.html"
+  to = "/support"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy.html"
+  to = "/privacy"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terms.html"
+  to = "/terms"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/apps/othello.html"
+  to = "/apps/othello"
+  status = 301
+  force = true
+
+# App Store のサポートURLとして使いやすい別名
+[[redirects]]
+  from = "/contact"
+  to = "/support"
+  status = 301
+
+[[redirects]]
+  from = "/othello"
+  to = "/apps/othello"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # インラインの JSON-LD はハッシュで許可している。
+    # JSON-LD を編集したら README の手順でハッシュを再計算すること。
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'sha256-6l+h/MhsmgHZBcYkuUONzHi03RnqZB2cTkCl+P84ILY=' 'sha256-z3TGbGl5y6niVybDlPEsmKPG1bY5rcqnda7fbCb0aLA='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
