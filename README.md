@@ -69,7 +69,7 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
 
 ## 未確定・要対応
 
-- [ ] **`support@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
+- [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。
 - [ ] App Store の販売者（Apple Developer アカウント）が **株式会社サウナ** か **株式会社C'mon** かを確定する。
       `~/othello` 側の `docs/APP_STORE_SUBMISSION.md` と `~/othello-privacy/index.html` は株式会社C'mon名義で書かれているため、
