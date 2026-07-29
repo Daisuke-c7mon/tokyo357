@@ -584,3 +584,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
   .rise, .rise.in { opacity: 1; transform: none; transition: none; }
 }
 .no-js .rise { opacity: 1; transform: none; }
+
+/* 禁酒ウォッチ用のアートワーク（リング） */
+.work-art--ring {
+  display: grid;
+  place-items: center;
+  background: #10202B;
+  padding: 14px;
+}
+.work-art--ring svg { width: 100%; height: auto; }

@@ -7,8 +7,13 @@
   </url>
   <url>
     <loc>https://tokyo357.com/support</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/apps/kinshuwatch</loc>
+    <lastmod>2026-07-29</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tokyo357.com/apps/othello</loc>
