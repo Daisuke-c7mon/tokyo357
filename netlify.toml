@@ -34,6 +34,12 @@
   force = true
 
 [[redirects]]
+  from = "/apps/tsuzukutodo.html"
+  to = "/apps/tsuzukutodo"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/apps/shimekiri.html"
   to = "/apps/shimekiri"
   status = 301
@@ -55,6 +61,11 @@
 [[redirects]]
   from = "/contact"
   to = "/support"
+  status = 301
+
+[[redirects]]
+  from = "/tsuzukutodo"
+  to = "/apps/tsuzukutodo"
   status = 301
 
 [[redirects]]
@@ -82,7 +93,7 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     # インラインの JSON-LD はハッシュで許可している。
     # JSON-LD を編集したら README の手順でハッシュを再計算すること。
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'sha256-P8jmnTx+fw3YDQitcROA4f+fGQh33SnR0rBA9mGbjsI=' 'sha256-z3TGbGl5y6niVybDlPEsmKPG1bY5rcqnda7fbCb0aLA=' 'sha256-kdIC8b7GyukHC66cSCZxYORPAhSdepW5rp8EfTc2wMs=' 'sha256-WbFZvPaxdfAVRkMl13R4Kk1G2JaP3XxnAJXU8eyp2/I='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'sha256-P8jmnTx+fw3YDQitcROA4f+fGQh33SnR0rBA9mGbjsI=' 'sha256-z3TGbGl5y6niVybDlPEsmKPG1bY5rcqnda7fbCb0aLA=' 'sha256-kdIC8b7GyukHC66cSCZxYORPAhSdepW5rp8EfTc2wMs=' 'sha256-WbFZvPaxdfAVRkMl13R4Kk1G2JaP3XxnAJXU8eyp2/I=' 'sha256-Jq5XGKsANCqoErgeKQIqk7fhTkak9DHkjEv7qLeZa/c='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
 
 [[headers]]
   for = "/assets/*"
