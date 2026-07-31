@@ -103,7 +103,7 @@ JSON-LD を編集したら次を実行し、出た値で `netlify.toml` を書�
 ```bash
 python3 - <<'PY'
 import re, hashlib, base64, pathlib
-for f in ['index.html', 'apps/othello.html', 'apps/kinshuwatch.html', 'apps/shimekiri.html', 'apps/tsuzukutodo.html']:
+for f in ['index.html', 'apps/othello.html', 'apps/kinshuwatch.html', 'apps/shimekiri.html', 'apps/tsuzukutodo.html', 'apps/sagaseru.html']:
     s = pathlib.Path(f).read_text()
     for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', s, re.S):
         print(f, "'sha256-" + base64.b64encode(hashlib.sha256(m.group(1).encode()).digest()).decode() + "'")
