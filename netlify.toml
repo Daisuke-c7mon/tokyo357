@@ -40,6 +40,12 @@
   force = true
 
 [[redirects]]
+  from = "/apps/sukemaru.html"
+  to = "/apps/sukemaru"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/apps/sagaseru.html"
   to = "/apps/sagaseru"
   status = 301
