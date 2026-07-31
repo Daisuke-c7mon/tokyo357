@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>カエセル ｜ 株式会社サウナ / Sauna Inc.</title>
+<meta name="description" content="金利が上がったら毎月いくら増えるのか、繰上返済したら利息がいくら減るのかを「差額の円」で答える住宅ローン計算アプリ。5年ルール・125%ルール、諸費用込みの実質年率、月々・借入額・期間・金利の4方向逆算に対応。買い切り120円、広告なし、通信なし。株式会社サウナ（Sauna Inc.）が開発・サポートしています。">
+<link rel="canonical" href="https://tokyo357.com/apps/kaeseru">
+<meta name="theme-color" content="#101418">
+<meta property="og:type" content="website">
+<meta property="og:title" content="カエセル ｜ 株式会社サウナ / Sauna Inc.">
+<meta property="og:description" content="繰上返済と金利上昇を、円の差額で比べる住宅ローン計算アプリ。買い切り120円。">
+<meta property="og:url" content="https://tokyo357.com/apps/kaeseru">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "カエセル",
+  "alternateName": "Kaeseru: Loan Payoff Calculator",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "iOS 17.0 or later",
+  "url": "https://tokyo357.com/apps/kaeseru",
+  "offers": { "@type": "Offer", "price": "120", "priceCurrency": "JPY" },
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/#build" class="opt">事業</a>
+      <a href="/#works">制作物</a>
+      <a href="/#company" class="opt">会社概要</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <div class="doc-head">
+      <p class="updated">IOS 17+ · IPHONE / IPAD · 買い切り 120円</p>
+      <h1>カエセル</h1>
+      <p class="lede">住宅ローンの計算アプリです。「金利が1%上がったら毎月いくら増えるのか」「100万円を繰上返済したら利息はいくら減るのか」を、グラフではなく<strong>円の差額</strong>で答えます。</p>
+      <div class="actions mt-s">
+        <a class="btn btn--ghost" href="/support#kaeseru">よくある質問</a>
+        <a class="btn btn--ghost" href="#help">お問い合わせ</a>
+      </div>
+    </div>
+
+    <div class="prose">
+
+      <p><strong>現在 App Store に申請の準備中です。</strong>公開されたらこのページからリンクします。</p>
+
+      <h2>なぜ作ったか</h2>
+      <p>ローン計算アプリはすでにたくさんあります。数字を入れれば毎月の返済額は出るし、円グラフも残高のグラフも出ます。それでも私たちが新しく作ったのは、既存アプリの低評価レビューを読み込んだときに、<strong>同じ不満が繰り返し書かれていた</strong>からです。</p>
+      <p>いちばん多かったのは、有料アプリに対する「<strong>繰り上げ返済を計算したかったのにできない</strong>」「<strong>繰り上げ返済の結果が反映されない</strong>」という声でした。返金を求めるところまで書かれているレビューもありました。次に多かったのが「<strong>カーローンは実質年率なので計算できない</strong>」、そして無料アプリ側では「<strong>年利に小数点が打てない</strong>」「<strong>月利が無い</strong>」「<strong>ボーナス加算ができない</strong>」といった、入力の精度そのものへの不満でした。</p>
+      <p>これらに共通しているのは、<strong>「計算はできるが、判断ができない」</strong>ということだと考えました。毎月の返済額が分かっても、繰上返済をすべきかどうかは分かりません。総返済額が出ても、金利が上がったときに家計が持つのかは分かりません。ローンの計算で本当に知りたいのは、単体の数字ではなく<strong>2つの未来の差</strong>です。</p>
+      <p>そこでカエセルは、画面の主役を「結果の表」ではなく「<strong>差額のカード</strong>」にしました。繰上返済の画面をひらくと、まず最初に「手数料を引いても、これだけ得します」という金額が出ます。金利の画面をひらくと、まず「毎月の負担が増える額」が出ます。表や償還表は、その根拠を確かめたい人のために、その下に置いてあります。</p>
+
+      <h2>できること</h2>
+      <ul>
+        <li><strong>繰上返済で、いくら得するのかを言い切ります</strong> — いつ・いくら入れるかを決めると、「利息が◯◯円減る」「◯年◯ヶ月早く終わる」が最初に表示されます。しかも<strong>期間短縮型と返済額軽減型を同時に計算して並べる</strong>ので、どちらを選ぶべきかがその場で決まります。繰上返済手数料を入力すれば、それを差し引いた実質の得も出るため、「手数料を払ってまでやる価値があるか」まで答えが出ます。</li>
+        <li><strong>金利が上がった世界を、先に見ておけます</strong> — +0.5% / +1.0% / +2.0%、それに自分で決めた上げ幅を加えた最大4つのシナリオを、同時に試算します。上がり始める時期も「いますぐ／5年後／10年後／15年後」から選べます。変動金利で家計が持つかどうかを、契約する前に確かめられます。</li>
+        <li><strong>5年ルール・125%ルールを、隠さずに扱います</strong> — 多くの変動金利型では、金利が上がっても返済額の見直しは5年ごと、しかも直前の1.25倍までとされています。当面の支払いは抑えられますが、その分は後ろに回ります。カエセルはこのルールをオン・オフでき、オンのときに<strong>未払利息がいくら積み上がるのか</strong>、<strong>期間内に返しきれず最終回に一括でいくら残るのか</strong>まで表示します。他のアプリでは内部処理として隠れている部分です。</li>
+        <li><strong>実質年率（諸費用込み）に対応</strong> — 事務手数料・保証料・印紙代・団信の上乗せを入力すると、表面金利ではなく実質年率が出ます。実質年率で表示されるカーローンやフリーローンとも、同じ土俵で比べられます。表面金利との差も「見えないコスト」として表示します。</li>
+        <li><strong>4つのうち、どれでも逆算できます</strong> — 「月々の返済額」「借入可能額」「返済期間」「金利」。求めたいものを1つ選ぶだけで、残りの条件から計算します。ボーナス併用を設定したままでも逆算できます。</li>
+        <li><strong>入力の精度で妥協しません</strong> — 年利は<strong>小数点以下4桁</strong>まで入力できます（1.4750 のような表記がそのまま入ります）。<strong>年利と月利を切り替えて</strong>入力でき、金利の入力欄には必ず小数点キーが出ます。返済期間は<strong>最長50年（600回）</strong>で、40年・45年ローンにも対応します。</li>
+        <li><strong>ボーナス返済は、正しく分けて計算します</strong> — ボーナスに充てる元金を毎月分と切り離し、半年ごとの利息で別に計算します。実際の金融機関と同じ扱いです。ボーナス月は年2回に限らず、自由に指定できます。</li>
+        <li><strong>数字が合わない理由まで見せます</strong> — 「計算根拠」の画面に、使っている式、月利の出し方、毎月の利息の求め方をそのまま表示します。1円未満の端数処理は<strong>切り捨て・四捨五入・切り上げから選べる</strong>ので、金融機関の返済予定表と数字を突き合わせるときにも使えます。</li>
+        <li><strong>償還表とプラン比較</strong> — 返済スケジュールは月ごと／年ごとに切り替えられ、CSVで書き出せます。条件はプランとして保存でき、任意の2件を選ぶと総支払額・利息・毎月の返済額の差が出ます。借り換えの検討に使えます。</li>
+        <li><strong>広告なし・追加課金なし</strong> — 買い切り120円で、購入した時点からすべての機能が使えます。バナーも全画面広告も入っていません。アプリの中でレビューをお願いすることもありません。</li>
+      </ul>
+
+      <h2>動作環境</h2>
+      <dl class="facts">
+        <div><dt>対応OS</dt><dd>iOS 17.0 以降</dd></div>
+        <div><dt>対応端末</dt><dd>iPhone / iPad</dd></div>
+        <div><dt>価格</dt><dd>120円（買い切り）<span class="sub">アプリ内課金なし・広告なし・サブスクリプションなし</span></dd></div>
+        <div><dt>返済方式</dt><dd>元利均等 / 元金均等<span class="sub">ボーナス併用・段階金利・繰上返済（期間短縮型／返済額軽減型）に対応</span></dd></div>
+        <div><dt>返済期間</dt><dd>最長50年（600回）</dd></div>
+        <div><dt>通信</dt><dd>なし<span class="sub">計算はすべて端末内で行います。このページやApp StoreへのリンクをタップしたときだけSafariが開きます</span></dd></div>
+        <div><dt>必要な許可</dt><dd>なし<span class="sub">マイク・カメラ・写真・位置情報のいずれも使いません</span></dd></div>
+        <div><dt>提供元</dt><dd>株式会社サウナ<span class="sub">Sauna Inc.</span></dd></div>
+      </dl>
+
+      <h2 id="accuracy">試算の精度について</h2>
+      <p>正直にお伝えします。<strong>このアプリの計算結果は目安です。</strong>実際の借入では、日割り計算のしかた、うるう年の扱い、1円未満の端数処理、保証料の返戻など、金融機関ごとの細かい規定によって金額が前後します。数百円から数千円のずれが出ることは珍しくありません。</p>
+      <p>そのうえで、私たちは計算の中身を検証できる形にしてあります。</p>
+      <ul>
+        <li>使っている式と月利の出し方を、アプリの「計算根拠」画面にそのまま表示しています。</li>
+        <li>端数処理は<strong>切り捨て・四捨五入・切り上げ</strong>から選べます。金融機関の返済予定表と1円単位で突き合わせたいときは、ここを切り替えてください。</li>
+        <li>償還表の元金の合計が借入額と一致することを、開発時に数値で確認しています（3,500万円・年1.2%・35年・元利均等の場合、毎月102,095円／支払総額42,880,056円／元金の合計は35,000,000円ちょうど）。</li>
+      </ul>
+      <p><strong>契約前には必ず、金融機関が発行する正式な返済予定表をご確認ください。</strong>このアプリは、借入先を決める前に選択肢を比べるための道具であり、契約書の代わりにはなりません。</p>
+
+      <h2 id="data">データの持ち方</h2>
+      <p>入力した条件と保存したプランは、<strong>端末の中だけ</strong>に保存されます。アカウント登録はなく、サーバーへの送信もありません。機内モードでも動きます。</p>
+      <p>氏名・金融機関名・口座情報のような個人情報は、入力欄そのものを設けていません。保存されるのは金額・金利・期間といった数値だけです。</p>
+      <p>償還表をCSVで書き出したときは、共有した先（メール、ファイルアプリ、他のアプリなど）にのみファイルが渡ります。開発者に送られることはありません。</p>
+      <p>アプリを端末から削除すると、保存したプランはすべて削除されます。</p>
+
+      <h2>プライバシー</h2>
+      <p>このアプリは<strong>個人情報を一切収集しません</strong>。アカウント登録はなく、解析ツールも広告SDKもトラッキングも入っていません。App Storeの「App のプライバシー」でも、すべての項目を「データを収集しません」として申告しています。</p>
+      <p>アプリ内の「おすすめ」画面には、私たちが作った他のアプリへのリンクを置いています。リンクをタップするとApp Storeが開きます。この画面には広告ネットワークを使っておらず、掲載料も受け取っていません。App Storeでの購入があった場合にAppleから紹介料を受け取ることがあるため、その旨を画面の先頭に常時表示しています。</p>
+      <p>詳しくは<a href="/privacy">プライバシーポリシー</a>をご覧ください。</p>
+
+      <h2 id="help">困ったときは</h2>
+      <p>「銀行の返済予定表と金額が合わない」「繰上返済はどちらの型を選ぶべきか」「変動金利の5年ルールとは何か」「実質年率と表面金利の違い」— こうした質問への回答を<a href="/support#kaeseru">サポートページ</a>にまとめています。解決しない場合は <a href="mailto:yamaguchi@tokyo357.com">yamaguchi@tokyo357.com</a> までご連絡ください。平日 10:00–18:00（日本時間）に受け付け、2営業日以内に返信します。</p>
+      <p>計算結果についてのご報告には、借入額・金利・期間・返済方式・端数処理の設定と、比較した金融機関の返済予定表の数字を添えていただけると、原因を特定しやすくなります。</p>
+      <p>なお、私たちは金融商品の販売・仲介を行っておらず、特定の金融機関やローン商品をおすすめすることはできません。個別の借入相談にはお答えできない点をご了承ください。</p>
+
+      <div class="en-block">
+        <p class="flag">ENGLISH</p>
+        <h2 class="lead">Kaeseru — A loan calculator that answers in money, not charts</h2>
+        <p>Knowing your monthly payment does not tell you whether to prepay, or whether you can survive a rate hike. Kaeseru leads with the difference between two futures, in exact money.</p>
+        <ul>
+          <li>Requires iOS 17.0 or later. iPhone and iPad.</li>
+          <li>One-time purchase. No ads, no in-app purchases, no subscriptions, no in-app review prompts.</li>
+          <li>Prepayment: see how much interest you save and how many months you cut — with shorten-the-term and lower-the-payment calculated side by side, net of the prepayment fee.</li>
+          <li>Rate stress test: +0.5% / +1.0% / +2.0% plus a custom increase, starting now or in 5, 10 or 15 years.</li>
+          <li>The Japanese 5-year rule and 125% cap can be switched on or off, and Kaeseru shows what they hide: accrued deferred interest and any balance pushed to the final payment.</li>
+          <li>Effective APR including origination fees, guarantee fees and monthly insurance — comparable with car loans and personal loans.</li>
+          <li>Solve for any of the four: monthly payment, principal, term, or rate. Works with semi-annual bonus payments configured.</li>
+          <li>Rates to 4 decimal places, monthly or annual entry, terms up to 50 years (600 payments).</li>
+          <li>Formulas are shown in the app, and fractional-yen rounding is yours to choose, so you can reconcile against your lender's schedule.</li>
+          <li>Amortization schedule by month or year, exportable as CSV. Save plans and compare any two.</li>
+          <li>No personal data is collected. No account, no server, no tracking, no network requests.</li>
+        </ul>
+        <p>Results are estimates. Actual terms depend on your lender's calculation method — always confirm with their official schedule. We do not sell or broker financial products.</p>
+        <p>Support: <a href="mailto:yamaguchi@tokyo357.com">yamaguchi@tokyo357.com</a> — see the <a href="/support#en">support page</a> and <a href="/privacy#en">privacy policy</a>.</p>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/othello">オセロ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
