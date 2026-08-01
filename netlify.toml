@@ -172,7 +172,17 @@
     # JSON-LD を編集したら README の手順でハッシュを再計算すること。
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'sha256-P8jmnTx+fw3YDQitcROA4f+fGQh33SnR0rBA9mGbjsI=' 'sha256-rV8Km2Z+IIXuHfdF9LIamDCLS2Mkyep42M9P135awOg=' 'sha256-xTLHbUitqC4XApDbL8uR3sffYl+ufQfyLRH28TGvKoA=' 'sha256-fT6P6P5lWq4xmCY4zcxYOVdDzGSII4GSaUkXo5Vx9QA=' 'sha256-kdIC8b7GyukHC66cSCZxYORPAhSdepW5rp8EfTc2wMs=' 'sha256-TSKpgS+qlRLSbg4F3egkVzMSpn+Iu2M3f8O3E8APxYc=' 'sha256-E0IiFqFSmIYkHxGMpXgdUEWErODDde+BthYwYBQuIf0=' 'sha256-WbFZvPaxdfAVRkMl13R4Kk1G2JaP3XxnAJXU8eyp2/I=' 'sha256-hagUPk4KkaEXVwNNjHLLF49VGm80MfD5pFCXwTQbQkA=' 'sha256-H8HjrCTgIqTXoXCOYXbdjYUDx8t3wdg54dJ5HXUMtxs=' 'sha256-Jq5XGKsANCqoErgeKQIqk7fhTkak9DHkjEv7qLeZa/c='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
 
+# CSS/JS は毎回ETagで検証させる（304なので実質ゼロコスト）。
+# 7日キャッシュのままだと、HTMLだけ新しくCSSが古い状態が発生し、
+# レイアウトが崩れる（2026-08-01 にアイコンで実際に発生）。
+# URL側にも ?v=YYYYMMDD を付けているので、更新時は両方を合わせる。
 [[headers]]
   for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# アイコン画像は内容が変わらないので長期キャッシュのままでよい。
+[[headers]]
+  for = "/assets/icons/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"

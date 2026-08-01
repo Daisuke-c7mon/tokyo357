@@ -97,6 +97,22 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
 
 配色・タイポは `assets/style.css` 冒頭の `:root` に集約。
 
+## CSS/JSを変更したときは
+
+`assets/style.css` か `assets/site.js` を触ったら、**全HTMLの `?v=` を今日の日付に上げる**。
+上げ忘れると、HTMLだけ新しくCSSが古い訪問者が出てレイアウトが崩れる。
+
+```bash
+cd ~/tokyo357
+NEW=$(date +%Y%m%d)
+grep -rlE 'style\.css\?v=|site\.js\?v=' --include='*.html' . \
+  | xargs sed -i '' -E "s/(style\.css|site\.js)\?v=[0-9]+/\1?v=$NEW/g"
+grep -rho 'style\.css?v=[0-9]*' --include='*.html' . | sort -u   # 1種類だけになっていること
+```
+
+`netlify.toml` 側でも `/assets/*` は `max-age=0, must-revalidate`（ETagで304）にしてあるので、
+`?v=` を忘れても最悪1リクエストで正しいCSSに戻る。二重の保険。
+
 ## CSPのハッシュ更新
 
 `netlify.toml` の `Content-Security-Policy` は、ページ内の JSON-LD をハッシュで許可している。
