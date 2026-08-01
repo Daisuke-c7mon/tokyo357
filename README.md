@@ -13,10 +13,11 @@ iOSアプリ開発とITコンサルティングを行う株式会社サウナの
 | `/support` | `support.html` | **App Store のサポートURLに指定する**。日英併記 |
 | `/privacy` | `privacy.html` | **App Store のプライバシーポリシーURLに指定する**。日英併記 |
 | `/terms` | `terms.html` | 利用規約（EULA）。日英併記 |
-| `/apps/othello` | `apps/othello.html` | オセロのアプリ紹介・サポート導線 |
+| `/apps/<app>` | `apps/<app>.html` | アプリ紹介・サポート導線。現在 shizukatl / sukemaru / kaeseru / sagaseru / hitoriinvoice / tsuzukutodo / shimekiri / kinshuwatch / kigyouojisan / othello の10本 |
 | — | `404.html` | 存在しないURL |
 
-`/contact` → `/support`、`/othello` → `/apps/othello` のリダイレクトも張ってある（`netlify.toml`）。
+`/contact` → `/support`、`/<app>` → `/apps/<app>` のリダイレクトも張ってある（`netlify.toml`）。
+しずかTL は App Store Connect に `/shizukatl/support` `/shizukatl/privacy` を登録済みのため、この2つのリダイレクトを消さないこと（消すと審査で 404 になる）。
 
 ## ローカルで見る
 
@@ -68,7 +69,7 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
 |---|---|
 | サポートURL | `https://tokyo357.com/support` |
 | プライバシーポリシーURL | `https://tokyo357.com/privacy` |
-| マーケティングURL（任意） | `https://tokyo357.com/apps/othello` |
+| マーケティングURL（任意） | `https://tokyo357.com/apps/<app>` |
 | EULA | 標準EULAのままで可。独自にする場合は `https://tokyo357.com/terms` |
 
 ## 未確定・要対応
@@ -76,7 +77,8 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
 - [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
 - [ ] **DNSレコードの追加**（下記「独自ドメイン」参照）。Netlify側の接続とビルドは完了済み。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。
-- [ ] App Store 公開後、`/apps/othello` に App Store へのリンクとスクリーンショットを追加する。
+- [ ] 各アプリの App Store 公開後、`/apps/<app>` に App Store へのリンクとスクリーンショットを追加する（公開済み: ぱすてるオセロ・起業おじさん）。
+- [ ] App Store の販売者表示は `Daisuke Yamaguchi`（個人名義）。サイト各所の「提供元 株式会社サウナ」と食い違うため、Apple Developer の法人アカウント移行かサイト表記のどちらに寄せるか決める。
 
 ### 完了済み
 
@@ -103,7 +105,9 @@ JSON-LD を編集したら次を実行し、出た値で `netlify.toml` を書�
 ```bash
 python3 - <<'PY'
 import re, hashlib, base64, pathlib
-for f in ['index.html', 'apps/kaeseru.html', 'apps/othello.html', 'apps/kinshuwatch.html', 'apps/shimekiri.html', 'apps/tsuzukutodo.html', 'apps/sagaseru.html']:
+import glob
+for f in ['index.html'] + sorted(glob.glob('apps/*.html')) + ['support.html', 'privacy.html', 'terms.html', '404.html']:
+    if not pathlib.Path(f).exists(): continue
     s = pathlib.Path(f).read_text()
     for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', s, re.S):
         print(f, "'sha256-" + base64.b64encode(hashlib.sha256(m.group(1).encode()).digest()).decode() + "'")

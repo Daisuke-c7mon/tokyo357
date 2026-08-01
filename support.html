@@ -473,7 +473,159 @@
         </details>
       </div>
 
-      <h3>オセロ</h3>
+      <h3 id="shizukatl">しずかTL</h3>
+      <div class="faq">
+        <details>
+          <summary>入れたのに、表示が何も変わりません</summary>
+          <div class="a">
+            <p>Safari 拡張機能は、インストールしただけでは動きません。次の2つをご確認ください。</p>
+            <ol>
+              <li>iPhone の <strong>設定 → アプリ → Safari → 機能拡張</strong> で「しずかTL」がオンになっているか</li>
+              <li>同じ画面で <strong>x.com / twitter.com へのアクセスが「許可」</strong>になっているか（「確認」のままだと毎回止まります）</li>
+            </ol>
+            <p>設定後は、Safari で x.com を開き直してください。それでも変わらない場合は、アプリの<strong>診断</strong>画面を開いてください。拡張機能が一度も動いていないのか、動いてはいるが特定の項目だけ効いていないのかを判定し、直すべき設定画面まで案内します。</p>
+          </div>
+        </details>
+        <details>
+          <summary>ホーム画面に追加したアイコンから開くと効きません</summary>
+          <div class="a">
+            <p>これは iOS の仕様です。<strong>ホーム画面に追加した Web アプリの中では、どの Safari 拡張機能も動作しません。</strong>しずかTLに限った制限ではありません。お手数ですが、Safari のアプリから x.com を開いてご利用ください。</p>
+          </div>
+        </details>
+        <details>
+          <summary>一部の項目だけ効かなくなりました</summary>
+          <div class="a">
+            <p>サイト側の作りが変わり、その項目が対象を見つけられなくなっている可能性があります。アプリの診断画面では、その項目に<strong>「反応なし」</strong>と表示されます。</p>
+            <p>設定から<strong>セーフモード</strong>をオンにすると、ゆるい判定へ自動で切り替えて動き続けます。それでも直らない場合は、診断画面の内容を添えてご連絡ください。判定条件を更新します。</p>
+          </div>
+        </details>
+        <details>
+          <summary>タイムラインがまた「おすすめ」に戻ります</summary>
+          <div class="a">
+            <p>ご自分で「おすすめ」タブを選んだときは、しずかTLは強制的に戻しません。押しつけない設計にしているためです。常に時系列で開きたい場合は、プリセット「時系列だけ」を選んだうえで、フォロー中タブから読み始めてください。</p>
+            <p>一時的に元の表示で見たいときは、ツールバーから「60分だけ元の表示に戻す」を押せます。</p>
+          </div>
+        </details>
+        <details>
+          <summary>時間帯によって設定を変えられますか</summary>
+          <div class="a">
+            <p>できます。曜日と時間でプリセットを自動的に切り替えられます（例：平日9–18時は「集中（文字だけ）」、23時以降は「しずかに見る」、休日は切り替えなし）。判定は端末の中だけで行われ、通信は発生しません。</p>
+          </div>
+        </details>
+        <details>
+          <summary>投稿の削除やフォロー操作は行われますか</summary>
+          <div class="a">
+            <p>行いません。しずかTLは<strong>表示を変えるだけ</strong>です。投稿の削除、自動操作、アカウント連携、ログインのいずれも行いません。</p>
+          </div>
+        </details>
+        <details>
+          <summary>個人情報は集めていますか</summary>
+          <div class="a">
+            <p>集めていません。ログイン不要、アカウント連携なし、解析SDKなし、外部送信なし。設定はすべて端末の中だけに保存されます。詳しくは<a href="/privacy">プライバシーポリシー</a>をご覧ください。</p>
+          </div>
+        </details>
+        <details>
+          <summary>広告や追加課金はありますか</summary>
+          <div class="a">
+            <p>ありません。120円の買い切りのみで、アプリ内課金・サブスクリプション・広告のいずれも入っていません。</p>
+          </div>
+        </details>
+      </div>
+
+      <h3 id="hitoriinvoice">ひとり請求書</h3>
+      <div class="faq">
+        <details>
+          <summary>明細は何件まで入れられますか</summary>
+          <div class="a">
+            <p><strong>上限はありません。</strong>件数に合わせてA4を自動でページ分割します。2ページ目で切れることもありません。日付欄は自由入力で、空欄でも「7/1〜7/15」のような期間でも構いません。「式」「個」「時間」「人日」などの単位も入れられます。</p>
+            <p>作業を章分けしたいときは、金額なしの<strong>見出し行</strong>を挟んでください。行はドラッグで並べ替えできます。</p>
+          </div>
+        </details>
+        <details>
+          <summary>見積書を請求書に変えたい／領収書を出したい</summary>
+          <div class="a">
+            <p>書類の画面から<strong>種別変換</strong>を選んでください。同じ明細のまま、見積書 → 請求書、請求書 → 領収書のように1タップで作り直せます。領収書には但し書きを入れられます。</p>
+            <p>種別変換は120円の買い切りで解放される機能です。</p>
+          </div>
+        </details>
+        <details>
+          <summary>インボイス（適格請求書）に対応していますか</summary>
+          <div class="a">
+            <p>対応しています。適格請求書発行事業者の<strong>登録番号</strong>を印字し、10% / 8%（軽減税率）/ 非課税を明細ごとに指定すると、税率ごとの区分を自動で記載します。外税・内税・消費税欄なしの切り替え、源泉徴収10.21%を差し引いた「お支払金額」の表示にも対応しています。</p>
+            <p>なお本アプリは帳票を作成する道具であり、<strong>税務上の判断を行うものではありません。</strong>どの税率を適用すべきかなど制度の解釈については、国税庁の公表資料または税理士にご確認ください。</p>
+          </div>
+        </details>
+        <details>
+          <summary>税額が1円ずれます</summary>
+          <div class="a">
+            <p>設定から<strong>端数処理</strong>（切り捨て / 切り上げ / 四捨五入）を選べます。取引先の会計処理に合わせて設定してください。1円未満をどう扱うかは事業者ごとに異なり、これだけで合計が変わります。</p>
+          </div>
+        </details>
+        <details>
+          <summary>印刷すると文字が小さくなります／PDFがずれます</summary>
+          <div class="a">
+            <p>アプリ内のプレビューと書き出されるPDFは<strong>同じ描画を使っている</strong>ため、見た目がずれることはありません。共有する前に全ページを確認できます。</p>
+            <p>印刷が小さくなる場合は、プリント画面の用紙サイズが<strong>A4</strong>になっているか、「用紙に合わせる」の倍率設定をご確認ください。ファイルアプリに書き出してから印刷すると確実です。</p>
+          </div>
+        </details>
+        <details>
+          <summary>料金はいくらですか。月額ですか</summary>
+          <div class="a">
+            <p><strong>月額ではありません。</strong>無料のままで書類3件までの作成とPDFの書き出しが使えます。120円の買い切り1回で、保存の上限・PDF末尾のクレジット表記・書類の種別変換・印影とロゴ・CSV書き出しのすべてが解放されます。追加課金はありません。</p>
+            <p>同じApple IDなら、機種を変えても「購入を復元する」で戻せます。</p>
+          </div>
+        </details>
+        <details>
+          <summary>機種変更したいのですが、データは移せますか</summary>
+          <div class="a">
+            <p>移せます。<strong>機種変更の前に</strong>、設定から<strong>JSONバックアップ</strong>を書き出してください。新しい端末で読み込めば、取引先・書類・発行者情報がそのまま戻ります。</p>
+            <p>データは端末の中だけに保存されており、サーバーに預かっていません。<strong>バックアップを取らずにアプリを削除すると、こちらからも復元できません。</strong>確定申告用にはCSVでも書き出せます。</p>
+          </div>
+        </details>
+        <details>
+          <summary>広告は入っていますか</summary>
+          <div class="a">
+            <p>入っていません。広告SDKは使っておらず、ボタンがバナーに隠れることもありません。「おすすめ」タブには、登録番号の確認サイトや確定申告の窓口など、請求書まわりで実際に開くことになる公的サイトへのリンクだけを置いています。</p>
+          </div>
+        </details>
+      </div>
+
+      <h3 id="kigyouojisan">起業おじさん</h3>
+      <div class="faq">
+        <details>
+          <summary>回答の内容は信用してよいですか</summary>
+          <div class="a">
+            <p><strong>おじさんの回答はAIが生成する参考意見です。事実と異なる内容を含むことがあります。</strong>税務・法務・融資・許認可の判断は、必ず専門家と公式情報でご確認ください。本アプリは税務・法務・投資に関する助言を行うものではありません。</p>
+            <p>どの知識を参照して答えたかは回答の下に表示されます。制度の要件や金額は改正されますので、補助金の公募要領、融資の条件、税率などは所管の官庁・機関の最新情報をご確認ください。</p>
+          </div>
+        </details>
+        <details>
+          <summary>返事が返ってきません／エラーになります</summary>
+          <div class="a">
+            <p>回答の生成にはインターネット接続が必要です。オフラインや電波の弱い場所では応答できません。機内モードがオフになっているかご確認のうえ、時間をおいて再度お試しください。</p>
+          </div>
+        </details>
+        <details>
+          <summary>相談した内容は保存されますか</summary>
+          <div class="a">
+            <p>アカウント登録は不要で、氏名・メールアドレス・電話番号は取得しません。相談内容をデータベースに保存することもありません。ただし回答の生成には外部のAIサービスを利用するため、入力された文章はその処理のために送信されます。詳しくは<a href="https://kigyou-ojisan.netlify.app/privacy">起業おじさんのプライバシーポリシー</a>をご覧ください。</p>
+          </div>
+        </details>
+        <details>
+          <summary>料金はかかりますか</summary>
+          <div class="a">
+            <p>無料です。バージョン1.0では広告も表示しません。アプリ内課金・サブスクリプションもありません。</p>
+          </div>
+        </details>
+        <details>
+          <summary>無料で相談できる公的な窓口を知りたい</summary>
+          <div class="a">
+            <p>よろず支援拠点、商工会議所、日本政策金融公庫などで無料の創業相談を受け付けています。おじさんも、該当する窓口があるときは回答の中で先に案内します。金額や制度の確定的な判断が必要な場面では、こうした公的窓口や専門家をご利用ください。</p>
+          </div>
+        </details>
+      </div>
+
+      <h3 id="othello">ぱすてるオセロ</h3>
       <div class="faq">
         <details>
           <summary>ゲームの進行状況（解放したレベル）が消えました</summary>
@@ -526,9 +678,16 @@
       <ul>
         <li><a href="/privacy">プライバシーポリシー</a></li>
         <li><a href="/terms">利用規約</a></li>
+        <li><a href="/apps/shizukatl">しずかTL — アプリ情報</a></li>
+        <li><a href="/apps/sukemaru">透けマル — アプリ情報</a></li>
+        <li><a href="/apps/kaeseru">カエセル — アプリ情報</a></li>
+        <li><a href="/apps/sagaseru">サガセル録音 — アプリ情報</a></li>
+        <li><a href="/apps/hitoriinvoice">ひとり請求書 — アプリ情報</a></li>
+        <li><a href="/apps/tsuzukutodo">つづくToDo — アプリ情報</a></li>
         <li><a href="/apps/shimekiri">シメキリ逆算 — アプリ情報</a></li>
         <li><a href="/apps/kinshuwatch">禁酒ウォッチ — アプリ情報</a></li>
-        <li><a href="/apps/othello">オセロ — アプリ情報</a></li>
+        <li><a href="/apps/kigyouojisan">起業おじさん — アプリ情報</a></li>
+        <li><a href="/apps/othello">ぱすてるオセロ — アプリ情報</a></li>
       </ul>
 
       <!-- App Store の審査担当者および海外のお客様向け -->
@@ -592,12 +751,16 @@
       </p>
       <nav class="foot-nav" aria-label="フッター">
         <a href="/">ホーム</a>
+        <a href="/apps/shizukatl">しずかTL</a>
+        <a href="/apps/sukemaru">透けマル</a>
         <a href="/apps/kaeseru">カエセル</a>
         <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
         <a href="/apps/tsuzukutodo">つづくToDo</a>
         <a href="/apps/shimekiri">シメキリ逆算</a>
         <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
-        <a href="/apps/othello">オセロ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
         <a href="/support">サポート</a>
         <a href="/privacy">プライバシーポリシー</a>
         <a href="/terms">利用規約</a>

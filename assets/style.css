@@ -372,24 +372,17 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 .work:hover { border-color: var(--ember); background: rgba(228, 87, 46, .04); color: inherit; }
 @media (max-width: 700px) { .work { grid-template-columns: 1fr; } }
 
-.work-art {
-  aspect-ratio: 1;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  background: #1F3A2E;
-  padding: 8px;
-  border: 1px solid rgba(234, 221, 199, .14);
-  max-width: 200px;
-}
-.work-art i {
-  background: #24493A;
-  border-radius: 50%;
+/* App Storeの実アイコンをそのまま出す。1:1・角丸はiOSの比率（22.37%）に合わせる */
+.work-icon {
   display: block;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,.25);
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1;
+  height: auto;
+  border-radius: 22.37%;
+  background: #1F3A2E;
+  box-shadow: 0 0 0 1px rgba(234, 221, 199, .14), 0 10px 28px rgba(0, 0, 0, .35);
 }
-.work-art i.b { background: #100E0D; }
-.work-art i.w { background: #EADDC7; }
 
 .work h3 { font-size: clamp(24px, 3.2vw, 34px); margin: 0 0 10px; }
 .work .meta {
@@ -585,11 +578,24 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 }
 .no-js .rise { opacity: 1; transform: none; }
 
-/* 禁酒ウォッチ用のアートワーク（リング） */
-.work-art--ring {
+/* アプリ個別ページの見出しアイコン */
+.doc-head--app {
   display: grid;
-  place-items: center;
-  background: #10202B;
-  padding: 14px;
+  grid-template-columns: minmax(0, 104px) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 34px);
+  align-items: start;
 }
-.work-art--ring svg { width: 100%; height: auto; }
+.doc-head--app .doc-icon {
+  display: block;
+  width: 100%;
+  max-width: 104px;
+  aspect-ratio: 1;
+  height: auto;
+  border-radius: 22.37%;
+  background: #1F3A2E;
+  box-shadow: 0 0 0 1px rgba(234, 221, 199, .14), 0 10px 28px rgba(0, 0, 0, .35);
+}
+@media (max-width: 560px) {
+  .doc-head--app { grid-template-columns: 1fr; gap: 20px; }
+  .doc-head--app .doc-icon { max-width: 84px; }
+}
