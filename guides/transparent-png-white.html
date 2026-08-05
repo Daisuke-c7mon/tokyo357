@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>背景を透過したのに保存すると白くなる — 3つの原因と見分け方 ｜ 株式会社サウナ</title>
+<meta name="description" content="iPhoneで背景を透明にしたのに、保存すると白いまま。この現象には種類の違う3つの原因があり、多くの場合はファイルが壊れているのではなく「写真アプリの表示上の仕様」です。どれが起きているかを自分で見分ける手順を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/transparent-png-white">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="背景を透過したのに保存すると白くなる — 3つの原因と見分け方">
+<meta property="og:description" content="多くの場合、透過は成功していて「写真アプリが白く表示しているだけ」です。3つの原因の見分け方を説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/transparent-png-white">
+<meta property="og:image" content="https://tokyo357.com/assets/og/sukemaru.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "背景を透過したのに保存すると白くなる — 3つの原因と見分け方",
+  "description": "透過したはずのPNGが白く見える現象には、種類の違う3つの原因があります。どれが起きているかを自分で切り分ける手順を説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-08-05",
+  "dateModified": "2026-08-05",
+  "image": "https://tokyo357.com/assets/og/sukemaru.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/transparent-png-white",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "背景を透過したのに保存すると白くなる" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-08-05 ／ 画像・写真</p>
+      <h1>背景を透過したのに、保存すると白くなる</h1>
+      <p class="lede">アプリの中では確かに透明だったのに、保存して開くと白い背景がついている。この現象は「アプリが壊れている」ように見えますが、実際には<strong>種類の違う3つの原因</strong>が混ざっていて、そのうち最も多いものはファイルの問題ですらありません。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p><strong>ほとんどの場合、透過は成功しています。</strong>iOSの「写真」アプリが、透明な部分を白（または黒）で塗って表示しているだけです。これは表示上の仕様であって、データは壊れていません。同じファイルをSNSの投稿画面や資料作成アプリに読み込むと、ちゃんと透明なことがほとんどです。</p>
+      </div>
+
+      <h2>なぜ「壊れている」ように見えるのか</h2>
+      <p>この不満は特定のアプリの話ではありません。私たちが背景透過アプリの低評価レビューを集めて数えたところ、<strong>1〜3★レビュー242件のうち45件（18.6%）がこの一点</strong>でした。切り抜きの精度でも、動作の重さでも、広告でもなく、これが最大の不満だったのです。しかも古い話ではなく、最新バージョンでも同じ声が続いていました。</p>
+      <p>これだけ多くの人が同じところで詰まるのは、<strong>ユーザー側から原因を区別する方法がない</strong>からです。画面の上ではどの原因も「白くなった」という同じ見え方になります。だから「このアプリは透明にできない」という結論になり、次のアプリを試し、また同じところで詰まります。</p>
+
+      <h2>3つの原因</h2>
+
+      <h3>1. 本当は透過できているのに、白く見えているだけ（最も多い）</h3>
+      <p>iOSの「写真」アプリは、アルファチャンネル（透明の情報）を持つ画像を表示するとき、透明部分を白または黒で塗ります。プレビューの都合であって、ファイルの中身は変わっていません。</p>
+      <p><strong>見分け方：</strong>その画像を、透明を扱えるアプリに読み込んでみてください。KeynoteやPagesに貼る、LINEのスタンプ作成画面に入れる、Canvaのようなデザインアプリで開く、などです。そこで透明なら、ファイルは正常です。</p>
+
+      <h3>2. 渡した先のアプリが、JPEGに変換して透過を捨てている</h3>
+      <p>写真ライブラリ経由で画像を受け取るアプリの中には、内部でJPEGに変換するものがあります。JPEGは<strong>そもそも透明を保存できない形式</strong>なので、この時点で透過は失われます。作った側に落ち度はないのに、結果だけが消えます。</p>
+      <p><strong>見分け方：</strong>「写真に保存」ではなく、<strong>「ファイル」に書き出す</strong>か、共有シートから<strong>相手のアプリへ直接わたす</strong>を試してください。写真ライブラリを経由しない分、透過が保たれやすくなります。これで直るなら、原因はここです。</p>
+
+      <h3>3. 保存の途中で、本当にアルファが落ちている</h3>
+      <p>画像の保存方法によっては、書き出しのときに再エンコードが入り、アルファチャンネルが失われます。この場合だけは、ファイルそのものが透明を持っていません。</p>
+      <p><strong>見分け方：</strong>ファイルの拡張子を確認してください。<strong>.jpg / .jpeg なら透明は入っていません。</strong>.png や .heic であっても、書き出し設定によっては落ちていることがあります。</p>
+
+      <h2>自分で切り分ける順番</h2>
+      <ol>
+        <li><strong>拡張子を見る。</strong>.jpg なら原因3で確定です。PNGで書き出し直してください。</li>
+        <li><strong>透明を扱えるアプリに読み込む。</strong>そこで透明なら、ファイルは正常＝原因1。写真アプリの表示に驚いていただけです。</li>
+        <li><strong>特定のアプリに渡したときだけ白くなる。</strong>原因2です。写真ライブラリを経由せず、「ファイル」書き出しか直接共有に切り替えてください。</li>
+      </ol>
+      <p>この3ステップで、ほぼすべてのケースが説明できます。逆に言えば、<strong>これを自分でやらないと原因が分からない</strong>のが現状の一番の問題です。</p>
+
+      <h2>撮影の段階でできること</h2>
+      <p>自動の切り抜きは、被写体と背景の色や明るさが近いと精度が落ちます。淡い色の図版、細い線のイラスト、透明なガラス、細かい網目、逆光でぼやけた髪の毛などは特に苦手です。</p>
+      <ul>
+        <li>白い紙や無地の布の前で撮る</li>
+        <li>被写体と違う色の背景を選ぶ</li>
+        <li>影が背景に落ちないよう、光を回す</li>
+      </ul>
+      <p>背景を均一にしておくだけで、成功率は大きく変わります。</p>
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>この切り分けを、アプリ側でやる</h2>
+        <p>私たちは、この「見分けがつかない状態」そのものを解くために<strong>透けマル</strong>を作りました。書き出したPNGをアプリ自身がもう一度読み込み、アルファチャンネルの有無・完全に透明なピクセルの割合・実際のファイル形式を<strong>数値で表示</strong>します。「透過は有効です／透明 80.0%／PNG／アルファあり」と出れば、それは推測ではなく実測です。</p>
+        <p>そのうえで「写真アプリでは白く見えますが、それは表示上の仕様です」とその場で説明します。上の①と②を、ユーザーが自分で切り分けられるようにするためです。買い切り120円、広告なし、通信なし。</p>
+        <div class="actions">
+          <a class="btn btn--ghost" href="/apps/sukemaru">透けマルの詳細を見る</a>
+          <a class="btn btn--ghost" href="/support#sukemaru">よくある質問</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>関連するページ</h2>
+      <p>同じ考え方でつくった、ほかのアプリです。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/sukemaru">
+          <img src="/assets/icons/sukemaru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>透けマル</b>
+            <span>背景を消して透過PNGに。書き出したファイルを読み戻してアルファを実測する。</span>
+            <em>買い切り 120円・審査中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sagaseru">
+          <img src="/assets/icons/sagaseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>サガセル録音</b>
+            <span>文字起こしの1文をタップすると音声がその瞬間まで飛ぶボイスメモ。</span>
+            <em>買い切り 120円・審査中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/tsuzukutodo">
+          <img src="/assets/icons/tsuzukutodo.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>つづくToDo</b>
+            <span>上限のないタスク、取り消せる記録、あとから付けられる日。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js?v=20260805" defer></script>
+</body>
+</html>

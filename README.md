@@ -102,6 +102,49 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
 
 配色・タイポは `assets/style.css` 冒頭の `:root` に集約。
 
+## 集客の仕組み（2026-08-05）
+
+サイト経由でインストールまで運ぶための仕掛け。すべて無料で回している。
+
+| 仕掛け | 場所 | ねらい |
+|---|---|---|
+| Smart App Banner | 公開済みアプリページの `<meta name="apple-itunes-app">` | iOS Safari が純正のインストールバナーを最上部に出す。web→installで最も効く |
+| キャンペーントークン | App Storeリンクの `?ct=` | App Store Connect → App Analytics → 獲得 → キャンペーン で流入元別のインストール数が見える |
+| QRコード | 公開済みアプリページ（PCのみ表示） | PCで読んだ人をスマホに渡す。スマホでは非表示 |
+| og:image | 全ページ | X・LINE・Slackで共有されたときにカードが出る |
+| FAQPage 構造化データ | `/support` | 検索結果に質問が展開される（リッチリザルト） |
+| 解決記事 | `/guides/` | 「透過 保存 白い」等の悩み検索の受け皿。無料で答え切ってからアプリを案内する |
+| 回遊 | 各アプリページ下部 | 1本入れた人に他のアプリを見せる |
+
+### ct（キャンペーントークン）の使い分け
+
+- `web_app_hero` … アプリページ上部のボタン
+- `web_app_body` … 本文中のリンク
+- `web_app_page` … アプリページ下部のインストール枠
+- `web_qr` … QRコード経由
+- `web_guide` … 記事からのリンク
+
+### 生成スクリプト
+
+台帳は `tools/apps.py` の1ファイルだけ。ここを直してから下を回す。
+
+```bash
+python3 tools/build_assets.py       # OG画像とQRを生成（アイコンや状態を変えたとき）
+python3 tools/build_pages.py        # アプリページの head / インストール枠 / 関連アプリ
+python3 tools/build_index_pages.py  # /apps/
+python3 tools/build_guides.py       # /guides/ の共通パーツと一覧
+python3 tools/build_faq_ld.py       # /support の FAQPage 構造化データ
+python3 tools/sync_nav.py           # 全ページのナビ
+```
+
+最後に CSP のハッシュを更新すること（下記）。すべて何度実行しても同じ結果になる。
+
+### まだ手をつけていないこと
+
+- [ ] Google Search Console にサイトを登録して sitemap を送信する（無料。検索での見え方はここでしか分からない）
+- [ ] 記事を増やす。次の候補は「請求書の明細が足りない」「住宅ローンの5年ルールと未払利息」「録音から必要な部分だけ探す」
+- [ ] 審査中のアプリが公開されたら `tools/apps.py` の state を live にして再生成（QRとバナーが自動でつく）
+
 ## CSS/JSを変更したときは
 
 `assets/style.css` か `assets/site.js` を触ったら、**全HTMLの `?v=` を今日の日付に上げる**。

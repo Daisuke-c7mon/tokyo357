@@ -599,3 +599,123 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
   .doc-head--app { grid-template-columns: 1fr; gap: 20px; }
   .doc-head--app .doc-icon { max-width: 84px; }
 }
+
+/* ---------- インストール導線（アプリページ下部） ---------- */
+
+.install {
+  margin: clamp(48px, 7vw, 76px) 0 0;
+  border: 1px solid rgba(234, 221, 199, 0.14);
+  background: linear-gradient(180deg, rgba(228, 87, 46, .05), transparent 60%);
+  padding: clamp(26px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 168px);
+  gap: clamp(24px, 4vw, 44px);
+  align-items: center;
+}
+@media (max-width: 640px) { .install { grid-template-columns: 1fr; } }
+
+.install h2 {
+  font-size: clamp(20px, 2.6vw, 26px);
+  margin: 0 0 10px;
+  padding: 0;
+  border: 0;
+}
+.install p { color: var(--dim); margin: 0 0 20px; font-size: 15px; }
+.install .actions { margin: 0; }
+
+.install-qr { text-align: center; }
+.install-qr img {
+  width: 100%;
+  max-width: 168px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  border: 6px solid #EADDC7;
+  background: #EADDC7;
+}
+.install-qr span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  color: var(--faint);
+  display: block;
+  line-height: 1.6;
+}
+/* QRはスマホでは意味がないので隠す（目の前の端末で読めない） */
+@media (max-width: 640px) { .install-qr { display: none; } }
+
+/* ---------- 他のアプリ（回遊） ---------- */
+
+.related { margin: clamp(52px, 8vw, 88px) 0 0; }
+.related h2 {
+  font-size: clamp(20px, 2.6vw, 26px);
+  margin: 0 0 6px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(234, 221, 199, 0.14);
+}
+.related > p { color: var(--dim); font-size: 15px; margin: 0 0 24px; }
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+.related-card {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid rgba(234, 221, 199, 0.12);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .2s, background .2s;
+}
+.related-card:hover { border-color: var(--ember); background: rgba(228, 87, 46, .04); color: inherit; }
+.related-card img {
+  width: 54px;
+  height: 54px;
+  border-radius: 22.37%;
+  display: block;
+  background: #1F3A2E;
+  box-shadow: 0 0 0 1px rgba(234, 221, 199, .14);
+}
+.related-card b { display: block; font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+.related-card span { display: block; font-size: 12.5px; color: var(--dim); line-height: 1.55; }
+.related-card em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  color: var(--faint);
+  display: block;
+  margin-top: 5px;
+}
+
+/* ---------- 記事（/guides） ---------- */
+
+.crumb {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: .12em;
+  color: var(--faint);
+  margin: 0 0 20px;
+}
+.crumb a { color: var(--dim); text-decoration: none; }
+.crumb a:hover { color: var(--loyly); }
+.crumb span { margin: 0 8px; opacity: .5; }
+
+.answer {
+  border-left: 3px solid var(--ember);
+  background: rgba(228, 87, 46, .05);
+  padding: clamp(18px, 3vw, 26px) clamp(18px, 3vw, 28px);
+  margin: 0 0 clamp(28px, 4vw, 40px);
+}
+.answer p:last-child { margin-bottom: 0; }
+.answer .k {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  color: var(--ember);
+  margin: 0 0 10px;
+}

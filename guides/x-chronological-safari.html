@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>X（旧Twitter）のタイムラインを時系列に戻す ｜ 株式会社サウナ</title>
+<meta name="description" content="X（旧Twitter）のタイムラインが「おすすめ」に戻ってしまう問題の対処法。アプリ版では時系列を固定できないため、iPhoneではSafariの拡張機能を使います。設定手順と「入れたのに変わらない」ときの切り分け方を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/x-chronological-safari">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="X（旧Twitter）のタイムラインを時系列に戻す">
+<meta property="og:description" content="アプリ版では時系列を固定できません。Safariの拡張機能を使う手順と、効かないときの切り分け方。">
+<meta property="og:url" content="https://tokyo357.com/guides/x-chronological-safari">
+<meta property="og:image" content="https://tokyo357.com/assets/og/shizukatl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "X（旧Twitter）のタイムラインを時系列に戻す",
+  "description": "アプリ版では時系列を固定できません。Safariの拡張機能を使う手順と、効かないときの切り分け方。",
+  "inLanguage": "ja",
+  "datePublished": "2026-08-05",
+  "dateModified": "2026-08-05",
+  "image": "https://tokyo357.com/assets/og/shizukatl.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/x-chronological-safari",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "X（旧Twitter）のタイムラインを時系列に戻す" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-08-05 ／ X・SNSの表示</p>
+      <h1>X（旧Twitter）のタイムラインを時系列に戻す</h1>
+      <p class="lede">「フォロー中」を選んでも、しばらくすると「おすすめ」に戻ってしまう。アプリ版では固定できないため、iPhoneではSafariの拡張機能を使うことになります。設定の手順と、効かないときの切り分け方をまとめます。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>アプリ版では、<strong>時系列表示を固定しておく方法がありません。</strong>「フォロー中」を選んでも、アプリを開き直したり時間が経ったりすると「おすすめ」に戻ります。固定したい場合は、<strong>Safari で開いて拡張機能を使う</strong>のが現時点で唯一の方法です。</p>
+      </div>
+
+      <h2>なぜ「フォロー中」が維持されないのか</h2>
+      <p>Xのタイムラインには「おすすめ」と「フォロー中」の2つがあります。フォロー中を選べばその場では時系列になりますが、この選択は<strong>永続的な設定ではなく、その場の切り替え</strong>として扱われています。アプリを再起動する、通知から開く、しばらく使わない、といったきっかけで「おすすめ」に戻ります。</p>
+      <p>これは不具合ではなく、そういう作りです。したがって、アプリの中で解決する手段はありません。</p>
+
+      <h2>Safari の拡張機能を使う</h2>
+      <p>iOS 15以降のSafariは、Mac版と同じように拡張機能を入れられます。ページの見た目を書き換える仕組みなので、「おすすめ」の差し込み・トレンド・反応数などを、表示の段階で隠せます。</p>
+      <p>手順は次の2つです。<strong>インストールしただけでは動きません。</strong>ここが最もつまずくところです。</p>
+      <ol>
+        <li>iPhone の <strong>設定 → アプリ → Safari → 機能拡張</strong> で、その拡張機能を<strong>オン</strong>にする</li>
+        <li>同じ画面で <strong>x.com / twitter.com へのアクセスを「許可」</strong>にする</li>
+      </ol>
+      <p>2つ目が特に重要です。初期状態は「確認」になっていることが多く、その場合は毎回ダイアログで止まり、許可するまで何も起きません。「許可」に変えてから、Safari で x.com を開き直してください。</p>
+
+      <h2>ホーム画面のアイコンから開くと動かない</h2>
+      <p>これはiOSの仕様です。<strong>ホーム画面に追加したWebアプリの中では、どのSafari拡張機能も動作しません。</strong>特定の拡張機能の問題ではなく、Apple側の制限です。</p>
+      <p>ホーム画面にXのショートカットを置いている場合、そこから開いた画面では拡張機能が効きません。Safariのアプリを開いてから x.com にアクセスしてください。</p>
+
+      <h2>「入れたのに変わらない」ときの切り分け</h2>
+      <p>表示が変わらないとき、実際には次のどれかが起きています。画面の上ではどれも同じに見えるため、区別がつきません。</p>
+      <ol>
+        <li><strong>拡張機能が一度も動いていない。</strong>設定でオフのまま、またはサイトへのアクセスが「許可」になっていない。</li>
+        <li><strong>動いてはいるが、その項目だけ効いていない。</strong>サイト側の作りが変わり、隠す対象を見つけられなくなっている状態。</li>
+        <li><strong>ホーム画面のWebアプリから開いている。</strong>前述のとおり、拡張機能は動きません。</li>
+      </ol>
+      <p>順番としては、まず①を潰します（設定を2つとも確認）。次に、Safariから開き直して③を潰します。それでも一部だけ効かないなら②です。②はサイト側の変更が原因なので、拡張機能側の更新を待つことになります。</p>
+
+      <h2>拡張機能を選ぶときに見るところ</h2>
+      <ul>
+        <li><strong>効いているか確認できるか。</strong>「動いていない」のか「動いているが効かない」のかを区別できないと、原因を追えません。</li>
+        <li><strong>仕様変更に気づけるか。</strong>Xの作りが変わると、この種の拡張機能は静かに効かなくなります。黙って壊れるより、壊れたと表示されるほうが親切です。</li>
+        <li><strong>買い切りかどうか。</strong>この用途で月額を払い続けるのは割に合いません。</li>
+        <li><strong>表示を変えるだけか。</strong>投稿の削除や自動操作、アカウント連携を求めるものは、必要以上の権限です。</li>
+      </ul>
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>この切り分けを、アプリ側でやる</h2>
+        <p>私たちが作った<strong>しずかTL for X</strong>は、この「効いているか分からない」を解くための拡張機能です。拡張機能が実際に走るたび端末の中に稼働記録が残り、アプリの<strong>診断</strong>画面が「一度も動いていない」のか「動いてはいるが、この項目だけ効いていない」のかを切り分けて、直すべき設定画面まで案内します。</p>
+        <p>Xの作りが変わって項目が効かなくなったときは「反応なし」と表示し、セーフモードをオンにしておけばゆるい判定に切り替えて動き続けます。買い切り120円、広告なし、通信なし。表示を変えるだけで、投稿の削除・自動操作・アカウント連携は行いません。</p>
+        <div class="actions">
+          <a class="btn btn--ghost" href="/apps/shizukatl">しずかTL for X の詳細を見る</a>
+          <a class="btn btn--ghost" href="/support#shizukatl">よくある質問</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>関連するページ</h2>
+      <p>同じ考え方でつくった、ほかのアプリです。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・審査中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/tsuzukutodo">
+          <img src="/assets/icons/tsuzukutodo.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>つづくToDo</b>
+            <span>上限のないタスク、取り消せる記録、あとから付けられる日。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/shimekiri">
+          <img src="/assets/icons/shimekiri.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>シメキリ逆算</b>
+            <span>間に合わないときは、延ばす日数・増やす分数・削る量を数字で出す。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js?v=20260805" defer></script>
+</body>
+</html>
