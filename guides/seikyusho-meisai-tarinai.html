@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>請求書の明細が途中で足りなくなる — テンプレートの限界と直し方 ｜ 株式会社サウナ</title>
+<meta name="description" content="ExcelやNumbersの請求書テンプレートは、行数があらかじめ決まっています。26行や30行を超えると2ページ目が崩れたり、行を追加すると印刷範囲や罫線がずれたりします。原因と、テンプレートのまま直す方法、直らない場合の考え方を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/seikyusho-meisai-tarinai">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="請求書の明細が途中で足りなくなる — テンプレートの限界と直し方">
+<meta property="og:description" content="ExcelやNumbersの請求書テンプレートは行数があらかじめ決まっています。追加すると崩れる理由と、直せる範囲・直せない範囲を説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/seikyusho-meisai-tarinai">
+<meta property="og:image" content="https://tokyo357.com/assets/og/hitoriinvoice.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "請求書の明細が途中で足りなくなる — テンプレートの限界と直し方",
+  "description": "ExcelやNumbersの請求書テンプレートは行数があらかじめ決まっています。26行や30行を超えると崩れる理由と、直せる範囲・直せない範囲を説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-08-06",
+  "dateModified": "2026-08-06",
+  "image": "https://tokyo357.com/assets/og/hitoriinvoice.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/seikyusho-meisai-tarinai",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "請求書の明細が途中で足りなくなる" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-08-06 ／ 仕事の道具</p>
+      <h1>請求書の明細が途中で足りなくなる</h1>
+      <p class="lede">ExcelやNumbersでもらった請求書テンプレートに項目を書き足していったら、26行目や30行目でレイアウトが崩れた——これは操作ミスではなく、<strong>テンプレートがその行数までしか想定して作られていない</strong>ために起きます。原因と、テンプレートのまま直せる範囲、直らない場合の考え方を説明します。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>多くの請求書テンプレートは、<strong>1ページに収まる行数を前提に罫線・印刷範囲・合計欄の位置を固定して</strong>作られています。行を追加すると、罫線だけが増えない、印刷範囲からはみ出す、合計欄の数式がずれる、といった崩れ方をします。テンプレートの構造をExcel側で直すことはできますが、手間がかかるうえ壊れやすく、明細が多い月がある人には根本的に向いていません。</p>
+      </div>
+
+      <h2>なぜ「26行」のような上限があるのか</h2>
+      <p>紙のA4サイズは決まっています。テンプレートを作る人は、<strong>見出し・取引先情報・振込先・合計欄をページの決まった位置に固定</strong>したうえで、残ったスペースに明細の行を並べます。行の高さ×行数がその残りスペースにちょうど収まるように設計してあるので、「25行までは綺麗に印刷できるが26行目からはみ出す」という上限が生まれます。</p>
+      <p>これはテンプレートの作りが悪いわけではありません。<strong>1ページ完結を前提にした設計</strong>である以上、想定より行が増えれば必ずどこかで破綻します。多くのテンプレートは2ページ目の用意がなく、見出し・合計欄・振込先の再掲がされないまま明細だけが次ページに流れて、受け取った側が見づらい請求書になります。</p>
+
+      <h2>Excel・Numbersで実際に起きる崩れ方</h2>
+      <h3>1. 行を挿入すると罫線が引き継がれない</h3>
+      <p>セル結合を使ったテンプレートでは、行の途中に新しい行を挿入しても、罫線や網掛けの書式が正しく複製されないことがあります。一見数字は入るのに、印刷すると罫線のない行ができてしまいます。</p>
+      <p><strong>直し方：</strong>既存の明細行を1行「コピーして挿入」してください。空の行を挿入してから書式を後付けするより、書式ごと複製するほうが崩れにくくなります。</p>
+
+      <h3>2. 合計欄の数式範囲が更新されない</h3>
+      <p>SUM関数などで合計を出している場合、テンプレートによっては数式の範囲が固定されており、範囲外に追加した行が合計に反映されません。金額が合っているように見えて、実は最後の数行が計算から漏れていることがあります。</p>
+      <p><strong>直し方：</strong>合計欄のセルを選び、数式バーで範囲（例：<code>=SUM(D5:D30)</code>）を確認し、追加した行を含む範囲に手動で直してください。行を挿入した直後に合計欄のセルをクリックして範囲を目で確認する癖をつけると、送信後に気づく事故を防げます。</p>
+
+      <h3>3. 印刷範囲・改ページの位置がずれる</h3>
+      <p>「印刷範囲」がシートに設定されているテンプレートでは、行を増やしてもその範囲は自動で広がりません。範囲外の行は<strong>PDF化しても印刷しても出力されない</strong>ため、渡した相手には一部の明細が欠けた請求書が届きます。</p>
+      <p><strong>直し方：</strong>「ページレイアウト」→「印刷範囲」→「印刷範囲の設定」で、追加した行を含めて選び直してください。Numbersの場合は「ファイル」→「プリント」のプレビューで、最後の行まで実際に表示されているかを必ず確認します。</p>
+
+      <h2>2ページ目に流れたときに、最低限直すべきこと</h2>
+      <p>行数がテンプレートの上限を超えて2ページ目に流れてしまう場合、そのままだと2ページ目に見出しも合計欄もない状態になりがちです。少なくとも次の3点は手直ししてください。</p>
+      <ul>
+        <li><strong>2ページ目の先頭に「（続き）」や取引先名を入れる。</strong>ページが分かれたことが受け取る側に伝わるようにします。</li>
+        <li><strong>小計・合計は最終ページにまとめる。</strong>ページごとに小計を出す場合は「小計」と「総合計」を区別して明記します。</li>
+        <li><strong>振込先は最終ページに必ず載せる。</strong>1ページ目にしかない場合、2ページ目だけを見た相手が振込先を見失います。</li>
+      </ul>
+
+      <h2>テンプレートを直すより先に確認すること</h2>
+      <p>ここまでの直し方は、あくまで<strong>その場しのぎ</strong>です。行数が多い月がときどきある程度なら十分ですが、次のいずれかに当てはまる場合は、都度Excelを直す運用そのものを見直したほうが早く終わります。</p>
+      <ul>
+        <li>作業の単価や時間を細かく分けて書きたく、行数が月によって大きく変わる</li>
+        <li>見積書として作ったものを、そのまま請求書や領収書として出したい</li>
+        <li>インボイス制度の税率区分（10% / 8% / 非課税）を明細ごとに分けて自動集計したい</li>
+        <li>数式が壊れていないか、送信前に毎回不安になる</li>
+      </ul>
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>明細の件数で、行き止まらせない</h2>
+        <p>私たちは<strong>ひとり請求書</strong>を、明細の件数に上限を作らないという1点から設計しました。明細を何行追加しても、罫線や合計欄が崩れることはありません。件数に合わせてA4のページが自動で増え、2ページ目にも取引先名・小計・振込先が正しく引き継がれます。</p>
+        <p>見積書として作った明細は、請求書・納品書・領収書に1タップで作り直せます。インボイス制度の税率ごとの区分・端数処理にも対応しています。無料で3件まで試せて、120円の買い切りで全機能が解放されます。広告なし、通信なし、データは端末の中だけです。</p>
+        <div class="actions">
+          <a class="btn btn--ghost" href="/apps/hitoriinvoice">ひとり請求書の詳細を見る</a>
+          <a class="btn btn--ghost" href="/support#hitoriinvoice">よくある質問</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>関連するページ</h2>
+      <p>同じ考え方でつくった、ほかのアプリです。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/hitoriinvoice">
+          <img src="/assets/icons/hitoriinvoice.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ひとり請求書</b>
+            <span>見積・納品・請求・領収を同じ明細から1タップ。インボイス対応。</span>
+            <em>無料（120円の買い切りで全機能）・審査中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/kaeseru">
+          <img src="/assets/icons/kaeseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>カエセル</b>
+            <span>住宅ローンの計算。金利上昇と繰上返済の損得を金額で出す。</span>
+            <em>買い切り 120円・審査中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/shimekiri">
+          <img src="/assets/icons/shimekiri.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>シメキリ逆算</b>
+            <span>間に合わないときは、延ばす日数・増やす分数・削る量を数字で出す。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js?v=20260805" defer></script>
+</body>
+</html>
