@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tokyo357.com/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-06</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -12,12 +12,12 @@
   </url>
   <url>
     <loc>https://tokyo357.com/apps/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-06</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tokyo357.com/guides/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-06</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -91,6 +91,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tokyo357.com/guides/shukan-mikka-bouzu</loc>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/kinshu-ikura-uku</loc>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/kuriage-hensai-dochira</loc>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/line-stamp-touka-png</loc>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/othello-joseki-kihon</loc>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://tokyo357.com/apps/shizukatl</loc>
     <lastmod>2026-08-05</lastmod>
     <priority>0.8</priority>
@@ -107,12 +132,12 @@
   </url>
   <url>
     <loc>https://tokyo357.com/apps/kaeseru</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-06</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tokyo357.com/apps/sukemaru</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-06</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
