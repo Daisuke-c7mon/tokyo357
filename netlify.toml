@@ -9,6 +9,23 @@
 [build.processing]
   skip_processing = false
 
+# ─────────────────────────────────────────────
+# T357 Card Arbitrage（別サイト）を /t357/ 配下に見せる。
+# コードとデータは別リポジトリ（private）にある。このリポジトリは public なので
+# ツール側のコードや価格データをここに置かないこと。
+# 200 でプロキシするため、URL は tokyo357.com/t357/... のまま維持される。
+[[redirects]]
+  from = "/t357"
+  to = "https://t357-card-arbitrage.netlify.app/t357"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/t357/*"
+  to = "https://t357-card-arbitrage.netlify.app/t357/:splat"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/index.html"
   to = "/"
