@@ -8,6 +8,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from apps import APPS  # noqa: E402
+from build_pages import rank_badge  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 HEAD_NAV = (ROOT / "index.html").read_text().split("<header", 1)[1].split("</header>", 1)[0]
@@ -58,6 +59,17 @@ VER = "20260805"
 STATE_LABEL = {"live": "配信中", "review": "審査中", "prepare": "準備中"}
 
 
+def _rank_text(slug):
+    import json
+    f = ROOT / "tools" / "ranks.json"
+    if not f.exists():
+        return ""
+    d = json.loads(f.read_text()).get(slug)
+    if not d or not d.get("best"):
+        return ""
+    return f'{d["genre"]}{d["kind"]}最高{d["best"]}位' 
+
+
 def apps_page():
     groups = {}
     for a in APPS:
@@ -76,7 +88,8 @@ def apps_page():
             f'          <div>\n'
             f'            <b>{a["name"]}</b>\n'
             f'            <span>{a["short"]}</span>\n'
-            f'            <em>{a["os"]}・{a["price"]}・{STATE_LABEL[a["state"]]}</em>\n'
+            f'            <em>{a["os"]}・{a["price"]}・{STATE_LABEL[a["state"]]}'
+            + (f'・{_rank_text(a["slug"])}' if _rank_text(a["slug"]) else '') + '</em>\n'
             f'          </div>\n'
             f'        </a>' for a in items)
         out.append(f'      <h2>{topic}</h2>\n      <div class="related-grid">\n{cards}\n      </div>\n')

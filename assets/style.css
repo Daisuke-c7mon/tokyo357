@@ -766,3 +766,34 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
   color: var(--faint);
   margin: 0 0 10px;
 }
+
+/* ---------- ランキング表示 ---------- */
+
+.rank {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 0 0 18px;
+  padding: 9px 15px;
+  border: 1px solid rgba(242, 181, 68, .35);
+  background: rgba(242, 181, 68, .07);
+  font-size: 13.5px;
+  color: var(--dim);
+  line-height: 1.6;
+}
+.rank b {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--loyly);
+  letter-spacing: .02em;
+}
+.rank .when {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .06em;
+  color: var(--faint);
+}
+.work .rank { margin: 0 0 14px; padding: 6px 12px; font-size: 12.5px; }
+.work .rank b { font-size: 14px; }

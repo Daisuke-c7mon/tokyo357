@@ -28,6 +28,22 @@ def replace_block(s, start, end, body):
     return None
 
 
+
+def rank_badge(slug, compact=False):
+    """tools/ranks.json に記録された実測の順位だけを出す。手書きの数字は使わない。"""
+    f = ROOT / "tools" / "ranks.json"
+    if not f.exists():
+        return ""
+    import json
+    d = json.loads(f.read_text()).get(slug)
+    if not d or not d.get("best"):
+        return ""
+    cls = "rank"
+    return (f'<p class="{cls}">App Store {d["genre"]}（{d["kind"]}）'
+            f'<b>最高 {d["best"]}位</b>'
+            f'<span class="when">{d["best_date"]} 時点</span></p>')
+
+
 def head_block(a):
     """OG画像・Twitterカード・Smart App Banner。"""
     out = [
@@ -106,6 +122,23 @@ def related_block(slug):
             f'    </section>\n  ')
 
 
+
+def sync_index_ranks():
+    """トップページのカードにも順位を出す（ランクインしているアプリだけ）。"""
+    p = ROOT / "index.html"
+    s = p.read_text()
+    s = re.sub(r'\n *<p class="rank">.*?</p>', "", s, flags=re.S)
+    for a in APPS:
+        badge = rank_badge(a["slug"])
+        if not badge:
+            continue
+        m = re.search(r'(href="/apps/' + a["slug"] + r'">.*?<h3>[^<]*</h3>\n)', s, re.S)
+        if m:
+            s = s[:m.end()] + "          " + badge + "\n" + s[m.end():]
+    p.write_text(s)
+    print("トップのカードに順位を反映")
+
+
 def main():
     for a in APPS:
         p = ROOT / "apps" / f'{a["slug"]}.html'
@@ -121,6 +154,15 @@ def main():
             s = s[:j] + H0 + blk + H1 + "\n" + s[j:]
         else:
             s = new
+
+        # --- rank badge（doc-head の lede の直後） ---
+        badge = rank_badge(a["slug"])
+        s = re.sub(r'\n *<p class="rank">.*?</p>', "", s, flags=re.S)
+        if badge:
+            m = re.search(r'(<p class="lede">.*?</p>\n)', s, re.S)
+            if m:
+                indent = "        "
+                s = s[:m.end()] + indent + badge + "\n" + s[m.end():]
 
         # --- install ---
         blk = install_block(a)
@@ -143,6 +185,8 @@ def main():
 
         p.write_text(s)
         print("更新:", a["slug"])
+
+    sync_index_ranks()
 
 
 if __name__ == "__main__":
