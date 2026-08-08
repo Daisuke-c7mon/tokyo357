@@ -2,48 +2,48 @@
   "kaeseru": {
     "genre": "ファイナンス",
     "kind": "有料App",
-    "current": 3,
-    "checked": "2026-08-07",
+    "current": 4,
+    "checked": "2026-08-08",
     "best": 3,
     "best_date": "2026-08-07"
   },
   "kinshuwatch": {
     "genre": "ヘルスケア／フィットネス",
     "kind": "有料App",
-    "current": 6,
-    "checked": "2026-08-07",
+    "current": 10,
+    "checked": "2026-08-08",
     "best": 6,
     "best_date": "2026-08-07"
   },
   "sukemaru": {
     "genre": "写真／ビデオ",
     "kind": "有料App",
-    "current": 27,
-    "checked": "2026-08-07",
-    "best": 27,
-    "best_date": "2026-08-07"
+    "current": 21,
+    "checked": "2026-08-08",
+    "best": 21,
+    "best_date": "2026-08-08"
   },
   "shizukatl": {
     "genre": "ユーティリティ",
     "kind": "有料App",
-    "current": 45,
-    "checked": "2026-08-07",
+    "current": 66,
+    "checked": "2026-08-08",
     "best": 45,
     "best_date": "2026-08-07"
   },
   "tsuzukutodo": {
     "genre": "仕事効率化",
     "kind": "有料App",
-    "current": 65,
-    "checked": "2026-08-07",
+    "current": 73,
+    "checked": "2026-08-08",
     "best": 65,
     "best_date": "2026-08-07"
   },
   "shimekiri": {
     "genre": "仕事効率化",
     "kind": "有料App",
-    "current": 74,
-    "checked": "2026-08-07",
+    "current": 81,
+    "checked": "2026-08-08",
     "best": 74,
     "best_date": "2026-08-07"
   },
@@ -51,24 +51,24 @@
     "genre": "ビジネス",
     "kind": "有料App",
     "current": null,
-    "checked": "2026-08-07"
+    "checked": "2026-08-08"
   },
   "sagaseru": {
     "genre": "仕事効率化",
     "kind": "有料App",
     "current": null,
-    "checked": "2026-08-07"
+    "checked": "2026-08-08"
   },
   "kigyouojisan": {
     "genre": "ビジネス",
     "kind": "無料App",
     "current": null,
-    "checked": "2026-08-07"
+    "checked": "2026-08-08"
   },
   "othello": {
     "genre": "ゲーム",
     "kind": "無料App",
     "current": null,
-    "checked": "2026-08-07"
+    "checked": "2026-08-08"
   }
 }
