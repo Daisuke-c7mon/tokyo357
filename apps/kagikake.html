@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>カギカケ ｜ 株式会社サウナ / Sauna Inc.</title>
+<meta name="description" content="カギカケは、写真・動画・ファイルを端末の中だけで暗号化してしまう iPhone / iPad の金庫アプリです。ダミーのパスコードを入力すると、まったく別の金庫が開きます。広告なし、通信なし、120円の買い切り。暗号化バックアップで機種変更もそのまま移せます。株式会社サウナ（Sauna Inc.）が開発・サポートしています。">
+<link rel="canonical" href="https://tokyo357.com/apps/kagikake">
+<meta name="theme-color" content="#101418">
+<meta property="og:type" content="website">
+<meta property="og:title" content="カギカケ ｜ 株式会社サウナ / Sauna Inc.">
+<meta property="og:description" content="パスコードを教えても、本物は出てこない。端末内で暗号化する買い切りの金庫アプリ。">
+<meta property="og:url" content="https://tokyo357.com/apps/kagikake">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+<!-- BUILD:head -->
+<meta property="og:image" content="https://tokyo357.com/assets/og/kagikake.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /BUILD:head -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "カギカケ",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "iOS 17.0 or later",
+  "url": "https://tokyo357.com/apps/kagikake",
+  "offers": { "@type": "Offer", "price": "120", "priceCurrency": "JPY" },
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ダミーのパスコードとは何ですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "本当のパスコードとは別に決めておける、もう一つのパスコードです。その数字で開くと中身の違う金庫が開きます。ダミー側の画面には「これはダミーです」という表示も、本当の金庫へ移る入口もありません。写真を足したり見たりもできるので、不自然に空っぽになることもありません。" }
+    },
+    {
+      "@type": "Question",
+      "name": "しまった写真は、写真アプリから消えますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "自動では消えません。取り込んだ直後に「写真アプリからも消しますか？」と一度だけ確認します。消すを選ぶと、iOS の確認画面を経て写真アプリ側から削除されます。残す選択もできます。" }
+    },
+    {
+      "@type": "Question",
+      "name": "機種変更したら中身はどうなりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "設定の「バックアップを書き出す」で、金庫まるごとを合言葉つきの1ファイルにできます。ファイルアプリや AirDrop、パソコンに保存しておき、新しい端末で「バックアップから戻す」を選べばそのまま復元できます。合言葉は忘れると開けないので、端末とは別の場所に控えてください。" }
+    },
+    {
+      "@type": "Question",
+      "name": "通信はしますか？中身が外に出ることはありませんか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "しません。カギカケは通信の機能を持っていません。広告も解析ツールも入っておらず、アカウント登録もありません。中身は端末の中で AES-256 で暗号化して保管します。" }
+    },
+    {
+      "@type": "Question",
+      "name": "追加の課金はありますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "ありません。120円の買い切りで、購入した時点からすべての機能が使えます。アプリ内課金は登録しておらず、広告も表示しません。" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <div class="doc-head doc-head--app">
+      <img class="doc-icon" src="/assets/icons/kagikake.png" width="512" height="512" alt="カギカケのアプリアイコン">
+      <div>
+        <p class="updated">IOS 17+ · IPHONE / IPAD · 買い切り 120円</p>
+        <h1>カギカケ</h1>
+        <p class="lede">見られたくない写真を隠すアプリは数多くありますが、<strong>「パスコードを教えて」と言われた瞬間に終わり</strong>ます。カギカケは、教えても本物が出てこないようにするためのアプリです。</p>
+        <div class="actions mt-s">
+          <a class="btn btn--ghost" href="#features">できること</a>
+          <a class="btn btn--ghost" href="#help">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose">
+
+      <p><strong>現在 App Store に申請の準備中です。</strong>公開されたらこのページからリンクします。</p>
+
+      <h2>こんな不満、ありませんか</h2>
+      <ul>
+        <li><strong>課金したのに広告が出る</strong> — 「広告を消す」ために払ったのに、まだ出てくる。</li>
+        <li><strong>落ちる・固まる</strong> — iOS を上げたら起動しなくなった。開こうとすると数秒で落ちる。</li>
+        <li><strong>機種変更で中身が消えた</strong> — 新しい端末に移したら、このアプリのデータだけ戻らなかった。</li>
+        <li><strong>更新のたびに使いにくくなる</strong> — できていたスワイプ削除が消える。ボタンの位置が変わる。</li>
+        <li><strong>結局、パスコードを聞かれたら終わり</strong> — 隠していること自体は、アイコンを見れば分かってしまう。</li>
+      </ul>
+      <p>カギカケは、この5つを設計で潰すために作りました。</p>
+
+      <div class="shots">
+        <figure>
+          <img src="/assets/shots/kagikake/1_lock.png" width="414" height="900" alt="カギカケのロック画面。数字のキーパッドが並んでいる" loading="lazy">
+          <figcaption>入口はひとつ。入れた数字によって、開く金庫が変わります。</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/shots/kagikake/2_decoy.png" width="414" height="900" alt="ダミーのパスコードを説明するチュートリアル画面" loading="lazy">
+          <figcaption>「見せてもいい方」を先に用意しておけます。</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/shots/kagikake/3_vault.png" width="414" height="900" alt="写真と動画が並ぶ金庫の一覧画面" loading="lazy">
+          <figcaption>写真・動画・ファイルを、ひとつの場所に。</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/shots/kagikake/4_player.png" width="414" height="900" alt="±15秒と再生速度の操作が並ぶ動画プレーヤー" loading="lazy">
+          <figcaption>取り出さずに、アプリの中で再生できます。</figcaption>
+        </figure>
+      </div>
+
+      <h2 id="features">カギカケがしていること</h2>
+      <ul>
+        <li><strong>ダミーのパスコード</strong> — もう一つのパスコードを決めておくと、その数字では別の金庫が開きます。ダミー側には本当の金庫への入口も、ダミーだという表示もありません。写真を足すことも見ることもできる、ふつうの金庫として使えます。</li>
+        <li><strong>端末の中で暗号化</strong> — 写真も動画もファイルも AES-256-GCM で暗号化して保管します。鍵は端末の Keychain にあり、ファイルだけを取り出しても中身は読めません。</li>
+        <li><strong>広告が1つも出ない</strong> — 広告の仕組みそのものを入れていません。だから「課金したのに広告が出る」が起こりません。</li>
+        <li><strong>通信しない</strong> — 通信の機能を持ちません。アカウント登録も、クラウド同期も、解析もありません。</li>
+        <li><strong>暗号化バックアップ</strong> — 金庫まるごとを合言葉つきの1ファイルに書き出せます。新しい端末で読み込めば、そのまま元どおりになります。</li>
+        <li><strong>大きな動画でも落ちない</strong> — ファイルを4MBずつ区切って暗号化するので、長い動画を入れてもメモリを使い切りません。</li>
+        <li><strong>アプリ切替の画面に中身を映さない</strong> — アプリから離れる瞬間に、自動でふたをします。</li>
+        <li><strong>±15秒と速度変更つきのプレーヤー</strong> — しまったまま、アプリの中で気持ちよく観られます。</li>
+        <li><strong>開けようとした記録</strong> — パスコードが間違えられた日時を残します。カメラは使いません。</li>
+        <li><strong>アイコンを目立たないものに変えられる</strong> — 無料です。名前は変わりません。</li>
+      </ul>
+
+      <h2>使い方は3つだけ</h2>
+      <ol>
+        <li><strong>パスコードを決める</strong> — 4桁か6桁を選びます。Face ID でも開けられます。</li>
+        <li><strong>ダミーを決める</strong> — 「見せて」と言われたときのために、別の数字を1つ。あとからでも決められます。</li>
+        <li><strong>写真を選んでしまう</strong> — 取り込んだあと、写真アプリ側から消すかどうかを一度だけ聞きます。</li>
+      </ol>
+      <p>初回起動時にチュートリアルが出て、この3つをその場で終わらせます。チュートリアルは設定からいつでも見直せます。</p>
+
+      <h2>動作環境</h2>
+      <dl class="facts">
+        <div><dt>対応OS</dt><dd>iOS 17.0 以降</dd></div>
+        <div><dt>対応端末</dt><dd>iPhone / iPad</dd></div>
+        <div><dt>価格</dt><dd>120円（買い切り）<span class="sub">アプリ内課金なし・広告なし・サブスクリプションなし</span></dd></div>
+        <div><dt>通信</dt><dd>なし<span class="sub">保存も閲覧もすべて端末内で行います</span></dd></div>
+        <div><dt>暗号化</dt><dd>AES-256-GCM<span class="sub">鍵は端末の Keychain に保管します</span></dd></div>
+        <div><dt>書き出し</dt><dd>暗号化バックアップ（.kagi） / 写真アプリへ戻す / ファイル書き出し</dd></div>
+        <div><dt>提供元</dt><dd>株式会社サウナ<span class="sub">Sauna Inc.</span></dd></div>
+      </dl>
+
+      <h2>プライバシー</h2>
+      <p>このアプリは個人情報を一切収集しません。しまったものは端末の中だけに保存され、通信は行いません。写真アプリへの許可は、しまった元の写真を消すときと、金庫から写真アプリへ戻すときにだけ使います。詳しくは<a href="/privacy">プライバシーポリシー</a>をご覧ください。</p>
+      <p><strong>パスコードを忘れると中身は開けられません。</strong>開発者にも開ける手段はありません。大切なものは、必ずバックアップを書き出して保管してください。</p>
+
+      <h2>よくある質問</h2>
+      <dl class="faq">
+        <dt>ダミーのパスコードとは何ですか？</dt>
+        <dd>本当のパスコードとは別に決めておける、もう一つのパスコードです。その数字で開くと中身の違う金庫が開きます。ダミー側の画面には「これはダミーです」という表示も、本当の金庫へ移る入口もありません。</dd>
+        <dt>しまった写真は、写真アプリから消えますか？</dt>
+        <dd>自動では消えません。取り込んだ直後に一度だけ確認します。消すを選ぶと、iOS の確認画面を経て削除されます。</dd>
+        <dt>機種変更したら中身はどうなりますか？</dt>
+        <dd>設定の「バックアップを書き出す」で、合言葉つきの1ファイルにできます。新しい端末で「バックアップから戻す」を選べば、そのまま復元できます。</dd>
+        <dt>通信はしますか？</dt>
+        <dd>しません。通信の機能を持っていません。広告も解析も、アカウント登録もありません。</dd>
+        <dt>追加の課金はありますか？</dt>
+        <dd>ありません。120円の買い切りで、購入した時点からすべての機能が使えます。</dd>
+        <dt>アプリを消したらどうなりますか？</dt>
+        <dd>金庫の中身も一緒に消えます。消す前に、必要なものはバックアップを書き出すか、写真アプリへ戻しておいてください。</dd>
+      </dl>
+
+      <h2 id="help">困ったときは</h2>
+      <p>ご不明な点は<a href="/support">サポートページ</a>をご覧ください。解決しない場合は <a href="mailto:yamaguchi@tokyo357.com">yamaguchi@tokyo357.com</a> までご連絡ください。平日 10:00–18:00（日本時間）に受け付け、2営業日以内に返信します。</p>
+
+    </div>
+<!-- BUILD:install -->
+    <section class="install">
+      <div>
+        <h2>カギカケは現在 App Store 申請の準備中です</h2>
+        <p>iOS 17+ ／ 買い切り 120円 で公開予定です。公開されしだい、このページにダウンロードのリンクを出します。先に中身を知りたい方は、上の説明とよくある質問をご覧ください。</p>
+        <div class="actions">
+          <a class="btn btn--ghost" href="/support">よくある質問</a>
+          <a class="btn btn--ghost" href="/apps/">ほかのアプリを見る</a>
+        </div>
+      </div>
+    </section>
+  <!-- /BUILD:install -->
+<!-- BUILD:related -->
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/sukemaru">
+          <img src="/assets/icons/sukemaru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>透けマル</b>
+            <span>背景を消して透過PNGに。書き出したファイルのアルファを実測する。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sagaseru">
+          <img src="/assets/icons/sagaseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>サガセル録音</b>
+            <span>文字起こしの1文をタップすると音声がその瞬間まで飛ぶボイスメモ。</span>
+            <em>買い切り 120円・準備中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  <!-- /BUILD:related -->
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <p class="copy">© 株式会社サウナ</p>
+  </div>
+</footer>
+</body>
+</html>

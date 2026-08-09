@@ -90,6 +90,11 @@ APPS = [
          tagline="長押しで録って、離すと楽器。",
          short="身のまわりの音をその場でパッドに載せるサンプラー。保存操作なし、書き出しはWAV。",
          topic="画面まわり・気晴らし"),
+    dict(slug="kagikake", name="カギカケ", appid="", state="prepare",
+         price="買い切り 120円", os="iOS 17+",
+         tagline="教えても、本物は出てこない。",
+         short="写真・動画・ファイルを端末内で暗号化する金庫。ダミーのパスコードで別の金庫が開く。",
+         topic="仕事の道具"),
 ]
 
 BY_SLUG = {a["slug"]: a for a in APPS}
