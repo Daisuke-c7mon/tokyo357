@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ナラセル ｜ 株式会社サウナ / Sauna Inc.</title>
+<meta name="description" content="ナラセルは、身のまわりの音をパッドの長押しで録って、離した瞬間から演奏できるiPhone/iPad用のサンプラーです。無音カットと音量そろえは自動。9音を内蔵しているので買ったその場で鳴ります。16ステップの打ち込みは1拍もずれず、WAVで書き出せます。買い切り120円、追加課金なし・広告なし・通信なし。株式会社サウナ（Sauna Inc.）が開発・サポートしています。">
+<link rel="canonical" href="https://tokyo357.com/apps/naraseru">
+<meta name="theme-color" content="#101418">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ナラセル ｜ 株式会社サウナ / Sauna Inc.">
+<meta property="og:description" content="長押しで録って、離すと楽器。身のまわりの音でビートを作る買い切りサンプラー。">
+<meta property="og:url" content="https://tokyo357.com/apps/naraseru">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+<!-- BUILD:head -->
+<meta property="og:image" content="https://tokyo357.com/assets/og/naraseru.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /BUILD:head -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ナラセル",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "iOS 17.0 or later",
+  "url": "https://tokyo357.com/apps/naraseru",
+  "offers": { "@type": "Offer", "price": "120", "priceCurrency": "JPY" },
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+
+<style>
+/* このページだけで使う画面写真の並び。暗いアプリなので地も暗く敷く。 */
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 8px}
+.shots figure{margin:0}
+.shots img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);background:#0B0C10}
+.shots figcaption{margin-top:8px;font-size:13px;line-height:1.5;opacity:.7}
+@media (max-width:640px){.shots{grid-template-columns:1fr;gap:20px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <div class="doc-head doc-head--app">
+      <img class="doc-icon" src="/assets/icons/naraseru.png" width="512" height="512" alt="ナラセルのアプリアイコン">
+      <div>
+        <p class="updated">IOS 17+ · IPHONE / IPAD · 買い切り 120円</p>
+        <h1>ナラセル</h1>
+        <p class="lede">机を叩く音、ペットボトル、自分の声。<strong>パッドを長押しして、離すだけ</strong>で、その音は楽器になります。</p>
+        <div class="actions mt-s">
+          <a class="btn btn--ghost" href="/support#naraseru">よくある質問</a>
+          <a class="btn btn--ghost" href="#help">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose">
+
+      <h2>こんな不満、ありませんでしたか</h2>
+      <p>スマホのサンプラーは、すでに完成度の高いものがあります。ただ、レビューを追っていくと同じ不満が繰り返し出てきます。</p>
+      <ul>
+        <li><strong>落ちて、録ったものが消えた</strong> — アプリを切り替えたら作業が飛んだ、という声が最も多く見られます。</li>
+        <li><strong>再生のタイミングがずれる</strong> — 何小節か回しているうちに、少しずつ前後する。</li>
+        <li><strong>動きがもっさりする</strong> — アップデート後に反応が鈍くなった、という報告。</li>
+        <li><strong>買ったのに、まだ買うものがある</strong> — 本体を買ったあとにも拡張や音ネタの課金が続く。</li>
+        <li><strong>iPhoneだと細かい操作がつらい</strong> — 波形を2本指で拡大しようとしても、うまく効かない。</li>
+      </ul>
+      <p>ナラセルは、この5つを設計で潰すために作りました。</p>
+
+      <div class="shots">
+        <figure>
+          <img src="/assets/shots/naraseru/1_pads.png" width="440" height="900" alt="12枚のパッドが色分けされて並ぶナラセルの画面" loading="lazy">
+          <figcaption>12枚のパッド。色と番号の両方で覚えられます。</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/shots/naraseru/2_record.png" width="440" height="900" alt="パッドを長押しして録音している最中の画面" loading="lazy">
+          <figcaption>長押ししているあいだが録音。離すと確定します。</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/shots/naraseru/3_steps.png" width="440" height="900" alt="16ステップの打ち込み画面" loading="lazy">
+          <figcaption>上に全体の地図、下に指で押せる16マス。</figcaption>
+        </figure>
+      </div>
+
+      <h2>長押しして、離す。それで1音</h2>
+      <p>従来のサンプラーは「録る→前後を切る→音量を整える→やっと鳴らせる」まで、いくつも工程がありました。ナラセルは、<strong>指を離した瞬間にその全部を済ませます</strong>。</p>
+      <p>前後の無音を落とし、音量をそろえ（ノーマライズ）、頭とお尻に短いフェードを入れてプチッというノイズを消す。ここに設定項目はありません。あなたがするのは、押して離すことだけです。</p>
+
+      <h2>買ったその場で鳴る</h2>
+      <p>キック、スネア、ハット、オープンハット、クラップ、コンガ、ベース、コード、プラックの9音を最初から内蔵しています。マイクの許可を出す前から叩けますし、再生ボタンを押せばリズムが鳴ります。</p>
+      <p>これらの音は素材ファイルとして同梱しているのではなく、<strong>アプリが起動時に計算して作っています</strong>。だから容量も増えず、素材の権利関係も発生しません。</p>
+
+      <h2>1拍もずれない</h2>
+      <p>再生の仕組みを既製の部品の組み合わせにせず、1から書き起こしました。16ステップの発音位置を<strong>フレーム単位（1/44100秒の単位）で決めている</strong>ので、何小節回してもずれません。</p>
+      <p>書き出しもまったく同じ仕組みを通ります。アプリで聴いた音と、書き出したWAVの中身が食い違うことがありません。</p>
+
+      <h2>「保存」という操作がありません</h2>
+      <p>録音した音は、指を離したその瞬間にファイルとして書かれます。テンポも打ち込みもパッドの設定も、変えた直後に自動で保存されます。書き込みは一時ファイルを作ってから差し替える方式なので、途中で電源が落ちても前の状態が残ります。</p>
+      <p>アプリを切り替えても、強制終了しても、次に開いたときは同じ続きから始まります。</p>
+
+      <h2>音楽の知識がなくても、メロディになる</h2>
+      <p>「キー」に切り替えると、選んだパッドの音を音階で弾けます。初期状態はペンタトニック・スケールなので、<strong>どこを押しても外れた音になりません</strong>。狙って弾きたい人は半音（12音すべて）に切り替えられます。</p>
+
+      <h2>できること</h2>
+      <ul>
+        <li><strong>パッド長押しで録音</strong> — 最大20秒。ファイルアプリからの読み込みもできます。</li>
+        <li><strong>鳴らす範囲のトリム</strong> — つまんで動かす2つのハンドルだけ。ピンチ操作は使いません。</li>
+        <li><strong>音の加工</strong> — 音程±12半音、音量、逆再生、ループ、押しているあいだだけ鳴らす。</li>
+        <li><strong>重ねない組</strong> — 同じ組のパッドは同時に鳴りません。ハイハットの開け閉めのような使い方に。</li>
+        <li><strong>16ステップ×12トラックの打ち込み</strong> — スイング、クリック音、再生しながら叩いた位置をそのまま記録する「叩き込み」。</li>
+        <li><strong>キットは何個でも</strong> — 1画面は12パッドに絞り、足りなくなったらキットを増やします。上限はありません。</li>
+        <li><strong>WAVで書き出し</strong> — 1〜8小節のループを書き出して、他のアプリへ持っていけます。</li>
+      </ul>
+
+      <h2>動作環境</h2>
+      <dl class="facts">
+        <div><dt>対応OS</dt><dd>iOS 17.0 以降</dd></div>
+        <div><dt>対応端末</dt><dd>iPhone / iPad</dd></div>
+        <div><dt>価格</dt><dd>120円（買い切り）<span class="sub">アプリ内課金なし・広告なし・サブスクリプションなし</span></dd></div>
+        <div><dt>通信</dt><dd>なし<span class="sub">録音も再生も書き出しも、すべて端末内で完結します</span></dd></div>
+        <div><dt>必要な許可</dt><dd>マイク<span class="sub">初回の録音時にだけ確認します。許可しなくても内蔵の音と読み込んだ音で使えます</span></dd></div>
+        <div><dt>提供元</dt><dd>株式会社サウナ<span class="sub">Sauna Inc.</span></dd></div>
+      </dl>
+
+      <h2>プライバシー</h2>
+      <p>このアプリは個人情報を一切収集しません。録音した音も作ったループも端末の中だけに保存され、外部に送信されることはありません。通信を行わず、アカウント登録もありません。詳しくは<a href="/privacy">プライバシーポリシー</a>をご覧ください。</p>
+
+      <h2 id="help">困ったときは</h2>
+      <p>ご不明な点は<a href="/support#naraseru">サポートページ</a>にまとめています。解決しない場合は <a href="mailto:yamaguchi@tokyo357.com">yamaguchi@tokyo357.com</a> までご連絡ください。平日 10:00–18:00（日本時間）に受け付け、2営業日以内に返信します。</p>
+
+    </div>
+<!-- BUILD:install -->
+    <section class="install">
+      <div>
+        <h2>ナラセルは現在 App Store 申請の準備中です</h2>
+        <p>iOS 17+ ／ 買い切り 120円 で公開予定です。公開されしだい、このページにダウンロードのリンクを出します。先に中身を知りたい方は、上の説明とよくある質問をご覧ください。</p>
+        <div class="actions">
+          <a class="btn btn--ghost" href="/support#naraseru">よくある質問</a>
+          <a class="btn btn--ghost" href="/apps/">ほかのアプリを見る</a>
+        </div>
+      </div>
+    </section>
+  <!-- /BUILD:install -->
+<!-- BUILD:related -->
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sukemaru">
+          <img src="/assets/icons/sukemaru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>透けマル</b>
+            <span>背景を消して透過PNGに。書き出したファイルを読み戻してアルファを実測する。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/othello">
+          <img src="/assets/icons/othello.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ぱすてるオセロ</b>
+            <span>レベル1〜10のCPUと対戦。オフラインで遊べる。</span>
+            <em>無料・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  <!-- /BUILD:related -->
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js?v=20260805" defer></script>
+</body>
+</html>

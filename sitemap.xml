@@ -36,6 +36,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tokyo357.com/apps/naraseru</loc>
+    <lastmod>2026-08-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://tokyo357.com/apps/negotouranai</loc>
     <lastmod>2026-08-07</lastmod>
     <priority>0.8</priority>
@@ -259,5 +264,10 @@
     <loc>https://tokyo357.com/terms</loc>
     <lastmod>2026-08-05</lastmod>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/apps/repodasu</loc>
+    <lastmod>2026-08-09</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>

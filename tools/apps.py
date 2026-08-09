@@ -80,6 +80,16 @@ APPS = [
          tagline="寝言を録って、読み解く。",
          short="就寝中の寝言を自動録音し、端末内で文字起こしして夢占い風に読み解く。",
          topic="画面まわり・気晴らし"),
+    dict(slug="repodasu", name="レポダス", appid="", state="prepare",
+         price="買い切り 120円", os="iOS 17+",
+         tagline="1件に、写真は何枚でも。",
+         short="現場の指摘を写真何枚でもまとめ、その場でA4のPDF報告書にする。通信なし。",
+         topic="仕事の道具"),
+    dict(slug="naraseru", name="ナラセル", appid="", state="prepare",
+         price="買い切り 120円", os="iOS 17+",
+         tagline="長押しで録って、離すと楽器。",
+         short="身のまわりの音をその場でパッドに載せるサンプラー。保存操作なし、書き出しはWAV。",
+         topic="画面まわり・気晴らし"),
 ]
 
 BY_SLUG = {a["slug"]: a for a in APPS}
