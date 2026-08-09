@@ -90,7 +90,7 @@ APPS = [
          tagline="長押しで録って、離すと楽器。",
          short="身のまわりの音をその場でパッドに載せるサンプラー。保存操作なし、書き出しはWAV。",
          topic="画面まわり・気晴らし"),
-    dict(slug="musuberu", name="ムスベル", appid="", state="prepare",
+    dict(slug="musuberu", name="ムスベル", appid="6799579385", state="review",
          price="買い切り 120円", os="iOS 17+",
          tagline="名前を知らなくても、用途から引ける。",
          short="ロープの結び方を3Dで。動かす端を色分けし、締め込みまで見せる結び方辞典。",
