@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ズレない家計簿 ｜ 株式会社サウナ / Sauna Inc.</title>
-<meta name="description" content="ズレない家計簿は、クレジットカードの締め日と引落日を正確に計算する家計簿アプリです。翌々月払い、土日祝による引落日のずれ、給料日始まりの期間にも対応します。買い切り120円、広告なし、通信なし。株式会社サウナ（Sauna Inc.）が開発・サポートしています。">
-<link rel="canonical" href="https://tokyo357.com/apps/zurenaikakeibo">
+<title>オボエル家計簿 ｜ 株式会社サウナ / Sauna Inc.</title>
+<meta name="description" content="オボエル家計簿は、レシートを撮ったその場で支出が入る家計簿アプリです。読み取りは端末の中だけで行うので待ち時間がなく、レシート画像は保存も送信もしません。2回目からは店を覚えてカテゴリを自動で入れます。買い切り120円、広告なし、通信なし。株式会社サウナ（Sauna Inc.）が開発・サポートしています。">
+<link rel="canonical" href="https://tokyo357.com/apps/oboerukakeibo">
 <meta name="theme-color" content="#101418">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ズレない家計簿 ｜ 株式会社サウナ / Sauna Inc.">
-<meta property="og:description" content="締め日と引落日が実際とズレない家計簿。翌々月払いも土日祝ずれも計算します。">
-<meta property="og:url" content="https://tokyo357.com/apps/zurenaikakeibo">
+<meta property="og:title" content="オボエル家計簿 ｜ 株式会社サウナ / Sauna Inc.">
+<meta property="og:description" content="レシートを撮ったその場で入る家計簿。待たない・送らない・買い切り。">
+<meta property="og:url" content="https://tokyo357.com/apps/oboerukakeibo">
 <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/style.css?v=20260805">
 <!-- BUILD:head -->
-<meta property="og:image" content="https://tokyo357.com/assets/og/zurenaikakeibo.png">
+<meta property="og:image" content="https://tokyo357.com/assets/og/oboerukakeibo.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -24,10 +24,10 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "ズレない家計簿",
+  "name": "オボエル家計簿",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "iOS 17.0 or later",
-  "url": "https://tokyo357.com/apps/zurenaikakeibo",
+  "url": "https://tokyo357.com/apps/oboerukakeibo",
   "offers": { "@type": "Offer", "price": "120", "priceCurrency": "JPY" },
   "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
 }
@@ -62,13 +62,13 @@
   <div class="wrap">
 
     <div class="doc-head doc-head--app">
-      <img class="doc-icon" src="/assets/icons/zurenaikakeibo.png" width="512" height="512" alt="ズレない家計簿のアプリアイコン">
+      <img class="doc-icon" src="/assets/icons/oboerukakeibo.png" width="512" height="512" alt="オボエル家計簿のアプリアイコン">
       <div>
         <p class="updated">IOS 17+ · IPHONE / IPAD · 買い切り 120円</p>
-        <h1>ズレない家計簿</h1>
-        <p class="lede">家計簿が合わなくなる原因の多くは、入力の手間ではありません。<strong>クレジットカードの引落日が、アプリの計算と実際でずれる</strong>ことです。</p>
+        <h1>オボエル家計簿</h1>
+        <p class="lede">レシートを撮る。読み取った内容を確認して、1タップ。それで記録は終わりです。<strong>そして2回目からは、その店を覚えています。</strong></p>
         <div class="actions mt-s">
-          <a class="btn btn--ghost" href="/support#zurenaikakeibo">よくある質問</a>
+          <a class="btn btn--ghost" href="/support#oboerukakeibo">よくある質問</a>
           <a class="btn btn--ghost" href="#help">お問い合わせ</a>
         </div>
       </div>
@@ -79,32 +79,45 @@
       <p><strong>現在 App Store に申請の準備中です。</strong>公開されたらこのページからリンクします。</p>
 
       <h2>なぜ作ったか</h2>
-      <p>家計簿アプリの不満を集めると、金額の入力より先に、<strong>日付の扱い</strong>で崩れているケースが目立ちました。</p>
+      <p>レシートを撮って家計簿にするアプリはすでにあります。それらの低評価レビューを3本ぶん、<strong>93件</strong>集めて読み込んだところ、不満は決まった場所に集まっていました。</p>
       <ul>
-        <li>クレジットカードの引落日が実際と合わない（翌々月払い、土日祝によるずれ）</li>
-        <li>給料日始まりで期間を区切ると、その日が祝日のときに崩れる</li>
-        <li>残高が少しずつずれていく</li>
-        <li>日付が1日ずれる</li>
+        <li><strong>反映が遅い。</strong>1枚あたり40〜48時間かかるという声が複数ありました。人が目視で入力しているためです。撮ったことを忘れた頃に反映されます。</li>
+        <li><strong>送信とアカウントが不安。</strong>「データを抜いているのでは」「退会したのに課金された」といった内容です。レシートには買った店・日時・品目が全部載っています。</li>
+        <li><strong>途中から有料になる。</strong>無料枠が切れて撮影できなくなる、という声です。</li>
+        <li><strong>撮った写真がカメラロールに残る。</strong>レシートの画像が写真アプリに溜まっていきます。</li>
+        <li><strong>同じ店なのに毎回カテゴリを直す。</strong>覚えてくれないので、行くたびに同じ操作をします。</li>
       </ul>
-      <p>金額が合っていても、いつ引き落とされるかがずれていれば、口座の残高予測は当たりません。<strong>家計簿の役割は記録ではなく、この先いくら残るかを知ること</strong>です。そこが外れると意味がありません。</p>
+      <p>これらに共通しているのは、<strong>読み取りを自分の端末の外でやっている</strong>ことです。外に送るから待つことになり、送るから不安になり、処理にお金がかかるから課金が要る。<strong>端末の中だけで完結させれば、この3つは同時に消えます。</strong></p>
 
       <h2>できること</h2>
+      <h3>待ちません</h3>
+      <p>読み取りはすべてこのiPhoneの中で行います。撮った瞬間に、金額・店名・日付が入った確認画面が開きます。どこかに送って順番待ちをすることも、あとから反映されるのを待つこともありません。</p>
+
+      <h3>送りません</h3>
       <ul>
-        <li><strong>締め日から引落日を正確に出す</strong> — 締め日・支払月のオフセット（翌月／翌々月）・引落日・土日祝の扱い（前営業日／翌営業日）を設定すると、実際の引落日を計算します。祝日と振替休日も判定します。</li>
-        <li><strong>その場で確認できる</strong> — カード払いを記録すると、その場で「◯月◯日締め → ◯月◯日引落」と表示します。</li>
-        <li><strong>引落カレンダー</strong> — 今後6か月分の引落予定を一覧できます。</li>
-        <li><strong>給料日始まりの期間</strong> — 期間の開始日を1〜31日で指定でき、その日が土日祝なら営業日に補正します。</li>
-        <li><strong>残高がずれない</strong> — 残高を保存せず、毎回すべての記録から計算し直します。金額はすべて整数の円で扱います。</li>
-        <li><strong>消したものが戻せる</strong> — 削除は論理削除で、履歴から元に戻せます。端末内に10世代のスナップショットを保持します。</li>
-        <li><strong>1枚のレシートを分けられる</strong> — 1回の買い物を複数のカテゴリに分けて記録できます。</li>
+        <li>レシートの画像はアプリに保存せず、外部のサーバーにも生成AIにも送りません。</li>
+        <li>アカウント登録もログインもありません。<strong>ネットワーク通信そのものを行いません。</strong></li>
+        <li>写真アプリのカメラロールにレシートが溜まっていくこともありません。</li>
       </ul>
+
+      <h3>覚えます</h3>
+      <p>保存すると、その店を記憶します。次に同じ店のレシートを撮ると、カテゴリが最初から入った状態で確認画面が開きます。店名の表記が多少ゆれても同じ店として扱います。</p>
+
+      <h3>読み間違いを減らす</h3>
+      <p>レシートには金額以外の数字がたくさん並んでいます。事業者登録番号や電話番号を金額として拾ってしまうのが、この種のアプリでよくある失敗です。オボエル家計簿は桁数と書式で候補を絞り、<strong>どこを読んだのかを画面に示します</strong>。違っていればその場で直せます。日付も、未来の日付は弾きます。</p>
+
+      <h3>締め日と引落日も正確に出す</h3>
+      <p>クレジットカードは、締め日・支払月（翌月／翌々月）・引落日・土日祝の扱いを設定すると、実際の引落日を計算します。祝日と振替休日も判定します。今後6か月の引落予定を一覧できます。</p>
+
+      <h3>消したものが戻せる</h3>
+      <p>削除は論理削除で、履歴から元に戻せます。端末内に10世代のスナップショットを保持しており、復元する前に現在の状態を自動で退避します。1枚のレシートを複数のカテゴリに分けて記録することもできます。</p>
 
       <h2>動作環境</h2>
       <dl class="facts">
         <div><dt>対応OS</dt><dd>iOS 17.0 以降</dd></div>
         <div><dt>対応端末</dt><dd>iPhone / iPad</dd></div>
         <div><dt>価格</dt><dd>120円（買い切り）<span class="sub">アプリ内課金なし・広告なし・サブスクリプションなし</span></dd></div>
-        <div><dt>通信</dt><dd>なし<span class="sub">データは端末の中だけに保存されます</span></dd></div>
+        <div><dt>通信</dt><dd>なし<span class="sub">読み取りも保存も端末の中だけで行います</span></dd></div>
         <div><dt>提供元</dt><dd>株式会社サウナ<span class="sub">Sauna Inc.</span></dd></div>
       </dl>
 
@@ -112,16 +125,16 @@
       <p>このアプリは個人情報を一切収集しません。収支の記録は端末の中だけに保存され、当社に送信されることはありません。レシートを撮影した画像も端末内でのみ解析し、保存も送信もしません。詳しくは<a href="/privacy">プライバシーポリシー</a>をご覧ください。</p>
 
       <h2 id="help">困ったときは</h2>
-      <p>ご不明な点は<a href="/support#zurenaikakeibo">サポートページ</a>にまとめています。解決しない場合は <a href="mailto:yamaguchi@tokyo357.com">yamaguchi@tokyo357.com</a> までご連絡ください。平日 10:00–18:00（日本時間）に受け付け、2営業日以内に返信します。</p>
+      <p>ご不明な点は<a href="/support#oboerukakeibo">サポートページ</a>にまとめています。解決しない場合は <a href="mailto:yamaguchi@tokyo357.com">yamaguchi@tokyo357.com</a> までご連絡ください。平日 10:00–18:00（日本時間）に受け付け、2営業日以内に返信します。</p>
 
     </div>
 <!-- BUILD:install -->
     <section class="install">
       <div>
-        <h2>ズレない家計簿は現在 App Store 申請の準備中です</h2>
+        <h2>オボエル家計簿は現在 App Store 申請の準備中です</h2>
         <p>iOS 17+ ／ 買い切り 120円 で公開予定です。公開されしだい、このページにダウンロードのリンクを出します。先に中身を知りたい方は、上の説明とよくある質問をご覧ください。</p>
         <div class="actions">
-          <a class="btn btn--ghost" href="/support#zurenaikakeibo">よくある質問</a>
+          <a class="btn btn--ghost" href="/support#oboerukakeibo">よくある質問</a>
           <a class="btn btn--ghost" href="/apps/">ほかのアプリを見る</a>
         </div>
       </div>
@@ -188,7 +201,7 @@
         <a href="/apps/othello">ぱすてるオセロ</a>
         <a href="/apps/dandorirecipe">だんどりレシピ</a>
         <a href="/apps/hanalog">ハナログ</a>
-        <a href="/apps/zurenaikakeibo">ズレない家計簿</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
         <a href="/apps/magedori">マゲドリ</a>
         <a href="/apps/negotouranai">ねごと占い</a>
         <a href="/support">サポート</a>
