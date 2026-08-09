@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>レシートを撮る家計簿アプリで、反映が遅いのはなぜか ｜ 株式会社サウナ</title>
+<meta name="description" content="レシートを撮ってから家計簿に反映されるまで、1〜2日かかることがあります。これは処理が遅いのではなく、読み取りを人が目視でやっているためです。仕組みの違いと、待たずに済ませる方法を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/receipt-app-osoi">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="レシートを撮る家計簿アプリで、反映が遅いのはなぜか">
+<meta property="og:description" content="反映が遅いのは処理速度ではなく、読み取りを人が目視でやっているためです。">
+<meta property="og:url" content="https://tokyo357.com/guides/receipt-app-osoi">
+<meta property="og:image" content="https://tokyo357.com/assets/og/oboerukakeibo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "レシートを撮る家計簿アプリで、反映が遅いのはなぜか",
+  "description": "反映が遅いのは処理速度ではなく、読み取りを人が目視でやっているためです。",
+  "inLanguage": "ja",
+  "datePublished": "2026-08-09",
+  "dateModified": "2026-08-09",
+  "image": "https://tokyo357.com/assets/og/oboerukakeibo.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/receipt-app-osoi",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "レシートを撮る家計簿アプリで、反映が遅いのはなぜか" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-08-09 ／ 仕事の道具</p>
+      <h1>レシートを撮る家計簿アプリで、反映が遅いのはなぜか</h1>
+      <p class="lede">レシートを撮ったのに、その日の家計簿に出てこない。翌日になっても入っていない。これは不具合ではなく、<strong>多くのアプリが採用している仕組みそのもの</strong>から来ています。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>反映に時間がかかるアプリは、<strong>撮った画像をサーバーに送り、人が目で見て入力しています。</strong>だから混み具合によって40時間以上かかることがあります。端末の中だけで読み取る方式なら、撮った瞬間に結果が出ます。</p>
+      </div>
+
+      <h2>2つの方式がある</h2>
+      <p>レシートを読み取る家計簿アプリには、大きく2つの作り方があります。</p>
+      <h3>1. 送って、人が入力する方式</h3>
+      <p>撮った画像をサーバーへ送り、オペレーターが目視で金額と店名を入力して返します。<strong>精度は高くなります</strong>が、待ち時間が発生します。混雑すると1〜2日かかることがあり、それが「反映が遅い」の正体です。</p>
+      <p>人手が要るので運営にコストがかかり、無料枠が設けられたり、途中から有料になったりする傾向もあります。</p>
+      <h3>2. 端末の中で読み取る方式</h3>
+      <p>iPhone に入っている文字認識機能を使い、その場で読み取ります。<strong>通信も順番待ちもないので即座に結果が出ます。</strong>そのかわり、認識は完璧ではないので、確認して直す前提の作りになります。</p>
+
+      <h2>どちらが向いているか</h2>
+      <ul>
+        <li><strong>枚数が多く、精度を優先したい</strong> → 送る方式。まとめて撮って放置し、後日まとめて確認する使い方に向きます。</li>
+        <li><strong>その場で終わらせたい</strong> → 端末内で読む方式。1枚ずつその場で確認するので、あとから「これ何だっけ」がなくなります。</li>
+        <li><strong>レシートを外に出したくない</strong> → 端末内で読む方式一択です。</li>
+      </ul>
+
+      <h2>レシートに何が写っているか</h2>
+      <p>意外と意識されませんが、レシートには<strong>いつ・どこで・何を買ったか</strong>が全部載っています。薬局で何を買ったか、どの病院にかかったか、どこに何時にいたか。これらが1枚に収まっています。</p>
+      <p>送る方式を選ぶ場合は、その画像がどこに保存され、誰が見るのかを規約で確認しておくほうが安全です。</p>
+
+      <h2>撮った写真がカメラロールに残る問題</h2>
+      <p>アプリによっては、撮影した画像がiPhoneの「写真」アプリに保存されます。レシートの画像が何十枚も溜まっていくのは気持ちのよいものではありません。</p>
+      <p>設定で切れる場合もありますが、切れないアプリもあります。<strong>導入前に、撮影画像がカメラロールに残るかを確認しておく</strong>と後悔しません。</p>
+
+      <h2>読み取りの間違いを減らす</h2>
+      <p>どちらの方式でも間違いは起きます。特に多いのが次の2つです。</p>
+      <ul>
+        <li><strong>金額以外の数字を拾う。</strong>レシートには事業者登録番号、電話番号、レジ番号など数字が並んでいます。桁数の多い数字を合計額と取り違えることがあります。</li>
+        <li><strong>日付がずれる。</strong>印字が薄いと読み違えます。数日後の日付が入っていたら、それは誤読です。</li>
+      </ul>
+      <p>撮るときは、<strong>影を作らず、レシート全体が入るように真上から</strong>撮ると精度が上がります。折り目やしわは伸ばしてください。</p>
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>端末の中だけで読み取る家計簿</h2>
+        <p><strong>オボエル家計簿</strong>は、読み取りをすべてこのiPhoneの中で行います。撮った瞬間に、金額・店名・日付が入った確認画面が開きます。どこかに送って順番待ちをすることはありません。</p>
+        <p>レシートの画像はアプリに保存せず、外部のサーバーにも生成AIにも送りません。カメラロールにも残りません。金額はどこを読んだかを画面に示すので、違っていればその場で直せます。保存すると店を記憶し、次に同じ店のレシートを撮ると、カテゴリが入った状態で開きます。買い切り120円、広告なし、通信なし。</p>
+        <p class="cmp-note">オボエル家計簿は現在 App Store 申請の準備中です。公開されしだいこのページからリンクします。</p>
+        <div class="actions">
+          <a class="btn btn--ghost" href="/apps/oboerukakeibo">アプリの詳細を見る</a>
+          <a class="btn btn--ghost" href="/support#oboerukakeibo">よくある質問</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>関連するページ</h2>
+      <p>同じ考え方でつくった、ほかのアプリです。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/oboerukakeibo">
+          <img src="/assets/icons/oboerukakeibo.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>オボエル家計簿</b>
+            <span>レシートを端末内で読み取り、待たずに記録。画像は保存も送信もしない。</span>
+            <em>買い切り 120円・準備中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/hitoriinvoice">
+          <img src="/assets/icons/hitoriinvoice.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ひとり請求書</b>
+            <span>見積・納品・請求・領収を同じ明細から1タップ。インボイス対応。</span>
+            <em>無料（120円の買い切りで全機能）・審査中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/kaeseru">
+          <img src="/assets/icons/kaeseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>カエセル</b>
+            <span>住宅ローンの計算。金利上昇と繰上返済の損得を金額で出す。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js?v=20260805" defer></script>
+</body>
+</html>

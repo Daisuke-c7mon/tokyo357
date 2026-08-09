@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>電線管の曲げ寸法が現物と合わない理由と、合わせ方 ｜ 株式会社サウナ</title>
+<meta name="description" content="電線管の曲げ寸法を計算どおりに出しても、実際に曲げると合わないことがあります。原因はベンダーごとに実際の曲げ半径が違うためです。自分の道具に合わせる方法を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/densenkan-mage-sunpou">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="電線管の曲げ寸法が現物と合わない理由と、合わせ方">
+<meta property="og:description" content="計算が合わないのはベンダーごとに実効半径が違うためです。合わせ方を説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/densenkan-mage-sunpou">
+<meta property="og:image" content="https://tokyo357.com/assets/og/magedori.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "電線管の曲げ寸法が現物と合わない理由と、合わせ方",
+  "description": "計算が合わないのはベンダーごとに実効半径が違うためです。合わせ方を説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-08-09",
+  "dateModified": "2026-08-09",
+  "image": "https://tokyo357.com/assets/og/magedori.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/densenkan-mage-sunpou",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "電線管の曲げ寸法が現物と合わない理由と、合わせ方" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-08-09 ／ 仕事の道具</p>
+      <h1>電線管の曲げ寸法が現物と合わない理由と、合わせ方</h1>
+      <p class="lede">計算式どおりに寸法を出したのに、曲げてみると数ミリ合わない。何度やっても同じ方向にずれる。これは計算間違いではなく、<strong>使っているベンダーの実際の曲げ半径が、カタログの値と違う</strong>ために起きます。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>計算に使う曲げ半径は、<strong>ベンダーの個体ごとに違います。</strong>カタログ値をそのまま入れても合いません。試しに1回曲げて実測し、そこから逆算した「実効半径」を使えば、以降の計算が自分の道具に合います。</p>
+      </div>
+
+      <h2>なぜ個体差が出るのか</h2>
+      <p>曲げ半径は、ベンダーのシューの形状だけで決まるわけではありません。</p>
+      <ul>
+        <li><strong>管が曲げの途中で少し伸びる</strong> — 外側が伸び、内側が縮みます。伸び方は管種と肉厚で変わります</li>
+        <li><strong>スプリングバックがある</strong> — 曲げたあと、わずかに戻ります。戻り量は材質と曲げ角度で変わります</li>
+        <li><strong>道具が摩耗する</strong> — 使い込んだベンダーは新品と同じ寸法になりません</li>
+        <li><strong>力のかけ方に癖が出る</strong> — 同じ道具でも作業者によってわずかに変わります</li>
+      </ul>
+      <p>これらをまとめて吸収するのが<strong>実効半径</strong>という考え方です。理論値ではなく、その道具でその人が曲げたときに実際に出る半径を使います。</p>
+
+      <h2>実効半径の出し方</h2>
+      <ol>
+        <li>捨て材で<strong>90度を1回曲げる</strong></li>
+        <li>曲げた管の寸法を実測する（管端から曲げの基準点まで）</li>
+        <li>計算で出るはずだった値と、実測値の差を見る</li>
+        <li>その差から半径を逆算する</li>
+      </ol>
+      <p>1回やっておけば、以降その道具ではずれません。<strong>管種ごとに1回ずつ</strong>取っておくと、より合います。E管とG管では肉厚が違うので、伸び方も変わるためです。</p>
+
+      <h2>測る基準を統一する</h2>
+      <p>ずれの原因として、実効半径の次に多いのが<strong>どこを測っているかの食い違い</strong>です。</p>
+      <ul>
+        <li><strong>背（外側）</strong> — 曲げの外側までの距離</li>
+        <li><strong>芯（中心）</strong> — 管の中心線までの距離</li>
+        <li><strong>内（内側）</strong> — 曲げの内側までの距離</li>
+      </ul>
+      <p>図面がどれで書かれているか、自分がどれで測っているか。ここが合っていないと、半径ぶんまるごとずれます。<strong>作業の前に基準を決めて、全員で揃える</strong>のが確実です。</p>
+
+      <h2>日本の現場で使う単位と管種</h2>
+      <p>海外製の計算アプリはインチと EMT / IMC / Rigid が前提です。日本の現場はミリメートルで、管種も違います。</p>
+      <ul>
+        <li><strong>E管</strong>（ねじなし電線管）</li>
+        <li><strong>C管</strong>（薄鋼電線管）</li>
+        <li><strong>G管</strong>（厚鋼電線管）</li>
+        <li><strong>PF管・CD管</strong>（合成樹脂可とう電線管）</li>
+      </ul>
+      <p>単位が違うだけでなく、管の外径も肉厚も規格が異なります。インチ前提の計算をミリに換算しても合いません。</p>
+
+      <h2>現場でのコツ</h2>
+      <ul>
+        <li><strong>印は管端からの累積距離で付ける</strong> — 曲げごとの相対距離で測ると、誤差が積み上がります</li>
+        <li><strong>最初の1本は捨てるつもりで</strong> — 実効半径を取るための1本と割り切ると、結果的に早く終わります</li>
+        <li><strong>同じ寸法を複数作るときは治具を作る</strong> — 毎回測るより速く、ばらつきも減ります</li>
+      </ul>
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>自分のベンダーを覚えさせるアプリ</h2>
+        <p><strong>マゲドリ</strong>は、日本のJIS電線管専用の曲げ寸法計算アプリです。E管・C管・G管・PF管・CD管の寸法をミリメートルで内蔵しています。</p>
+        <p>中核は<strong>実測キャリブレーション</strong>です。試し曲げを1回して寸法を入れると、そこから実効芯半径を逆算して記憶します。以降の計算が自分の道具に合った値になります。ベンダーは複数登録して切り替えられます。測定の基準（背・芯・内）を選べて図で示し、管端からの累積距離で提示します。スライダーは使わず、テンキー直接入力と±ボタンだけにしました。買い切り120円、広告なし、通信なし、全画面日本語です。</p>
+        <p class="cmp-note">マゲドリは現在 App Store 審査中です。公開されしだいこのページからリンクします。</p>
+        <div class="actions">
+          <a class="btn btn--ghost" href="/apps/magedori">アプリの詳細を見る</a>
+          <a class="btn btn--ghost" href="/support#magedori">よくある質問</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>関連するページ</h2>
+      <p>同じ考え方でつくった、ほかのアプリです。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/magedori">
+          <img src="/assets/icons/magedori.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>マゲドリ</b>
+            <span>日本のJIS電線管専用の曲げ寸法計算。試し曲げ1回で実効芯半径を逆算。</span>
+            <em>買い切り 120円・審査中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sagaseru">
+          <img src="/assets/icons/sagaseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>サガセル録音</b>
+            <span>文字起こしの1文をタップすると音声がその瞬間まで飛ぶボイスメモ。</span>
+            <em>買い切り 120円・審査中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/kaeseru">
+          <img src="/assets/icons/kaeseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>カエセル</b>
+            <span>住宅ローンの計算。金利上昇と繰上返済の損得を金額で出す。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js?v=20260805" defer></script>
+</body>
+</html>
