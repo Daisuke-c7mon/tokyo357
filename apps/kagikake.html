@@ -13,6 +13,14 @@
 <meta property="og:url" content="https://tokyo357.com/apps/kagikake">
 <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/style.css?v=20260805">
+<style>
+/* このページ限定。共有のstyle.cssに .shots の定義が入るまでの受け皿 */
+.shots--kagikake{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:32px 0}
+.shots--kagikake figure{margin:0}
+.shots--kagikake img{width:100%;height:auto;border-radius:14px;display:block;
+  box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.shots--kagikake figcaption{margin-top:10px;font-size:.85rem;line-height:1.6;opacity:.72}
+</style>
 <!-- BUILD:head -->
 <meta property="og:image" content="https://tokyo357.com/assets/og/kagikake.png">
 <meta property="og:image:width" content="1200">
@@ -121,7 +129,7 @@
       </ul>
       <p>カギカケは、この5つを設計で潰すために作りました。</p>
 
-      <div class="shots">
+      <div class="shots shots--kagikake">
         <figure>
           <img src="/assets/shots/kagikake/1_lock.png" width="414" height="900" alt="カギカケのロック画面。数字のキーパッドが並んでいる" loading="lazy">
           <figcaption>入口はひとつ。入れた数字によって、開く金庫が変わります。</figcaption>
