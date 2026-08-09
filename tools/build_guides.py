@@ -216,7 +216,42 @@ def index_page():
 """
 
 
+
+def require_todays_ranks():
+    """ランキングの記録を飛ばして記事だけ足すのを防ぐ。
+
+    プロンプトで「必ず最初に実行する」と指示しても2日連続で飛ばされたため、
+    仕組みで止める。記事を足すには check_ranks.py を先に走らせるしかない。
+    どうしても回避したいときだけ SKIP_RANK_GUARD=1 を付ける。
+    """
+    import datetime
+    import json
+    import os
+
+    if os.environ.get("SKIP_RANK_GUARD") == "1":
+        return
+    f = ROOT / "tools" / "ranks.json"
+    today = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
+    checked = None
+    if f.exists():
+        try:
+            data = json.loads(f.read_text())
+            checked = {v.get("checked") for v in data.values()}
+        except Exception:
+            checked = None
+    if not checked or today not in checked:
+        raise SystemExit(
+            f"\n中断しました。今日（{today}）のランキングが記録されていません。\n"
+            f"  現在の記録: {sorted(checked) if checked else 'なし'}\n\n"
+            f"先にこれを実行してください:\n"
+            f"  python3 tools/check_ranks.py {today}\n\n"
+            f"順位の記録は毎日取らないと最高順位を取り逃します。\n"
+            f"（どうしても回避する場合のみ SKIP_RANK_GUARD=1 を付ける）\n"
+        )
+
+
 def main():
+    require_todays_ranks()
     sync_shared()
     (ROOT / "guides" / "index.html").write_text(index_page())
     print("生成: guides/index.html (/guides/)")
