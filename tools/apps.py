@@ -95,7 +95,7 @@ APPS = [
          tagline="名前を知らなくても、用途から引ける。",
          short="ロープの結び方を3Dで。動かす端を色分けし、締め込みまで見せる結び方辞典。",
          topic="仕事の道具"),
-    dict(slug="kagikake", name="カギカケ", appid="", state="prepare",
+    dict(slug="kagikake", name="カギカケ", appid="6799562522", state="prepare",
          price="買い切り 120円", os="iOS 17+",
          tagline="教えても、本物は出てこない。",
          short="写真・動画・ファイルを端末内で暗号化する金庫。ダミーのパスコードで別の金庫が開く。",
