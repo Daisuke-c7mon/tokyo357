@@ -797,3 +797,62 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 }
 .work .rank { margin: 0 0 14px; padding: 6px 12px; font-size: 12.5px; }
 .work .rank b { font-size: 14px; }
+
+/* ── アプリの画面（スクリーンショット） ───────────────────────
+   横スクロールの帯にする。縦に積むとページが長くなりすぎ、
+   グリッドに詰めると1枚が小さくなって文字が読めなくなる。 */
+.shots { margin: clamp(28px, 5vw, 44px) 0 clamp(36px, 6vw, 56px); }
+
+.shots-strip {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  padding: 4px 0 14px;
+  /* 端で切れているのを見せて、横に続くことを分からせる */
+  margin-inline: calc(var(--gut) * -1);
+  padding-inline: var(--gut);
+  scrollbar-width: thin;
+  scrollbar-color: var(--faint) transparent;
+}
+.shots-strip::-webkit-scrollbar { height: 6px; }
+.shots-strip::-webkit-scrollbar-thumb {
+  background: var(--faint); border-radius: 3px;
+}
+
+.shots-strip a {
+  flex: 0 0 auto;
+  width: clamp(148px, 40vw, 208px);
+  display: block;
+  line-height: 0;
+  cursor: zoom-in;
+  border-radius: 14px;
+  scroll-snap-align: start;
+}
+.shots-strip img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  background: var(--char-2);
+  box-shadow: 0 0 0 1px var(--wood-line), 0 8px 22px rgba(0, 0, 0, .38);
+}
+
+.shots-note {
+  color: var(--dim);
+  font-size: 14px;
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  /* 画面が広いときは全部見えるので、スクロールをやめて敷き詰める */
+  .shots-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+  .shots-strip a { width: 100%; }
+}

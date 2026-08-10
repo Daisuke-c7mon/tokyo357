@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PNGとJPEGの違い — 透過が消えるのはどこか ｜ 株式会社サウナ</title>
+<meta name="description" content="JPEGには透明を記録する場所がありません。透過したPNGが白くなるのは、どこかでJPEGに変換されているためです。見分け方と、透過を保ったまま渡す方法をまとめます。">
+<link rel="canonical" href="https://tokyo357.com/guides/png-jpeg-touka-chigai">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="PNGとJPEGの違い — 透過が消えるのはどこか">
+<meta property="og:description" content="JPEGには透明を記録する場所がありません。透過したPNGが白くなるのは、どこかでJPEGに変換されているためです。見分け方と、透過を保ったまま渡す方法をまとめます。">
+<meta property="og:url" content="https://tokyo357.com/guides/png-jpeg-touka-chigai">
+<meta property="og:image" content="https://tokyo357.com/assets/og/sukemaru.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "PNGとJPEGの違い — 透過が消えるのはどこか",
+  "description": "JPEGには透明を記録する場所がありません。透過したPNGが白くなるのは、どこかでJPEGに変換されているためです。見分け方と、透過を保ったまま渡す方法をまとめます。",
+  "inLanguage": "ja",
+  "datePublished": "2026-08-10",
+  "dateModified": "2026-08-10",
+  "image": "https://tokyo357.com/assets/og/sukemaru.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/png-jpeg-touka-chigai",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-08-10 ／ 画像・写真</p>
+      <h1>PNGとJPEGの違い — 透過が消えるのはどこか</h1>
+      <p class="lede">背景を透明にしたのに白くなる。この現象のかなりの部分は、<strong>どこかの経路でJPEGに変換されている</strong>ことで説明がつきます。2つの形式の違いを、透過という一点にしぼって整理します。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">結論</p>
+        <p><strong>JPEGには、透明を記録するための場所（アルファチャンネル）がありません。</strong>
+        PNGにはあります。透過した画像をJPEGで保存した時点で、透明だった部分は白などの色に置き換わり、
+        あとから戻すことはできません。</p>
+      </div>
+
+      <h2>アルファチャンネルという考え方</h2>
+      <p>デジタル画像は、ピクセルごとに赤・緑・青の値を持っています。ここに「そのピクセルがどれくらい不透明か」を表す4つめの値を足したものが、アルファチャンネルです。</p>
+      <p>アルファが0なら完全に透明、255なら完全に不透明。その間は半透明で、髪の毛や布の輪郭のような、背景がうっすら透ける部分を表現します。</p>
+      <p>PNGはこの4つめの値を保存できます。JPEGは仕様として持っていません。<strong>だからJPEGに変換した瞬間、透明だった情報は捨てられます。</strong></p>
+
+      <h2>ふたつの形式の性格</h2>
+      <div class="cmp-wrap">
+        <table class="cmp">
+          <thead><tr><th></th><th>PNG</th><th>JPEG</th></tr></thead>
+          <tbody>
+            <tr><th>透過</th><td>できる</td><td><strong>できない</strong></td></tr>
+            <tr><th>圧縮</th><td>可逆（劣化しない）</td><td>非可逆（劣化する）</td></tr>
+            <tr><th>保存を繰り返すと</th><td>変わらない</td><td>だんだん劣化する</td></tr>
+            <tr><th>ファイルの大きさ</th><td>大きい</td><td>小さい</td></tr>
+            <tr><th>得意なもの</th><td>イラスト・図・文字・切り抜き</td><td>写真</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-note">HEICはiPhoneの標準形式で、透過を持てる場合もありますが、渡した先での扱いが読めません。透過を確実に残したいならPNGです。</p>
+
+      <h2>どこでJPEGに変わるのか</h2>
+      <p>自分でJPEGを選んだ覚えがなくても、次のような経路で変換されることがあります。</p>
+      <ol>
+        <li><strong>アプリの書き出し設定が既定でJPEGになっている。</strong>「保存」を押しただけでは形式を選んでいないことがあります</li>
+        <li><strong>受け取った側のアプリが内部で変換している。</strong>写真ライブラリ経由で画像を読むアプリの中には、読み込み時にJPEG化するものがあります。作った側に落ち度はないのに結果だけが失われます</li>
+        <li><strong>送信の途中で圧縮されている。</strong>メッセージアプリやSNSは、送信時に画像を自動で圧縮・変換することがあります</li>
+      </ol>
+      <p>1は自分で直せます。2と3は<strong>渡す経路を変える</strong>しかありません。</p>
+
+      <h2>透明なのに白く見えるだけ、という場合もある</h2>
+      <p>ここが紛らわしいところです。iPhoneの「写真」アプリは、<strong>透明な部分を白または黒で表示します</strong>。これは表示上の仕様であって、ファイルが壊れているわけではありません。</p>
+      <p>つまり「写真アプリで見たら白かった」は、失敗の証拠になりません。ファイルは正しく透過している可能性があります。詳しくは<a href="/guides/transparent-png-white">背景を透過したのに、保存すると白くなる</a>で説明しています。</p>
+
+      <h2>透過を保ったまま渡すには</h2>
+      <p>確実な順に並べると、次のようになります。</p>
+      <ol>
+        <li><strong>「ファイル」アプリに書き出す</strong> — 生成したPNGのバイト列がそのまま保存されます。もっとも安全です</li>
+        <li><strong>共有シートから相手のアプリへ直接わたす</strong> — 写真ライブラリを経由しないぶん、変換される機会が減ります</li>
+        <li><strong>写真に保存する</strong> — 保存自体はPNGのままでも、そこから読み出す側のアプリ次第で変換されることがあります</li>
+      </ol>
+      <p>そして、渡す前に<strong>ファイル形式とアルファチャンネルを実際に確認する</strong>のが確実です。拡張子が .png でも、中身がJPEGということはありえます。</p>
+
+      <h2>用途ごとの選び方</h2>
+      <ul>
+        <li><strong>LINEスタンプ、フリマの商品写真、ロゴ、アイコン</strong> — PNG。透過が必要です</li>
+        <li><strong>写真をそのまま載せる、容量を抑えたい</strong> — JPEG。透過が要らないなら軽いほうが有利です</li>
+        <li><strong>文字や線が多い図</strong> — PNG。JPEGだと文字のふちがにじみます</li>
+      </ul>
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>透けマル</h2>
+        <p><strong>透けマル</strong>は、書き出したPNGを自分で読み戻して、アルファチャンネルが本当に残っているかを数値で表示します。「PNGとして保存されたか」「完全に透明なピクセルが何パーセントあるか」がその場で分かるので、どこで透過が失われたのかを切り分けられます。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6796656589?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/sukemaru">透けマルについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/sukemaru.png" width="290" height="290" alt="透けマル の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/othello">
+          <img src="/assets/icons/othello.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ぱすてるオセロ</b>
+            <span>レベル1〜10のCPUと対戦。オフラインで遊べる。</span>
+            <em>無料・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/negotouranai">
+          <img src="/assets/icons/negotouranai.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ねごと占い</b>
+            <span>就寝中の寝言を自動録音し、端末内で文字起こしして夢占い風に読み解く。</span>
+            <em>無料（120円の買い切りで無制限）・準備中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+<script>document.documentElement.classList.remove('no-js');</script>
+</body>
+</html>

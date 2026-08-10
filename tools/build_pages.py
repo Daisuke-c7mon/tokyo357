@@ -18,6 +18,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 B0, B1 = "<!-- BUILD:install -->", "<!-- /BUILD:install -->"
 R0, R1 = "<!-- BUILD:related -->", "<!-- /BUILD:related -->"
 H0, H1 = "<!-- BUILD:head -->", "<!-- /BUILD:head -->"
+S0, S1 = "<!-- BUILD:shots -->", "<!-- /BUILD:shots -->"
 
 
 def replace_block(s, start, end, body):
@@ -96,6 +97,36 @@ def install_block(a):
     return body
 
 
+def shots_block(a):
+    """実際の画面を、説明文より先に見せる。
+
+    文章だけのページはどれだけ書いても「で、どんな画面なの」が残る。
+    App Store に出しているものと同じ画像を、同じ順番で並べる。
+    """
+    from shots import SHOTS
+    alts = SHOTS.get(a["slug"])
+    d = ROOT / "assets" / "shots" / a["slug"]
+    files = sorted(d.glob("*.jpg")) if d.exists() else []
+    if not alts or not files:
+        return None
+
+    url = store_url(a["appid"], "web_app_shots").replace("&", "&amp;")
+    # 一覧では小さいので、原寸を開けるようにする（JSなしで済ませる）
+    items = "\n".join(
+        f'        <a href="/assets/shots/{a["slug"]}/{f.name}" target="_blank" rel="noopener">'
+        f'<img src="/assets/shots/{a["slug"]}/{f.name}" width="640" height="1386"'
+        f' alt="{a["name"]}の{alts[i] if i < len(alts) else "画面"}"'
+        f' loading="lazy" decoding="async"></a>'
+        for i, f in enumerate(files))
+    tail = (f'<a href="{url}">App Store で見る</a>'
+            if a["state"] == "live" else "App Store 公開後、ここから直接開けるようにします")
+    return (f'\n    <section class="shots" aria-label="{a["name"]}の画面">\n'
+            f'      <div class="shots-strip">\n{items}\n      </div>\n'
+            f'      <p class="shots-note">実際の画面です。'
+            f'App Store に掲載しているものと同じものを載せています。{tail}</p>\n'
+            f'    </section>\n  ')
+
+
 def related_block(slug):
     """同じテーマ→公開中を優先して3件。回遊で他アプリのインストールにつなげる。"""
     me = BY_SLUG[slug]
@@ -163,6 +194,17 @@ def main():
             if m:
                 indent = "        "
                 s = s[:m.end()] + indent + badge + "\n" + s[m.end():]
+
+        # --- スクリーンショット（説明文の直前＝スクロールの早い位置に置く） ---
+        blk = shots_block(a)
+        if blk:
+            new = replace_block(s, S0, S1, blk)
+            if new is None:
+                anchor = '    <div class="prose">'
+                assert anchor in s, a["slug"]
+                s = s.replace(anchor, S0 + blk + S1 + "\n\n" + anchor, 1)
+            else:
+                s = new
 
         # --- install ---
         blk = install_block(a)
