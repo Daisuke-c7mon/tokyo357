@@ -182,8 +182,27 @@ GUIDES = [
          title="オセロで角を取られないために — X打ちとC打ちを覚える",
          lead="角を取られたところで勝負は決まっています。そして角を取られる原因は、その手前のマスに自分から石を置いたことにあります。名前のついた2か所を覚えます。",
          app="othello"),
+    dict(slug="shokanhyo-mikata", topic="お金の計算", date="2026-08-10",
+         title="償還表（返済予定表）の見方 — どの列を見れば何が分かるか",
+         lead="毎月同じ額を払っていても、元金と利息の内訳は返済が進むにつれて入れ替わります。3つの列だけ見れば、繰上返済をいつやるべきかまで読めます。",
+         app="kaeseru"),
+    dict(slug="x-osusume-tab-kesu", topic="X・SNSの表示", date="2026-08-10",
+         title="Xの「おすすめ」を消して、フォロー中だけ見る",
+         lead="公式アプリに「フォロー中」を既定にする設定はありません。iPhoneのSafariでできることと、サイトの作りが変わると効かなくなるという限界まで書きます。",
+         app="shizukatl"),
+    dict(slug="touka-gazou-shoyou-riyou", topic="画像・写真", date="2026-08-10",
+         title="背景を透過した画像を、商用利用してよいか",
+         lead="使えるかどうかは、アプリの規約ではなく元画像の権利で決まります。著作権・写り込んだ人や物の権利・アプリの規約を、3つ別々に切り分けます。",
+         app="sukemaru"),
+    dict(slug="doujinshi-nyuukou-gyakusan", topic="締切・進捗", date="2026-08-10",
+         title="同人誌の入稿締切から逆算する — 印刷所の締切は完成の締切ではない",
+         lead="入稿の前にデータチェックの戻り・書き出し・表紙の別締切があります。そのぶん原稿の完成日は手前になります。実際に使える日数の出し方。",
+         app="shimekiri"),
+    dict(slug="widget-shukan-kiroku", topic="習慣・記録", date="2026-08-10",
+         title="ウィジェットで習慣を記録する — アプリを開かずに1タップにする",
+         lead="続かないのは意志の問題というより、アプリを開くまでの手数です。4手を1手にする置き方と、既にある行動にくっつけるやり方。",
+         app="tsuzukutodo"),
 ]
-
 def shared():
     src = (ROOT / "guides" / "transparent-png-white.html").read_text()
     head = src.split('<header class="site-head">')[1].split("</header>")[0]
