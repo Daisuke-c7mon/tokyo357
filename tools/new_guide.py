@@ -131,7 +131,6 @@ def write_guide(slug, title, desc, lead, date, topic, app, pitch, body):
 </main>
 
 <footer class="site-foot">{foot}</footer>
-<script>document.documentElement.classList.remove('no-js');</script>
 </body>
 </html>
 """
