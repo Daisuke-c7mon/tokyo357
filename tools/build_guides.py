@@ -282,7 +282,13 @@ GUIDES = [
          title="電線管のオフセット曲げ（S字曲げ）の計算 — 曲げ量とマーキングの出し方",
          lead="配管が障害物にぶつかるときに使うのがオフセット曲げ（S字曲げ）です。オフセット量と曲げ角度から、2か所の曲げ位置をどう出すかを整理します。",
          app="magedori"),
+    dict(slug="negogoto-kiroku", topic="毎日の記録", date="2026-08-12",
+         title="寝言はなぜ出るのか — 記録してみて分かること",
+         lead="寝言は珍しい体質ではなく、眠りの浅い時間帯に多くの人へ起きる現象です。仕組みと、自分で確かめる方法、注意したほうがよいケースを分けて説明します。",
+         app="negotouranai"),
 ]
+
+
 def shared():
     src = (ROOT / "guides" / "transparent-png-white.html").read_text()
     head = src.split('<header class="site-head">')[1].split("</header>")[0]
