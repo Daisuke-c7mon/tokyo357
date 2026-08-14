@@ -37,9 +37,14 @@ KIND = {"paid": "toppaidapplications", "free": "topfreeapplications"}
 LABEL = {"paid": "有料App", "free": "無料App"}
 
 
+class FetchFailed(Exception):
+    pass
+
+
 def chart(genre, kind):
     url = (f"https://itunes.apple.com/jp/rss/{KIND[kind]}"
            f"/limit=200/genre={genre}/json")
+    last_err = None
     for _ in range(3):
         try:
             d = json.load(urllib.request.urlopen(
@@ -48,9 +53,13 @@ def chart(genre, kind):
             if isinstance(e, dict):
                 e = [e]
             return [x.get("id", {}).get("attributes", {}).get("im:id") for x in e]
-        except Exception:
+        except Exception as exc:
+            last_err = exc
             time.sleep(2)
-    return []
+    # 取得失敗と「本当にランク外」を区別する。ここで [] を返すと
+    # 呼び出し側が current=null（ランク外）として記録してしまい、
+    # ネットワーク遮断のたびに過去の順位が虚偽の「圏外」で上書きされる。
+    raise FetchFailed(f"{genre}/{kind}: {last_err}")
 
 
 def main():
@@ -61,11 +70,23 @@ def main():
 
     data = json.loads(OUT.read_text()) if OUT.exists() else {}
     cache = {}
+    failed_keys = set()
     for slug, (aid, genre, gname, kind) in TARGETS.items():
         key = (genre, kind)
-        if key not in cache:
-            cache[key] = chart(genre, kind)
+        if key not in cache and key not in failed_keys:
+            try:
+                cache[key] = chart(genre, kind)
+            except FetchFailed as exc:
+                failed_keys.add(key)
+                print(f"取得失敗（この分は更新せず前回値を保持）: {exc}", file=sys.stderr)
             time.sleep(0.5)
+
+        if key in failed_keys:
+            rec = data.get(slug, {})
+            prev = f'{rec.get("current")}位' if rec.get("current") else "（前回値なし）"
+            print(f'{slug:14} {gname:14} {LABEL[kind]}  今日 取得失敗  前回 {prev} のまま保持')
+            continue
+
         ids = cache[key]
         rank = ids.index(aid) + 1 if aid in ids else None
 
@@ -85,6 +106,10 @@ def main():
 
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
     print("\n保存:", OUT.relative_to(ROOT))
+
+    if failed_keys:
+        print(f"\n{len(failed_keys)}件のジャンル取得に失敗。取得できた分だけ更新しました。", file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
