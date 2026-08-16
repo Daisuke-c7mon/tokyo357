@@ -74,7 +74,12 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
 
 ## 未確定・要対応
 
-- [ ] **この自動実行環境（Claude Code Remote）から `itunes.apple.com` と `tokyo357.com` への外部通信が遮断されている**（2026-08-14 確認、プロキシが 403 で CONNECT を拒否）。`tools/check_ranks.py` がランキングを取得できず、ページの生死確認・評価数の実測もできない状態が続いている。ネットワークポリシーの許可リストに両ホストを追加する必要がある。`check_ranks.py` 側は取得失敗時に前回値を保持し `current` を虚偽の「ランク外」で上書きしない実装に修正済み（2026-08-14）。
+- [ ] **この自動実行環境（Claude Code Remote）から `itunes.apple.com` と `tokyo357.com` への外部通信が遮断されている**（2026-08-14 確認、2026-08-16 も再確認・継続中。プロキシが 403 で CONNECT を拒否）。`tools/check_ranks.py` がランキングを取得できず、ページの生死確認・評価数の実測もできない状態が続いている。ネットワークポリシーの許可リストに両ホストを追加する必要がある。`check_ranks.py` 側は取得失敗時に前回値を保持し `current` を虚偽の「ランク外」で上書きしない実装に修正済み（2026-08-14）。
+- [ ] **毎回の作業開始時に `git status` / `git branch` で `main` ブランチにいることを確認する。**
+      2026-08-14 の実行で `HEAD` が `main` から外れた detached HEAD の状態でコミットしてしまい、
+      その回の成果（check_ranks.py の修正・記事1本）が `main` にマージも push もされないまま
+      2日間放置されていた。2026-08-16 の実行で発覚し、fast-forward で復旧・pushした。
+      作業前に必ず `git checkout main` してから始めること。
 - [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
 - [ ] **DNSレコードの追加**（下記「独自ドメイン」参照）。Netlify側の接続とビルドは完了済み。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。
