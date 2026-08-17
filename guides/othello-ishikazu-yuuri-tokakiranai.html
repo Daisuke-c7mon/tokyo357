@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>オセロで石の数が多い方が勝っているとは限らない ｜ 株式会社サウナ</title>
+<meta name="description" content="オセロの対局中、石の数が多い方が有利とは限りません。中盤の石数が当てにならない理由と、代わりに見るべき「置ける場所の広さ」「確定石」について整理します。">
+<link rel="canonical" href="https://tokyo357.com/guides/othello-ishikazu-yuuri-tokakiranai">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="オセロで石の数が多い方が勝っているとは限らない">
+<meta property="og:description" content="オセロの対局中、石の数が多い方が有利とは限りません。中盤の石数が当てにならない理由と、代わりに見るべき「置ける場所の広さ」「確定石」について整理します。">
+<meta property="og:url" content="https://tokyo357.com/guides/othello-ishikazu-yuuri-tokakiranai">
+<meta property="og:image" content="https://tokyo357.com/assets/og/othello.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "オセロで石の数が多い方が勝っているとは限らない",
+  "description": "オセロの対局中、石の数が多い方が有利とは限りません。中盤の石数が当てにならない理由と、代わりに見るべき「置ける場所の広さ」「確定石」について整理します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-08-17",
+  "dateModified": "2026-08-17",
+  "image": "https://tokyo357.com/assets/og/othello.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/othello-ishikazu-yuuri-tokakiranai",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-08-17 ／ ボードゲーム</p>
+      <h1>オセロで石の数が多い方が勝っているとは限らない</h1>
+      <p class="lede">対局の途中で自分の石が少ないと不安になりますが、オセロは終局までの手で盤面が入れ替わるゲームです。中盤の石数と、最終的な勝敗の関係を整理します。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">短い答え</p>
+        <p>対局の途中で見える<strong>石の数の多さは、そのままでは有利・不利の目安になりません。</strong>
+        中盤までに石を取りすぎると、かえって終盤に置ける場所を失い、不利になることがあります。
+        見るべきは石の数ではなく、<strong>置ける場所の広さ</strong>と<strong>もうひっくり返されない石（確定石）</strong>の多さです。</p>
+      </div>
+
+      <h2>なぜ中盤の石の数が当てにならないのか</h2>
+      <p>オセロは終局まで盤面が確定しません。中盤でどれだけ石を持っていても、次の1手で
+      その石がまとめてひっくり返ることがあります。序盤・中盤の石数は「今の見た目」でしかなく、
+      終盤にどちらが有利な形で打ち終えられるかとは別の話です。</p>
+
+      <h2>石を取りすぎると起きること</h2>
+      <p>中盤に石を積極的に取りにいくと、自分の石が盤面の内側に集まりやすくなります。
+      その結果、<a href="/guides/othello-kado-x-uchi">辺や角に近いマス（X打ち・C打ち）</a>を
+      自分から相手に開けてしまう場面が増えます。角を取られると、そこを起点に一気に多くの石を
+      返されることがあり、見た目の石数の差はすぐに逆転します。</p>
+
+      <h2>石の数より見るべきもの</h2>
+      <ul>
+        <li><strong>置ける場所の広さ。</strong>自分と相手、どちらが選べる手を多く残しているか。
+        終盤に選べる手が少ない側は、不利な手しか残らずに追い込まれやすくなります</li>
+        <li><strong>確定石。</strong>角や、角から辺づたいに埋まったマスの石は、以降ひっくり返されません。
+        中盤の石数より、確定石がどちらに多いかのほうが終局の結果に直結します</li>
+      </ul>
+
+      <h2>終盤の形につながる話</h2>
+      <p>置ける場所の広さと確定石の話は、<a href="/guides/othello-shuban-saigo">終盤で「最後に打つ側」が
+      有利になりやすい仕組み</a>と同じ根っこにあります。中盤で石数を追わず、置ける場所を広く保っておくことが、
+      終盤の有利な手番につながります。</p>
+
+      <h2>まとめ</h2>
+      <p>対局中に石の数で一喜一憂する必要はありません。<a href="/guides/othello-joseki-kihon">序盤に石を
+      取りすぎない打ち方</a>を意識し、置ける場所の広さと確定石で局面を判断する習慣をつけると、
+      見た目の石数に振り回されずに済みます。</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>ぱすてるオセロ</h2>
+        <p>レベル1〜10のCPUと対戦しながら、石の数ではなく終盤の形を意識する練習ができます。Lv1は必ず勝てる強さです。</p>
+        <p class="cmp-note">iOS 16+ ／ 無料</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6793739141?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/othello">ぱすてるオセロについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/othello.png" width="290" height="290" alt="ぱすてるオセロ の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sukemaru">
+          <img src="/assets/icons/sukemaru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>透けマル</b>
+            <span>背景を消して透過PNGに。書き出したファイルを読み戻してアルファを実測する。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/negotouranai">
+          <img src="/assets/icons/negotouranai.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ねごと占い</b>
+            <span>就寝中の寝言を自動録音し、端末内で文字起こしして夢占い風に読み解く。</span>
+            <em>無料（120円の買い切りで無制限）・準備中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
