@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>オセロに「必勝法」はあるのか — 2023年の完全解析が示したこと ｜ 株式会社サウナ</title>
+<meta name="description" content="2023年、オセロは「弱解決」されたと発表されました。互いに最善手を打ち続けると結果は引き分けになるという結論と、それでも対人戦で必勝法にならない理由を整理します。">
+<link rel="canonical" href="https://tokyo357.com/guides/othello-kanzen-kaiseki">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="オセロに「必勝法」はあるのか — 2023年の完全解析が示したこと">
+<meta property="og:description" content="2023年、オセロは「弱解決」されたと発表されました。互いに最善手を打ち続けると結果は引き分けになるという結論と、それでも対人戦で必勝法にならない理由を整理します。">
+<meta property="og:url" content="https://tokyo357.com/guides/othello-kanzen-kaiseki">
+<meta property="og:image" content="https://tokyo357.com/assets/og/othello.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "オセロに「必勝法」はあるのか — 2023年の完全解析が示したこと",
+  "description": "2023年、オセロは「弱解決」されたと発表されました。互いに最善手を打ち続けると結果は引き分けになるという結論と、それでも対人戦で必勝法にならない理由を整理します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-08-19",
+  "dateModified": "2026-08-19",
+  "image": "https://tokyo357.com/assets/og/othello.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/othello-kanzen-kaiseki",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-08-19 ／ ボードゲーム</p>
+      <h1>オセロに「必勝法」はあるのか — 2023年の完全解析が示したこと</h1>
+      <p class="lede">2023年、オセロというゲームそのものの結論が計算によって示されました。「必勝法」があるゲームなのか、それとも「引き分けにしかならない」ゲームなのか。発表された内容と、対人戦での意味を整理します。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">短い答え</p>
+        <p>2023年10月30日、Preferred Networksの滝澤拓己氏が、オセロの初期局面から双方が最善を尽くした場合の
+        結果を計算で求め、論文「Othello is Solved」で<strong>「引き分けになる」</strong>という結論を
+        arXivに発表しました。つまり
+        オセロには、先手・後手のどちらかが必ず勝てる「必勝法」は<strong>存在しません</strong>。ただし
+        これは「互いに最善手を打ち続けた場合」の話であり、対人戦でその最善手の手順を暗記して
+        打てる人はいないため、実際の対局で結果が保証されるわけではありません。</p>
+      </div>
+
+      <h2>「解かれた」とはどういうことか</h2>
+      <p>この結果は「オセロが解かれた」と報じられましたが、正確には<strong>弱解決（weak solved）</strong>
+      と呼ばれる形です。初期局面から最善手を打ち続けたときの結果（引き分け）だけが証明されたという
+      意味で、盤面のあらゆる局面について常に最善手が分かる「完全解決」とは区別されます。
+      それでも、約153京通りという膨大な局面を探索して結論を出した計算量は、これまでのオセロAI研究の
+      積み重ねの上に成り立っています。</p>
+
+      <h2>「引き分け」は「弱いゲーム」という意味ではない</h2>
+      <p>結果が引き分けだと分かったからといって、オセロというゲームの面白さが失われるわけではありません。
+      将棋やチェスも、理論上の結果はまだ判明していませんが、双方が最善を尽くせば引き分けになるだろうと
+      考えられています。<strong>結果が引き分けになりうることと、対局が退屈になることは別の話</strong>です。
+      1手間違えれば形勢は大きく傾き、それを見つけて咎められるかどうかが対局の勝負を分けます。</p>
+
+      <h2>人間の対局に「必勝法」はなぜ通用しないのか</h2>
+      <p>最善手の手順が分かっていても、それは膨大な局面すべてを覚えていて初めて再現できるものです。
+      人間はもちろん、通常のオセロAIも、この解析で使われた計算量をそのまま対局中に再現しているわけでは
+      ありません。実戦で強くなるために有効なのは、必勝手順の暗記ではなく、
+      <a href="/guides/othello-kado-x-uchi">角を取られない打ち方</a>や、
+      <a href="/guides/othello-ishikazu-yuuri-tokakiranai">石の数ではなく置ける場所の広さで局面を判断する</a>
+      といった、局面ごとの考え方を身につけることです。</p>
+
+      <h2>まとめ</h2>
+      <p>オセロは計算上「引き分けになるゲーム」だと分かりましたが、それは特定の手順を暗記すれば
+      必ず勝てるという意味ではありません。日々の対局で強くなる道筋は、これまでと変わらず、
+      序盤・中盤・終盤それぞれの考え方を積み重ねることにあります。</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>ぱすてるオセロ</h2>
+        <p>レベル1〜10のCPUと対戦しながら、必勝手順の暗記ではなく局面ごとの考え方を練習できます。Lv1は必ず勝てる強さです。</p>
+        <p class="cmp-note">iOS 16+ ／ 無料</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6793739141?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/othello">ぱすてるオセロについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/othello.png" width="290" height="290" alt="ぱすてるオセロ の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/kigyouojisan">
+          <img src="/assets/icons/kigyouojisan.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>起業おじさん</b>
+            <span>開業前後の判断に迷ったとき、今週やるべき一歩だけを示す。</span>
+            <em>無料・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/dandorirecipe">
+          <img src="/assets/icons/dandorirecipe.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>だんどりレシピ</b>
+            <span>作り置きの段取りを、火を使う順番から組み立てる。</span>
+            <em>買い切り 120円・準備中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
