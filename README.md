@@ -74,7 +74,7 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
 
 ## 未確定・要対応
 
-- [ ] **この自動実行環境（Claude Code Remote）から `itunes.apple.com` と `tokyo357.com`（`tokyo357.netlify.app` を含む）への外部通信が遮断されている**（2026-08-14 確認、2026-08-16〜2026-08-19 も再確認・継続中。プロキシが 403 で CONNECT を拒否。`$HTTPS_PROXY/__agentproxy/status` の `recentRelayFailures` で `connect_rejected` を確認できる）。`tools/check_ranks.py` がランキングを取得できず、ページの生死確認・評価数の実測もできない状態が続いている。ネットワークポリシーの許可リストに両ホストを追加する必要がある。`check_ranks.py` 側は取得失敗時に前回値を保持し `current` を虚偽の「ランク外」で上書きしない実装に修正済み（2026-08-14）。**ランキング記録は2026-08-12を最後に7日分（8/13〜8/19）欠落したまま。** ネットワークポリシー側の対応が最優先。**この状態が続くと、有料アプリの最高順位更新を1週間ずっと取り逃している可能性がある。** 記事執筆は WebSearch（別経路）が使えるため継続できているが、iTunes lookup APIによる評価数・価格の実測とランキング取得はこのツールでは代替できない。
+- [ ] **この自動実行環境（Claude Code Remote）から `itunes.apple.com` と `tokyo357.com`（`tokyo357.netlify.app` を含む）への外部通信が遮断されることがある**（2026-08-14 に確認して以降、ほぼ毎回遮断されているが、**間欠的**であることが判明した。プロキシが 403 で CONNECT を拒否。`$HTTPS_PROXY/__agentproxy/status` の `recentRelayFailures` で `connect_rejected` を確認できる）。`tools/ranks.json` の記録を見ると、8/13〜8/18は取得失敗が続いたが、**8/19の回は取得に成功していた**（`checked` が実際に更新され、sukemaru の順位が59位に変わるなど実測値が入っている）。ところが **8/20の回は再び全滅**（8ジャンル中8ジャンルとも `<urlopen error Tunnel connection failed: 403 Forbidden>`、複数回リトライしても回復せず）。つまり「常時遮断」ではなく「その回のセッションによって開通したり遮断されたりする」状態で、いつ開通するか予測できない。`check_ranks.py` は取得失敗時に前回値を保持し `current` を虚偽の「ランク外」で上書きしない実装のままなので、記録が壊れる心配はない。記事執筆は WebSearch（別経路、遮断されていない）が使えるため継続できているが、iTunes lookup APIによる評価数・価格の実測とランキング取得はこのツールでは代替できない。**この状態が続くと、有料アプリの最高順位更新を取り逃している可能性がある。** ネットワークポリシー側で両ホストを常時の許可リストに入れる対応が引き続き最優先。
 - [ ] **毎回の作業開始時に `git status` / `git branch` で `main` ブランチにいることを確認する。**
       2026-08-14 の実行で `HEAD` が `main` から外れた detached HEAD の状態でコミットしてしまい、
       その回の成果が2日間 `main` に反映されず、2026-08-16 の実行で発覚・fast-forwardで復旧した。
@@ -84,20 +84,26 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       8/17 セッション自身が作った成果を含む）。
       **2026-08-19 の実行でも再発**（ローカルの `main` ブランチが `origin/main` より7コミット遅れた
       状態で detached HEAD になっていた）。ただしこの回は `origin/main` 自体は8/18セッションが
-      正しくpushできていたため、fast-forwardで復旧しただけで実害はなかった。4回連続の再発により、
+      正しくpushできていたため、fast-forwardで復旧しただけで実害はなかった。
+      **2026-08-20 の実行でも再発**（5回連続）。今回は detached HEAD の位置が `origin/main` の
+      最新コミットと一致していたため（ローカル `main` ブランチ自体は9コミット遅れていた）、
+      fast-forwardで復旧するだけで済み実害はなかったが、毎回チェックアウトが揺れる根本原因は
+      変わっていない。5回連続の再発により、
       **このリモート実行環境がセッション開始時にブランチではなく特定コミットへdetached HEADで
       チェックアウトする傾向がある**ことはほぼ確実と見てよい。いずれの回も fast-forward で復旧・
       pushできたため実害はなかったが、**もしいつか fast-forward できない形（コミットが分岐する等）
       で発生した場合、過去の成果を失うリスクがある。**
       **作業開始直後に必ず `git checkout main` してから始める運用は今後も継続すること。**
-      4回連続の再発を踏まえ、環境のセッション起動処理（リポジトリのcheckout方法）側の
+      5回連続の再発を踏まえ、環境のセッション起動処理（リポジトリのcheckout方法）側の
       調査を強く推奨する。
 - [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
 - [ ] **DNSレコードの追加**（下記「独自ドメイン」参照）。Netlify側の接続とビルドは完了済み。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。
 - [ ] 各アプリの App Store 公開後、`/apps/<app>` に App Store へのリンクとスクリーンショットを追加する。
-      2026-08-05 時点の公開済み: ぱすてるオセロ／起業おじさん／つづくToDo／シメキリ逆算／禁酒ウォッチ。
-      審査中: しずかTL for X／透けマル／カエセル／サガセル録音／ひとり請求書。
+      2026-08-20 時点の公開済み（12本）: ぱすてるオセロ／起業おじさん／つづくToDo／シメキリ逆算／禁酒ウォッチ／
+      しずかTL for X／透けマル／カエセル／マゲドリ／レポダス／ムスベル／カギカケ。
+      審査中: サガセル録音／ひとり請求書／ハナログ／ねごと占い。
+      申請準備中: だんどりレシピ／オボエル家計簿／ナラセル。
 - [ ] **ライブガチャ（`com.tokyo357.livegacha` / App ID 6797749180）はサイトに載せない。**
       ライセンサー提示用のTestFlight内部テスト限定デモで、同梱素材に未許諾の第三者IPを含む
       （`~/live-gacha/README.md` 参照）。公開素材へ差し替えて一般配信すると決まるまで掲載不可。
@@ -109,6 +115,16 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
 - [x] App Store 販売者名義を **株式会社サウナ** に確定。`~/othello` と `~/othello-privacy` の表記も統一済み
       （Bundle ID も `com.tokyo357.othello` に変更した。Apple Developer 側で `com.c7mon.othello` を
       すでに登録済みだった場合はここを戻すこと）
+- [x] **アプリが live になったあとも「審査中です」「申請の準備中です」の文言が取り残る不具合を修正**（2026-08-20）。
+      `apps/*.html` は `build_pages.py` が毎回 `BUILD:install` ブロックを丸ごと上書きするため live 反映は
+      問題なかったが、①アプリ紹介ページの本文（`.prose`内、BUILDブロック外）に手書きで残った「現在 App Store に
+      申請の準備中です」の一文が4本（kagikake / magedori / musuberu / repodasu）で live 後も表示されたままだった、
+      ②`guides/*.html` の install セクション（記事内の自社アプリ紹介）は個別記事ごとの手書きで、live化を検知して
+      自動更新する仕組みがなく、6本の記事で「よくある質問」の灰色ボタンしか出ず**ダウンロードボタンが出ていなかった**、
+      ③関連記事カード（related-card）の `<em>価格・状態</em>` も30本の記事で古い状態表示のままだった。
+      ①は手動で除去、②③は `tools/sync_guide_status.py` を新規作成し `tools/apps.py` を単一情報源として
+      機械的に同期する仕組みにした（何度実行しても同じ結果になる）。今後 `tools/apps.py` の state を
+      live に変えたら、`build_pages.py` `build_index_pages.py` に加えて **`sync_guide_status.py` も回すこと**。
 
 ## 設計メモ
 
@@ -151,6 +167,7 @@ python3 tools/build_assets.py       # OG画像とQRを生成（アイコンや�
 python3 tools/build_pages.py        # アプリページの head / インストール枠 / 関連アプリ
 python3 tools/build_index_pages.py  # /apps/
 python3 tools/build_guides.py       # /guides/ の共通パーツと一覧
+python3 tools/sync_guide_status.py  # /guides/ 記事内の自社アプリ紹介・related-cardの状態表記をapps.pyに同期
 python3 tools/build_faq_ld.py       # /support の FAQPage 構造化データ
 python3 tools/sync_nav.py           # 全ページのナビ
 ```
