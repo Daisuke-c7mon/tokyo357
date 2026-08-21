@@ -75,6 +75,9 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
 ## 未確定・要対応
 
 - [ ] **この自動実行環境（Claude Code Remote）から `itunes.apple.com` と `tokyo357.com`（`tokyo357.netlify.app` を含む）への外部通信が遮断されることがある**（2026-08-14 に確認して以降、ほぼ毎回遮断されているが、**間欠的**であることが判明した。プロキシが 403 で CONNECT を拒否。`$HTTPS_PROXY/__agentproxy/status` の `recentRelayFailures` で `connect_rejected` を確認できる）。`tools/ranks.json` の記録を見ると、8/13〜8/18は取得失敗が続いたが、**8/19の回は取得に成功していた**（`checked` が実際に更新され、sukemaru の順位が59位に変わるなど実測値が入っている）。ところが **8/20の回は再び全滅**（8ジャンル中8ジャンルとも `<urlopen error Tunnel connection failed: 403 Forbidden>`、複数回リトライしても回復せず）。つまり「常時遮断」ではなく「その回のセッションによって開通したり遮断されたりする」状態で、いつ開通するか予測できない。`check_ranks.py` は取得失敗時に前回値を保持し `current` を虚偽の「ランク外」で上書きしない実装のままなので、記録が壊れる心配はない。記事執筆は WebSearch（別経路、遮断されていない）が使えるため継続できているが、iTunes lookup APIによる評価数・価格の実測とランキング取得はこのツールでは代替できない。**この状態が続くと、有料アプリの最高順位更新を取り逃している可能性がある。** ネットワークポリシー側で両ホストを常時の許可リストに入れる対応が引き続き最優先。
+      **8/21の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも失敗、`tokyo357.com` も `/` `/apps/` `/guides/` すべて到達不可）。これで8/20・8/21と2日連続の全滅。`$HTTPS_PROXY/__agentproxy/status` の `recentRelayFailures` を見ると、失敗しているのは `itunes.apple.com:443` と `tokyo357.com:443` の2ホストのみで、`api.github.com` は通常どおり200で応答した。ポリシーがこの2ホストだけを狙って落としている状態が続いている。
+      `checked` が全ジャンル失敗で更新されない日は `tools/ranks.json` の `git diff` が空になり、「必ず差分が出る」という前提（下記ステップ1の手順書）は成り立たない。ステップ1の指示文を「差分が出なければ失敗」から「差分が出ないのは全滅日の正常な結果でもあり得る。ただし `checked` の日付が今日になっているか、あるいは全ジャンル失敗のログが出ているかを確認する」に修正する必要がある。
+      また `build_guides.py` 等に、今日の日付が `ranks.json` の `checked` に無いと中断するガード（`SKIP_RANK_GUARD=1` で回避可）が入っているのを8/21に確認した。ステップ1を先に実行したうえで全滅だった日は、このガードを意図的に迂回してよい（ステップ1を怠ったわけではないため）。
 - [ ] **毎回の作業開始時に `git status` / `git branch` で `main` ブランチにいることを確認する。**
       2026-08-14 の実行で `HEAD` が `main` から外れた detached HEAD の状態でコミットしてしまい、
       その回の成果が2日間 `main` に反映されず、2026-08-16 の実行で発覚・fast-forwardで復旧した。
