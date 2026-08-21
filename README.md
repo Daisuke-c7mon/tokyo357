@@ -177,9 +177,22 @@ python3 tools/sync_nav.py           # 全ページのナビ
 
 最後に CSP のハッシュを更新すること（下記）。すべて何度実行しても同じ結果になる。
 
+### IndexNow（Bing・Yandex・Naver・Seznam に即時通知）
+
+Google は IndexNow に対応していないので、これで動くのは Bing 系だけ（DuckDuckGo も Bing）。
+それでも無料・認証不要・ユーザー操作ゼロで回せるので、内容を更新したら送る。
+
+```bash
+python3 tools/indexnow.py        # 送るURLの確認
+python3 tools/indexnow.py send   # 送信（sitemap.xml の全URL）
+```
+
+鍵はサイト直下の `<key>.txt` で証明している。**このファイルを消すと送信が全部弾かれる**。
+鍵を変えるとファイル名も変わるので、`tools/indexnow.py` の `KEY` は固定のままにすること。
+
 ### まだ手をつけていないこと
 
-- [ ] Google Search Console にサイトを登録して sitemap を送信する（無料。検索での見え方はここでしか分からない）
+- [ ] Google Search Console で sitemap を送信する（所有権確認ファイルは設置済み。API はOAuthが要るので手作業）
 - [ ] 記事を増やす。次の候補は「請求書の明細が足りない」「住宅ローンの5年ルールと未払利息」「録音から必要な部分だけ探す」
 - [ ] 審査中のアプリが公開されたら `tools/apps.py` の state を live にして再生成（QRとバナーが自動でつく）
 
