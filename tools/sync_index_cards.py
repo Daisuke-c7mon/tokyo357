@@ -38,6 +38,17 @@ CARD = """      <a class="work rise mt-l" href="/apps/{slug}">
 """
 
 
+def card_pos(s, slug):
+    """カードの開始位置を返す。無ければ -1。
+
+    フッターやパンくずにも /apps/<slug> へのリンクがあるので、単純な href 検索では
+    「カードがある」と誤判定してしまう（2026-08-21、公開中3本がトップに出ていなかった）。
+    カード専用のマークアップ（<a class="work..."）でだけ判定すること。
+    """
+    m = re.search(rf'<a class="work[^"]*" href="/apps/{slug}"', s)
+    return m.start() if m else -1
+
+
 def meta_of(app):
     return f'{app["os"]} · IPHONE / IPAD · {app["price"]} · {SUFFIX[app["state"]]}'
 
@@ -48,7 +59,7 @@ def main():
 
     # ── 1. 既存カードの状態表記を合わせる ───────────────────────
     for app in APPS:
-        i = s.find(f'href="/apps/{app["slug"]}"')
+        i = card_pos(s, app["slug"])
         if i < 0:
             continue
         m = re.compile(r'<p class="meta">([^<]*)</p>').search(s, i)
@@ -61,7 +72,7 @@ def main():
         changed.append(f'状態: {app["name"]} → {SUFFIX[app["state"]]}')
 
     # ── 2. 足りないカードを追加する ─────────────────────────────
-    missing = [a for a in APPS if f'href="/apps/{a["slug"]}"' not in s]
+    missing = [a for a in APPS if card_pos(s, a["slug"]) < 0]
     if missing:
         starts = [m.start() for m in re.finditer(r'<a class="work[^"]*" href="/apps/', s)]
         if not starts:
