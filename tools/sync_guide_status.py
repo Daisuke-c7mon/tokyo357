@@ -89,6 +89,56 @@ def fix_install_section(s, path):
     return s, changed
 
 
+def upgrade_ghost_actions(s, path):
+    """cmp-note が無い記事の install セクションを、ダウンロードできる形に上げる。
+
+    記事を書いた時点でアプリが未公開だと install セクションは「詳細を見る」と
+    「よくある質問」の淡いボタン2つになる。公開後もこれが残り、記事から App Store に
+    出る導線が1つも無い状態になっていた（2026-08-21 時点で80本中24本）。
+    記事は検索からの入口なので、ここが切れているとインストールまで届かない。
+
+    cmp-note が付いている記事は fix_install_section が担当する。こちらはその後段で、
+    「install セクションに App Store へのリンクが1つも無い」ものだけを対象にする。
+    """
+    m = re.search(r'<section class="install">.*?</section>', s, re.S)
+    if not m or "ct=" in m.group(0):
+        return s, False
+    block = m.group(0)
+    live = [a for a in APPS
+            if a["state"] == "live" and f'href="/apps/{a["slug"]}"' in block]
+    if len(live) != 1:
+        if live:
+            print(f"  警告: {path.name} の install セクションに公開中アプリが複数あるため触らない",
+                  file=sys.stderr)
+        return s, False
+    a = live[0]
+    actions_pat = re.compile(
+        r'<div class="actions">\s*'
+        r'(?:<a class="btn btn--ghost" href="[^"]*">[^<]*</a>\s*){1,2}'
+        r'</div>\s*</div>',
+        re.S)
+    m2 = actions_pat.search(block)
+    if not m2:
+        print(f"  警告: {path.name} の actions ブロックが想定の形ではないので触らない",
+              file=sys.stderr)
+        return s, False
+    url = store_url(a["appid"], "web_guide").replace("&", "&amp;")
+    new_actions = (
+        f'<div class="actions">\n'
+        f'          <a class="btn" href="{url}">App Store でダウンロード</a>\n'
+        f'          <a class="btn btn--ghost" href="/apps/{a["slug"]}">アプリの詳細を見る</a>\n'
+        f'          <a class="btn btn--ghost" href="/support#{a["slug"]}">よくある質問</a>\n'
+        f'        </div>\n'
+        f'      </div>\n'
+        f'      <div class="install-qr">\n'
+        f'        <img src="/assets/qr/{a["slug"]}.png" width="290" height="290"'
+        f' alt="{a["name"]} の App Store ページのQRコード" loading="lazy">\n'
+        f'        <span>スマートフォンの<br>カメラで読み取る</span>\n'
+        f'      </div>')
+    new_block = block[:m2.start()] + new_actions + block[m2.end():]
+    return s[:m.start()] + new_block + s[m.end():], True
+
+
 def main():
     total_related = 0
     total_install = 0
@@ -101,6 +151,9 @@ def main():
         if s != orig:
             total_related += 1
         s, changed = fix_install_section(s, p)
+        if changed:
+            total_install += 1
+        s, changed = upgrade_ghost_actions(s, p)
         if changed:
             total_install += 1
         if s != orig:
