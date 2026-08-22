@@ -78,6 +78,7 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       **8/21の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも失敗、`tokyo357.com` も `/` `/apps/` `/guides/` すべて到達不可）。これで8/20・8/21と2日連続の全滅。`$HTTPS_PROXY/__agentproxy/status` の `recentRelayFailures` を見ると、失敗しているのは `itunes.apple.com:443` と `tokyo357.com:443` の2ホストのみで、`api.github.com` は通常どおり200で応答した。ポリシーがこの2ホストだけを狙って落としている状態が続いている。
       `checked` が全ジャンル失敗で更新されない日は `tools/ranks.json` の `git diff` が空になり、「必ず差分が出る」という前提（下記ステップ1の手順書）は成り立たない。ステップ1の指示文を「差分が出なければ失敗」から「差分が出ないのは全滅日の正常な結果でもあり得る。ただし `checked` の日付が今日になっているか、あるいは全ジャンル失敗のログが出ているかを確認する」に修正する必要がある。
       また `build_guides.py` 等に、今日の日付が `ranks.json` の `checked` に無いと中断するガード（`SKIP_RANK_GUARD=1` で回避可）が入っているのを8/21に確認した。ステップ1を先に実行したうえで全滅だった日は、このガードを意図的に迂回してよい（ステップ1を怠ったわけではないため）。
+      **8/22の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも失敗、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` もすべて `CONNECT tunnel failed, response 403` で到達不可。2回リトライしても回復せず）。これで8/20・8/21・8/22と3日連続の全滅。`checked` は全アプリとも8/19のまま更新できず、`tools/ranks.json` に差分は出ていない（想定どおりの全滅日の挙動）。`SKIP_RANK_GUARD=1` で `build_guides.py` を迂回して記事2本を追加・生成した。この回もローカルサーバーでのみ200を確認でき、本番URLへの到達性は確認できていない。
 - [ ] **毎回の作業開始時に `git status` / `git branch` で `main` ブランチにいることを確認する。**
       2026-08-14 の実行で `HEAD` が `main` から外れた detached HEAD の状態でコミットしてしまい、
       その回の成果が2日間 `main` に反映されず、2026-08-16 の実行で発覚・fast-forwardで復旧した。
