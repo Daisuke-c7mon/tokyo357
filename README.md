@@ -79,6 +79,8 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       `checked` が全ジャンル失敗で更新されない日は `tools/ranks.json` の `git diff` が空になり、「必ず差分が出る」という前提（下記ステップ1の手順書）は成り立たない。ステップ1の指示文を「差分が出なければ失敗」から「差分が出ないのは全滅日の正常な結果でもあり得る。ただし `checked` の日付が今日になっているか、あるいは全ジャンル失敗のログが出ているかを確認する」に修正する必要がある。
       また `build_guides.py` 等に、今日の日付が `ranks.json` の `checked` に無いと中断するガード（`SKIP_RANK_GUARD=1` で回避可）が入っているのを8/21に確認した。ステップ1を先に実行したうえで全滅だった日は、このガードを意図的に迂回してよい（ステップ1を怠ったわけではないため）。
       **8/22の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも失敗、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` もすべて `CONNECT tunnel failed, response 403` で到達不可。2回リトライしても回復せず）。これで8/20・8/21・8/22と3日連続の全滅。`checked` は全アプリとも8/19のまま更新できず、`tools/ranks.json` に差分は出ていない（想定どおりの全滅日の挙動）。`SKIP_RANK_GUARD=1` で `build_guides.py` を迂回して記事2本を追加・生成した。この回もローカルサーバーでのみ200を確認でき、本番URLへの到達性は確認できていない。
+      **8/23の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも `403 Forbidden`、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` も `CONNECT tunnel failed, response 403`）。これで8/20〜8/23と4日連続の全滅。`checked` は8/19のまま。`SKIP_RANK_GUARD=1` で迂回して記事2本を追加・生成した。
+      **この回、`WebFetch` ツールで任意の外部ドメイン（`ja.wikipedia.org` や記事執筆用に調べた業界サイト数件）を取得しようとしたところ、いずれも `EGRESS_BLOCKED`（`network egress proxy` によるブロック）で失敗した。** `itunes.apple.com` / `tokyo357.com` のような特定2ホストの間欠遮断とは別に、`WebFetch` はそもそも許可リスト外のドメインを既定でブロックする仕組みらしく、動いたのは `WebSearch`（検索結果の要約テキストのみ、リンク先の本文は読めない）だけだった。記事の事実確認は今後も検索結果のスニペット止まりで行い、正確性に自信が持てない数値は「代表的な例」に絞って掲載し、無理に大きな表を作らないこと。
 - [ ] **毎回の作業開始時に `git status` / `git branch` で `main` ブランチにいることを確認する。**
       2026-08-14 の実行で `HEAD` が `main` から外れた detached HEAD の状態でコミットしてしまい、
       その回の成果が2日間 `main` に反映されず、2026-08-16 の実行で発覚・fast-forwardで復旧した。
@@ -100,6 +102,13 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       **作業開始直後に必ず `git checkout main` してから始める運用は今後も継続すること。**
       5回連続の再発を踏まえ、環境のセッション起動処理（リポジトリのcheckout方法）側の
       調査を強く推奨する。
+      **2026-08-23の実行でも再発**（6回連続）。今回は `origin/main`（7コミット分。8/22セッションの
+      成果を含む）自体は正しくpushされており、ローカルの `main` ブランチだけが古いコミットを
+      指していた状態だった。`git checkout -B main <detached HEADのコミット>` → `git push` で
+      復旧を試みたところ `Everything up-to-date` と返り、`origin/main` は既に detached HEAD と
+      同じコミットを指していたことが分かった。つまりこの回は実害なし。それでも6回連続の再発は、
+      「毎回セッション開始時に `git status`/`git branch` を確認し、detached HEAD なら
+      `git checkout -B main <正しいコミット>` してから作業を始める」という運用でしか防げていない。
 - [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
 - [ ] **DNSレコードの追加**（下記「独自ドメイン」参照）。Netlify側の接続とビルドは完了済み。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。
