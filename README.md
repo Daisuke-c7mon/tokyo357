@@ -81,6 +81,8 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       **8/22の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも失敗、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` もすべて `CONNECT tunnel failed, response 403` で到達不可。2回リトライしても回復せず）。これで8/20・8/21・8/22と3日連続の全滅。`checked` は全アプリとも8/19のまま更新できず、`tools/ranks.json` に差分は出ていない（想定どおりの全滅日の挙動）。`SKIP_RANK_GUARD=1` で `build_guides.py` を迂回して記事2本を追加・生成した。この回もローカルサーバーでのみ200を確認でき、本番URLへの到達性は確認できていない。
       **8/23の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも `403 Forbidden`、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` も `CONNECT tunnel failed, response 403`）。これで8/20〜8/23と4日連続の全滅。`checked` は8/19のまま。`SKIP_RANK_GUARD=1` で迂回して記事2本を追加・生成した。
       **この回、`WebFetch` ツールで任意の外部ドメイン（`ja.wikipedia.org` や記事執筆用に調べた業界サイト数件）を取得しようとしたところ、いずれも `EGRESS_BLOCKED`（`network egress proxy` によるブロック）で失敗した。** `itunes.apple.com` / `tokyo357.com` のような特定2ホストの間欠遮断とは別に、`WebFetch` はそもそも許可リスト外のドメインを既定でブロックする仕組みらしく、動いたのは `WebSearch`（検索結果の要約テキストのみ、リンク先の本文は読めない）だけだった。記事の事実確認は今後も検索結果のスニペット止まりで行い、正確性に自信が持てない数値は「代表的な例」に絞って掲載し、無理に大きな表を作らないこと。
+      **8/24の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも `403 Forbidden`、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` も `CONNECT tunnel failed, response 403`。`$HTTPS_PROXY/__agentproxy/status` の `recentRelayFailures` でも `itunes.apple.com:443` への `connect_rejected` を確認）。これで8/20〜8/24と5日連続の全滅。`checked` は8/19のまま。`SKIP_RANK_GUARD=1` で迂回して記事2本を追加・生成した。
+      **この回、指示書にある非日本語文字混入チェックのコマンド（`grep -o '[가-힣]\+\|[а-яА-Я]\+' *.html apps/*.html guides/*.html`）が、この環境では正しく機能しないことが判明した。** この環境のロケールが `POSIX`（`LANG`/`LC_ALL` 未設定）になっており、`grep` がハングル・キリル文字のUnicode範囲指定をバイト単位で解釈してしまうため、日本語の平仮名・漢字を含むほぼ全てのHTMLファイルが誤検出される（既存の全ページで大量にヒットする）。実害としての混入は無いことをPythonの`re`モジュール（Unicodeを正しく扱う）で確認した。今後この非日本語文字チェックを行う場合は、シェルの`grep`ではなくPythonの正規表現（`re.compile(r'[가-힣]+|[Ѐ-ӿ]+')`等）で行うこと。
 - [ ] **毎回の作業開始時に `git status` / `git branch` で `main` ブランチにいることを確認する。**
       2026-08-14 の実行で `HEAD` が `main` から外れた detached HEAD の状態でコミットしてしまい、
       その回の成果が2日間 `main` に反映されず、2026-08-16 の実行で発覚・fast-forwardで復旧した。
@@ -109,14 +111,22 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       同じコミットを指していたことが分かった。つまりこの回は実害なし。それでも6回連続の再発は、
       「毎回セッション開始時に `git status`/`git branch` を確認し、detached HEAD なら
       `git checkout -B main <正しいコミット>` してから作業を始める」という運用でしか防げていない。
+      **2026-08-24の実行でも再発**（7回連続）。今回は detached HEAD の位置が `origin/main` の
+      最新コミット（8/23セッションの成果を含む）と一致しており、ローカルの `main` ブランチ自体は
+      6コミット遅れていた。`git checkout -B main origin/main` で復旧し、実害なし。7回連続の
+      再発により、運用でカバーし続ける必要がある状態が続いている。
 - [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
 - [ ] **DNSレコードの追加**（下記「独自ドメイン」参照）。Netlify側の接続とビルドは完了済み。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。
 - [ ] 各アプリの App Store 公開後、`/apps/<app>` に App Store へのリンクとスクリーンショットを追加する。
-      2026-08-20 時点の公開済み（12本）: ぱすてるオセロ／起業おじさん／つづくToDo／シメキリ逆算／禁酒ウォッチ／
-      しずかTL for X／透けマル／カエセル／マゲドリ／レポダス／ムスベル／カギカケ。
-      審査中: サガセル録音／ひとり請求書／ハナログ／ねごと占い。
-      申請準備中: だんどりレシピ／オボエル家計簿／ナラセル。
+      2026-08-24 時点の公開済み（15本）: ぱすてるオセロ／起業おじさん／つづくToDo／シメキリ逆算／禁酒ウォッチ／
+      しずかTL for X／透けマル／カエセル／サガセル録音／ひとり請求書／マゲドリ／ねごと占い／レポダス／ムスベル／カギカケ。
+      申請準備中: だんどりレシピ／ハナログ／オボエル家計簿／ナラセル。審査中のアプリは現在なし。
+- [ ] **`netlify.toml` の `/guides/<slug>.html → /guides/<slug>` リダイレクトが、記事85本中52本で未設定**（2026-08-24に確認）。
+      直近の記事追加セッションの多くがこの手順を省略している。Netlifyの「Pretty URLs」機能により
+      拡張子なしURLは自動で配信されているとみられ、現状で実害（404等）は確認されていないが、
+      ネットワーク遮断のため本番での実地確認はできていない。まとめて追記するか、この手順自体が
+      不要（Netlify側で自動対応済み）と判断してREADMEの手順から削るか、どちらかに倒すことを検討。
 - [ ] **ライブガチャ（`com.tokyo357.livegacha` / App ID 6797749180）はサイトに載せない。**
       ライセンサー提示用のTestFlight内部テスト限定デモで、同梱素材に未許諾の第三者IPを含む
       （`~/live-gacha/README.md` 参照）。公開素材へ差し替えて一般配信すると決まるまで掲載不可。
