@@ -102,6 +102,17 @@ def write_guide(slug, title, desc, lead, date, topic, app, pitch, body):
   "publisher": {{ "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }}
 }}
 </script>
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{ "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" }},
+    {{ "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" }},
+    {{ "@type": "ListItem", "position": 3, "name": "{t}" }}
+  ]
+}}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>

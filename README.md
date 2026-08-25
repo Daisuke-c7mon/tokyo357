@@ -82,6 +82,7 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       **8/23の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも `403 Forbidden`、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` も `CONNECT tunnel failed, response 403`）。これで8/20〜8/23と4日連続の全滅。`checked` は8/19のまま。`SKIP_RANK_GUARD=1` で迂回して記事2本を追加・生成した。
       **この回、`WebFetch` ツールで任意の外部ドメイン（`ja.wikipedia.org` や記事執筆用に調べた業界サイト数件）を取得しようとしたところ、いずれも `EGRESS_BLOCKED`（`network egress proxy` によるブロック）で失敗した。** `itunes.apple.com` / `tokyo357.com` のような特定2ホストの間欠遮断とは別に、`WebFetch` はそもそも許可リスト外のドメインを既定でブロックする仕組みらしく、動いたのは `WebSearch`（検索結果の要約テキストのみ、リンク先の本文は読めない）だけだった。記事の事実確認は今後も検索結果のスニペット止まりで行い、正確性に自信が持てない数値は「代表的な例」に絞って掲載し、無理に大きな表を作らないこと。
       **8/24の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも `403 Forbidden`、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` も `CONNECT tunnel failed, response 403`。`$HTTPS_PROXY/__agentproxy/status` の `recentRelayFailures` でも `itunes.apple.com:443` への `connect_rejected` を確認）。これで8/20〜8/24と5日連続の全滅。`checked` は8/19のまま。`SKIP_RANK_GUARD=1` で迂回して記事2本を追加・生成した。
+      **8/25の回も引き続き全滅**（`curl`・`WebFetch` のいずれで試しても `itunes.apple.com`・`tokyo357.com` とも `403`／`EGRESS_BLOCKED`。`$HTTPS_PROXY/__agentproxy/status` の `recentRelayFailures` でも `itunes.apple.com:443` への `connect_rejected` を確認）。これで**8/20〜8/25と6日連続**の全滅。`checked` は8/19のまま更新できず。`SKIP_RANK_GUARD=1` で迂回して記事2本を追加・生成した。1週間近く自社アプリの評価数・価格・順位の実測がまったくできておらず、この方針で日々の記事執筆と生成は続けられるものの、**このタスクの本来の測定手段（順位・評価数の変化）がまるまる失われている状態が長期化している。** ネットワークポリシー側での許可リスト対応を、これ以上先送りしない優先課題として運用担当者に申し送る。
       **この回、指示書にある非日本語文字混入チェックのコマンド（`grep -o '[가-힣]\+\|[а-яА-Я]\+' *.html apps/*.html guides/*.html`）が、この環境では正しく機能しないことが判明した。** この環境のロケールが `POSIX`（`LANG`/`LC_ALL` 未設定）になっており、`grep` がハングル・キリル文字のUnicode範囲指定をバイト単位で解釈してしまうため、日本語の平仮名・漢字を含むほぼ全てのHTMLファイルが誤検出される（既存の全ページで大量にヒットする）。実害としての混入は無いことをPythonの`re`モジュール（Unicodeを正しく扱う）で確認した。今後この非日本語文字チェックを行う場合は、シェルの`grep`ではなくPythonの正規表現（`re.compile(r'[가-힣]+|[Ѐ-ӿ]+')`等）で行うこと。
 - [ ] **毎回の作業開始時に `git status` / `git branch` で `main` ブランチにいることを確認する。**
       2026-08-14 の実行で `HEAD` が `main` から外れた detached HEAD の状態でコミットしてしまい、
@@ -129,6 +130,16 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       チェックアウトされる断面がまちまちで、時系列の前後関係すら保証されない**ことを示している。
       復旧前に必ず `git merge-base --is-ancestor <古い方> <新しい方>` で祖先関係を確認し、
       分岐していないことを確かめてから `checkout -B` することを今後の手順として明記する。
+      **2026-08-25の実行でも再発**（9回連続）。今回はローカルの `main` が `f64e665`（8/24より前の
+      断面）を指す一方、セッション開始時の detached HEAD は `b0cb17f`（8/24週次点検セッションが
+      pushした最新の10コミット先）を指しており、かつ `origin/main` 自体はすでに `b0cb17f` を
+      指していた（＝pushは成功していたが、ローカル `main` ブランチの参照だけが古いまま復元されていた）。
+      `git merge-base main b0cb17f` が `f64e665`（＝main側）であることを確認したうえで
+      `git checkout main && git merge --ff-only b0cb17f` で復旧し、`git push` は
+      `Everything up-to-date`（＝origin側は無傷）。実害なし。9回連続の再発により、この環境の
+      セッション起動処理がリポジトリを毎回どこかの断面へ detached HEAD でチェックアウトする
+      挙動は環境側の仕様と見てよく、**セッション開始直後に必ず `git status`/`git branch -v` を
+      確認し、`git merge-base` で祖先関係を確かめてから `main` へ復旧する運用を今後も続ける。**
 - [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
 - [ ] **DNSレコードの追加**（下記「独自ドメイン」参照）。Netlify側の接続とビルドは完了済み。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。
@@ -145,9 +156,14 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       ライセンサー提示用のTestFlight内部テスト限定デモで、同梱素材に未許諾の第三者IPを含む
       （`~/live-gacha/README.md` 参照）。公開素材へ差し替えて一般配信すると決まるまで掲載不可。
 - [ ] App Store の販売者表示は `Daisuke Yamaguchi`（個人名義）。サイト各所の「提供元 株式会社サウナ」と食い違うため、Apple Developer の法人アカウント移行かサイト表記のどちらに寄せるか決める。
+- [ ] `tools/naraseru`（サンプラー）はまだ記事が0本（`tools/article_queue.md` に未着手のまま1行残っている）。`state="prepare"` のため優先度は live アプリより低いが、キューが尽きたら着手する。
 
 ### 完了済み
 
+- [x] **`tools/new_guide.py` の `write_guide()` が BreadcrumbList の構造化データを生成していなかった不具合を修正**（2026-08-25）。
+      既存記事はどれも `Article` と `BreadcrumbList` の2つの JSON-LD を持つが、`write_guide()` は `Article` の1つしか
+      出力していなかった（既存記事にBreadcrumbListがある理由はこのツールを使わず手で足していたためとみられる）。
+      本日追加した2本で気づき、`write_guide()` にBreadcrumbList生成を追加してから再生成した。検証（JSON-LD数・CSPハッシュ数の一致）で確認済み。
 - [x] Netlify 接続（プロジェクト `tokyo357` / https://tokyo357.netlify.app、`main` push で自動デプロイ）
 - [x] App Store 販売者名義を **株式会社サウナ** に確定。`~/othello` と `~/othello-privacy` の表記も統一済み
       （Bundle ID も `com.tokyo357.othello` に変更した。Apple Developer 側で `com.c7mon.othello` を
