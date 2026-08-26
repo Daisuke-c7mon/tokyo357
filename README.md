@@ -84,6 +84,7 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       **8/24の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも `403 Forbidden`、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` も `CONNECT tunnel failed, response 403`。`$HTTPS_PROXY/__agentproxy/status` の `recentRelayFailures` でも `itunes.apple.com:443` への `connect_rejected` を確認）。これで8/20〜8/24と5日連続の全滅。`checked` は8/19のまま。`SKIP_RANK_GUARD=1` で迂回して記事2本を追加・生成した。
       **8/25の回も引き続き全滅**（`curl`・`WebFetch` のいずれで試しても `itunes.apple.com`・`tokyo357.com` とも `403`／`EGRESS_BLOCKED`。`$HTTPS_PROXY/__agentproxy/status` の `recentRelayFailures` でも `itunes.apple.com:443` への `connect_rejected` を確認）。これで**8/20〜8/25と6日連続**の全滅。`checked` は8/19のまま更新できず。`SKIP_RANK_GUARD=1` で迂回して記事2本を追加・生成した。1週間近く自社アプリの評価数・価格・順位の実測がまったくできておらず、この方針で日々の記事執筆と生成は続けられるものの、**このタスクの本来の測定手段（順位・評価数の変化）がまるまる失われている状態が長期化している。** ネットワークポリシー側での許可リスト対応を、これ以上先送りしない優先課題として運用担当者に申し送る。
       **この回、指示書にある非日本語文字混入チェックのコマンド（`grep -o '[가-힣]\+\|[а-яА-Я]\+' *.html apps/*.html guides/*.html`）が、この環境では正しく機能しないことが判明した。** この環境のロケールが `POSIX`（`LANG`/`LC_ALL` 未設定）になっており、`grep` がハングル・キリル文字のUnicode範囲指定をバイト単位で解釈してしまうため、日本語の平仮名・漢字を含むほぼ全てのHTMLファイルが誤検出される（既存の全ページで大量にヒットする）。実害としての混入は無いことをPythonの`re`モジュール（Unicodeを正しく扱う）で確認した。今後この非日本語文字チェックを行う場合は、シェルの`grep`ではなくPythonの正規表現（`re.compile(r'[가-힣]+|[Ѐ-ӿ]+')`等）で行うこと。
+      **8/26の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも `403 Forbidden`、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` も `CONNECT tunnel failed, response 403`。`api.indexnow.org` への送信も同様に失敗し、遮断対象がこの2ホストに限らないことを確認）。これで**8/20〜8/26と7日連続**の全滅。`checked` は8/19のまま更新できず。`SKIP_RANK_GUARD=1` で迂回して記事2本を追加・生成した。今回は記事の対象アプリ選定を「記事数が最少のアプリ」ではなく「最終更新日が最も古いアプリ」で見直したところ、shizukatl / sukemaru / hitoriinvoice / tsuzukutodo / shimekiri / kinshuwatch の6本が8/10からまったく更新されておらず、その一方で musuberu / kagikake / magedori / negotouranai / repodasu の5本に直近2週間の追加が集中していたことが判明した（件数だけを見ると全アプリ4〜8本の範囲に収まっており、この偏りは件数の集計だけでは見えない）。今回は hitoriinvoice と tsuzukutodo から1本ずつ執筆した。**次回以降も「配信中のアプリを優先」の判断基準として、記事の本数だけでなく最終更新日の分布を確認することを推奨する。**
 - [ ] **毎回の作業開始時に `git status` / `git branch` で `main` ブランチにいることを確認する。**
       2026-08-14 の実行で `HEAD` が `main` から外れた detached HEAD の状態でコミットしてしまい、
       その回の成果が2日間 `main` に反映されず、2026-08-16 の実行で発覚・fast-forwardで復旧した。
@@ -140,6 +141,11 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       セッション起動処理がリポジトリを毎回どこかの断面へ detached HEAD でチェックアウトする
       挙動は環境側の仕様と見てよく、**セッション開始直後に必ず `git status`/`git branch -v` を
       確認し、`git merge-base` で祖先関係を確かめてから `main` へ復旧する運用を今後も続ける。**
+      **2026-08-26の実行でも再発**（10回連続）。今回は detached HEAD が `origin/main` の最新コミット
+      （8/25セッションが記事2本を追加してpushした断面）と一致しており、ローカルの `main` だけが
+      11コミット遅れていた。`git fetch origin main` で確認したところ祖先関係に問題はなく、
+      `git checkout main && git merge --ff-only origin/main` で復旧、実害なし。10回連続の再発により、
+      「セッション開始直後に必ず確認・復旧する」運用は今後も継続が前提となる。
 - [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
 - [ ] **DNSレコードの追加**（下記「独自ドメイン」参照）。Netlify側の接続とビルドは完了済み。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。
