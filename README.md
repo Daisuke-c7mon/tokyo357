@@ -85,6 +85,8 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       **8/25の回も引き続き全滅**（`curl`・`WebFetch` のいずれで試しても `itunes.apple.com`・`tokyo357.com` とも `403`／`EGRESS_BLOCKED`。`$HTTPS_PROXY/__agentproxy/status` の `recentRelayFailures` でも `itunes.apple.com:443` への `connect_rejected` を確認）。これで**8/20〜8/25と6日連続**の全滅。`checked` は8/19のまま更新できず。`SKIP_RANK_GUARD=1` で迂回して記事2本を追加・生成した。1週間近く自社アプリの評価数・価格・順位の実測がまったくできておらず、この方針で日々の記事執筆と生成は続けられるものの、**このタスクの本来の測定手段（順位・評価数の変化）がまるまる失われている状態が長期化している。** ネットワークポリシー側での許可リスト対応を、これ以上先送りしない優先課題として運用担当者に申し送る。
       **この回、指示書にある非日本語文字混入チェックのコマンド（`grep -o '[가-힣]\+\|[а-яА-Я]\+' *.html apps/*.html guides/*.html`）が、この環境では正しく機能しないことが判明した。** この環境のロケールが `POSIX`（`LANG`/`LC_ALL` 未設定）になっており、`grep` がハングル・キリル文字のUnicode範囲指定をバイト単位で解釈してしまうため、日本語の平仮名・漢字を含むほぼ全てのHTMLファイルが誤検出される（既存の全ページで大量にヒットする）。実害としての混入は無いことをPythonの`re`モジュール（Unicodeを正しく扱う）で確認した。今後この非日本語文字チェックを行う場合は、シェルの`grep`ではなくPythonの正規表現（`re.compile(r'[가-힣]+|[Ѐ-ӿ]+')`等）で行うこと。
       **8/26の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも `403 Forbidden`、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` も `CONNECT tunnel failed, response 403`。`api.indexnow.org` への送信も同様に失敗し、遮断対象がこの2ホストに限らないことを確認）。これで**8/20〜8/26と7日連続**の全滅。`checked` は8/19のまま更新できず。`SKIP_RANK_GUARD=1` で迂回して記事2本を追加・生成した。今回は記事の対象アプリ選定を「記事数が最少のアプリ」ではなく「最終更新日が最も古いアプリ」で見直したところ、shizukatl / sukemaru / hitoriinvoice / tsuzukutodo / shimekiri / kinshuwatch の6本が8/10からまったく更新されておらず、その一方で musuberu / kagikake / magedori / negotouranai / repodasu の5本に直近2週間の追加が集中していたことが判明した（件数だけを見ると全アプリ4〜8本の範囲に収まっており、この偏りは件数の集計だけでは見えない）。今回は hitoriinvoice と tsuzukutodo から1本ずつ執筆した。**次回以降も「配信中のアプリを優先」の判断基準として、記事の本数だけでなく最終更新日の分布を確認することを推奨する。**
+      **8/27の回も `itunes.apple.com` 8ジャンル中8ジャンルとも失敗、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` も到達不可で、8/20〜8/27と8日連続の全滅が続いている。** 一方で `github.com`（`git push`）は今回は正常に通った（下記のdetached HEAD項目を参照。12コミット分のpushに成功）。つまり遮断は依然としてホスト単位・間欠的で、githubは今回開通していた。`checked` は8/19のまま更新できず、`SKIP_RANK_GUARD=1` で迂回。キューが尽きたため、直近17日間（8/10以降）新規記事のなかった live アプリ（shizukatl / shimekiri / kinshuwatch / sukemaru、いずれも記事5〜6本）を last-updated 日付で洗い出し、記事数が並んで少ない shizukatl と shimekiri から1本ずつ執筆した。
+      **この回、CSPの sha256 ハッシュ検証スクリプトを自作した際に、最初の実装が172本すべてのJSON-LD（既存168ハッシュ分すべてを含む）を「未登録」と誤検出するバグを踏んだ。** 原因は正規表現 `<script type="application/ld\+json">\n(.*?)\n</script>` が `<script>` タグ直後の改行を「区切り文字」として消費してしまい、ハッシュ対象の先頭改行1文字が欠落していたため（`content = "\n" + m.group(1) + "\n"` が正しい）。修正後に再計算すると、実際に未登録だったのは新規記事2本ぶんの4件と、記事一覧ページ（`guides/index.html`、一覧内容が更新されるたびに中身が変わる）の1件だけで、既存記事のCSPは正常だった。**今後この種のチェックを書くときは、対象の1件を手計算（生バイトを直接スライスしてハッシュ）した結果と突き合わせてから全件に適用すること。**
 - [ ] **毎回の作業開始時に `git status` / `git branch` で `main` ブランチにいることを確認する。**
       2026-08-14 の実行で `HEAD` が `main` から外れた detached HEAD の状態でコミットしてしまい、
       その回の成果が2日間 `main` に反映されず、2026-08-16 の実行で発覚・fast-forwardで復旧した。
@@ -146,6 +148,21 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       11コミット遅れていた。`git fetch origin main` で確認したところ祖先関係に問題はなく、
       `git checkout main && git merge --ff-only origin/main` で復旧、実害なし。10回連続の再発により、
       「セッション開始直後に必ず確認・復旧する」運用は今後も継続が前提となる。
+      **2026-08-27の実行では、これまでと違い実害が出ていたことが判明した（11回連続）。**
+      セッション開始時、detached HEAD は `origin/main`（`f64e665`）より**12コミットも先**にいた。
+      `git merge-base --is-ancestor` で `origin/main` が detached HEAD の祖先であることを確認した
+      うえで `git checkout main && git merge --ff-only <detached HEADのコミット>` で復旧し、
+      `git push` したところ**今回は正常にpushできた**（`Everything up-to-date` ではなく実際に
+      `origin/main` が12コミット分更新された）。つまり、8/20〜8/26の間のどこかの回から、
+      毎回のセッションが detached HEAD の続き（前回セッション自身が作った未push分）の上に
+      さらにコミットを積み重ねる形になっており、**その間ずっと `origin/main`（＝本番Netlifyに
+      反映される内容）が更新されていなかった**。記事12本相当・IndexNow導入・404修正・
+      BreadcrumbList不具合修正など、直近1週間分の実質的な成果すべてが本番未反映のまま
+      ローカルにのみ溜まっていたことになる。過去の再発はすべて「fast-forwardで復旧・push成功・
+      実害なし」だったが、今回は逆に**pushそのものが機能していなかった期間が続いていた**ことを
+      示している。原因は特定できていないが、「セッション開始直後に検出・復旧する」運用だけでは
+      不十分で、**復旧後に `git push` の出力を鵜呑みにせず、`git fetch` して `origin/main` の
+      コミットハッシュが実際に前進したかを確認する**手順を今後は必須とする。
 - [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
 - [ ] **DNSレコードの追加**（下記「独自ドメイン」参照）。Netlify側の接続とビルドは完了済み。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xをホーム画面に追加すると、Safari拡張機能が効かなくなる理由 ｜ 株式会社サウナ</title>
+<meta name="description" content="「アイコンからXを開くと拡張機能が効かない」という現象は、iOSの仕様です。ホーム画面に追加したWebアプリと、Safariで開いたタブの違い、見分け方、対処法を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/x-webapp-kakuchou-kikanai">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="Xをホーム画面に追加すると、Safari拡張機能が効かなくなる理由">
+<meta property="og:description" content="「アイコンからXを開くと拡張機能が効かない」という現象は、iOSの仕様です。ホーム画面に追加したWebアプリと、Safariで開いたタブの違い、見分け方、対処法を説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/x-webapp-kakuchou-kikanai">
+<meta property="og:image" content="https://tokyo357.com/assets/og/shizukatl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Xをホーム画面に追加すると、Safari拡張機能が効かなくなる理由",
+  "description": "「アイコンからXを開くと拡張機能が効かない」という現象は、iOSの仕様です。ホーム画面に追加したWebアプリと、Safariで開いたタブの違い、見分け方、対処法を説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-08-27",
+  "dateModified": "2026-08-27",
+  "image": "https://tokyo357.com/assets/og/shizukatl.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/x-webapp-kakuchou-kikanai",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Xをホーム画面に追加すると、Safari拡張機能が効かなくなる理由" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-08-27 ／ X・SNSの表示</p>
+      <h1>Xをホーム画面に追加すると、Safari拡張機能が効かなくなる理由</h1>
+      <p class="lede">Safari拡張機能を入れたのに、Xを開くと表示が変わらない。原因の多くは拡張機能の不具合ではなく、開き方がSafariのタブではなく「ホーム画面に追加したWebアプリ」になっていることです。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>Xのアイコンをホーム画面に追加して、そこから開いている場合、<strong>iOSの仕様によりどのSafari拡張機能も動作しません</strong>。これは特定の拡張機能の不具合ではなく、Apple側の制限です。拡張機能を使うには、Safariアプリの中でx.comを開く必要があります。</p>
+      </div>
+
+      <h2>「ホーム画面に追加」は、Safariのタブとは別物</h2>
+      <p>Safariで開いたWebページの共有メニューから「ホーム画面に追加」を選ぶと、アイコンが1つ増えます。見た目はアプリと変わりませんが、内部的にはこのアイコンから開いた画面は<strong>Safari本体とは切り離された、独立した簡易ブラウザ（standalone Webアプリ）</strong>として動きます。ブックマークやリーディングリストとは別の仕組みです。</p>
+      <p>Safari拡張機能は、Safariアプリ本体が表示しているページに対してのみ働く仕組みになっています。ホーム画面に追加したWebアプリはSafari本体の外側で動くため、拡張機能側からは中身が見えず、干渉できません。これは<strong>iOSの設計上の制限</strong>であり、拡張機能の作り方を変えても回避できません。</p>
+
+      <h2>見分け方 — アドレスバーの有無</h2>
+      <p>いま開いている画面がSafariのタブなのか、ホーム画面のWebアプリなのかは、画面上部を見れば分かります。</p>
+      <ul>
+        <li><strong>Safariのタブ</strong> — 上部にアドレスバー（URLの表示欄）があり、下部にタブ切り替えなどのツールバーが並びます。</li>
+        <li><strong>ホーム画面のWebアプリ</strong> — アドレスバーが無く、ステータスバーの下にすぐページが始まります。戻る操作もアプリ内のボタンに頼ることになります。</li>
+      </ul>
+      <p>Xをホーム画面に追加していて、かつ拡張機能が効かない場合、まずこのアドレスバーの有無を確認してください。無ければ、それが原因です。</p>
+
+      <h2>対処法 — Safariから開き直す</h2>
+      <ol>
+        <li>Safariアプリを開きます（ホーム画面のXアイコンではありません）。</li>
+        <li>アドレスバーに <code>x.com</code> と入力するか、既存のブックマークから開きます。</li>
+        <li>アドレスバーが表示されていることを確認します。</li>
+      </ol>
+      <p>ホーム画面のアイコンをそのまま残しておきたい場合は、Safariでx.comを開いたあとに新しくブックマークを作り、そちらをホーム画面に置き直す方法もあります。ただし追加のしかたによっては再びWebアプリ扱いになることがあるため、確実なのは<strong>Safariアプリから毎回開く</strong>ことです。</p>
+
+      <h2>それでも効かないときは</h2>
+      <p>Safariのタブで開いているのに拡張機能の表示が変わらない場合は、原因が別にあります。設定で拡張機能自体がオフになっている、サイトへのアクセス許可が「確認」のままになっている、といったケースです。しずかTL for Xの診断画面では、こうした<strong>原因の切り分け</strong>を端末内の稼働記録から行い、直すべき設定画面まで案内します。</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>しずかTL for X</h2>
+        <p>しずかTL for Xは、拡張機能が動いているかを端末内の稼働記録から判定する診断画面を持っています。「ホーム画面のWebアプリで開いている」ことが原因の場合も、診断画面がその場で見分けます。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6796696394?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/shizukatl">しずかTL for Xについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/shizukatl.png" width="290" height="290" alt="しずかTL for X の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/sukemaru">
+          <img src="/assets/icons/sukemaru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>透けマル</b>
+            <span>背景を消して透過PNGに。書き出したファイルを読み戻してアルファを実測する。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/othello">
+          <img src="/assets/icons/othello.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ぱすてるオセロ</b>
+            <span>レベル1〜10のCPUと対戦。オフラインで遊べる。</span>
+            <em>無料・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/negotouranai">
+          <img src="/assets/icons/negotouranai.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ねごと占い</b>
+            <span>就寝中の寝言を自動録音し、端末内で文字起こしして夢占い風に読み解く。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
