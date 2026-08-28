@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>透過PNGなのに、貼り付け先で縁が白く・黒くふちどられる理由 ｜ 株式会社サウナ</title>
+<meta name="description" content="背景を透過したPNGを別の資料やSNSに貼ると、輪郭だけ白や黒のふちが残ることがあります。ファイルが壊れているのではなく、境界の半透明ピクセルに元の背景色が混ざっているのが原因です。仕組みと目立たなくする方法を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/touka-png-fuchidori-shiroku">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="透過PNGなのに、貼り付け先で縁が白く・黒くふちどられる理由">
+<meta property="og:description" content="背景を透過したPNGを別の資料やSNSに貼ると、輪郭だけ白や黒のふちが残ることがあります。ファイルが壊れているのではなく、境界の半透明ピクセルに元の背景色が混ざっているのが原因です。仕組みと目立たなくする方法を説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/touka-png-fuchidori-shiroku">
+<meta property="og:image" content="https://tokyo357.com/assets/og/sukemaru.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "透過PNGなのに、貼り付け先で縁が白く・黒くふちどられる理由",
+  "description": "背景を透過したPNGを別の資料やSNSに貼ると、輪郭だけ白や黒のふちが残ることがあります。ファイルが壊れているのではなく、境界の半透明ピクセルに元の背景色が混ざっているのが原因です。仕組みと目立たなくする方法を説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "image": "https://tokyo357.com/assets/og/sukemaru.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/touka-png-fuchidori-shiroku",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "透過PNGなのに、貼り付け先で縁が白く・黒くふちどられる理由" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-08-28 ／ 画像・写真</p>
+      <h1>透過PNGなのに、貼り付け先で縁が白く・黒くふちどられる理由</h1>
+      <p class="lede">透過は成功しているはずなのに、貼り付けた先で輪郭にうっすら白や黒の縁取りが見える。これは失敗ではなく、<strong>境界線の半透明なピクセルに、切り抜く前の背景色が残っている</strong>ために起きる、よくある現象です。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p><strong>ふちどりの正体は、境界にある「半透明」のピクセルです。</strong>完全に透明でも不透明でもない中間の濃さのピクセルには、切り抜く前の背景色の情報が混ざったまま残っています。貼り付け先の背景色が元の背景色と違うと、その混ざった色が輪郭として浮き出ます。</p>
+      </div>
+
+      <h2>なぜ境界だけ色が残るのか</h2>
+      <p>輪郭をなめらかに見せるため、切り抜きの境界には「アンチエイリアス」と呼ばれるぼかしが入ります。被写体の外側から内側に向かって、透明度が0%から100%へ段階的に変化する薄い帯ができる仕組みです。</p>
+      <p>この帯の中のピクセルは、<strong>色そのものにも元の背景色がわずかに混ざった状態</strong>で保存されていることがあります。透明度を50%に下げても、色の情報自体は「被写体の色」ではなく「被写体と背景を混ぜた色」になっているためです。白い背景の上で切り抜くと白っぽい縁が、黒い背景の上で切り抜くと黒っぽい縁が残りやすいのはこのためです。</p>
+
+      <h2>見分け方</h2>
+      <p>次の2つを試すと、境界の半透明が原因かどうかを切り分けられます。</p>
+      <ol>
+        <li><strong>貼り付け先の背景色を変えてみる。</strong>白い背景と黒い背景の両方に貼ってみて、縁の色が背景ごとに変わるなら、境界の半透明ピクセルに元の背景色が残っています。</li>
+        <li><strong>拡大して境界だけを見る。</strong>輪郭の1〜2pxだけがうっすら色づいて見える場合は、この現象である可能性が高いです。被写体全体が均一に白っぽい・黒っぽい場合は、別の原因（透過自体が効いていない）を先に疑ってください。</li>
+      </ol>
+
+      <h2>目立たなくする方法</h2>
+      <ul>
+        <li><strong>切り抜く前の背景を、貼り付け先の背景色に近づける。</strong>最終的に白い資料に貼るなら、白い背景で撮影・切り抜きをするとふちどりが目立ちにくくなります。</li>
+        <li><strong>被写体と背景の色差を大きくしておく。</strong>境界がはっきりするほど、半透明の帯が薄く狭くなります。</li>
+        <li><strong>輪郭を数px内側に縮める。</strong>境界の半透明ピクセルごと切り落とす方法で、対応しているアプリでは「境界を縮小」のような操作で調整できます。</li>
+      </ul>
+      <p>いずれも、透過そのものが失敗しているわけではなく<strong>境界の処理の癖</strong>によるものなので、被写体本体には影響しません。</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>透けマル</h2>
+        <p>透けマルは書き出したPNGを自分で読み戻し、完全に透明なピクセルの割合をアルファチャンネルから実測します。境界に半透明が多いかどうかを、感覚ではなく数値で確認できます。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6796656589?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/sukemaru">透けマルについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/sukemaru.png" width="290" height="290" alt="透けマル の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/othello">
+          <img src="/assets/icons/othello.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ぱすてるオセロ</b>
+            <span>レベル1〜10のCPUと対戦。オフラインで遊べる。</span>
+            <em>無料・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/negotouranai">
+          <img src="/assets/icons/negotouranai.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ねごと占い</b>
+            <span>就寝中の寝言を自動録音し、端末内で文字起こしして夢占い風に読み解く。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
