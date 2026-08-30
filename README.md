@@ -89,7 +89,7 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       **8/28の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも `403 Forbidden`、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` も `CONNECT tunnel failed, response 403`）。これで**8/20〜8/28と9日連続**の全滅。`checked` は8/19のまま更新できず、`tools/ranks.json` に差分なし（全滅日の想定どおりの挙動）。`SKIP_RANK_GUARD=1` で迂回。last-updated が最も古い（8/10のまま17日以上更新なし）live アプリ sukemaru / kinshuwatch から新規テーマを2本執筆・生成・検証まで完了し、push した。**測定手段（順位・評価数）が9日間まったく取得できていない状態が続いている。これはこのタスクの目的（App Store製品ページへの流入増加）の効果測定そのものが1週間以上機能していないことを意味し、ネットワークポリシー側の許可リスト対応がこれ以上先送りされるべきではない。**
       **8/29の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも `403 Forbidden`、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` も `CONNECT tunnel failed, response 403`。`api.github.com` は200で正常）。これで**8/20〜8/29と10日連続**の全滅。`checked` は8/19のまま更新できず、`tools/ranks.json` に差分なし（想定どおり）。今回はセッション開始時点で `HEAD` が `main` を指しており `origin/main` とも一致していたため、detached HEAD の再発なし（13回連続の記録は途切れた）。`SKIP_RANK_GUARD=1` で迂回し、live アプリの中で記事の last-updated が最も古かった kaeseru（8/14のまま）と、記事数が少なく last-updated も古かった musuberu（8/22のまま）から新規テーマを2本執筆。カエセルの記事は標準的な元利均等返済の式で試算した実数値を使用。CSPハッシュは今回、既存の部分追記ではなく全ページから再計算して丸ごと置き換える方式に変え、178件→180件になったことをJSON-LDとの突き合わせで検証した（旧方式は使われなくなったハッシュが残り続ける可能性があったため）。**測定手段（順位・評価数）が10日間まったく取得できていない状態が続いている。**
       **この回、CSPの sha256 ハッシュ検証スクリプトを自作した際に、最初の実装が172本すべてのJSON-LD（既存168ハッシュ分すべてを含む）を「未登録」と誤検出するバグを踏んだ。** 原因は正規表現 `<script type="application/ld\+json">\n(.*?)\n</script>` が `<script>` タグ直後の改行を「区切り文字」として消費してしまい、ハッシュ対象の先頭改行1文字が欠落していたため（`content = "\n" + m.group(1) + "\n"` が正しい）。修正後に再計算すると、実際に未登録だったのは新規記事2本ぶんの4件と、記事一覧ページ（`guides/index.html`、一覧内容が更新されるたびに中身が変わる）の1件だけで、既存記事のCSPは正常だった。**今後この種のチェックを書くときは、対象の1件を手計算（生バイトを直接スライスしてハッシュ）した結果と突き合わせてから全件に適用すること。**
-- [ ] **毎回の作業開始時に `git status` / `git branch` で `main` ブランチにいることを確認する。**
+      **8/30の回も引き続き全滅**（`itunes.apple.com` 8ジャンル中8ジャンルとも `403 Forbidden`、`https://tokyo357.netlify.app` の `/` `/apps/` `/guides/` も `CONNECT tunnel failed, response 403`。`$HTTPS_PROXY/__agentproxy/status` の `recentRelayFailures` でも `itunes.apple.com:443` への `connect_rejected` を確認）。これで**8/20〜8/30と11日連続**の全滅。`checked` は8/19のまま更新できず、`tools/ranks.json` に差分なし（想定どおり）。`SKIP_RANK_GUARD=1` で迂回し、live アプリの中で記事の last-updated が最も古かった kigyouojisan・othello（ともに8/19のまま11日更新なし）から新規テーマを2本執筆。kigyouojisan は退職後の社会保険切り替え（国民健康保険・国民年金、それぞれ14日・任意継続20日の期限）を WebSearch で確認し、税務・保険にかかる話のため断定を避け日本年金機構・全国健康保険協会での確認を明記。othello はパスの正しい条件（置ける場所がある限りパス不可）を WebSearch で確認し、既存記事「石の数が多い方が勝っているとは限らない」への内部リンクを追加。CSPハッシュは前回同様、全ページから再計算して丸ごと置き換え、184件になったことをJSON-LD総数（184件）との突き合わせで検証した。**測定手段（順位・評価数）が11日間まったく取得できていない状態が続いている。**
       2026-08-14 の実行で `HEAD` が `main` から外れた detached HEAD の状態でコミットしてしまい、
       その回の成果が2日間 `main` に反映されず、2026-08-16 の実行で発覚・fast-forwardで復旧した。
       2026-08-17 の実行でも、セッション開始直後の時点で再び `HEAD` が `main` から3コミット分
@@ -172,6 +172,13 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       で復旧し、`git fetch` で `origin/main` のハッシュ前進を確認する必要すらなかった（pushが
       要らない、fast-forwardのみで完結する軽微なケース）。実害なし。12回連続の再発により、
       このセッション起動時のdetached HEAD挙動は環境側の恒常的な仕様と見てよい。
+      **2026-08-29の実行は例外的に detached HEAD が発生せず**（`HEAD` が最初から `main` を指し、
+      `origin/main` とも一致）、12回連続の記録は途切れた。ところが**2026-08-30の実行で再発**。
+      今回は detached HEAD が `origin/main`（8/29セッションが正しくpushした断面）と完全に一致し、
+      ローカルの `main` だけが1コミット遅れていた。`git checkout main && git merge --ff-only <detached
+      HEADのコミット>` で復旧し、pushは不要（fast-forwardのみで完結）。実害なし。1日だけ途切れたものの
+      すぐ再発したことから、detached HEAD 自体は依然として毎回のセッション起動時に起こりうる前提で
+      運用を続ける必要がある。
 - [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
 - [ ] **DNSレコードの追加**（下記「独自ドメイン」参照）。Netlify側の接続とビルドは完了済み。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。
