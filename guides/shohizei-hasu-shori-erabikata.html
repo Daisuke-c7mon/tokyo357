@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>請求書の消費税、端数はどう処理すればいいか（切り捨て・四捨五入・切り上げ） ｜ 株式会社サウナ</title>
+<meta name="description" content="インボイス制度では消費税の端数処理を明細ごとに行うことはできません。1つの請求書につき税率ごとに1回、という決まりと、切り捨て・四捨五入・切り上げのどれを選ぶかの考え方を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/shohizei-hasu-shori-erabikata">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="請求書の消費税、端数はどう処理すればいいか（切り捨て・四捨五入・切り上げ）">
+<meta property="og:description" content="インボイス制度では消費税の端数処理を明細ごとに行うことはできません。1つの請求書につき税率ごとに1回、という決まりと、切り捨て・四捨五入・切り上げのどれを選ぶかの考え方を説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/shohizei-hasu-shori-erabikata">
+<meta property="og:image" content="https://tokyo357.com/assets/og/hitoriinvoice.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "請求書の消費税、端数はどう処理すればいいか（切り捨て・四捨五入・切り上げ）",
+  "description": "インボイス制度では消費税の端数処理を明細ごとに行うことはできません。1つの請求書につき税率ごとに1回、という決まりと、切り捨て・四捨五入・切り上げのどれを選ぶかの考え方を説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-09-02",
+  "dateModified": "2026-09-02",
+  "image": "https://tokyo357.com/assets/og/hitoriinvoice.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/shohizei-hasu-shori-erabikata",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "請求書の消費税、端数はどう処理すればいいか（切り捨て・四捨五入・切り上げ）" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-09-02 ／ 仕事の道具</p>
+      <h1>請求書の消費税、端数はどう処理すればいいか（切り捨て・四捨五入・切り上げ）</h1>
+      <p class="lede">1円未満の端数をどう丸めるかは自由に選べますが、「どこで丸めるか」は自由ではありません。インボイス制度で決まっているルールを説明します。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">短い答え</p>
+        <p>端数処理の<strong>方法</strong>（切り捨て・四捨五入・切り上げ）はどれを選んでも構いません。ただし<strong>処理する場所</strong>は決まっていて、1つの請求書につき<strong>税率ごとに1回だけ</strong>です。明細の行ごとに消費税額を計算して端数処理し、それを合計する — というやり方は、インボイス制度では認められません。</p>
+      </div>
+
+      <h2>なぜ「明細ごと」がダメなのか</h2>
+      <p>適格請求書（インボイス）に記載しなければならない項目の1つに「税率ごとに区分した消費税額等」があります。国税庁の説明では、この消費税額等の端数処理は<strong>一の適格請求書につき、税率ごとに1回</strong>と定められています。10%対象の行が5行あれば、5行分の税抜合計を先に出してから、その合計に対して1回だけ端数処理をします。行ごとに1円未満を丸めて、それを5回足し合わせる、という順番は認められません。</p>
+      <p>インボイス制度が始まる前は、この順番についての明確な決まりがなく、商品ごとに端数処理してから合計する請求書も見られました。制度開始後は、この「明細ごとの端数処理→合計」という作り方そのものが記載事項の要件を満たさなくなっています。</p>
+
+      <h2>具体的にはどう変わるか</h2>
+      <p>10%対象の明細が3行あり、税抜金額がそれぞれ1,000円・1,000円・1,000円だった場合で比べます。</p>
+      <ul>
+        <li><strong>正しい順番</strong>：税抜合計 3,000円 → 消費税 3,000円×10%＝300円（端数なし）→ 請求書に「消費税等 300円」と記載</li>
+        <li><strong>認められない順番</strong>：各行の税抜1,000円に10%をかけて100円ずつ端数処理し、100円×3行＝300円として合計欄に記載する</li>
+      </ul>
+      <p>この例では結果が一致していますが、単価に端数がある明細（333円や1,980円など）が混ざると、行ごとに丸めた場合と合計してから丸めた場合とで最終的な消費税額が1円単位でずれることがあります。取引先から見て記載方法が制度の要件と異なると、仕入税額控除の面で問題になり得るため、日頃からどちらの順番で計算しているかを確認しておく必要があります。</p>
+
+      <h2>切り捨て・四捨五入・切り上げ、どれを選ぶか</h2>
+      <p>丸め方そのものに決まりはなく、発行者が任意の方法を選べます。同じ請求書の中で税率ごとに違う方法を使うことも制度上は可能ですが、実務上は<strong>1つの請求書内では同じ方法に揃えておく</strong>方が、受け取る側にとっても検算しやすく、無用な問い合わせを避けられます。</p>
+      <ul>
+        <li><strong>切り捨て</strong>：発行者側の受け取る消費税額が最も少なくなりやすい方法です。取引先に対して「多く取っていない」印象を与えやすく、迷ったらこれを選ぶ事業者が多いです。</li>
+        <li><strong>四捨五入</strong>：会計ソフトの既定値になっていることが多く、経理担当者にとって最も見慣れた丸め方です。</li>
+        <li><strong>切り上げ</strong>：発行者側が受け取る額がわずかに増える方法です。使う場合は、なぜその方法にしているかを取引先に説明できるようにしておくと安心です。</li>
+      </ul>
+      <p>一度決めた方法は、同じ取引先との間ではできるだけ変えないようにしてください。月によって丸め方が変わると、取引先の経理担当者が金額の妥当性を確認しにくくなります。</p>
+
+      <h2>請求書アプリを選ぶときに確認したいこと</h2>
+      <p>この決まりを踏まえると、請求書を作るときに確認しておきたいのは次の2点です。</p>
+      <ul>
+        <li>消費税額の計算が、<strong>明細ごとではなく税率ごとの合計に対して</strong>行われているか</li>
+        <li>丸め方（切り捨て・四捨五入・切り上げ）を<strong>自分で選べる</strong>か、それとも固定されているか</li>
+      </ul>
+      <p>Excelなどで自作した請求書テンプレートを使っている場合、明細行ごとに消費税額の列を作って合計しているケースが少なくありません。心当たりがある場合は、次の請求書を出す前に一度、税率ごとの税抜合計に対して端数処理をやり直す形に直しておくことをおすすめします。インボイスの記載事項全体については<a href="/guides/invoice-kisai-jikou">インボイス制度で、請求書に必要な記載事項</a>で説明しています。</p>
+
+      <h2>まとめ</h2>
+      <p>端数処理の丸め方自体は自由ですが、丸める<strong>タイミング</strong>は「1つの請求書につき、税率ごとに1回」と決まっています。明細ごとに端数処理してから合計する作り方をしている場合は、税率ごとの合計に対して1回だけ処理する形に直してください。適用税率や記載方法の解釈に迷う場合は、国税庁の公表資料または税理士にご確認ください。</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>ひとり請求書</h2>
+        <p>ひとり請求書は、切り捨て・切り上げ・四捨五入を明細ではなく請求書全体で1回だけ適用し、インボイス制度の記載ルールに沿って税率ごとの消費税額を自動で計算します。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6796195340?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/hitoriinvoice">ひとり請求書について読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/hitoriinvoice.png" width="290" height="290" alt="ひとり請求書 の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/kaeseru">
+          <img src="/assets/icons/kaeseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>カエセル</b>
+            <span>住宅ローンの計算。金利上昇と繰上返済の損得を金額で出す。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sagaseru">
+          <img src="/assets/icons/sagaseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>サガセル録音</b>
+            <span>文字起こしの1文をタップすると音声がその瞬間まで飛ぶボイスメモ。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/kigyouojisan">
+          <img src="/assets/icons/kigyouojisan.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>起業おじさん</b>
+            <span>まず聞いて、今週できる一歩を1つか2つだけ示す相談アプリ。</span>
+            <em>無料・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
