@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>オセロの「偶数理論」— 終盤で最後に打つ側になるための考え方 ｜ 株式会社サウナ</title>
+<meta name="description" content="オセロの終盤戦術「偶数理論」を、なぜ最後の一手が有利になりやすいのかという仕組みから説明します。白番の基本的な考え方と、黒番の対抗策（逆偶数理論）も紹介します。">
+<link rel="canonical" href="https://tokyo357.com/guides/othello-guusuu-riron">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="オセロの「偶数理論」— 終盤で最後に打つ側になるための考え方">
+<meta property="og:description" content="オセロの終盤戦術「偶数理論」を、なぜ最後の一手が有利になりやすいのかという仕組みから説明します。白番の基本的な考え方と、黒番の対抗策（逆偶数理論）も紹介します。">
+<meta property="og:url" content="https://tokyo357.com/guides/othello-guusuu-riron">
+<meta property="og:image" content="https://tokyo357.com/assets/og/othello.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "オセロの「偶数理論」— 終盤で最後に打つ側になるための考え方",
+  "description": "オセロの終盤戦術「偶数理論」を、なぜ最後の一手が有利になりやすいのかという仕組みから説明します。白番の基本的な考え方と、黒番の対抗策（逆偶数理論）も紹介します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-09-06",
+  "dateModified": "2026-09-06",
+  "image": "https://tokyo357.com/assets/og/othello.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/othello-guusuu-riron",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "オセロの「偶数理論」— 終盤で最後に打つ側になるための考え方" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-09-06 ／ 画面まわり・気晴らし</p>
+      <h1>オセロの「偶数理論」— 終盤で最後に打つ側になるための考え方</h1>
+      <p class="lede">オセロの終盤でよく使われる「偶数理論」という考え方を、なぜ最後に打つ側が有利になりやすいのかという仕組みから説明します。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>オセロは初期配置の4個を除くと<strong>空きマスがちょうど60個</strong>あり、パスが発生しなければ黒→白の順に打ち続けて<strong>白が60手目（最後の一手）を打つ</strong>計算になります。終盤、盤面がいくつかの独立した領域に分かれてきたとき、<strong>空きマスが偶数個の領域には自分から先に打たない</strong>という考え方が「偶数理論」です。</p>
+      </div>
+
+      <h2>なぜ「最後の一手」が有利になりやすいのか</h2>
+      <p>終盤、盤面が2〜3マスほどの小さな領域に分かれた状態では、その領域に打てる順番はほぼ決まってしまいます。ある領域に<strong>先に手をつけた側</strong>と<strong>その領域を最後に打ち終える側</strong>が分かれるとき、最後に打った側はその領域の形を自分の都合で決められるのに対し、先に手をつけた側は選択肢が限られたまま相手に形を決められてしまいます。これが「終盤は最後に打つ側が有利になりやすい」と言われる理由です。</p>
+
+      <h2>偶数理論の考え方</h2>
+      <p>ある独立した領域の空きマスが<strong>奇数個</strong>の場合、先にその領域に打った側は「1手目・3手目・5手目…」を担当することになり、<strong>最後の手も自分が打つ</strong>ことになります。逆に空きマスが<strong>偶数個</strong>の場合、先に打った側は「1手目・3手目…」を担当しますが、<strong>最後の手は相手に渡る</strong>ことになります。</p>
+      <p>白番（後手）はこの性質を利用し、<strong>偶数個の領域には自分から先に手を出さず、黒に先に打たせる</strong>ことで、その領域の最後の一手を確保しようとします。逆に奇数個の領域は、自分から先に打っても最後まで自分のものにできるため、早めに手をつけて片付けていきます。これが「偶数理論」と呼ばれる、白番の基本的な終盤の考え方です。</p>
+
+      <h2>黒番はどう対抗するか（逆偶数理論）</h2>
+      <p>盤面全体の空きマスは60個（偶数）のため、何もしなければ理屈のうえでは白が最後の一手を得やすくなっています。そこで黒番は、<strong>白が先に手を出せない奇数個の領域を意図的に1つ作り、そこを最後まで温存する</strong>という対抗策を取ります。これは「逆偶数理論」や「奇数理論」と呼ばれる考え方です。</p>
+
+      <h2>実戦での使い方</h2>
+      <ul>
+        <li><strong>終盤、盤面が複数の孤立した空きマスの塊に分かれてきたら、それぞれの塊の空きマス数を数えてみます。</strong></li>
+        <li>白番なら、偶数個の塊には自分からは打たず、先に黒に打たせる展開を目指します。</li>
+        <li>黒番なら、奇数個の塊を1つ意図的に残し、白に先に手を出させないようにします。</li>
+        <li>ただし<a href="/guides/othello-pass-rule">パスが発生する</a>と手番の巡り合わせが崩れるため、理論どおりに進まないこともあります。あくまで終盤の判断材料の1つとして使うのが実用的です。</li>
+      </ul>
+
+      <h2>石の数との関係</h2>
+      <p><a href="/guides/othello-ishikazu-yuuri-tokakiranai">石の数が多い方が勝っているとは限らない</a>で説明したとおり、終盤までは石の数よりも「置ける場所の多さ」や「最後にどちらが打てるか」の方が勝敗に直結します。偶数理論は、この「最後にどちらが打てるか」を意図的にコントロールしようとする考え方です。</p>
+
+      <h2>まとめ</h2>
+      <p>偶数理論は絶対のルールではなく、例外も多い経験則です。それでも「終盤、空きマスの塊が偶数か奇数か」を数える習慣をつけておくと、どちらが有利な展開に向かっているかを判断する材料になります。まずは<a href="/guides/othello-shuban-saigo">終盤で最後に打つ側が有利になる仕組み</a>から確認してみてください。</p>
+
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>ぱすてるオセロ</h2>
+        <p>ぱすてるオセロはレベル1〜10のCPUと対戦できます。レベルが上がるほど終盤まで深く読んでくるので、偶数理論を意識した打ち方が実際に通用するか試す練習台になります。</p>
+        <p class="cmp-note">iOS 16+ ／ 無料</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6793739141?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/othello">ぱすてるオセロについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/othello.png" width="290" height="290" alt="ぱすてるオセロ の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sukemaru">
+          <img src="/assets/icons/sukemaru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>透けマル</b>
+            <span>背景を消して透過PNGに。書き出したファイルを読み戻してアルファを実測する。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/negotouranai">
+          <img src="/assets/icons/negotouranai.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ねごと占い</b>
+            <span>就寝中の寝言を自動録音し、端末内で文字起こしして夢占い風に読み解く。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
