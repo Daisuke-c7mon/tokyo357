@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>電線管の曲げ計算がカタログ値どおりにならない理由 — スプリングバックとベンダーの個体差 ｜ 株式会社サウナ</title>
+<meta name="description" content="電線管の曲げ加工で計算値と現物がずれる主な原因（スプリングバックによる角度の戻り、ベンダーごとの実効曲げ半径の違い）と、試し曲げで実測して合わせる方法を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/densenkan-mage-keisan-genbutsu-zure">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="電線管の曲げ計算がカタログ値どおりにならない理由 — スプリングバックとベンダーの個体差">
+<meta property="og:description" content="電線管の曲げ加工で計算値と現物がずれる主な原因（スプリングバックによる角度の戻り、ベンダーごとの実効曲げ半径の違い）と、試し曲げで実測して合わせる方法を説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/densenkan-mage-keisan-genbutsu-zure">
+<meta property="og:image" content="https://tokyo357.com/assets/og/magedori.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "電線管の曲げ計算がカタログ値どおりにならない理由 — スプリングバックとベンダーの個体差",
+  "description": "電線管の曲げ加工で計算値と現物がずれる主な原因（スプリングバックによる角度の戻り、ベンダーごとの実効曲げ半径の違い）と、試し曲げで実測して合わせる方法を説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "image": "https://tokyo357.com/assets/og/magedori.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/densenkan-mage-keisan-genbutsu-zure",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "電線管の曲げ計算がカタログ値どおりにならない理由 — スプリングバックとベンダーの個体差" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-09-07 ／ 仕事の道具</p>
+      <h1>電線管の曲げ計算がカタログ値どおりにならない理由 — スプリングバックとベンダーの個体差</h1>
+      <p class="lede">計算どおりに曲げたはずなのに現物と合わない。原因は計算式ではなく、曲げ半径の前提値が手元の道具と違うことにあります。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">短い答え</p>
+        <p>電線管の曲げ計算がカタログ値どおりにならない最大の原因は、<strong>曲げた直後に管がわずかに戻る「スプリングバック」</strong>と、
+        <strong>ベンダー（曲げ工具）ごとに実際の曲げ半径がカタログ値とずれている</strong>ことの2つです。
+        計算式が間違っているのではなく、計算の前提にしている半径の値が、手元の道具の実測値と違うために起きます。</p>
+      </div>
+
+      <h2>スプリングバックとは何か</h2>
+      <p>金属管を曲げると、力を抜いた瞬間にわずかに元の形へ戻ろうとします。これがスプリングバックです。
+      パイプベンダーの一般的な使い方でも、狙った角度ぴったりで止めると戻りの分だけ角度が不足するため、
+      <strong>目標より2〜3°ほど深めに曲げておく</strong>ことが基本とされています。電線管の曲げでも同じ現象が起きるため、
+      計算どおりの角度で止めたつもりでも、実際には数度足りない仕上がりになることがあります。</p>
+
+      <h2>ベンダーごとの曲げ半径の違い</h2>
+      <p>電線管の曲げ半径の下限は法令上決まっていますが（内側半径は管内径の6倍以上）、
+      これは「これより小さく曲げてはいけない」という最小値であり、<strong>実際に使っているベンダーがその値どおりに曲がる保証ではありません</strong>。
+      ベンダーの形状・製造誤差・使い込みによる摩耗などで、同じ管種でも実際の曲げ半径は道具ごとに変わります。
+      カタログ値をそのまま計算に使うと、現物合わせで管を切ってから「思ったより長い（短い）」というずれが起きるのはこのためです。</p>
+
+      <h2>ずれを無くす方法は、試し曲げして実測すること</h2>
+      <p>計算式を疑うより先に確認すべきなのは、<strong>今使っているベンダーで実際に何mmの半径で曲がっているか</strong>です。
+      端材で一度曲げてみて、仕上がりの寸法を実際に測れば、そのベンダー固有の実効半径が分かります。
+      以降はカタログ値ではなく、この実測値を使って計算すれば、現物とのずれは大きく減ります。
+      ベンダーを買い替えたり、使い込んで摩耗が進んだと感じたときは、その都度測り直すのが確実です。</p>
+
+      <h2>まとめ</h2>
+      <p>電線管の曲げ計算が現物と合わないときは、計算式ではなく前提にしている半径の値を疑ってください。
+      スプリングバックによる角度の戻りと、ベンダーごとの実効半径の違いが主な原因です。
+      試し曲げで実測してから計算に反映すれば、道具を変えても同じ精度で曲げられます。
+      曲げ半径の最小値そのものについては<a href="/guides/densenkan-mage-hankei-saisho">電線管の曲げ半径の最小値</a>もあわせてご覧ください。</p>
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>マゲドリ</h2>
+        <p>試し曲げ1回で実効芯半径を逆算して覚えるので、2回目からは自分のベンダーに合った値で計算します。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6798952257?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/magedori">マゲドリについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/magedori.png" width="290" height="290" alt="マゲドリ の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/kaeseru">
+          <img src="/assets/icons/kaeseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>カエセル</b>
+            <span>住宅ローンの計算。金利上昇と繰上返済の損得を金額で出す。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sagaseru">
+          <img src="/assets/icons/sagaseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>サガセル録音</b>
+            <span>文字起こしの1文をタップすると音声がその瞬間まで飛ぶボイスメモ。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/hitoriinvoice">
+          <img src="/assets/icons/hitoriinvoice.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ひとり請求書</b>
+            <span>見積・納品・請求・領収を同じ明細から1タップ。インボイス対応。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
