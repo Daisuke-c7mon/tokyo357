@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>オセロのCPU、レベルによって何が変わっているのか ｜ 株式会社サウナ</title>
+<meta name="description" content="オセロのコンピュータ対戦相手は、レベルによって何を変えて強さを調整しているのか。先読みの深さという一般的な考え方から、勝てないレベルへの向き合い方までを説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/othello-level-tsuyosa-chigai">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="オセロのCPU、レベルによって何が変わっているのか">
+<meta property="og:description" content="オセロのコンピュータ対戦相手は、レベルによって何を変えて強さを調整しているのか。先読みの深さという一般的な考え方から、勝てないレベルへの向き合い方までを説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/othello-level-tsuyosa-chigai">
+<meta property="og:image" content="https://tokyo357.com/assets/og/othello.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "オセロのCPU、レベルによって何が変わっているのか",
+  "description": "オセロのコンピュータ対戦相手は、レベルによって何を変えて強さを調整しているのか。先読みの深さという一般的な考え方から、勝てないレベルへの向き合い方までを説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-09-13",
+  "dateModified": "2026-09-13",
+  "image": "https://tokyo357.com/assets/og/othello.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/othello-level-tsuyosa-chigai",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "オセロのCPU、レベルによって何が変わっているのか" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-09-13 ／ ボードゲーム</p>
+      <h1>オセロのCPU、レベルによって何が変わっているのか</h1>
+      <p class="lede">レベルが上がると、コンピュータの何が変わっているのか。「強さ」の正体を知ると、勝てないレベルへの向き合い方も変わります。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p><strong>レベルの違いは、主に「何手先まで読んで打つか」の差です。</strong>低いレベルほど先読みが浅い（またはランダムに近い）打ち方をし、レベルが上がるほど深く読み、終盤は最後まで読み切りにかかります。強さは能力の差というより、<strong>探索にかける深さの差</strong>だと捉えると、対策も立てやすくなります。</p>
+      </div>
+
+      <h2>ボードゲームのCPUは、何で強さが変わるのか</h2>
+      <p>オセロに限らず、多くのボードゲームのコンピュータ対戦相手は、一般的に次のような要素で強さを調整しています。</p>
+      <ul>
+        <li><strong>先読みの深さ。</strong>「次の自分の手」だけを見るか、「その後の相手の返し、さらにその次」まで見るか。読む手数が増えるほど、目先の得より後の展開を優先した手を選べます。</li>
+        <li><strong>盤面の評価のしかた。</strong>石の数だけを見るか、角や辺の位置、置ける場所の広さといった要素を加味するか。評価の粒度が粗いレベルほど、一見良さそうでも実は不利な手を選ぶことがあります。</li>
+        <li><strong>終盤の扱い。</strong>盤面の空きマスが少なくなった終盤は、最後まで完全に読み切ることが可能になる領域です。強いレベルほど、この完全読みに切り替えるタイミングが早くなります。</li>
+      </ul>
+      <p>「強い」「弱い」は一つの能力というより、<strong>どこまで読むかの設定の違い</strong>であることが多い、という前提で見ると、レベルが上がったときに何が変わったのかを捉えやすくなります。</p>
+
+      <h2>低いレベルでも、たまに鋭い手を打ってくるのはなぜか</h2>
+      <p>浅い読みや乱数寄りの打ち方をするレベルでも、結果的に角を取ったり、こちらの狙いを崩す手を打ってくることがあります。これは深読みの結果ではなく、<strong>置ける場所の中からたまたま強い手が選ばれた</strong>だけのことが多いです。低いレベルで負けても、次も同じ手を打ってくるとは限りません。</p>
+
+      <h2>勝てないレベルに当たったら</h2>
+      <p>先読みの深いレベルに勝つには、序盤から終盤までの考え方を分けて対策すると効果が出やすくなります。</p>
+      <ul>
+        <li>序盤〜中盤は<strong>角を取られない打ち方</strong>を身につける。<a href="/guides/othello-kado-x-uchi">角を取られないために — X打ちとC打ちを覚える</a>で整理しています。</li>
+        <li>終盤は<strong>最後に打つ側が有利</strong>という基本を押さえる。<a href="/guides/othello-shuban-saigo">オセロの終盤 — 最後に打つ側が有利になる仕組み</a>で説明しています。</li>
+        <li>さらに踏み込むなら<strong>偶数理論</strong>の考え方も参考になります。<a href="/guides/othello-guusuu-riron">オセロの「偶数理論」</a>にまとめています。</li>
+        <li>途中の石の数の多さに一喜一憂しない。<a href="/guides/othello-ishikazu-yuuri-tokakiranai">石の数が多い方が勝っているとは限らない</a>もあわせてどうぞ。</li>
+      </ul>
+
+      <h2>負けても、解放済みのレベルは下がらない</h2>
+      <p>ぱすてるオセロでは、レベルは1つ勝つごとに次が開きます。引き分けと敗北では新しく解放されませんが、負けたからといって<strong>すでに解放したレベルが遊べなくなることはありません。</strong>勝てないレベルは一度離れて、下のレベルで打ち方を試してから戻ってきても支障はありません。</p>
+
+      <h2 id="help">困ったときは</h2>
+      <p>「次のレベルが選べない」「コンピュータが強すぎる／弱すぎる」— こうした質問への回答を<a href="/support#othello">サポートページ</a>にまとめています。解決しない場合は<a href="mailto:yamaguchi@tokyo357.com">yamaguchi@tokyo357.com</a>までご連絡ください。
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>ぱすてるオセロ</h2>
+        <p>ぱすてるオセロはレベル1〜10のCPUと対戦できます。レベル1は必ず勝てる練習台、レベル10は先読みの全力です。</p>
+        <p class="cmp-note">iOS 16+ ／ 無料</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6793739141?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/othello">ぱすてるオセロについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/othello.png" width="290" height="290" alt="ぱすてるオセロ の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sukemaru">
+          <img src="/assets/icons/sukemaru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>透けマル</b>
+            <span>背景を消して透過PNGに。書き出したファイルを読み戻してアルファを実測する。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/negotouranai">
+          <img src="/assets/icons/negotouranai.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ねごと占い</b>
+            <span>就寝中の寝言を自動録音し、端末内で文字起こしして夢占い風に読み解く。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
