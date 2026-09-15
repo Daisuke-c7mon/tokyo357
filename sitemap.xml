@@ -107,7 +107,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -236,6 +236,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://tokyo357.com/guides/invoice-touroku-hajimeta-bakari</loc>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://tokyo357.com/guides/jidou-kirinuki-amai-naoshikata</loc>
     <lastmod>2026-09-05</lastmod>
     <priority>0.7</priority>
@@ -263,6 +268,11 @@
   <url>
     <loc>https://tokyo357.com/guides/kagikake-akeyoutoshita-kiroku-mikata</loc>
     <lastmod>2026-09-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/kagikake-backup-timing</loc>
+    <lastmod>2026-09-15</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
