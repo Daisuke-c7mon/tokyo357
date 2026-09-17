@@ -107,7 +107,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -198,6 +198,11 @@
   <url>
     <loc>https://tokyo357.com/guides/genba-shashin-zenkei-kinkei</loc>
     <lastmod>2026-08-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/genba-shiteki-teikeibun-touroku</loc>
+    <lastmod>2026-09-17</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -633,6 +638,11 @@
   <url>
     <loc>https://tokyo357.com/guides/shomeishashin-haikei-sashikae</loc>
     <lastmod>2026-08-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/shousetsu-mojisuu-gyakusan</loc>
+    <lastmod>2026-09-17</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
