@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Safari拡張機能の「アクセスを許可」は、何を許可しているのか ｜ 株式会社サウナ</title>
+<meta name="description" content="しずかTLのようなSafari拡張機能を使うには、対象サイトへの「アクセスを許可」が必要です。この許可が具体的に何を指し、何をしないのかを整理します。">
+<link rel="canonical" href="https://tokyo357.com/guides/safari-kakuchou-kyoka-hani">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="Safari拡張機能の「アクセスを許可」は、何を許可しているのか">
+<meta property="og:description" content="しずかTLのようなSafari拡張機能を使うには、対象サイトへの「アクセスを許可」が必要です。この許可が具体的に何を指し、何をしないのかを整理します。">
+<meta property="og:url" content="https://tokyo357.com/guides/safari-kakuchou-kyoka-hani">
+<meta property="og:image" content="https://tokyo357.com/assets/og/shizukatl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Safari拡張機能の「アクセスを許可」は、何を許可しているのか",
+  "description": "しずかTLのようなSafari拡張機能を使うには、対象サイトへの「アクセスを許可」が必要です。この許可が具体的に何を指し、何をしないのかを整理します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-09-20",
+  "dateModified": "2026-09-20",
+  "image": "https://tokyo357.com/assets/og/shizukatl.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/safari-kakuchou-kyoka-hani",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Safari拡張機能の「アクセスを許可」は、何を許可しているのか" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-09-20 ／ X・SNSの表示</p>
+      <h1>Safari拡張機能の「アクセスを許可」は、何を許可しているのか</h1>
+      <p class="lede">しずかTLのようなSafari拡張機能を使うには、設定画面で対象サイトへの「アクセスを許可」する必要があります。名前だけ見ると重い許可に思えますが、実際に渡している権限の範囲を整理します。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">短い答え</p>
+        <p>「アクセスを許可」は、<strong>その拡張機能が指定したサイトのページを読み書きしてよい</strong>という許可です。
+        ログインID・パスワードを読み取る権限でも、アカウントを代わりに操作する権限でもありません。
+        拡張機能が実際に何をするかは、許可とは別に、そのアプリ自身の作りで決まります。</p>
+      </div>
+
+      <h2>許可には3段階ある</h2>
+      <p>Safariの拡張機能の権限は、サイトごとに<strong>「許可」「確認」「許可しない」</strong>の3段階で設定できます。「確認」は毎回たずねられる状態、「許可しない」はそのサイトでは一切動きません。「許可」にして初めて、そのサイトを開くたびに自動で動くようになります。設定アプリ →「アプリ」→「Safari」→「機能拡張」から、拡張機能ごと・サイトごとに変更できます。</p>
+
+      <h2>「すべてのWebサイト」ではなく、特定サイトだけを許可する</h2>
+      <p>拡張機能によっては「すべてのWebサイト」をまとめて許可するよう求めるものもあります。その場合、開いたどのページに対してもコードを実行できる状態になります。しずかTLは<strong>x.com / twitter.comの2つだけ</strong>を対象にしており、それ以外のサイトへのアクセス権限は要求しません。必要な範囲だけを許可するほうが、渡す権限は小さくて済みます。</p>
+
+      <h2>「表示を書き換える」ことと「データを外に送る」ことは別</h2>
+      <p>ページを読み書きする許可があるからといって、その内容がどこかに送信されるとは限りません。この2つは仕組みとして独立しています。しずかTLは<strong>通信を一切行わない</strong>作りになっており、タイムラインの表示をその場で書き換えるだけで、読み取った内容を外部に送ることはありません。App Storeの「Appのプライバシー」でも、収集する項目はすべて「データを収集しません」として申告しています。</p>
+
+      <h2>この許可でできないこと</h2>
+      <p>アクセスを許可しても、拡張機能に自動でできるようになるのは<strong>そのサイトの表示を書き換えること</strong>だけです。しずかTLは、投稿の削除・自動でのフォローやいいね・アカウントへのログインといった操作は行いません。表示を変えるだけ、という設計上の制約です。</p>
+
+      <h2>許可はいつでも取り消せる</h2>
+      <p>一度「許可」にしたあとも、同じ設定画面からいつでも「確認」や「許可しない」に戻せます。取り消すと、そのサイトを開いたときに拡張機能が動かなくなるだけで、それまでの設定やデータが消えたり、どこかに残り続けたりすることはありません。試しに許可してみて、様子を見てから決めても構いません。</p>
+
+      <h2>まとめ</h2>
+      <p>「アクセスを許可」は、対象サイトの表示を書き換えてよいという範囲の許可であり、それ以上の権限を渡すものではありません。しずかTLが実際に許可を求めるサイトはx.com / twitter.comの2つだけで、通信も行いません。許可したのに表示が変わらない場合は、<a href="/guides/safari-kakuchou-ugokanai">拡張機能が動かないときに確認する順番</a>もあわせてご覧ください。</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>しずかTL for X</h2>
+        <p>しずかTLが許可を求めるサイトはx.com / twitter.comの2つだけ。通信は行わず、表示を変えるだけの拡張機能です。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6796696394?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/shizukatl">しずかTL for Xについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/shizukatl.png" width="290" height="290" alt="しずかTL for X の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/kagikake">
+          <img src="/assets/icons/kagikake.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>カギカケ</b>
+            <span>写真・動画・ファイルを端末内で暗号化する金庫。ダミーのパスコードで別の金庫が開く。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/negotouranai">
+          <img src="/assets/icons/negotouranai.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ねごと占い</b>
+            <span>就寝中の寝言を自動録音し、端末内で文字起こしして夢占い風に読み解く。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/othello">
+          <img src="/assets/icons/othello.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ぱすてるオセロ</b>
+            <span>レベル1〜10のCPUと対戦。オフラインで遊べる。</span>
+            <em>無料・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
