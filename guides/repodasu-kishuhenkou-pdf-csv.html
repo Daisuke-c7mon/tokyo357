@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>レポダスは機種変更のとき、現場のデータをどう守ればいいか ｜ 株式会社サウナ</title>
+<meta name="description" content="レポダスはv1.0時点でクラウド同期を持たず、記録は端末の中だけにあります。機種変更の前にPDFとCSVを書き出しておく理由と、書き出したファイルでできること・できないことを説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/repodasu-kishuhenkou-pdf-csv">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="レポダスは機種変更のとき、現場のデータをどう守ればいいか">
+<meta property="og:description" content="レポダスはv1.0時点でクラウド同期を持たず、記録は端末の中だけにあります。機種変更の前にPDFとCSVを書き出しておく理由と、書き出したファイルでできること・できないことを説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/repodasu-kishuhenkou-pdf-csv">
+<meta property="og:image" content="https://tokyo357.com/assets/og/repodasu.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "レポダスは機種変更のとき、現場のデータをどう守ればいいか",
+  "description": "レポダスはv1.0時点でクラウド同期を持たず、記録は端末の中だけにあります。機種変更の前にPDFとCSVを書き出しておく理由と、書き出したファイルでできること・できないことを説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-09-25",
+  "dateModified": "2026-09-25",
+  "image": "https://tokyo357.com/assets/og/repodasu.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/repodasu-kishuhenkou-pdf-csv",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "レポダスは機種変更のとき、現場のデータをどう守ればいいか" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-09-25 ／ 仕事の道具</p>
+      <h1>レポダスは機種変更のとき、現場のデータをどう守ればいいか</h1>
+      <p class="lede">レポダスは端末の中だけで完結するアプリです。裏を返すと、機種変更の前に何もしないと現場のデータは新しい端末に自動では移りません。何をどう書き出しておけばよいかを説明します。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>レポダスはv1.0時点で<strong>iCloud同期などのクラウド機能を持ちません</strong>。アカウント登録もサーバー通信もなく、写真も現場の記録もすべて端末の中だけに保存されています。そのため機種変更のときは、新しい端末にデータが自動で引き継がれることはありません。<strong>移行の前に、進行中・保存しておきたい現場のPDFとCSVを書き出しておく</strong>必要があります。</p>
+      </div>
+
+      <h2>なぜクラウド同期がないのか</h2>
+      <p>現場の指摘写真や報告書は、社外に出したくない情報を含むことが多くあります。レポダスは通信の機能そのものを持たない設計にすることで、「サーバーに預けたつもりがなかった」「同期の不具合でデータが壊れた・重複した」という経路を最初から作らないようにしています。撮影場所の記録も既定でオフで、通信は一切行いません。便利さよりも、現場の情報を端末の外に出さないことを優先した設計です。</p>
+
+      <h2>機種変更の前にやること</h2>
+      <p>設定の「書き出し」から、現場ごとに<strong>PDF（A4縦）とCSV</strong>を作れます。CSVはUTF-8 BOM付きで、そのままExcelで開けます。新しい端末に移る前に、残しておきたい現場をすべて書き出し、共有シートからiCloud Drive・Google Drive・メールの下書きなど、あとから開ける場所に保存しておいてください。ファイルを渡す方法はiOSの共有シートに任されているため、LINE・メッセージ・AirDrop・各種クラウドのどれでも構いません。</p>
+
+      <h2>書き出したファイルでできること・できないこと</h2>
+      <p>PDFとCSVは、あくまで<strong>そのときの記録を書き出した「結果」</strong>です。新しい端末にレポダスを入れ直したあと、書き出したCSVを読み込んで元の現場を復元する機能はありません。PDFは提出用の書類として、CSVは指摘の一覧をExcelなどで見返す資料として使えますが、写真に印を付け直したり、対応状況を続きから更新したりする作業は、新しい端末の中で現場を作り直す必要があります。</p>
+      <p>そのため、機種変更をまたいで<strong>作業を続けたい現場</strong>がある場合は、書き出しだけでなく、可能であれば移行前にその現場を一区切りつけておく（是正完了まで進めてから書き出す）ほうが手戻りが少なくなります。</p>
+
+      <h2>端末を初期化する前の確認</h2>
+      <p>書き出しが終わったら、保存先に実際にファイルが開けることを確認してから、古い端末の初期化に進んでください。会社名・ロゴ・手書き署名や「指摘」の呼び方といった表示設定は現場のデータではなく端末側の設定のため、新しい端末では設定からあらためて登録し直すことになります。
+</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>レポダス</h2>
+        <p>現場の指摘写真から報告書のPDFまで、通信せず端末の中だけで作れるアプリです。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6799562833?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/repodasu">レポダスについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/repodasu.png" width="290" height="290" alt="レポダス の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/kaeseru">
+          <img src="/assets/icons/kaeseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>カエセル</b>
+            <span>住宅ローンの計算。金利上昇と繰上返済の損得を金額で出す。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sagaseru">
+          <img src="/assets/icons/sagaseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>サガセル録音</b>
+            <span>文字起こしの1文をタップすると音声がその瞬間まで飛ぶボイスメモ。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/hitoriinvoice">
+          <img src="/assets/icons/hitoriinvoice.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ひとり請求書</b>
+            <span>見積・納品・請求・領収を同じ明細から1タップ。インボイス対応。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/apps/dandorirecipe</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/apps/naraseru</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -107,7 +107,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -132,7 +132,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/deadline-daily-quota</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -172,7 +172,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/doujinshi-nyuukou-gyakusan</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -222,7 +222,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/haikei-touka-app-hikaku</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -327,12 +327,12 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/kinshu-app-hikaku</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tokyo357.com/guides/kinshu-ikura-uku</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -362,7 +362,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/kondate-kimaranai</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -387,7 +387,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/kyukanbi-nanniti</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -402,7 +402,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/loan-app-hikaku</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -417,7 +417,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/mojiokoshi-seido-naosu</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -472,12 +472,12 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/nomikai-kotowarikata</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tokyo357.com/guides/onsei-nikki-tsuzukekata</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -487,7 +487,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/othello-app-hikaku</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -502,7 +502,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/othello-joseki-kihon</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -552,7 +552,12 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/recipe-hozon-atode-sagasu</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/repodasu-kishuhenkou-pdf-csv</loc>
+    <lastmod>2026-09-25</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -672,7 +677,12 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/shimekiri-app-hikaku</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/shimekiri-timer-tojite-tomaranai</loc>
+    <lastmod>2026-09-25</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -712,22 +722,22 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/shuchu-timer-tsukaikata</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tokyo357.com/guides/shukan-app-hikaku</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tokyo357.com/guides/shukan-mikka-bouzu</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tokyo357.com/guides/shukan-nannichi</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -742,7 +752,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/sotsuron-shinchoku-gyakusan</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -767,7 +777,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/todo-subsc-kaikiri-chigai</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -792,7 +802,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/tsukurioki-dandori-junban</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -807,7 +817,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/widget-shukan-kiroku</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
