@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#101418">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ひとり請求書 ｜ 株式会社サウナ / Sauna Inc.">
-<meta property="og:description" content="明細の件数で行き止まらない請求書アプリ。インボイス対応、オフライン完結、120円の買い切り。">
+<meta property="og:description" content="明細の件数で行き止まらない請求書アプリ。インボイス対応、入力した内容は端末の外に出ない、120円の買い切り。">
 <meta property="og:url" content="https://tokyo357.com/apps/hitoriinvoice">
 <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/style.css?v=20260805">
@@ -142,7 +142,7 @@
         <div><dt>価格</dt><dd>120円の買い切り<span class="sub">書類の作成数に上限はありません。PDF末尾のクレジット表記もなく、書類の種別変換・印影とロゴ・CSV書き出しも最初から使えます</span></dd></div>
         <div><dt>課金の形</dt><dd>買い切り1回のみ<span class="sub">月額でも年額でもありません。追加課金もありません</span></dd></div>
         <div><dt>出力形式</dt><dd>PDF（A4・自動ページ分割）/ CSV / JSON</dd></div>
-        <div><dt>通信</dt><dd>なし<span class="sub">データは端末の中だけに保存されます。サーバーへの送信はありません</span></dd></div>
+        <div><dt>通信</dt><dd>匿名の利用状況のみ<span class="sub">書類の中身（取引先・金額・振込先など）は送りません。設定でオフにできます</span></dd></div>
         <div><dt>提供元</dt><dd>株式会社サウナ<span class="sub">Sauna Inc.</span></dd></div>
       </dl>
 
@@ -155,7 +155,8 @@
       <p>機種変更の前に、設定から<strong>JSONバックアップ</strong>を書き出してください。新しい端末で読み込めば、取引先・書類・発行者情報がそのまま戻ります。確定申告用に<strong>CSV</strong>でも書き出せます。</p>
 
       <h2>プライバシー</h2>
-      <p>このアプリは<strong>個人情報を一切収集しません</strong>。アカウント登録はなく、解析ツールも広告SDKもトラッキングも入っていません。入力した取引先・金額・振込先が端末の外に出ることはありません。App Storeの「App のプライバシー」でも、すべての項目を「データを収集しません」として申告しています。</p>
+      <p><strong>入力した内容は端末の外に出ません。</strong>取引先・品名・金額・振込先・印影が送られることはありません。改善のため、匿名の利用状況（どの画面を開いたか、書類を作った・PDFを作った・入金を記録した、といった操作の回数と種類）だけを Google Analytics for Firebase で集計します。広告ID（IDFA）は使わず、トラッキングの許可を求めることもありません。</p>
+      <p>設定画面の<strong>「利用状況を送る（匿名）」をオフにすると、すぐに送信を止めます</strong>。オフにしてもアプリの機能に制限はかかりません。App Storeの「App のプライバシー」では、この内容を「ユーザに関連付けられないデータ（使用状況データ・識別子・おおよその位置情報、目的は分析）」として申告しています。</p>
       <p>詳しくは<a href="/privacy">プライバシーポリシー</a>をご覧ください。</p>
 
       <h2 id="help">困ったときは</h2>
@@ -168,13 +169,13 @@
         <p>Solo Invoice is a billing app for one-person businesses — freelancers, sole traders and side-hustlers who issue their own paperwork. Nothing stops at 26 rows, and nothing gets cut off on page two. No account, no cloud. What you type stays on your device.</p>
         <ul>
           <li>Requires iOS 17.0 or later. iPhone and iPad.</li>
-          <li>Free forever for up to 3 saved documents, with full PDF export. One 120 yen purchase unlocks unlimited documents, removes the credit line, and adds document conversion, seal and logo, and CSV export. Not a subscription.</li>
+          <li>One-time purchase. Every feature is available from the start with no caps on documents or line items. No in-app purchases, no subscription.</li>
           <li>Unlimited line items; A4 pages are added automatically as you go. Free-text date field, units, heading-only rows, drag to reorder.</li>
           <li>Invoice / Quotation / Delivery note / Receipt, all rebuilt from the same rows in one tap.</li>
           <li>Built for Japan's qualified invoice system: registration number, per-row 10% / 8% (reduced) / non-taxable rates summarised per rate, tax exclusive or inclusive, your choice of rounding, and optional 10.21% withholding.</li>
           <li>Review every page of the PDF inside the app before sharing. Share via mail, messaging, AirDrop, Files or AirPrint.</li>
           <li>No ad SDK. No banner covering your buttons.</li>
-          <li>Stored only on this device. Nothing is uploaded, and no sign-up is required. Export a JSON backup before changing phones, and CSV for your tax return.</li>
+          <li>What you enter never leaves your device, and no sign-up is required. To improve the app, only anonymous usage data (such as which screens are opened) is counted with Google Analytics for Firebase — you can turn this off in Settings. No ad identifier (IDFA), no tracking prompt. Export a JSON backup before changing phones, and CSV for your tax return.</li>
         </ul>
         <p>Support: <a href="mailto:yamaguchi@tokyo357.com">yamaguchi@tokyo357.com</a> — see the <a href="/support#en">support page</a> and <a href="/privacy#en">privacy policy</a>.</p>
       </div>
