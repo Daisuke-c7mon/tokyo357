@@ -107,7 +107,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -526,6 +526,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://tokyo357.com/guides/othello-kaihoudo-riron</loc>
+    <lastmod>2026-09-29</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://tokyo357.com/guides/othello-kanzen-kaiseki</loc>
     <lastmod>2026-08-21</lastmod>
     <priority>0.7</priority>
@@ -853,6 +858,11 @@
   <url>
     <loc>https://tokyo357.com/guides/x-chronological-safari</loc>
     <lastmod>2026-08-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/x-gazou-douga-tomeru-moji-dake</loc>
+    <lastmod>2026-09-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>

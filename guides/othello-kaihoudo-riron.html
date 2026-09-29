@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>オセロの「開放度」とは — 返す石のまわりの空きマスを数える考え方 ｜ 株式会社サウナ</title>
+<meta name="description" content="オセロの中盤で手を選ぶ目安になる「開放度」の数え方と、なぜ開放度の低い手がよいとされるのかを、中割りや壁の考え方とあわせて説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/othello-kaihoudo-riron">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="オセロの「開放度」とは — 返す石のまわりの空きマスを数える考え方">
+<meta property="og:description" content="オセロの中盤で手を選ぶ目安になる「開放度」の数え方と、なぜ開放度の低い手がよいとされるのかを、中割りや壁の考え方とあわせて説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/othello-kaihoudo-riron">
+<meta property="og:image" content="https://tokyo357.com/assets/og/othello.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "オセロの「開放度」とは — 返す石のまわりの空きマスを数える考え方",
+  "description": "オセロの中盤で手を選ぶ目安になる「開放度」の数え方と、なぜ開放度の低い手がよいとされるのかを、中割りや壁の考え方とあわせて説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-09-29",
+  "dateModified": "2026-09-29",
+  "image": "https://tokyo357.com/assets/og/othello.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/othello-kaihoudo-riron",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "オセロの「開放度」とは — 返す石のまわりの空きマスを数える考え方" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-09-29 ／ 画面まわり・気晴らし</p>
+      <h1>オセロの「開放度」とは — 返す石のまわりの空きマスを数える考え方</h1>
+      <p class="lede">同じ場所に打てる候補が複数あるとき、どれを選べばよいか。その目安としてよく使われる「開放度」の数え方と、なぜ低い方がよいのかを説明します。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>開放度とは、ある手を打ったときに<strong>ひっくり返る石のまわりに、空きマスがいくつ接しているか</strong>を数えた値です。開放度が低い手ほど、<strong>相手に新しく打てる場所を与えにくい</strong>ため、中盤では開放度の低い手を選ぶのが基本とされています。</p>
+      </div>
+
+      <h2>開放度の数え方</h2>
+      <p>候補の手を1つ決めたら、その手で<strong>ひっくり返る石</strong>をすべて確認します。それぞれの石について、上下左右と斜めの<strong>8方向で隣り合うマスのうち、空いているマスの数</strong>を数え、合計したものが開放度です。</p>
+      <ul>
+        <li>返る石が1枚で、その石の周囲8マスがすべて埋まっていれば、開放度は0です。</li>
+        <li>返る石が2枚で、1枚目の周囲に空きマスが2つ、2枚目の周囲に空きマスが1つなら、開放度は3です。</li>
+      </ul>
+      <p>2枚の石が同じ空きマスに接している場合、その空きマスを1回と数えるか2回と数えるかは流儀によって違います。どちらで数えても「どの手が相対的に低いか」の比較にはほとんど影響しないので、自分の数えやすい方で揃えれば十分です。なお、打った石そのものは数えず、<strong>返る石だけ</strong>を対象にします。</p>
+
+      <h2>なぜ開放度が低い方がよいのか</h2>
+      <p>オセロで相手が石を置けるのは、<strong>こちらの石を挟める空きマス</strong>だけです。空きマスに接している自分の石が増えるほど、相手が挟むための足がかりが増え、相手の打てる場所が広がります。</p>
+      <p>ひっくり返した石は自分の色になるので、<strong>返した石のまわりに空きマスが多い＝相手の足がかりを新しく作った</strong>ということになります。開放度はこの「相手に渡した足がかりの量」を数える目安です。低い手を選び続けると相手の打てる場所が少しずつ減り、最終的には<a href="/guides/othello-kado-x-uchi">X打ちやC打ち</a>のような打ちたくない場所に相手を追い込めます。</p>
+
+      <h2>開放度0の手 — 「中割り」</h2>
+      <p>盤面の内側で、まわりがすべて石で埋まっている石だけを返す手を<strong>中割り</strong>と呼びます。開放度が0なので、相手に新しい足がかりを1つも与えません。中盤で中割りの手が見つかったら、有力な候補になります。</p>
+      <p>逆に、空きマスに面した外側の石をまとめて返すと、自分の石が外周に並んだ<strong>壁</strong>ができます。壁は相手に多くの打ち場所を与えてしまうため、石の数は増えても形としては悪くなりがちです。<a href="/guides/othello-ishikazu-yuuri-tokakiranai">石の数が多い方が勝っているとは限らない</a>理由の1つがこれです。</p>
+
+      <h2>開放度だけで決めてはいけない場面</h2>
+      <ul>
+        <li><strong>角が取れるとき。</strong>角は一度取れば返されません。開放度が多少高くても、角を取れる手の価値の方が大きいことがほとんどです。</li>
+        <li><strong>打った手のせいで角を渡すとき。</strong>開放度が低くても、その手でX打ち・C打ちの位置に自分の石が入り、相手に角を取られる形になるなら避けます。</li>
+        <li><strong>終盤。</strong>残りのマスが少なくなったら、開放度よりも最終的な石の数と、<a href="/guides/othello-guusuu-riron">最後の一手をどちらが打つか</a>の方が重要になります。</li>
+      </ul>
+      <p>開放度は「迷ったときに比べる目安」であって、絶対のルールではありません。角まわりの危険と終盤の計算が優先で、そのうえで残った候補を比べるときに使うのが実用的です。</p>
+
+      <h2>練習のしかた</h2>
+      <ol>
+        <li>中盤で候補手が2〜3個あるとき、打つ前にそれぞれの手で<strong>どの石が返るか</strong>を確認します。</li>
+        <li>返る石ごとに周囲の空きマスを数え、いちばん少ない手を選んでみます。</li>
+        <li>打った直後に、相手の打てる場所がいくつあるかを数えます。開放度の低い手を選んだときほど少なくなっているはずです。</li>
+      </ol>
+      <p>最初は1手ごとに数えるのが面倒ですが、繰り返すうちに「この手は外側の石を返すから開く」「この手は内側だけだから閉じている」と、数えなくても見分けられるようになります。まずは<a href="/guides/othello-level-tsuyosa-chigai">CPUのレベル</a>を、自分がほぼ勝てるところまで下げて練習すると、手の良し悪しを確かめやすくなります。</p>
+
+      <h2>用語について</h2>
+      <p>「オセロ」は登録商標です。同じルールのゲームは「リバーシ」と呼ばれることもあります。この記事では一般的な呼び方として使っています。</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>ぱすてるオセロ</h2>
+        <p>レベル1〜10のCPUと対戦できます。打てるマスに印が出るので、候補手ごとに「どの石が返るか」を見比べながら開放度を数える練習ができます。無料・広告なし・オフラインで動きます。</p>
+        <p class="cmp-note">iOS 16+ ／ 無料</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6793739141?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/othello">ぱすてるオセロについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/othello.png" width="290" height="290" alt="ぱすてるオセロ の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sukemaru">
+          <img src="/assets/icons/sukemaru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>透けマル</b>
+            <span>背景を消して透過PNGに。書き出したファイルを読み戻してアルファを実測する。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/negotouranai">
+          <img src="/assets/icons/negotouranai.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ねごと占い</b>
+            <span>就寝中の寝言を自動録音し、端末内で文字起こしして夢占い風に読み解く。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
