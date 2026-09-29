@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>シメキリ逆算 ｜ 株式会社サウナ / Sauna Inc.</title>
-<meta name="description" content="締切とゴール量から「今日やる分」を逆算し、間に合わないときは立て直し案を数字で出すiOSアプリ。買い切り120円、広告なし、アカウント登録なし、オフライン完結。株式会社サウナ（Sauna Inc.）が開発・サポートしています。">
+<meta name="description" content="締切とゴール量から「今日やる分」を逆算し、間に合わないときは立て直し案を数字で出すiOSアプリ。買い切り120円、広告なし、アカウント登録なし、入力した内容は端末の外に出ません。株式会社サウナ（Sauna Inc.）が開発・サポートしています。">
 <link rel="canonical" href="https://tokyo357.com/apps/shimekiri">
 <meta name="theme-color" content="#101418">
 <meta property="og:type" content="website">
@@ -113,12 +113,12 @@
         <div><dt>対応OS</dt><dd>iOS 17.0 以降</dd></div>
         <div><dt>対応端末</dt><dd>iPhone / iPad</dd></div>
         <div><dt>価格</dt><dd>120円（買い切り）<span class="sub">アプリ内課金なし・広告なし・サブスクリプションなし</span></dd></div>
-        <div><dt>通信</dt><dd>なし<span class="sub">「道具箱」のリンクをタップしたときだけSafariが開きます</span></dd></div>
+        <div><dt>通信</dt><dd>匿名の利用状況のみ<span class="sub">入力した内容は送りません。設定でオフにできます。「道具箱」のリンクはタップしたときだけSafariが開きます</span></dd></div>
         <div><dt>提供元</dt><dd>株式会社サウナ<span class="sub">Sauna Inc.</span></dd></div>
       </dl>
 
       <h2 id="data">データの持ち方とバックアップ</h2>
-      <p>記録は<strong>端末の中だけ</strong>に保存されます。アカウント登録はなく、サーバーへの送信もありません。</p>
+      <p>原稿と記録は<strong>端末の中だけ</strong>に保存されます。アカウント登録はなく、入力した内容が端末の外に出ることはありません。</p>
       <p>このアプリは<strong>iCloud同期をあえて搭載していません</strong>。同期の不具合で記録が壊れたり二重になったりする経路を、はじめから作らないためです。そのかわり、設定画面から<strong>バックアップをJSONファイルとして書き出し／読み込み</strong>できます。機種変更や別端末への移動は、このファイルを渡すだけで済みます。読み込みは既存のデータを消さずに追加します。</p>
 
       <h2 id="pace">計算について</h2>
@@ -127,7 +127,8 @@
       <p>判定は「必要な時間 ÷ 確保できる時間」の比率で、ゆとりあり／順調／注意／警告／未達の5段階です。表示される数値はいずれも目安であり、実際の進みかたは体調や作業内容によって変わります。</p>
 
       <h2>プライバシー</h2>
-      <p>このアプリは<strong>個人情報を一切収集しません</strong>。アカウント登録はなく、解析ツールも広告SDKもトラッキングも入っていません。App Storeの「App のプライバシー」でも、すべての項目を「データを収集しません」として申告しています。</p>
+      <p><strong>入力した内容は端末の外に出ません。</strong>改善のため、匿名の利用状況（どの画面を開いたか、原稿を作った・記録した・立て直し案を適用した、といった操作の回数と種類）だけを Google Analytics for Firebase で集計します。原稿のタイトル・メモ・数量・締切日などの中身は送りません。広告ID（IDFA）は使わず、トラッキングの許可を求めることもありません。</p>
+      <p>設定画面の<strong>「利用状況を送る（匿名）」をオフにすると、すぐに送信を止めます</strong>。オフにしてもアプリの機能に制限はかかりません。App Storeの「App のプライバシー」では、この内容を「ユーザに関連付けられないデータ（使用状況データ・識別子・おおよその位置情報、目的は分析）」として申告しています。</p>
       <p>詳しくは<a href="/privacy">プライバシーポリシー</a>をご覧ください。</p>
 
       <h2 id="picks">「道具箱」タブについて</h2>
@@ -146,7 +147,7 @@
         <ul>
           <li>Requires iOS 17.0 or later. iPhone and iPad.</li>
           <li>One-time purchase. No ads, no in-app purchases, no subscriptions. Everything is unlocked at purchase.</li>
-          <li>No personal data is collected. No account, no server, no tracking. Records stay on the device.</li>
+          <li>What you enter never leaves your device. To improve the app, only anonymous usage data (such as which screens are opened) is counted with Google Analytics for Firebase — you can turn this off in Settings. No account, no ad identifier (IDFA), no tracking prompt.</li>
           <li>There is deliberately no cloud sync. Move your data with a JSON export/import from Settings instead.</li>
           <li>Your quota follows your per-weekday available time, and the minutes-per-unit figure switches to your measured pace once you have logged enough work.</li>
           <li>The "Toolbox" tab contains editorially selected external links, some of which are affiliate links. It can be hidden entirely from Settings.</li>
