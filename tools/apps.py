@@ -100,6 +100,11 @@ APPS = [
          tagline="教えても、本物は出てこない。",
          short="写真・動画・ファイルを端末内で暗号化する金庫。ダミーのパスコードで別の金庫が開く。",
          topic="仕事の道具"),
+    dict(slug="itpassport", name="ITパスポート 過去問900 一問一答", appid="6817219208", state="prepare",
+         price="買い切り 120円", os="iOS 17+",
+         tagline="広告に一度も邪魔されずに、900問。",
+         short="平成31年度〜令和8年度のIPA公開問題900問。本番と同じ採点で合否が出る。",
+         topic="仕事の道具"),
 ]
 
 BY_SLUG = {a["slug"]: a for a in APPS}
