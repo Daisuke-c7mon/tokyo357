@@ -70,5 +70,9 @@
     "kind": "無料App",
     "current": null,
     "checked": "2026-08-19"
+  },
+  "_meta": {
+    "last_attempt": "2026-09-30",
+    "failed_genres": 8
   }
 }

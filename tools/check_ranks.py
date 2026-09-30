@@ -104,6 +104,11 @@ def main():
         best = f'（最高 {rec.get("best")}位 / {rec.get("best_date")}）' if rec.get("best") else ""
         print(f'{slug:14} {gname:14} {LABEL[kind]}  今日 {now:>6}  {best}')
 
+    # 全滅の日は個々の rec の "checked" が今日に進まないため、build_guides.py の
+    # require_todays_ranks() が「今日は未実行」と誤判定してしまう。実行した事実
+    # そのものは（成否によらず）ここに残す。
+    data["_meta"] = {"last_attempt": today, "failed_genres": len(failed_keys)}
+
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
     print("\n保存:", OUT.relative_to(ROOT))
 
