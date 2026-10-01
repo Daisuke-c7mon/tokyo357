@@ -650,6 +650,14 @@ GUIDES = [
          title="電線管の曲げ計算、スライダーではなくテンキー入力にした理由",
          lead="ミリ単位の値を、手袋をしたままでも同じように出せるか。スライダーではなくテンキー入力にした理由を説明します。",
          app="magedori"),
+    dict(slug="sukemaru-shashin-kyoka-riyuu", topic="画像・写真", date="2026-10-01",
+         title="透けマルが「写真」へのアクセスを求める理由 — 外部に送信されるか",
+         lead="透過PNGを作るだけのアプリが、なぜ「写真」への許可を求めるのか。許可の内訳と、送信の有無を説明します。",
+         app="sukemaru"),
+    dict(slug="sagaseru-icloud-doukika-nai-riyuu", topic="仕事の道具", date="2026-10-01",
+         title="サガセル録音にiCloud同期がない理由 — 機種変更のときの移し方",
+         lead="録音アプリの多くはiCloud同期を売りにしますが、サガセル録音は意図的に搭載していません。その理由と、機種変更のときに録音を移す具体的な手順を説明します。",
+         app="sagaseru"),
 ]
 
 
