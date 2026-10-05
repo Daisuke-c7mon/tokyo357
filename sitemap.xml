@@ -117,7 +117,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -601,6 +601,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://tokyo357.com/guides/repodasu-yobikata-henkou</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://tokyo357.com/guides/rokuon-bluetooth-mic-tsukaenai</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.7</priority>
@@ -733,6 +738,11 @@
   <url>
     <loc>https://tokyo357.com/guides/shimekiri-app-hikaku</loc>
     <lastmod>2026-09-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/shimekiri-kishuhenkou-backup</loc>
+    <lastmod>2026-10-05</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
