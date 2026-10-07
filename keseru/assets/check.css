@@ -1,0 +1,23 @@
+:root{--bg:#F5F8F6;--card:#fff;--ink:#13201B;--sub:#5E6E67;--line:#E1E8E4;--mint:#14B88A;--teal:#0B7A72;--coral:#E5484D;--amber:#E8930C;--soft:#E3F6EF}
+@media (prefers-color-scheme:dark){:root{--bg:#0D1412;--card:#16201D;--ink:#E9F1ED;--sub:#93A39C;--line:#26322E;--mint:#2FD3A2;--teal:#5BC6BB;--coral:#FF6B6B;--soft:#173129}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:520px;margin:0 auto;padding:28px 16px 48px}
+h1{font:800 26px/1.3 ui-rounded,-apple-system,sans-serif;margin:8px 0 6px}
+.lead{color:var(--sub);margin:0 0 20px}
+.hero{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px}
+.badge{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:30px;background:var(--soft);color:var(--mint)}
+.hero.bad .badge{background:color-mix(in srgb,var(--coral) 14%,transparent);color:var(--coral)}
+.hero.half .badge{background:color-mix(in srgb,var(--amber) 14%,transparent);color:var(--amber)}
+.hero h2{font:800 20px/1.35 ui-rounded,-apple-system,sans-serif;margin:0}
+.hero p{margin:2px 0 0;color:var(--sub);font-size:14px}
+.rows{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:6px 18px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.ok{color:var(--mint);font-weight:700}.ng{color:var(--coral);font-weight:700}
+.help{margin-top:20px;font-size:14px;color:var(--sub)}
+.help h3{color:var(--ink);font-size:15px;margin:0 0 6px}
+.help ol{padding-left:1.2em;margin:0}
+a{color:var(--teal)}
+/* おとり。ケセルが効いていれば Safari が隠す */
+.keseru-bait-ad,.keseru-bait-annoy{height:1px;width:1px;position:absolute;left:-10px;top:-10px;overflow:hidden}
