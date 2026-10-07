@@ -1335,3 +1335,13 @@
   for = "/assets/icons/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# ─────────────────────────────────────────────
+# ケセル（Safari 広告ブロッカー）のルール配信。アプリの拡張が12時間ごとに取りに来る。
+# 版の判定は manifest.json の version で行うので、キャッシュは短くてよい。
+[[headers]]
+  for = "/keseru/rules/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+    Content-Type = "application/json; charset=utf-8"
+    X-Content-Type-Options = "nosniff"

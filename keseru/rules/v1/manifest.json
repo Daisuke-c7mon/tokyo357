@@ -1,0 +1,42 @@
+{
+ "format": 1,
+ "version": "2026.10.07.1437",
+ "packs": {
+  "ads": {
+   "title": "広告",
+   "count": 135,
+   "sha256": "d823a6663f2975d4a55087f3cb4f6950342e4dbf2f88f347f5cc219ff5034c71",
+   "bytes": 14353
+  },
+  "adult": {
+   "title": "アダルト・ギャンブル広告",
+   "count": 39,
+   "sha256": "efa1e96909b45ce8b85bd47de64286eb711931ffce16dcea54e00f6c291b7f08",
+   "bytes": 3928
+  },
+  "trackers": {
+   "title": "トラッカー（行動追跡）",
+   "count": 84,
+   "sha256": "90e0dee041338a66f20eeb6151d16e389771d948a7e9c81de04d93a0c6bc5a6c",
+   "bytes": 8439
+  },
+  "social": {
+   "title": "SNSボタン・埋め込み",
+   "count": 12,
+   "sha256": "e445cd49e0f2a22f458984684136a353707d5635197d6731535b43f38cdc61ba",
+   "bytes": 1551
+  },
+  "pr": {
+   "title": "PR記事・おすすめ記事枠",
+   "count": 15,
+   "sha256": "2c1ea16fac2f41113f5b0ee3a0f6af5615793274f3c1995b006ba6d9e83a51ec",
+   "bytes": 1759
+  },
+  "annoyances": {
+   "title": "Cookie同意・アプリ誘導バナー",
+   "count": 7,
+   "sha256": "353c09eff770a10ee4093187802c282621405f0a9967d91d48b7c00baeabf37a",
+   "bytes": 1165
+  }
+ }
+}

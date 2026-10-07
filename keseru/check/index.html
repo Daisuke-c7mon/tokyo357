@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ケセルの効き目チェック</title>
+<meta name="description" content="Safariでケセルの広告ブロックが効いているかを確かめるページです。">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/keseru/assets/icon-512.png">
+<style>
+:root{--bg:#F5F8F6;--card:#fff;--ink:#13201B;--sub:#5E6E67;--line:#E1E8E4;--mint:#14B88A;--teal:#0B7A72;--coral:#E5484D;--amber:#E8930C;--soft:#E3F6EF}
+@media (prefers-color-scheme:dark){:root{--bg:#0D1412;--card:#16201D;--ink:#E9F1ED;--sub:#93A39C;--line:#26322E;--mint:#2FD3A2;--teal:#5BC6BB;--coral:#FF6B6B;--soft:#173129}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:520px;margin:0 auto;padding:28px 16px 48px}
+h1{font:800 26px/1.3 ui-rounded,-apple-system,sans-serif;margin:8px 0 6px}
+.lead{color:var(--sub);margin:0 0 20px}
+.hero{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px}
+.badge{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:30px;background:var(--soft);color:var(--mint)}
+.hero.bad .badge{background:color-mix(in srgb,var(--coral) 14%,transparent);color:var(--coral)}
+.hero.half .badge{background:color-mix(in srgb,var(--amber) 14%,transparent);color:var(--amber)}
+.hero h2{font:800 20px/1.35 ui-rounded,-apple-system,sans-serif;margin:0}
+.hero p{margin:2px 0 0;color:var(--sub);font-size:14px}
+.rows{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:6px 18px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.ok{color:var(--mint);font-weight:700}.ng{color:var(--coral);font-weight:700}
+.help{margin-top:20px;font-size:14px;color:var(--sub)}
+.help h3{color:var(--ink);font-size:15px;margin:0 0 6px}
+.help ol{padding-left:1.2em;margin:0}
+a{color:var(--teal)}
+/* おとり。ケセルが効いていれば Safari が隠す */
+.keseru-bait-ad,.keseru-bait-annoy{height:1px;width:1px;position:absolute;left:-10px;top:-10px;overflow:hidden}
+</style>
+</head>
+<body>
+<div class="keseru-bait-ad" id="baitAd">ad</div>
+<div class="keseru-bait-annoy" id="baitAnnoy">x</div>
+<main>
+  <h1>ケセルの効き目チェック</h1>
+  <p class="lead">このページには、ケセルが止めるはずの「おとり」の広告と計測を仕込んであります。止まっていれば、Safariでケセルが効いています。</p>
+  <div class="hero" id="hero"><div class="badge" id="badge">…</div><div><h2 id="title">確かめています…</h2><p id="sub"></p></div></div>
+  <div class="rows">
+    <div class="row"><span>ケセル 広告ブロック</span><span id="rAds">…</span></div>
+    <div class="row"><span>ケセル プライバシー</span><span id="rPriv">…</span></div>
+  </div>
+  <div class="help" id="help" hidden>
+    <h3>オンにする手順</h3>
+    <ol>
+      <li>「設定」アプリ →「アプリ」→「Safari」→「機能拡張」</li>
+      <li>「ケセル 広告ブロック」と「ケセル プライバシー」をオン</li>
+      <li>このページを再読み込み</li>
+    </ol>
+    <p>オンなのに✕のときは、このサイト（tokyo357.com）を「止めているサイト」に入れていないか、ケセルのアプリで確かめてください。スクリーンタイムでWebコンテンツを制限していると、拡張機能が働きません。</p>
+  </div>
+  <p class="help"><a href="/keseru/">ケセルについて</a></p>
+</main>
+<script src="/keseru/check/bait/ads/ad.js"></script>
+<script src="/keseru/check/bait/track/t.js"></script>
+<script>
+(function(){
+  function hidden(id){var el=document.getElementById(id);return !el||getComputedStyle(el).display==='none';}
+  // 広告ブロック：おとりの要素が隠れ、おとりの通信が止まっていれば効いている
+  var ads = hidden('baitAd') && !window.__keseruAdBait;
+  // プライバシー：おとりの計測が止まり、Cookieバナー型のおとりが隠れていれば効いている
+  var priv = !window.__keseruTrackBait && hidden('baitAnnoy');
+  function mark(id,on){var e=document.getElementById(id);e.textContent=on?'効いています ✓':'効いていません ✕';e.className=on?'ok':'ng';}
+  mark('rAds',ads); mark('rPriv',priv);
+  var hero=document.getElementById('hero'),t=document.getElementById('title'),s=document.getElementById('sub'),b=document.getElementById('badge');
+  if(ads&&priv){t.textContent='消えています';s.textContent='ケセルはSafariで効いています。';b.textContent='✓';}
+  else if(ads||priv){hero.classList.add('half');t.textContent='あと1つ、オンにしてください';s.textContent='片方の拡張機能がオフです。';b.textContent='!';document.getElementById('help').hidden=false;}
+  else{hero.classList.add('bad');t.textContent='まだ効いていません';s.textContent='Safariの設定でケセルをオンにしてください。';b.textContent='✕';document.getElementById('help').hidden=false;}
+})();
+</script>
+</body>
+</html>
