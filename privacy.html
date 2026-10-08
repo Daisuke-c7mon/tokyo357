@@ -45,7 +45,7 @@
 
     <div class="doc-head">
       <h1>プライバシーポリシー</h1>
-      <p class="updated">最終更新日：2026年9月29日</p>
+      <p class="updated">最終更新日：2026年10月9日</p>
     </div>
 
     <div class="prose">
@@ -53,6 +53,8 @@
       <p>株式会社サウナ（以下「当社」）は、当社が提供するiOSアプリケーション（以下「本アプリ」）および本ウェブサイト（tokyo357.com）における個人情報の取り扱いを、以下のとおり定めます。</p>
 
       <p class="sub">※ <strong>起業おじさん</strong>は、回答の生成に外部のAIサービスを利用するため通信を行います。同アプリについては<a href="https://kigyou-ojisan.netlify.app/privacy">起業おじさん専用のプライバシーポリシー</a>が適用され、本ポリシーの対象外です。</p>
+
+      <p class="sub">※ <strong>ライド手帳</strong>は、匿名の利用状況に加えてクラッシュ情報を Google Firebase に送信します。送信する内容は<a href="#ridetecho">「ライド手帳について」</a>に個別に記載しています。</p>
 
       <div class="note">
         <span class="k">要点</span>
@@ -82,6 +84,18 @@
       <p><strong>送信の停止（オプトアウト）：</strong>各アプリの設定画面にある「利用状況を送る（匿名）」をオフにすると、その時点から送信を停止します。オフにしても、アプリの機能に制限はかかりません。</p>
       <p>収集された情報は Google のサーバー（日本国外を含む）で処理・保存され、Google のプライバシーポリシーに従って取り扱われます。Google アナリティクス上のデータの保持期間は、当社の設定により2か月です。詳しくは <a href="https://policies.google.com/privacy" rel="noopener">Google プライバシーポリシー</a>、<a href="https://policies.google.com/technologies/partner-sites" rel="noopener">Google のサービスを使用するサイトやアプリから収集した情報の Google による使用</a>、<a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase のプライバシーとセキュリティ</a>をご覧ください。</p>
 
+      <h2 id="ridetecho">ライド手帳について（Firebase Analytics / Crashlytics）</h2>
+      <p><strong>ライド手帳</strong>は、アプリの改善と不具合の修正のため、Google LLC が提供する <strong>Google Analytics for Firebase</strong> と <strong>Firebase Crashlytics</strong> を利用し、次の匿名の情報を送信します。この項はライド手帳だけに適用され、ほかの本アプリの取り扱いは変わりません。</p>
+      <ul>
+        <li>利用状況のイベント：表示した画面の名前、使った機能の種類（例：並びはじめた・乗った・あとから追加した・共有画像を作った・記録を書き出した）、来園を始めた・終えた</li>
+        <li>イベントに付く値：アトラクションの識別子とエリア（自分で追加したアトラクションは名前を送らず「custom」とだけ送ります）、待ち時間を「15〜29分」のような区切りに丸めた値、シングルライダー・エクスプレス・パスの有無、表示の待ち時間を入れたかどうか、1回の来園で乗った件数と滞在時間（分）</li>
+        <li>アプリのインスタンスID：Firebase が端末上で生成するランダムな識別子（広告識別子 IDFA・IDFV ではありません）</li>
+        <li>端末とアプリの情報：機種、OSのバージョン、言語、アプリのバージョン</li>
+        <li>クラッシュ情報（Crashlytics）：アプリが異常終了したときの記録（どの処理で止まったか、そのときの端末・OS・アプリのバージョン）</li>
+      </ul>
+      <p><strong>送信しないもの：</strong>来園の記録の内容（日付ごとの乗車の一覧）、メモ、同行者、天気、写真、目標回数、利用者が自分で付けた名前は送信しません。氏名・メールアドレス・位置情報も取得しません。</p>
+      <p>送信した情報は、利用者を特定する目的、広告配信、他社のアプリやウェブサイトをまたいだトラッキングには使いません。広告識別子（IDFA）を取得しないため、App Tracking Transparency の許可も求めません。現在のバージョンには、この送信をアプリ内でオフにする設定はありません。収集された情報は Google のサーバー（日本国外を含む）で処理・保存され、<a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase のプライバシーとセキュリティ</a>に従って取り扱われます。</p>
+
       <h2>5. 第三者への提供</h2>
       <p>当社は、個人情報を第三者へ提供・販売・共有することはありません。第4条の匿名の利用状況は、集計のために Google LLC（Google Analytics for Firebase）が取り扱います。</p>
 
@@ -110,7 +124,7 @@
       <div class="en-block" id="en">
         <p class="flag">ENGLISH</p>
         <h2 class="lead">Privacy Policy</h2>
-        <p>Last updated: September 29, 2026</p>
+        <p>Last updated: October 9, 2026</p>
         <p>Sauna Inc. (株式会社サウナ, "we") provides the iOS applications described on this site. This policy explains how we handle personal information in those apps and on this website (tokyo357.com).</p>
 
         <h3>1. Information we collect</h3>
@@ -133,6 +147,16 @@
         <p>We use Google Analytics for Firebase to understand which screens and features are used, so we can improve the apps. We do not use the Google Analytics User-ID feature, Google signals, ad personalization, or ad network registration, and we include no advertising SDKs. We do not access the IDFA, so we do not present an App Tracking Transparency prompt.</p>
         <p><strong>Opting out:</strong> turn off "Share anonymous usage data" in the app's Settings and sending stops immediately. The app keeps working exactly the same.</p>
         <p>The data is processed and stored on Google's servers (which may be outside Japan) under Google's privacy policy. We set Google Analytics data retention to 2 months. See the <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>, <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">How Google uses information from sites or apps that use its services</a>, and <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase privacy and security</a>.</p>
+
+        <h3 id="ridetecho-en">Ride Techo (ライド手帳)</h3>
+        <p>This section applies only to Ride Techo. To improve the app and fix bugs, Ride Techo sends the following anonymous data to <strong>Google Analytics for Firebase</strong> and <strong>Firebase Crashlytics</strong>, provided by Google LLC:</p>
+        <ul>
+          <li>Usage events: screen names and the type of feature used (e.g. started queuing, boarded, added later, created a share image, exported records), visit started/ended</li>
+          <li>Event values: attraction ID and area (attractions you added yourself are sent only as "custom"), wait time rounded into ranges such as "15-29 minutes", whether single rider or Express Pass was used, whether a posted wait time was entered, and the number of rides and length of stay (minutes) per visit</li>
+          <li>App instance ID generated by Firebase (not the IDFA or IDFV); device model, OS version, language and app version</li>
+          <li>Crash reports (Crashlytics): where the app stopped and the device, OS and app version at the time</li>
+        </ul>
+        <p><strong>Never sent:</strong> the contents of your visit records, notes, companions, weather, photos, goals, or names you typed. The data is not used to identify you, for advertising, or for tracking across other companies' apps or websites. The IDFA is not accessed. The current version has no in-app switch to turn this off.</p>
 
         <h3>5. Sharing with third parties</h3>
         <p>We do not sell, share, or otherwise disclose personal information to third parties. The anonymous usage data in section 4 is handled by Google LLC (Google Analytics for Firebase) to produce aggregate reports for us.</p>
@@ -197,6 +221,7 @@
         <a href="/apps/itpassport">ITパスポート 過去問900 一問一答</a>
         <a href="/apps/fe">基本情報技術者 過去問 科目A・B</a>
         <a href="/apps/ap">応用情報 科目A・午前 過去問 全問解説</a>
+        <a href="/apps/ridetecho">ライド手帳</a>
         <a href="/support">サポート</a>
         <a href="/privacy">プライバシーポリシー</a>
         <a href="/terms">利用規約</a>

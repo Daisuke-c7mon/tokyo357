@@ -115,6 +115,13 @@ APPS = [
          tagline="午前は、過去問で片付ける。",
          short="IPA公表の応用情報 午前 全33回・2,640問を全問解説つきで。午後で選ぶ4分野の目安がわかる。",
          topic="仕事の道具"),
+    # TODO(ridetecho): App Store Connect のレコード作成後、appid に実際の App ID を入れる。
+    # state="prepare" の間は appid を使うコード（Smart App Banner・QR・/go/・DLボタン）が動かないので空のままで安全。
+    dict(slug="ridetecho", name="ライド手帳", appid="", state="prepare",
+         price="買い切り 120円", os="iOS 17+",
+         tagline="ユニバの1日を、半券みたいに。",
+         short="並び始めと乗った時刻の2タップで、待ち時間を実測。乗った回数とパーク制覇率がたまる、USJ向けの非公式記録アプリ。",
+         topic="毎日の記録"),
 ]
 
 BY_SLUG = {a["slug"]: a for a in APPS}
