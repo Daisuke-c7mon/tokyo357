@@ -117,7 +117,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -448,6 +448,11 @@
   <url>
     <loc>https://tokyo357.com/guides/moyai-musubi-oboekata</loc>
     <lastmod>2026-09-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/musuberu-chijime-musubi-towa</loc>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -911,6 +916,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://tokyo357.com/guides/tsuzukutodo-tsuuchi-fukusuukai</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://tokyo357.com/guides/tsuzukutodo-yogata-hiduke-kugiri</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.7</priority>
@@ -959,6 +969,16 @@
     <loc>https://tokyo357.com/guides/zesei-houkokusho-nani-kaku</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/keseru/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/keseru/check/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tokyo357.com/privacy</loc>
