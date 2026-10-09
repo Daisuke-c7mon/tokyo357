@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>機種変更すると、ベンダーのキャリブレーションは引き継げるか ｜ 株式会社サウナ</title>
+<meta name="description" content="電線管ベンダーの実効芯半径をキャリブレーションで記憶させている場合、機種変更で新しい端末に自動的には移りません。バックアップの書き出し機能がない設計で、何が消え、どう再登録すればいいかを整理します。">
+<link rel="canonical" href="https://tokyo357.com/guides/densenkan-bendaa-kishuhenkou">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="機種変更すると、ベンダーのキャリブレーションは引き継げるか">
+<meta property="og:description" content="端末内だけに保存する設計のため、機種変更で新しい端末に自動的には移りません。何が消え、どう再登録すればいいかを整理します。">
+<meta property="og:url" content="https://tokyo357.com/guides/densenkan-bendaa-kishuhenkou">
+<meta property="og:image" content="https://tokyo357.com/assets/og/magedori.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "機種変更すると、ベンダーのキャリブレーションは引き継げるか",
+  "description": "端末内だけに保存する設計のため、機種変更で新しい端末に自動的には移りません。何が消え、どう再登録すればいいかを整理します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-10-09",
+  "dateModified": "2026-10-09",
+  "image": "https://tokyo357.com/assets/og/magedori.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/densenkan-bendaa-kishuhenkou",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "機種変更すると、ベンダーのキャリブレーションは引き継げるか" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-10-09 ／ 仕事の道具</p>
+      <h1>機種変更すると、ベンダーのキャリブレーションは引き継げるか</h1>
+      <p class="lede">試し曲げから実効芯半径を逆算して登録したベンダーの設定は、機種変更のときどうなるのか。端末の中だけにデータを置く設計のアプリでは、自動的には新しい端末に移りません。何が消え、新しい端末でどう再登録すればいいかを整理します。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>マゲドリに登録したベンダーの実効芯半径は<strong>端末の中だけに保存</strong>されており、サーバーには預かっていません。現時点では<strong>バックアップを書き出す機能がない</strong>ため、新しい端末にアプリを入れ直しても、登録済みのベンダーはそのままでは移りません。ただし再登録は、<strong>試し曲げを1回やり直すだけ</strong>で済みます。</p>
+      </div>
+
+      <h2>なぜ自動的に引き継がれないのか</h2>
+      <p>マゲドリは通信を一切行わない設計で作っています。ベンダーごとの実効芯半径は、現場で使っている道具そのものの個体差を示す情報であり、外部のサーバーに送る必要がないためです。便利な引き継ぎと、通信を行わないことは、常に引き換えの関係にあります。</p>
+
+      <h2>機種変更すると実際どうなるか</h2>
+      <p>新しい端末にマゲドリをインストールすると、ベンダーの登録は空の状態から始まります。複数のベンダーを登録していた場合、そのすべてが新しい端末では未登録になります。旧端末のアプリを削除していなければ、旧端末の中ではそれまでの登録を確認できますが、新しい端末へコピーする手段はありません。</p>
+
+      <h2>再登録は、キャリブレーションのやり直しだけで済む</h2>
+      <p>幸い、ベンダーの登録はもともと数値を手で入力するものではなく、<strong>試し曲げの結果から逆算する</strong>仕組みです。新しい端末でも、同じベンダーで1回試し曲げをして、その寸法を入力すれば、以前と同じ実効芯半径が求まります。複数のベンダーを使い分けていた場合は、その本数だけ試し曲げをやり直す必要があります。</p>
+      <ul>
+        <li>現場や管種ごとにベンダーを分けていた場合は、登録名も含めて同じ基準で登録し直す</li>
+        <li>よく使うベンダーから先に再登録しておけば、しばらくは不便を感じない</li>
+        <li>試し曲げの寸法そのものをメモしておくと、再登録のときに前回と同じ条件で試せる</li>
+      </ul>
+
+      <h2>日々の計算結果は保存の対象外</h2>
+      <p>マゲドリが端末に保存しているのは、ベンダーの登録（実効芯半径）と測定基準の設定であり、個々の曲げ計算の結果そのものは保存の対象ではありません。機種変更で引き継ぐ必要があるのは、基本的にベンダーの登録だけです。</p>
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>自分のベンダーの癖を、覚えさせる</h2>
+        <p><strong>マゲドリ</strong>は、日本のJIS電線管専用の曲げ寸法計算アプリです。試し曲げ1回で実効芯半径を逆算し、ベンダーごとの個体差を補正します。通信を行わない設計のぶん、機種変更では再登録の手間がかかることを、あらかじめご理解のうえでお使いください。</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6798952257?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/magedori">アプリの詳細を見る</a>
+          <a class="btn btn--ghost" href="/support#magedori">よくある質問</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/magedori.png" width="290" height="290" alt="マゲドリ の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>関連するページ</h2>
+      <p>同じ考え方でつくった、ほかのアプリです。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/magedori">
+          <img src="/assets/icons/magedori.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>マゲドリ</b>
+            <span>日本のJIS電線管専用の曲げ寸法計算。試し曲げ1回で実効芯半径を逆算。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/repodasu">
+          <img src="/assets/icons/repodasu.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>レポダス</b>
+            <span>現場の指摘を写真何枚でもまとめ、その場でA4のPDF報告書にする。通信なし。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/kagikake">
+          <img src="/assets/icons/kagikake.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>カギカケ</b>
+            <span>写真・動画・ファイルを端末内で暗号化する金庫。ダミーのパスコードで別の金庫が開く。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/apps/itpassport">ITパスポート 過去問900 一問一答</a>
+        <a href="/apps/fe">基本情報技術者 過去問 科目A・B</a>
+        <a href="/apps/ap">応用情報 科目A・午前 過去問 全問解説</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js?v=20260805" defer></script>
+</body>
+</html>
