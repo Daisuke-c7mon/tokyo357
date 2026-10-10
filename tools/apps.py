@@ -135,6 +135,11 @@ APPS = [
          tagline="再読み込みは、まかせて待つ。",
          short="Safari のタブを1秒〜60分の間隔で自動更新し、言葉が出た・消えた・表示が変わったら画面と通知で知らせる拡張機能。再入荷やキャンセル待ちに。",
          topic="画面まわり・気晴らし"),
+    dict(slug="mitaidake", name="ミタイダケ", appid="6821298940", state="prepare",
+         price="買い切り 120円", os="iOS 17+",
+         tagline="見たい動画だけ見て、閉じる。",
+         short="Safari で開いた YouTube から、ショート・ホームのおすすめ・関連動画・自動再生を消す拡張機能。効いているかを診断できる。",
+         topic="画面まわり・気晴らし"),
 ]
 
 BY_SLUG = {a["slug"]: a for a in APPS}
