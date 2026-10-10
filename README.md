@@ -127,6 +127,8 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       **10/6の回も引き続き全滅**（`check_ranks.py`は8ジャンル中8ジャンルとも`itunes.apple.com`への接続が403 Forbiddenで失敗し`tools/ranks.json`に差分なし（`checked`は8/19のまま、`_meta.last_attempt`のみ10/6に更新）。`curl`でも`tokyo357.netlify.app`はCONNECTが403で拒否されることを`$HTTPS_PROXY/__agentproxy/status`の`recentRelayFailures`で確認、`api.github.com`は200で正常）。これで**8/20〜10/6と48日連続**の全滅（10/2・10/3が未実行だった可能性があるため実際の連続日数は未実行分を含む数え方）。セッション開始時、detached HEADだったが`origin/main`（`93bfb53`）と完全一致しており、`git fetch`で確認のうえ`git checkout main && git merge --ff-only origin/main`で復旧（push不要、実害なし）。live アプリの中で記事last-updatedが最も古かった（9/20のまま、9/30〜10/5と4回連続で主要な角度を使い切り見送り）shizukatlは、残っていた「3つのプリセットの選び方」という未使用の角度（既存9本はいずれも個別機能の深掘りで、プリセット同士をどう選ぶかを並べて整理した記事はなかった）で執筆し、次に古いkaeseru（9/22、12本）は「つなぎ融資とは」（注文住宅で住宅ローン実行前に発生する工事代金の立て替えの仕組み。既存12本はいずれも住宅ローン本体の計算・比較で、つなぎ融資という別の融資種別は未着手だった）を選定して2本執筆。shizukatlはapps/shizukatl.htmlに記載の3プリセットの説明（時系列だけ・しずかに見る・集中〈文字だけ〉）をそのまま使い、新しい事実は追加せず整理のみ。kaeseruはWebSearchで複数の住宅情報サイトからつなぎ融資の仕組み（利息のみ払い・引き渡し時に一括返済）・金利が年2〜4%程度と高い理由（無担保融資のため）・住宅ローン控除の対象外である理由（居住前の借入のため）を確認し、税額に関わる点は税務署・税理士への確認を明記した。いずれも他社アプリへの言及なし。CSPハッシュは全ページ対象で実際にマッチした`application/ld+json`の数をそのまま数え直して再計算（10/5の記録誤りの反省を踏襲）、318件→322件（新規記事2本×2種=4件）になったことを、ページ側から直接計算したハッシュ集合とnetlify.toml側を完全一致させて確認した（過不足0、末尾`=`の個数も全件1個）。netlify.tomlのリダイレクトも新規記事2本分を追加した。sitemap.xmlも`tools/build_sitemap.py`で再生成し、193件とURL数の一致を確認した（404.htmlを除く194ページ−1）。内部リンク全件（存在確認、`/t357`除く）・JSON-LD全件322件のjson.loads・非日本語文字混入（Pythonの`re`で確認、ハングル・キリルとも0件）もすべて検証済み。ローカルサーバーで主要ページ・新規記事2本とも200を確認（本番URLは前述のとおり到達不可のため未確認）。準備中の6本（だんどりレシピ／ハナログ／オボエル家計簿／ナラセル／ITパスポート／基本情報技術者）はWebSearchで公開状況を再確認したが、いずれも実在を確認できず、stateの変更は見送った。**測定手段（順位・評価数）が48日間まったく取得できていない状態が続いている。** 前回までに繰り返し通知済みで状況に変化がないため、`PushNotification`は今回見送った。
       **10/7の回も引き続き全滅**（`check_ranks.py`は8ジャンル中8ジャンルとも`itunes.apple.com`への接続が403 Forbiddenで失敗し`tools/ranks.json`に差分なし（`checked`は8/19のまま、`_meta.last_attempt`のみ10/7に更新）。`curl`でも`tokyo357.netlify.app`の`/` `/apps/` `/guides/`いずれもCONNECTが403で拒否されることを`$HTTPS_PROXY/__agentproxy/status`の`recentRelayFailures`で確認、`api.github.com`は200で正常）。これで**8/20〜10/7と49日連続**の全滅（10/2・10/3が未実行だった可能性があるため実際の連続日数は未実行分を含む数え方）。セッション開始時、`HEAD`は`main`を指しており`origin/main`（`36f2e02`）と完全一致、detached HEADの再発なし。live アプリの中で記事last-updatedが最も古かった（9/27のまま10日更新なし、タイでhitoriinvoiceとkinshuwatch）hitoriinvoiceとkinshuwatchから2本執筆。hitoriinvoiceはapps/hitoriinvoice.htmlに記載の「書類番号の自動採番」機能を手がかりに、WebSearchで適格請求書の必須記載事項（国税庁関連の複数解説ページ）を確認し、「登録番号」（必須）と「書類番号」（事業者独自の連番、必須ではない）が別物であることを整理した。kinshuwatchはsupport.htmlの既存FAQ2件（「禁酒を始めた日時を間違えて登録しました」「飲む量が変わりました。あとから変更できますか」）を根拠に、開始日時・飲んでいたお酒の設定を直すと節約金額・カロリーが「直した時点から」ではなく「開始日時から今まで全体」に遡って再計算される仕組みを整理した。外部情報源はhitoriinvoice分のみ使用（国税庁の記載事項に関する一般的な整理、断定を避け国税庁資料・税理士への確認を明記）、kinshuwatch分は既存FAQのみを根拠とし外部情報源は不使用。いずれも他社アプリへの言及なし。CSPハッシュは全ページ対象で実際にマッチした`application/ld+json`の数をそのまま数え直して再計算、322件→326件（新規記事2本×2種=4件）になったことを、ページ側から直接計算したハッシュ集合とnetlify.toml側を完全一致させて確認した（過不足0、末尾`=`の個数も全件1個）。netlify.tomlのリダイレクトも新規記事2本分を追加した。sitemap.xmlも`tools/build_sitemap.py`で再生成し、195件とURL数の一致を確認した。内部リンク全件（存在確認、`/t357`除く）・JSON-LD全件326件のjson.loads・非日本語文字混入（Pythonの`re`で確認、ハングル・キリルとも0件）もすべて検証済み。ローカルサーバーで主要ページ・新規記事2本とも200を確認（本番URLは前述のとおり到達不可のため未確認）。準備中の6本（だんどりレシピ／ハナログ／オボエル家計簿／ナラセル／ITパスポート／基本情報技術者）はiTunes遮断のため公開状況を確認できず、stateの変更は見送った。**測定手段（順位・評価数）が49日間まったく取得できていない状態が続いている。** 前回までに繰り返し通知済みで状況に変化がないため、`PushNotification`は今回見送った。
       **10/8の回も引き続き全滅**（`check_ranks.py`は8ジャンル中8ジャンルとも`itunes.apple.com`への接続が403 Forbiddenで失敗し`tools/ranks.json`に差分なし（`checked`は8/19のまま、`_meta.last_attempt`のみ10/8に更新）。`curl`でも`tokyo357.netlify.app`への接続がCONNECTで403拒否・タイムアウトすることを確認、`$HTTPS_PROXY/__agentproxy/status`の`recentRelayFailures`でも`itunes.apple.com:443`への`connect_rejected`を確認、`api.github.com`は200で正常）。これで**8/20〜10/8と50日連続**の全滅（10/2・10/3が未実行だった可能性があるため実際の連続日数は未実行分を含む数え方）。セッション開始時、detached HEADだったが`origin/main`（`9cfcd10`、直前セッションの「ケセル」機能追加5コミット分）と完全一致しており、`git checkout main && git merge --ff-only origin/main`で復旧（push不要、実害なし）。live アプリの中で記事last-updatedが最も古かった（9/28のまま10日更新なし、タイでtsuzukutodoとmusuberu）の2本から選定して執筆。tsuzukutodoはsupport.htmlの既存FAQ「通知が多すぎる／来ない」に記載の「1つのタスクに何個でも時刻を設定できる」仕様を掘り下げ、薬を1日3回飲むような用事でタスクを3つに分けるか1つにまとめるかの判断基準と設定方法を整理し、既存記事（「1日3回」の目標を2回しかできなかった日）に内部リンクした。musuberuはapps/musuberu.htmlの収録23種のうち未着手だった「縮め結び」（ロープを切らずに一時的に短くする結び）を取り上げ、似た外見の「鎖結び（収納用、荷重不可）」との違いを整理した。縮め結びの具体的な手順は一般に知られる結び（英語名シープシャンク相当）の範囲にとどめ、安全に関わる用途での注意喚起を明記、アプリ内アニメーションでの確認を促す記述に留めた。いずれも外部情報源は英語圏の一般的な結び方知識の確認のみ（WebSearch、他社アプリへの言及なし）。**CSPハッシュの全再計算で、`go/*.html`8本ぶんのハッシュが現在のnetlify.tomlに1件も含まれていないことを再発見した。**（9/29に同じ欠落を一度発見・修正したと記録されていたが、その後のどこかの全再計算で再び落ちていた。原因追跡はせず、今回はページ側から実際にマッチしたスクリプトをそのまま数え直す方式で、JSON-LD 330件＋`go/*.html` 8件＝338件に修正し、ページ側ハッシュ集合とnetlify.toml側を完全一致させて確認した（過不足0、末尾`=`の個数も全件1個）。**今後この欠落が繰り返されないよう、次回以降もCSP再計算のたびに`go/*.html`を対象ファイル一覧に含めて実行し、完全一致の検証を省略しないこと。**netlify.tomlのリダイレクトも新規記事2本分を追加（`tomllib`でパース確認、重複なし・220件）。sitemap.xmlも`tools/build_sitemap.py`で再生成し、199件を確認した。内部リンク全件9,581件（存在確認、`/t357`除く）・JSON-LD全件330件のjson.loads・非日本語文字混入（Pythonの`re`で確認、ハングル・キリルとも0件）もすべて検証済み。ローカルサーバーで主要ページ・新規記事2本とも200を確認（本番URLは前述のとおり到達不可のため未確認）。準備中の6本（だんどりレシピ／ハナログ／オボエル家計簿／ナラセル／ITパスポート／基本情報技術者）はWebSearchで公開状況を再確認したが、いずれも実在を確認できず、stateの変更は見送った。**測定手段（順位・評価数）が50日間まったく取得できていない状態が続いている。**今回はCSPのgo/*.html欠落再発という新規性のある事象があったため、`PushNotification`を試行する。
+      **10/9の回はこのREADMEへの記録なしにASOサイクル（タイトル/OGP/リード調整）とGA記述修正のみ行い、detached HEADのままコミットを終えたらしく、10/10のセッション開始時に発覚した**（`main`は`origin/main`と一致したまま13コミット遅れ、detachedな方は`origin/main`の祖先ではなく純粋に先行していたため`git checkout main && git merge --ff-only`で無損失に復旧・push済み。差分の取り込み自体に実害はなかった）。
+      **10/10の回も引き続き全滅**（`check_ranks.py`は8ジャンル中8ジャンルとも`itunes.apple.com`への接続が403 Forbiddenで失敗し`tools/ranks.json`に差分なし〈`checked`は8/19のまま、`_meta.last_attempt`のみ10/10に更新〉。`curl`でも`tokyo357.netlify.app`・`itunes.apple.com`ともにCONNECTが403で拒否されることを`$HTTPS_PROXY/__agentproxy/status`の`recentRelayFailures`で確認、`api.github.com`は正常）。これで**8/20〜10/10と53日連続**の全滅。live アプリの中で記事last-updatedが最も古かったothello（9/30）とsagaseru（10/1、ともに記事10〜11本）から2本執筆（othelloは序盤の定石が外れた中盤の考え方、sagaseruは文字起こしの対応言語が日本語・英語のみであること）。いずれも既存記事・apps/*.htmlに記載済みの事実のみを根拠とし、他社アプリへの言及・外部情報源への依存なし。**CSPの全再計算で、今回も最初の一発目は`go/*.html`8本を対象ファイル一覧から外してしまい（本READMEのCSP節の手順書自体がgo/*.htmlを含めない内容だったのが原因）、ページ側ハッシュ集合とnetlify.toml側を完全一致で検証する過程で8件の不足を検出・修正した。**これで9/29・10/8に続き3回目の同種の事故。今回は再発防止のため、本READMEの「CSPのハッシュ更新」節そのものをgo/*.html込みの手順に書き換えた（手順書の欠陥が原因だったため、ログに書くだけでなく手順書自体を修正）。最終的にJSON-LD 339件＋go/*.html 8件＝347件で、ページ側とnetlify.toml側の完全一致（過不足0）を確認した。sitemap.xmlは`tools/build_sitemap.py`で204件（keseru関連2件含む）に更新、内部リンク全件・JSON-LD全347件のjson.loads・非日本語文字混入（Pythonの`re`、ハングル・キリルとも0件）も検証済み。ローカルサーバーで主要ページ・新規記事2本とも200を確認（本番URLは遮断のため未確認）。準備中の3本（だんどりレシピ／ハナログ／オボエル家計簿、プロンプトにある「ズレない家計簿」はおそらくオボエル家計簿）はiTunes遮断のため公開状況を確認できず、stateの変更は見送った。**測定手段（順位・評価数）が53日間まったく取得できていない状態が続いている。**前回までに繰り返し通知済みで、ネットワーク遮断そのものに新規性がないため今回`PushNotification`は見送るが、CSP手順書の欠陥修正という運用上の変更があったことは次回以降のセッションが引き継げるよう本READMEに記録した。
       2026-08-14 の実行で `HEAD` が `main` から外れた detached HEAD の状態でコミットしてしまい、
       その回の成果が2日間 `main` に反映されず、2026-08-16 の実行で発覚・fast-forwardで復旧した。
       2026-08-17 の実行でも、セッション開始直後の時点で再び `HEAD` が `main` から3コミット分
@@ -342,17 +344,36 @@ grep -rho 'style\.css?v=[0-9]*' --include='*.html' . | sort -u   # 1種類だけ
 
 ## CSPのハッシュ更新
 
-`netlify.toml` の `Content-Security-Policy` は、ページ内の JSON-LD をハッシュで許可している。
-JSON-LD を編集したら次を実行し、出た値で `netlify.toml` を書き換える。
+`netlify.toml` の `Content-Security-Policy` は、ページ内のインラインscriptをハッシュで許可している。
+対象は2種類ある。**どちらも対象ファイル一覧から漏らさないこと**（`go/*.html` を外す事故が2026-09-29・10-08・10-10と3回発生している）。
+
+1. 各ページの JSON-LD（`<script type="application/ld+json">`）
+2. `go/*.html`（A8リダイレクト8本）の素の `<script>location.replace(...)</script>`
+
+JSON-LD か `go/*.html` を編集したら次を実行し、出た値で `netlify.toml` の `script-src` をまるごと置き換える。
 
 ```bash
 python3 - <<'PY'
-import re, hashlib, base64, pathlib
-import glob
+import re, hashlib, base64, pathlib, glob
+
+hashes = set()
 for f in ['index.html'] + sorted(glob.glob('apps/*.html')) + sorted(glob.glob('guides/*.html')) + ['support.html', 'privacy.html', 'terms.html', '404.html']:
     if not pathlib.Path(f).exists(): continue
     s = pathlib.Path(f).read_text()
-    for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', s, re.S):
-        print(f, "'sha256-" + base64.b64encode(hashlib.sha256(m.group(1).encode()).digest()).decode() + "'")
+    for m in re.finditer(r'<script type="application/ld\+json">\n(.*?)\n</script>', s, re.S):
+        content = "\n" + m.group(1) + "\n"  # 先頭の改行1文字を必ず含める（2026-08-29に判明したバグ）
+        hashes.add("'sha256-" + base64.b64encode(hashlib.sha256(content.encode()).digest()).decode() + "'")
+
+for f in sorted(glob.glob('go/*.html')):  # ← これを忘れる事故が繰り返されている
+    s = pathlib.Path(f).read_text()
+    for m in re.finditer(r'<script>(.*?)</script>', s, re.S):
+        hashes.add("'sha256-" + base64.b64encode(hashlib.sha256(m.group(1).encode()).digest()).decode() + "'")
+
+print(len(hashes))
+for h in sorted(hashes):
+    print(h)
 PY
 ```
+
+書き換えたら、ページ側から数え直したハッシュ集合と `netlify.toml` 側を**必ず完全一致で検証する**（過不足0件）。
+どちらかだけを見て「件数が増えたからOK」と判断しないこと。
