@@ -120,9 +120,7 @@ APPS = [
          tagline="ユニバの1日を、半券みたいに。",
          short="並び始めと乗った時刻の2タップで、待ち時間を実測。乗った回数とパーク制覇率がたまる、USJ向けの非公式記録アプリ。",
          topic="毎日の記録"),
-    # TODO(parkshiori): App Store Connect のレコード作成後、appid に実際の App ID を入れる。
-    # state="prepare" の間は appid を使うコード（Smart App Banner・QR・/go/・DLボタン）が動かないので空のままで安全。
-    dict(slug="parkshiori", name="パークしおり", appid="", state="prepare",
+    dict(slug="parkshiori", name="パークしおり", appid="6821208845", state="review",
          price="買い切り 120円", os="iOS 17+",
          tagline="インパの1日を、1冊のしおりに。",
          short="行きたいものを並べたしおりを、当日は上から『並ぶ→乗った』の2タップで埋めていく。実際の待ち時間・何回目・いくら使ったかが、そのまま日記になる東京ディズニーリゾート向けの非公式記録アプリ。",
