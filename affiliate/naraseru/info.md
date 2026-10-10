@@ -3,18 +3,18 @@
 | 項目 | 内容 |
 |---|---|
 | アプリ名 | ナラセル |
-| 状態 | App Store 申請準備中 |
+| 状態 | App Store 配信中 |
 | 価格 | 買い切り 120円 |
 | 対応 | iOS 17+ |
 | 紹介ページ | https://tokyo357.com/apps/naraseru |
-| App Store | https://apps.apple.com/jp/app/id?ct=a8_text&mt=8 |
+| App Store | https://apps.apple.com/jp/app/id6799580268?ct=a8_text&mt=8 |
 | 提供 | 株式会社サウナ（Sauna Inc.） |
 
 ## 何をするアプリか
 
-長押しで録って、離すと楽器。
+タップで録って、両手で鳴らす。
 
-身のまわりの音をその場でパッドに載せるサンプラー。保存操作なし、書き出しはWAV。
+身のまわりの音をタップで録ってドラムパッドに載せるサンプラー。ビートメイク、WAV書き出し。
 
 ## 紹介するときに書いてよいこと
 
