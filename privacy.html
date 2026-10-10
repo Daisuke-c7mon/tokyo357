@@ -59,6 +59,7 @@
       <p class="sub">※ <strong>パークしおり</strong>は、匿名の利用状況に加えてクラッシュ情報を Google Firebase に送信します。送信する内容は<a href="#parkshiori">「パークしおりについて」</a>に個別に記載しています。</p>
 
       <p class="sub">※ <strong>シフポン</strong>は、匿名の利用状況に加えてクラッシュ情報を Google Firebase に送信します。送信する内容は<a href="#shifpon">「シフポンについて」</a>に個別に記載しています。</p>
+      <p class="sub">※ <strong>リロ番</strong>は Safari 拡張機能として、利用者が開始したタブのページを読みます。読んだ内容の扱いと、送信する匿名の利用状況は<a href="#reloban">「リロ番について」</a>に個別に記載しています。</p>
 
       <div class="note">
         <span class="k">要点</span>
@@ -123,6 +124,17 @@
       </ul>
       <p><strong>送信しないもの：</strong>勤務先名、時給、給料の金額、シフトの日付・時刻などの中身、スタンプの名前、メモは送信しません。氏名・メールアドレス・位置情報も取得しません。シフトのデータは端末の中だけに保存されます。iPhone のカレンダーへの書き込みは、利用者が「iPhoneのカレンダーに反映」を押したとき（「変更のたびに自動で反映」をオンにした場合は変更のたび）だけ行い、専用カレンダー「シフポン」の予定だけを書き換えます。出勤前の通知は端末の中で予約するもので、外部のサーバーは使いません。</p>
       <p>送信した情報は、利用者を特定する目的、広告配信、他社のアプリやウェブサイトをまたいだトラッキングには使いません。広告識別子（IDFA）を取得しないため、App Tracking Transparency の許可も求めません。設定画面の「利用状況を送る（匿名）」をオフにすると、その時点から利用状況・クラッシュ情報とも送信を停止します。オフにしても機能に制限はかかりません。収集された情報は Google のサーバー（日本国外を含む）で処理・保存され、<a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase のプライバシーとセキュリティ</a>に従って取り扱われます。</p>
+      <h2 id="reloban">リロ番について（Firebase Analytics）</h2>
+      <p><strong>リロ番</strong>は Safari 拡張機能と設定アプリからなり、利用者が開始したタブだけを決めた間隔で読み込み直し、そのページの文字を読んで、見張っている言葉が出たか・消えたか・表示が変わったかを判定します。この判定は<strong>端末の中だけ</strong>で行い、ページの内容を当社や第三者へ送信することはありません。見つけた記録（履歴）も端末の中だけに保存されます。開始していないタブのページは読みません。</p>
+      <p>そのうえで、アプリの改善のため、Google LLC が提供する <strong>Google Analytics for Firebase</strong> を利用し、アプリ本体から次の匿名の情報を送信します。この項はリロ番だけに適用され、ほかの本アプリの取り扱いは変わりません。リロ番はクラッシュ情報の収集（Crashlytics）を使用していません。</p>
+      <ul>
+        <li>利用状況のイベント：表示した画面の名前、初回の案内を終えた（最後まで進めたか・飛ばしたか、そのとき拡張機能がオンだったか、通知を許可したか）、拡張機能がオンかどうかの確認結果、はじめて見張りを始めた（見張り方の種類）、見つけた記録を開いた、履歴を消した（件数の区切り）、通知のオン・オフとテスト通知、プリセットを保存した（自分で変えたかどうか）、Safari・練習ページ・拡張機能の設定を開いた（どの画面から開いたか）、使い方のガイドを開いた（項目の種類）、おすすめのアプリをタップした</li>
+        <li>前回アプリを開いてからの使われ方の集計：見張りを始めた回数と見つけた回数、いちばん多く使った見張り方（更新だけ・変化したら・言葉が出たら・言葉が消えたら）、見張る場所をえらんだかどうか。回数・件数は「2〜5」のような区切りに丸めて送ります</li>
+        <li>アプリのインスタンスID：Firebase が端末上で生成するランダムな識別子（広告識別子 IDFA・IDFV ではありません）</li>
+        <li>端末とアプリの情報：機種、OSのバージョン、言語、アプリのバージョン</li>
+      </ul>
+      <p><strong>送信しないもの：</strong>見ていたページのURL、サイト名、ページの文字、利用者が入れた言葉、見張る場所として選んだ部分の内容、見つけた記録（履歴）の中身は送信しません。氏名・メールアドレス・位置情報も取得しません。</p>
+      <p>送信した情報は、利用者を特定する目的、広告配信、他社のアプリやウェブサイトをまたいだトラッキングには使いません。広告識別子（IDFA）を取得しないため、App Tracking Transparency の許可も求めません。設定画面の「利用状況を送る（匿名）」をオフにすると、その時点から送信を停止します。オフにしても機能に制限はかかりません。収集された情報は Google のサーバー（日本国外を含む）で処理・保存され、<a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase のプライバシーとセキュリティ</a>に従って取り扱われます。</p>
 
       <h2>5. 第三者への提供</h2>
       <p>当社は、個人情報を第三者へ提供・販売・共有することはありません。第4条の匿名の利用状況は、集計のために Google LLC（Google Analytics for Firebase）が取り扱います。</p>
@@ -205,6 +217,15 @@
           <li>Crash reports (Crashlytics): where the app stopped and the device, OS and app version at the time</li>
         </ul>
         <p><strong>Never sent:</strong> workplace names, wages, pay amounts, shift dates and times, stamp names, or notes. Shift data stays on your device. The app writes to iOS Calendar only when you sync (or turn on auto-sync), and only to its own "シフポン" calendar; reminders are scheduled on the device. The data is not used to identify you, for advertising, or for tracking across other companies' apps or websites. The IDFA is not accessed. Turning off "利用状況を送る（匿名）" (Send anonymous usage data) in Settings stops both usage and crash data from that point on; all features keep working.</p>
+        <h3 id="reloban-en">Reloban (リロ番)</h3>
+        <p>This section applies only to Reloban. Reloban is a Safari extension with a companion app. It reloads only the tabs you start it on and reads the text of those pages to check whether your words appeared or disappeared or the page changed. This check happens <strong>only on your device</strong>; page contents are never sent to us or to any third party, and your history of finds is stored only on your device. Pages in tabs you have not started it on are not read.</p>
+        <p>To improve the app, the app (not the extension) sends the following anonymous data to <strong>Google Analytics for Firebase</strong>, provided by Google LLC. Reloban does not use Crashlytics.</p>
+        <ul>
+          <li>Usage events: screen names; onboarding completed or skipped, with whether the extension was on and whether notifications were allowed; the result of the extension on/off check; first watch started (watch mode); a find opened; history cleared (count range); notifications turned on or off and test notifications; presets saved (customized or not); Safari, the practice page or extension settings opened (and from where); a guide topic opened; a recommended app tapped</li>
+          <li>Usage since the app was last opened: number of watches started and finds, the most used watch mode, and whether an area was picked. Counts are rounded into ranges such as "2-5"</li>
+          <li>App instance ID generated by Firebase (not the IDFA or IDFV); device model, OS version, language and app version</li>
+        </ul>
+        <p><strong>Never sent:</strong> page URLs, site names, page text, the words you typed, the contents of the area you picked, or the contents of your history. The data is not used to identify you, for advertising, or for tracking across other companies' apps or websites. The IDFA is not accessed. Turning off "利用状況を送る（匿名）" (Send anonymous usage data) in Settings stops sending from that point on; all features keep working.</p>
 
         <h3>5. Sharing with third parties</h3>
         <p>We do not sell, share, or otherwise disclose personal information to third parties. The anonymous usage data in section 4 is handled by Google LLC (Google Analytics for Firebase) to produce aggregate reports for us.</p>
@@ -272,6 +293,7 @@
         <a href="/apps/ridetecho">ライド手帳</a>
         <a href="/apps/parkshiori">パークしおり</a>
         <a href="/apps/shifpon">シフポン</a>
+        <a href="/apps/reloban">リロ番</a>
         <a href="/support">サポート</a>
         <a href="/privacy">プライバシーポリシー</a>
         <a href="/terms">利用規約</a>

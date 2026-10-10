@@ -96,6 +96,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tokyo357.com/apps/reloban</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://tokyo357.com/apps/repodasu</loc>
     <lastmod>2026-10-10</lastmod>
     <priority>0.8</priority>
@@ -1022,6 +1027,11 @@
   </url>
   <url>
     <loc>https://tokyo357.com/privacy</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/reloban/practice/</loc>
     <lastmod>2026-10-10</lastmod>
     <priority>0.5</priority>
   </url>

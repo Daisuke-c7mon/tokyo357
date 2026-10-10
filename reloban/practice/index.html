@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>リロ番 練習ストア</title>
+<meta name="description" content="Safari 拡張機能「リロ番」を試すための、架空の練習用のお店です。数回読み込み直すと在庫の表示が変わります。">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFF8EC">
+<link rel="icon" href="/assets/icons/reloban.png">
+<link rel="stylesheet" href="/reloban/practice/practice.css?v=20261010">
+</head>
+<body>
+
+<header class="bar">
+  <p class="brand">リロ番 練習ストア</p>
+  <p class="tag">練習用・架空のお店</p>
+</header>
+
+<p class="fiction">これは Safari 拡張機能「リロ番」を試すための<strong>架空のお店</strong>です。実際の商品は売っていません。<br>
+<span lang="en">A fictional practice store for trying the Reloban Safari extension. Nothing is for sale.</span></p>
+
+<!-- 説明文の中の「売り切れ」「在庫あり」は、ゼロ幅スペース（&#8203;）で区切ってある。
+     リロ番はページ全体の文字から言葉を探すので、説明文にそのまま書くと「消えた」と判定できなくなるため。 -->
+<section class="how" aria-labelledby="how-ja">
+  <h1 id="how-ja">試しかた</h1>
+  <ol>
+    <li>アドレスバーの拡張機能のボタン（パズルのアイコン。iOS によっては「ぁあ」）をタップして、<b>リロ番</b>を開きます。</li>
+    <li>間隔は<b>5秒</b>、見張り方は<b>言葉が消えたら</b>を選び、言葉に<b>売り&#8203;切れ</b>と入れて<b>このタブで開始</b>を押します。<b>範囲を選んで開始</b>を押して下の在庫の表示をタップすると、その場所だけを見張れます。</li>
+    <li>数回読み込み直すと在庫が戻り、リロ番がページを光らせて、通知でも知らせます。</li>
+  </ol>
+  <div class="en" lang="en">
+    <h2>How to try it</h2>
+    <ol>
+      <li>Tap the extensions button in the address bar (the puzzle icon, or “aA” on some iOS versions) and open <b>Reloban</b>.</li>
+      <li>Choose <b>5 sec</b> and <b>Word disappears</b>, type the word <b>売り&#8203;切れ</b> (“sold out”), then tap <b>Start on this tab</b>. Optionally, tap <b>Pick area and start</b> and tap the stock label below.</li>
+      <li>After a few reloads the item comes back in stock, and Reloban lights up the page and sends a notification.</li>
+    </ol>
+  </div>
+</section>
+
+<main class="item" aria-label="練習用の商品">
+  <div class="photo" aria-hidden="true"><span>👟</span></div>
+  <p class="kicker">PRACTICE ITEM</p>
+  <h2 class="name">練習用スニーカー</h2>
+  <p class="price">非売品（練習用）</p>
+  <p class="stock is-out" id="stock">在庫状況：売り切れ</p>
+  <div class="sizes" aria-hidden="true"><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
+  <button class="cart" id="cart" type="button" disabled>入荷待ち</button>
+  <p class="done" id="done" hidden>練習なのでここまでです。 <span lang="en">This is only practice.</span></p>
+  <p class="live">現在 <span id="clock">--:--:--</span> ・ 閲覧中 <span id="viewers">--</span>人</p>
+</main>
+
+<section class="notes">
+  <p>上の時計と閲覧中の人数は、わざと動かしています。「変化したら」でページ全体を見張ると、これに反応して知らせてしまいます。<b>在庫の表示だけをえらぶ</b>か、「数字だけの変化は無視する」をオンにすると、誤報しません。</p>
+  <p lang="en">The clock and viewer count above change on purpose. With “Any change” on the whole page, they trigger an alert. Pick just the stock label, or turn on “Ignore number-only changes”, to avoid false alerts.</p>
+  <p class="count">この練習ページを読み込んだ回数：<span id="loads">1</span>回目（4回目から在庫&#8203;ありになります）</p>
+  <p><a href="./" id="reset">最初からやり直す</a> <span lang="en">/ Start over</span></p>
+</section>
+
+<footer class="foot">
+  <p><a href="/apps/reloban">リロ番について</a> ・ <a href="/support#reloban">よくある質問</a> ・ <a href="/privacy#reloban">プライバシー</a></p>
+  <p>株式会社サウナ / Sauna Inc.</p>
+</footer>
+
+<script src="/reloban/practice/practice.js?v=20261010" defer></script>
+</body>
+</html>
