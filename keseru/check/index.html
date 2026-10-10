@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ケセルの効き目チェック</title>
-<meta name="description" content="Safariでケセルの広告ブロックが効いているかを確かめるページです。">
+<meta name="description" content="広告だらけの見本ページで、ケセルが広告を消しているかをその場で確かめられます。">
 <meta name="robots" content="noindex">
 <link rel="icon" href="/keseru/assets/icon-512.png">
 <link rel="stylesheet" href="/keseru/assets/check.css">
@@ -12,25 +12,79 @@
 <body>
 <div class="keseru-bait-ad" id="baitAd">ad</div>
 <div class="keseru-bait-annoy" id="baitAnnoy">x</div>
-<main>
-  <h1>ケセルの効き目チェック</h1>
-  <p class="lead">このページには、ケセルが止めるはずの「おとり」の広告と計測を仕込んであります。止まっていれば、Safariでケセルが効いています。</p>
-  <div class="hero" id="hero"><div class="badge" id="badge">…</div><div><h2 id="title">確かめています…</h2><p id="sub"></p></div></div>
-  <div class="rows">
-    <div class="row"><span>ケセル — 広告ブロック</span><span id="rAds">…</span></div>
-    <div class="row"><span>ケセル — プライバシー</span><span id="rPriv">…</span></div>
+
+<header class="verdict" id="hero">
+  <div class="badge" id="badge">…</div>
+  <div class="vtext">
+    <h1 id="title">確かめています…</h1>
+    <p id="sub">このページには、わざと広告を5つ置いています。</p>
   </div>
-  <div class="help" id="help" hidden>
-    <h3>オンにする手順</h3>
-    <ol>
-      <li>「設定」アプリ →「アプリ」→「Safari」→「機能拡張」</li>
-      <li>「ケセル — 広告ブロック」と「ケセル — プライバシー」をオン</li>
-      <li>このページを再読み込み</li>
-    </ol>
-    <p>オンなのに✕のときは、このサイト（tokyo357.com）を「止めているサイト」に入れていないか、ケセルのアプリで確かめてください。スクリーンタイムでWebコンテンツを制限していると、拡張機能が働きません。</p>
+</header>
+
+<section class="tally" aria-label="ケセルが消すもの">
+  <div class="row"><span>上のバナー広告</span><span id="r1">…</span></div>
+  <div class="row"><span>記事の間の広告</span><span id="r2">…</span></div>
+  <div class="row"><span>下に張り付く広告</span><span id="r3">…</span></div>
+  <div class="row"><span>PR記事の枠</span><span id="r4">…</span></div>
+  <div class="row"><span>Cookieの同意の帯</span><span id="r5">…</span></div>
+  <div class="row sum"><span>ケセル — 広告ブロック</span><span id="rAds">…</span></div>
+  <div class="row sum"><span>ケセル — プライバシー</span><span id="rPriv">…</span></div>
+</section>
+
+<div class="help" id="help" hidden>
+  <h3>オンにする手順</h3>
+  <ol>
+    <li>「設定」アプリ →「アプリ」→「Safari」→「機能拡張」</li>
+    <li>「ケセル — 広告ブロック」と「ケセル — プライバシー」をオン</li>
+    <li>このページを再読み込み</li>
+  </ol>
+  <p>オンなのに✕のときは、このサイト（tokyo357.com）を「止めているサイト」に入れていないか、ケセルのアプリで確かめてください。Chromeなど Safari 以外のブラウザでは消えません。スクリーンタイムでWebコンテンツを制限していると、拡張機能が働きません。</p>
+</div>
+
+<p class="divider"><span>ここから下が見本の記事です</span></p>
+
+<article class="paper">
+  <div class="ad-slot demo-ad" id="adTop" aria-label="広告">
+    <span class="ad-tag">広告</span>
+    <img src="/keseru/check/bait/ads/banner.svg" alt="" width="640" height="200">
   </div>
-  <p class="help"><a href="/keseru/">ケセルについて</a></p>
-</main>
+
+  <p class="kicker">見本ニュース ・ くらし</p>
+  <h2>秋の週末、近場で楽しむ紅葉の名所めぐり</h2>
+  <p class="meta">10月10日 9:00 ／ 見本ニュース編集部</p>
+  <div class="photo" role="img" aria-label="紅葉の写真のかわり"></div>
+  <p>朝晩の冷え込みが強まり、各地で紅葉が見ごろを迎えつつあります。電車で1時間ほどの近場でも、色づいた並木道や渓谷を楽しめる場所は少なくありません。</p>
+  <p>混雑を避けるなら、午前の早い時間に着くのがおすすめです。駅から歩けるコースを選べば、車の渋滞も気にせずに済みます。</p>
+
+  <div class="infeed-ad demo-ad" id="adMid" aria-label="広告">
+    <span class="ad-tag">広告</span>
+    <img src="/keseru/check/bait/ads/rect.svg" alt="" width="600" height="500">
+  </div>
+
+  <p>歩きやすい靴と、薄手の上着を1枚持っていくと安心です。日が傾くと急に寒くなるので、帰りの時間も早めに決めておきましょう。</p>
+  <p>今年は色づきが例年より少し遅れているため、見ごろは11月の中ごろまで続く見込みです。</p>
+
+  <aside class="pr-article demo-ad" id="adPr">
+    <p class="pr-head">あわせて読みたい <span class="pr-label">PR</span></p>
+    <div class="pr-item"><span class="pr-thumb a"></span><span>【衝撃】たった1週間で−10kg！？医者も驚いた方法</span></div>
+    <div class="pr-item"><span class="pr-thumb b"></span><span>知らないと損！スマホ代が月500円になる裏ワザ</span></div>
+  </aside>
+
+  <p class="end">（この記事は効き目チェック用の見本です）</p>
+</article>
+
+<div class="footer-ad demo-ad" id="adFoot" aria-label="広告">
+  <img src="/keseru/check/bait/ads/footer.svg" alt="" width="640" height="110">
+  <span class="close">×</span>
+</div>
+
+<div class="cookie-banner demo-ad" id="adCookie">
+  <p>このサイトはCookieを使用しています。すべてのCookieに同意しますか？</p>
+  <div><span class="btn">すべて同意</span><span class="btn ghost">設定</span></div>
+</div>
+
+<p class="foot"><a href="/keseru/">ケセルについて</a></p>
+
 <script src="/keseru/check/bait/ads/ad.js"></script>
 <script src="/keseru/check/bait/track/t.js"></script>
 <script src="/keseru/assets/check.js"></script>

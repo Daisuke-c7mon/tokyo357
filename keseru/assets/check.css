@@ -1,23 +1,59 @@
-:root{--bg:#F5F8F6;--card:#fff;--ink:#13201B;--sub:#5E6E67;--line:#E1E8E4;--mint:#14B88A;--teal:#0B7A72;--coral:#E5484D;--amber:#E8930C;--soft:#E3F6EF}
-@media (prefers-color-scheme:dark){:root{--bg:#0D1412;--card:#16201D;--ink:#E9F1ED;--sub:#93A39C;--line:#26322E;--mint:#2FD3A2;--teal:#5BC6BB;--coral:#FF6B6B;--soft:#173129}}
+:root{--bg:#F5F8F6;--card:#fff;--ink:#13201B;--sub:#5E6E67;--line:#E1E8E4;--mint:#14B88A;--teal:#0B7A72;--coral:#E5484D;--amber:#E8930C;--soft:#E3F6EF;--paper:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#0D1412;--card:#16201D;--ink:#E9F1ED;--sub:#93A39C;--line:#26322E;--mint:#2FD3A2;--teal:#5BC6BB;--coral:#FF6B6B;--soft:#173129;--paper:#121A17}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;-webkit-text-size-adjust:100%}
-main{max-width:520px;margin:0 auto;padding:28px 16px 48px}
-h1{font:800 26px/1.3 ui-rounded,-apple-system,sans-serif;margin:8px 0 6px}
-.lead{color:var(--sub);margin:0 0 20px}
-.hero{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px}
-.badge{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:30px;background:var(--soft);color:var(--mint)}
-.hero.bad .badge{background:color-mix(in srgb,var(--coral) 14%,transparent);color:var(--coral)}
-.hero.half .badge{background:color-mix(in srgb,var(--amber) 14%,transparent);color:var(--amber)}
-.hero h2{font:800 20px/1.35 ui-rounded,-apple-system,sans-serif;margin:0}
-.hero p{margin:2px 0 0;color:var(--sub);font-size:14px}
-.rows{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:6px 18px}
-.row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+body{margin:0 auto;max-width:560px;padding:16px 16px 140px;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;-webkit-text-size-adjust:100%}
+body.is-on{padding-bottom:48px}
+img{display:block;width:100%;height:auto}
+
+/* 判定 */
+.verdict{display:flex;align-items:center;gap:14px;background:var(--card);border:2px solid var(--mint);border-radius:22px;padding:18px}
+.verdict.half{border-color:var(--amber)}
+.verdict.bad{border-color:var(--coral)}
+.badge{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:30px;font-weight:800;background:var(--mint);color:#fff}
+.verdict.half .badge{background:var(--amber)}
+.verdict.bad .badge{background:var(--coral)}
+.verdict h1{font:800 22px/1.35 ui-rounded,-apple-system,sans-serif;margin:0}
+.verdict p{margin:2px 0 0;color:var(--sub);font-size:14px;line-height:1.5}
+.tally{margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:4px 16px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
 .row:last-child{border-bottom:0}
-.ok{color:var(--mint);font-weight:700}.ng{color:var(--coral);font-weight:700}
-.help{margin-top:20px;font-size:14px;color:var(--sub)}
+.row.sum{font-size:13px;color:var(--sub)}
+.ok{color:var(--mint);font-weight:700;white-space:nowrap}.ng{color:var(--coral);font-weight:700;white-space:nowrap}
+.help{margin-top:16px;font-size:14px;color:var(--sub)}
 .help h3{color:var(--ink);font-size:15px;margin:0 0 6px}
-.help ol{padding-left:1.2em;margin:0}
+.help ol{padding-left:1.2em;margin:0 0 8px}
+.divider{display:flex;align-items:center;gap:10px;color:var(--sub);font-size:12px;margin:26px 0 12px}
+.divider::before,.divider::after{content:"";flex:1;border-top:1px dashed var(--line)}
+
+/* 見本の記事 */
+.paper{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px}
+.paper h2{font:800 21px/1.45 -apple-system,"Hiragino Sans",sans-serif;margin:4px 0}
+.kicker{color:var(--teal);font-size:12px;font-weight:700;margin:14px 0 0}
+.meta{color:var(--sub);font-size:12px;margin:0 0 12px}
+.photo{height:170px;border-radius:12px;background:linear-gradient(135deg,#E85D2A,#F2B33D 55%,#7A9A3A)}
+.paper p{margin:12px 0}
+.end{color:var(--sub);font-size:12px}
+
+/* わざと置いた広告。ケセルが効いていれば Safari が丸ごと隠す */
+.demo-ad{position:relative}
+.ad-slot,.infeed-ad{margin:14px 0;border-radius:10px;overflow:hidden;box-shadow:0 0 0 3px #FF3B30}
+.ad-tag{position:absolute;top:6px;left:6px;background:rgba(0,0,0,.6);color:#fff;font-size:11px;padding:1px 6px;border-radius:4px}
+.pr-article{margin:18px 0 6px;border-top:2px solid var(--line);padding-top:8px}
+.pr-head{font-weight:800;margin:4px 0!important}
+.pr-label{background:#FFB800;color:#000;font-size:11px;padding:1px 6px;border-radius:4px}
+.pr-item{display:flex;gap:10px;align-items:center;padding:8px 0;font-size:14px;font-weight:700;border-bottom:1px solid var(--line)}
+.pr-thumb{width:72px;height:54px;border-radius:6px;flex:none}
+.pr-thumb.a{background:linear-gradient(135deg,#FF2D55,#FFCC00)}
+.pr-thumb.b{background:linear-gradient(135deg,#34C759,#007AFF)}
+.footer-ad{position:fixed;left:0;right:0;bottom:0;z-index:10;box-shadow:0 -4px 16px rgba(0,0,0,.25);padding-bottom:env(safe-area-inset-bottom);background:#00A3FF}
+.footer-ad img{max-width:560px;margin:0 auto}
+.close{position:absolute;top:2px;right:6px;color:#fff;font-size:18px}
+.cookie-banner{position:fixed;left:12px;right:12px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:11;background:#222;color:#fff;border-radius:14px;padding:12px 14px;font-size:13px;max-width:536px;margin:0 auto;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.cookie-banner p{margin:0 0 8px}
+.btn{display:inline-block;background:#14B88A;color:#fff;font-weight:700;padding:6px 12px;border-radius:8px;margin-right:6px}
+.btn.ghost{background:transparent;border:1px solid #777}
+.foot{text-align:center;font-size:14px;margin-top:24px}
 a{color:var(--teal)}
+
 /* おとり。ケセルが効いていれば Safari が隠す */
 .keseru-bait-ad,.keseru-bait-annoy{height:1px;width:1px;position:absolute;left:-10px;top:-10px;overflow:hidden}
