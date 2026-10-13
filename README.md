@@ -223,6 +223,8 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       HEADのコミット>` で復旧し、pushは不要（fast-forwardのみで完結）。実害なし。1日だけ途切れたものの
       すぐ再発したことから、detached HEAD 自体は依然として毎回のセッション起動時に起こりうる前提で
       運用を続ける必要がある。
+      **2026-10-13の実行でも detached HEAD が発生**（`HEAD` が `main`/`origin/main` より29コミット先。直前セッションの未反映分ではなく、`git fetch` で確認したところ `origin/main` 自体は既にそのコミットまで進んでいた＝push済みで実害なし）。`git checkout main && git merge --ff-only` でfast-forward復旧し、`git push` は `Everything up-to-date`。このパターン自体は8月から続く環境側の既知の仕様で、今回も「開始直後に `git status`/`git fetch` で確認してから復旧する」運用で対応できた。
+      同日、`itunes.apple.com`（ランキング8ジャンル全滅に加え、審査中・申請準備中の11アプリ全件のlookupも個別に試行して全滅）・`https://tokyo357.netlify.app`（`/` `/apps/` `/guides/`）・`api.indexnow.org` への送信がいずれも `CONNECT tunnel failed, response 403` で失敗した一方、`api.github.com` は200で正常だった。長期化しているネットワーク遮断（itunes/netlify/indexnowの複数ホストが対象）が本日も継続しており、順位・評価数・公開状態の実測、本番URLの到達確認、IndexNow通知のいずれも今回はできなかった。記事は `SKIP_RANK_GUARD=1` で迂回して2本（起業おじさん・レポダス、いずれも最終更新日が最も古かったlive アプリ）を追加・生成・検証（内部リンク0件エラー・JSON-LD全件パース成功・sitemap216件・CSPハッシュ366件完全一致・非日本語文字0件）まで完了してpushした。
 - [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
 - [ ] **DNSレコードの追加**（下記「独自ドメイン」参照）。Netlify側の接続とビルドは完了済み。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。
