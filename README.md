@@ -263,6 +263,9 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       ①は手動で除去、②③は `tools/sync_guide_status.py` を新規作成し `tools/apps.py` を単一情報源として
       機械的に同期する仕組みにした（何度実行しても同じ結果になる）。今後 `tools/apps.py` の state を
       live に変えたら、`build_pages.py` `build_index_pages.py` に加えて **`sync_guide_status.py` も回すこと**。
+- [ ] **10/14の記録**：`check_ranks.py`は8ジャンル中8ジャンルとも`itunes.apple.com`への接続が403 Forbiddenで失敗し、`tools/ranks.json`は`_meta.last_attempt`のみ更新（`checked`は8/19のまま、差分なし）。`curl`でも`itunes.apple.com`・`tokyo357.netlify.app`いずれもCONNECTが403で拒否されることを`$HTTPS_PROXY/__agentproxy/status`の`recentRelayFailures`で確認（2026-08-20から起算して**56日連続**の遮断）。セッション開始時、ローカルの`main`参照がdetached HEADで`origin/main`より39コミット遅れていたが、`origin/main`自体は前回セッションの成果（基本情報アプリ統合まで）を保持済みだったため`git checkout main && git merge --ff-only`で復旧・push不要だった。
+      **`tools/article_queue.md`への記入が10/6〜10/13の8回分（記事2本×8＝16本ぶん）抜けていたことに気づいた。**`build_guides.py`のGUIDESと`guides/index.html`には反映済みで記事自体に欠落はないが、台帳だけ更新されていなかった。遡っての復元はリスクが高いため行わず、今回分のみ記入した。今後この台帳を回す回では、書いた直後に記入したかを都度確認すること。
+      記事は、live アプリの中で記事数が最少だった（3本、他は10本以上）naraseruと、記事last-updatedが最も古かった（10/5）shimekiriを一度検討したが、shimekiriは11本の既存記事で主要な角度を使い切っていたため見送り、次点のmusuberu（「ロープをつなぐ」収録4種のうちテープ結びが唯一未記事化）の2本を追加。CSPハッシュは全ページ・go/*.htmlを含む全インラインscript対象で再計算して丸ごと置き換え、366件→370件（新規記事2本分のJSON-LD 4件＋guides/index.htmlのItemList更新1件、旧ハッシュ1件削除）になったことを検証した。netlify.tomlは`tomllib`でパース確認、sitemap.xmlは`build_sitemap.py`で218件に再生成（ページ数との一致はスクリプト自身が実ファイルを数えて作るため、この時点で保証される）。内部リンク9,828件（`/t357`除く）・JSON-LD 362件のjson.loads・非日本語文字混入（Pythonの`re`で確認、ハングル・キリルとも0件）もすべて検証済み。ローカルサーバーで主要ページ・新規記事2本とも200を確認（本番URLは前述のとおり到達不可のため未確認）。**測定手段（順位・評価数）が56日間まったく取得できていない状態が続いている。**
 
 ## 設計メモ
 
