@@ -1,11 +1,15 @@
 // リロ番 練習ストア
 // 読み込んだ回数を sessionStorage（このタブだけ）で数え、4回目（3回読み込み直したあと）から在庫ありにする。
 // CSP（script-src 'self'）に合わせて外部ファイルにしている。インラインの style 属性も使わない。
+// ?drill=busy … 2・3回目を混雑の画面にする（4回目から在庫あり）
+// ?drill=queue … 2回目を順番待ちの画面にし、6秒後に自分で読み込み直す（3回目から在庫あり）
+// どちらもリロ番の「混雑ガード」を試すため。
 (() => {
   "use strict";
 
-  const KEY = "reloban-practice-loads";
-  const FLIP_AT = 4;
+  const drill = new URLSearchParams(location.search).get("drill");
+  const KEY = "reloban-practice-loads" + (drill ? "-" + drill : "");
+  const FLIP_AT = drill === "queue" ? 3 : 4;
 
   let loads = 1;
   try {
@@ -22,6 +26,25 @@
   const done = $("done");
 
   $("loads").textContent = String(loads);
+
+  // 混雑ガードの練習：お店を隠して、混雑・順番待ちの画面だけを出す
+  const showOnly = (id) => {
+    Array.from(document.body.children).forEach((el) => {
+      if (el.tagName !== "SCRIPT" && el.id !== id) el.hidden = true;
+    });
+    $(id).hidden = false;
+  };
+  if (drill === "busy" && (loads === 2 || loads === 3)) {
+    showOnly("drillBusy");
+    return;
+  }
+  if (drill === "queue" && loads === 2) {
+    showOnly("drillQueue");
+    let ahead = 3;
+    setInterval(() => { ahead = Math.max(0, ahead - 1); $("ahead").textContent = String(ahead); }, 2000);
+    setTimeout(() => location.reload(), 6000);
+    return;
+  }
 
   if (loads >= FLIP_AT) {
     stock.textContent = "在庫状況：在庫あり";

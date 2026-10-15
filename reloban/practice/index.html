@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#FFF8EC">
 <link rel="icon" href="/assets/icons/reloban.png">
-<link rel="stylesheet" href="/reloban/practice/practice.css?v=20261010">
+<link rel="stylesheet" href="/reloban/practice/practice.css?v=20261016">
 </head>
 <body>
 
@@ -58,11 +58,32 @@
   <p><a href="./" id="reset">最初からやり直す</a> <span lang="en">/ Start over</span></p>
 </section>
 
+<!-- 混雑ガードの練習。説明文の中の言い回しもゼロ幅スペースで区切ってある（リロ番が「混&#8203;雑の画面」と見分けないように） -->
+<section class="notes drill-how" aria-labelledby="drill-ja">
+  <h2 id="drill-ja">混&#8203;雑ガードを試す</h2>
+  <p>発売直後のように、読み込み直した先が混&#8203;雑や順番&#8203;待ちの画面になる練習です。上と同じく「言葉が消えたら」「売り&#8203;切れ」で始めてください。</p>
+  <ul>
+    <li><a href="./?drill=busy" class="drill-link">混&#8203;雑の練習</a>：2・3回目が「アクセス&#8203;集中」の画面になります。リロ番は誤報せず、間隔を延ばして続け、4回目で在庫が戻ったときだけ知らせます。</li>
+    <li><a href="./?drill=queue" class="drill-link">順番&#8203;待ちの練習</a>：2回目が順番&#8203;待ちの画面になり、数秒後に自動でお店に戻ります。リロ番は順番&#8203;待ちの間は読み込み直さず、戻ったら「順番が来ました」と知らせます。</li>
+  </ul>
+  <p lang="en">Busy-page guard drills: “busy” shows a too-many-visitors page on loads 2–3 (no false alert; Reloban slows down, then alerts on load 4). “queue” shows a waiting room on load 2 that returns by itself (Reloban pauses and tells you when it’s your turn).</p>
+</section>
+
+<!-- 練習用の混&#8203;雑・順番&#8203;待ちの画面（?drill=busy / ?drill=queue のときだけ、practice.js が出す） -->
+<section class="drill" id="drillBusy" hidden>
+  <h1>ただいまアクセスが集中しています</h1>
+  <p>ページを表示できませんでした。しばらく時間をおいて再度アクセスしてください。（練習用の画面です）</p>
+</section>
+<section class="drill" id="drillQueue" hidden>
+  <h1>ただいま順番待ちです</h1>
+  <p>順番が来ましたら、自動でページが切り替わります。あなたの前に <b id="ahead">3</b> 人（練習用の画面です）</p>
+</section>
+
 <footer class="foot">
   <p><a href="/apps/reloban">リロ番について</a> ・ <a href="/support#reloban">よくある質問</a> ・ <a href="/privacy#reloban">プライバシー</a></p>
   <p>株式会社サウナ / Sauna Inc.</p>
 </footer>
 
-<script src="/reloban/practice/practice.js?v=20261010" defer></script>
+<script src="/reloban/practice/practice.js?v=20261016" defer></script>
 </body>
 </html>
