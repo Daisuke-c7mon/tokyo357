@@ -268,6 +268,10 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       記事は、live アプリの中で記事数が最少だった（3本、他は10本以上）naraseruと、記事last-updatedが最も古かった（10/5）shimekiriを一度検討したが、shimekiriは11本の既存記事で主要な角度を使い切っていたため見送り、次点のmusuberu（「ロープをつなぐ」収録4種のうちテープ結びが唯一未記事化）の2本を追加。CSPハッシュは全ページ・go/*.htmlを含む全インラインscript対象で再計算して丸ごと置き換え、366件→370件（新規記事2本分のJSON-LD 4件＋guides/index.htmlのItemList更新1件、旧ハッシュ1件削除）になったことを検証した。netlify.tomlは`tomllib`でパース確認、sitemap.xmlは`build_sitemap.py`で218件に再生成（ページ数との一致はスクリプト自身が実ファイルを数えて作るため、この時点で保証される）。内部リンク9,828件（`/t357`除く）・JSON-LD 362件のjson.loads・非日本語文字混入（Pythonの`re`で確認、ハングル・キリルとも0件）もすべて検証済み。ローカルサーバーで主要ページ・新規記事2本とも200を確認（本番URLは前述のとおり到達不可のため未確認）。**測定手段（順位・評価数）が56日間まったく取得できていない状態が続いている。**
 - [ ] **10/15の記録**：`check_ranks.py`は8ジャンル中8ジャンルとも`itunes.apple.com`への接続が403 Forbiddenで失敗し、`tools/ranks.json`は`_meta.last_attempt`のみ更新（`checked`は8/19のまま、差分なし）。`curl`でも`itunes.apple.com`・`tokyo357.netlify.app`いずれもCONNECTが403で拒否されることを`$HTTPS_PROXY/__agentproxy/status`の`recentRelayFailures`で確認（2026-08-20から起算して**57日連続**の遮断）。
       記事は、記事last-updatedが最も古かった live アプリ shimekiri（10/5、11本）とshizukatl（10/6、10本。kaeseruも10/6だが13本で既にshimekiriより多いため見送り）から1本ずつ追加。shimekiriは前回(10/14)の記録で「主要な角度を使い切っている」として見送られていたが、年賀状のイラスト依頼という文脈（投函目安日からの逆算、単位を「枚」で管理）は既存11本（卒論・同人誌・小説・進捗遅れ・立て直し案・機種変更バックアップ等）と重複しないと判断し、今回は執筆した。shizukatlは「言葉でミュート」機能（Xのホーム以外には届かないミュートの穴を埋める）がまだ記事化されていなかったため執筆。CSPハッシュは全ページ・go/*.html含む全インラインscript対象で再計算し、369件→374件（新規記事2本分のJSON-LD 4件＋guides/index.htmlのItemList更新1件）への置き換えを検証した。sitemap.xmlは`build_sitemap.py`で220件に再生成（実ファイル数との一致をスクリプト自身の集計で確認）。内部リンク全件（`/t357`除く）存在確認・JSON-LD 366件のjson.loads・非日本語文字混入（Pythonの`re`で確認、ハングル・キリルとも0件）もすべて検証済み。ローカルサーバーで主要ページ・新規記事2本とも200を確認（本番URLは前述のとおり到達不可のため未確認）。**測定手段（順位・評価数）が57日間まったく取得できていない状態が続いている。約8週間にわたり効果測定が機能していない。ネットワークポリシー側で`itunes.apple.com`と`tokyo357.com`（`tokyo357.netlify.app`含む）を許可リストに加える対応を、これ以上先送りしない最優先課題として重ねて申し送る。**
+- [ ] **10/16の記録**：`check_ranks.py`は8ジャンル中8ジャンルとも`itunes.apple.com`への接続が403 Forbiddenで失敗し、`tools/ranks.json`は`_meta.last_attempt`のみ更新（`checked`は8/19のまま、差分なし）。`curl`でも`itunes.apple.com`・`tokyo357.netlify.app`いずれもCONNECTが403で拒否されることを`$HTTPS_PROXY/__agentproxy/status`の`recentRelayFailures`で確認（2026-08-20から起算して**58日連続**の遮断）。セッション開始時、ローカルの`main`参照がdetached HEADで`origin/main`より2コミット遅れていたが`origin/main`自体は前回セッションの成果を保持済みだったため`git checkout main && git merge --ff-only`で復旧・push不要だった（`git push`を試したところ`Everything up-to-date`で、既にorigin側には反映済みと判明）。
+      記事は、記事last-updatedが最も古かった live アプリ kaeseru（10/6、13本）とhitoriinvoice（10/7、11本。kinshuwatchも10/7だが選択の都合でhitoriinvoiceを選定）から1本ずつ追加。kaeseruは「金利0.1%の差が総返済額にいくら効くか」を、元利均等返済の標準公式をPythonで実計算（3,000万円・35年を1.0%→0.9%で総額58万円減、4,000万円では78万円減、1.5%→1.4%では61万円減）して執筆。外部情報源は不使用。hitoriinvoiceは「支払期日はインボイスの記載事項ではない」をWebSearchで確認（会計ソフト各社の解説記事を複数参照し、月末締め翌月末払い・翌々月末払いが一般的であること、下請代金支払遅延等防止法の60日ルールを確認）し、断定を避け中小企業庁・公正取引委員会の公表資料への確認を明記して執筆。いずれも他社アプリへの言及なし。
+      **CSPハッシュの再計算で、過去4回（9/29・10/8・10/10・10/12）と同種の事故（`go/*.html`の素の`<script>`を対象から漏らす）を自分でも一度踏んだ。** 最初に書いたスクリプトが`<script type="application/ld+json">`だけを対象にする正規表現だったため、`go/*.html`8本のA8リダイレクト用`<script>location.replace(...)</script>`が計算対象から漏れ、置き換え後のCSPから8件が消えていた（放置すればA8アフィリエイト導線8本が本番でCSP違反により動作しなくなっていた）。リポジトリ全体から「`src=`を持たないインラインscriptはJSON-LDかどうかを問わずすべて対象にする」方式で全件再計算（378件、JSON-LD 370件＋`go/*.html` 8件）し、`netlify.toml`側との差分が過不足0件になることを確認してから確定した。README「CSPのハッシュ更新」の手順書も、手で対象ファイルを列挙する方式（事故を繰り返す原因）から、この`rglob`方式に差し替えた。
+      netlify.tomlは`tomllib`でパース確認、sitemap.xmlは`build_sitemap.py`で222件に再生成（ページ数との一致はスクリプト自身が実ファイルを数えて作るため、この時点で保証される）。内部リンク10,400件（`<a href>`のみ、`/t357`除く）の実在確認・JSON-LD 370件のjson.loads・非日本語文字混入（Pythonの`re`で確認、ハングル・キリルとも0件）もすべて検証済み。ローカルサーバーで主要ページ・新規記事2本とも200を確認（本番URLは前述のとおり到達不可のため未確認）。**測定手段（順位・評価数）が58日間まったく取得できていない状態が続いている。ネットワークポリシー側で`itunes.apple.com`と`tokyo357.com`（`tokyo357.netlify.app`含む）を許可リストに加える対応を、これ以上先送りしない最優先課題として重ねて申し送る。**
 
 ## 設計メモ
 
@@ -355,31 +359,28 @@ grep -rho 'style\.css?v=[0-9]*' --include='*.html' . | sort -u   # 1種類だけ
 ## CSPのハッシュ更新
 
 `netlify.toml` の `Content-Security-Policy` は、ページ内のインラインscriptをハッシュで許可している。
-対象は2種類ある。**どちらも対象ファイル一覧から漏らさないこと**（`go/*.html` を外す事故が2026-09-29・10-08・10-10・10-12と4回発生している）。
-
-1. 各ページの JSON-LD（`<script type="application/ld+json">`）。`index.html` / `apps/*.html` / `guides/*.html` / `support.html` / `privacy.html` / `terms.html` / `404.html` に加え、`keseru/index.html` など**サブディレクトリ配下のランディングページにも JSON-LD が入ることがある**（2026-10-12の週次点検で `keseru/index.html` の2件が手順書のglobから漏れていたことを発見）。新しいサブディレクトリにページを追加したら、まず `grep -rl 'application/ld+json' --include='*.html' .` で対象ファイル一覧を取り直し、下のスクリプトの `files` リストに追記すること。
-2. `go/*.html`（A8リダイレクト8本）の素の `<script>location.replace(...)</script>`
-
-JSON-LD か `go/*.html` を編集したら次を実行し、出た値で `netlify.toml` の `script-src` をまるごと置き換える。
+対象ファイルを手でリストアップする方式（`files = [...]` を手で列挙するやり方）は、
+新しいサブディレクトリやページ種別が増えるたびに漏れる事故を**2026-09-29・10-08・10-10・10-12・10-16と5回起こしている**
+（直近は `go/*.html` の素の `<script>location.replace(...)</script>`、A8のアフィリエイト導線そのものが欠落する）。
+手で列挙する方式はもう使わないこと。下のスクリプトのように**リポジトリ全体を `rglob` で走査し、
+`src=` を持たない `<script ...>` をすべて対象にする**（JSON-LDかどうかを問わない）方式に統一した。
+これなら新しいディレクトリやページ種別が増えても自動的に対象へ入る。
 
 ```bash
 python3 - <<'PY'
-import re, hashlib, base64, pathlib, glob
+import re, hashlib, base64, pathlib
 
 hashes = set()
-# grep -rl 'application/ld+json' --include='*.html' . で対象ファイル一覧を定期的に取り直すこと
-files = ['index.html'] + sorted(glob.glob('apps/*.html')) + sorted(glob.glob('guides/*.html')) + ['support.html', 'privacy.html', 'terms.html', '404.html', 'keseru/index.html']
-for f in files:
-    if not pathlib.Path(f).exists(): continue
-    s = pathlib.Path(f).read_text()
-    for m in re.finditer(r'<script type="application/ld\+json">\n(.*?)\n</script>', s, re.S):
-        content = "\n" + m.group(1) + "\n"  # 先頭の改行1文字を必ず含める（2026-08-29に判明したバグ）
+script_re = re.compile(r'<script(?P<attrs>[^>]*)>(?P<content>.*?)</script>', re.S)
+for p in sorted(pathlib.Path('.').rglob('*.html')):
+    if '.git' in p.parts:
+        continue
+    text = p.read_text(encoding='utf-8')
+    for m in script_re.finditer(text):
+        if 'src=' in m.group('attrs'):
+            continue  # 外部スクリプトはハッシュ不要（'self' で許可済み）
+        content = m.group('content')
         hashes.add("'sha256-" + base64.b64encode(hashlib.sha256(content.encode()).digest()).decode() + "'")
-
-for f in sorted(glob.glob('go/*.html')):  # ← これを忘れる事故が繰り返されている
-    s = pathlib.Path(f).read_text()
-    for m in re.finditer(r'<script>(.*?)</script>', s, re.S):
-        hashes.add("'sha256-" + base64.b64encode(hashlib.sha256(m.group(1).encode()).digest()).decode() + "'")
 
 print(len(hashes))
 for h in sorted(hashes):
@@ -388,4 +389,5 @@ PY
 ```
 
 書き換えたら、ページ側から数え直したハッシュ集合と `netlify.toml` 側を**必ず完全一致で検証する**（過不足0件）。
-どちらかだけを見て「件数が増えたからOK」と判断しないこと。
+どちらかだけを見て「件数が増えたからOK」と判断しないこと。検証も同じ`rglob`方式で、
+`netlify.toml` の既存ハッシュ集合との差分（追加0件・欠落0件）を確認してから確定する。
