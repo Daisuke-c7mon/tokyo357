@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>つづくToDoのヘルスケア連携 — 歩数や運動時間で自動的に完了にする仕組み ｜ 株式会社サウナ</title>
+<meta name="description" content="つづくToDoの「ヘルスケア連携」は任意・読み取り専用です。歩数やエクササイズ時間が目標に届いた日を自動で完了にする仕組みと、反映が遅れることがある理由を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/tsuzukutodo-healthkit-jido-kanryo">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="つづくToDoのヘルスケア連携 — 歩数や運動時間で自動的に完了にする仕組み">
+<meta property="og:description" content="つづくToDoの「ヘルスケア連携」は任意・読み取り専用です。歩数やエクササイズ時間が目標に届いた日を自動で完了にする仕組みと、反映が遅れることがある理由を説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/tsuzukutodo-healthkit-jido-kanryo">
+<meta property="og:image" content="https://tokyo357.com/assets/og/tsuzukutodo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "つづくToDoのヘルスケア連携 — 歩数や運動時間で自動的に完了にする仕組み",
+  "description": "つづくToDoの「ヘルスケア連携」は任意・読み取り専用です。歩数やエクササイズ時間が目標に届いた日を自動で完了にする仕組みと、反映が遅れることがある理由を説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-10-18",
+  "dateModified": "2026-10-18",
+  "image": "https://tokyo357.com/assets/og/tsuzukutodo.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/tsuzukutodo-healthkit-jido-kanryo",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "つづくToDoのヘルスケア連携 — 歩数や運動時間で自動的に完了にする仕組み" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-10-18 ／ 毎日の記録</p>
+      <h1>つづくToDoのヘルスケア連携 — 歩数や運動時間で自動的に完了にする仕組み</h1>
+      <p class="lede">タスクにApple ヘルスケアの項目を結びつけると、歩数や運動時間が目標に届いた日は自動でチェックが入ります。何を・どう許可し、何が端末の外に出ないのかを説明します。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>つづくToDoの「ヘルスケア連携」は<strong>任意のオプション機能</strong>です。タスクに歩数やエクササイズ時間などの項目を選んで目標値を決めておくと、その日のApple ヘルスケアのデータが目標に届いた時点で、<strong>自動的にチェックが入ります</strong>。アプリがヘルスケアのデータを読み取るだけで、書き込みや端末の外への送信は行いません。</p>
+      </div>
+
+      <h2>どういう場面で使えるか</h2>
+      <p>歩数やウォーキングの時間、エクササイズの分数は、iPhone自体やApple Watch、他のアプリがすでに自動で記録していることが多い項目です。「1日8,000歩歩く」のようなタスクを作ったとき、歩いた分をつづくToDo側でもう一度手で入力するのは二重の作業になります。ヘルスケア連携は、この二重入力をなくすための機能です。タスクを作るときに対象の項目と目標値を選ぶだけで、あとは何もしなくてもその日の記録が反映されます。</p>
+
+      <h2>読み取るだけで、書き込みはしない</h2>
+      <p>連携はあくまで一方通行です。つづくToDoはヘルスケアの値を<strong>読み取るだけ</strong>で、つづくToDo側の記録をヘルスケアに書き込むことはありません。読み取った値そのものを保存したり、端末の外に送信することもありません。タスク名・メモ・記録の内容が送信されないのと同じ考え方です。</p>
+
+      <h2>許可は、あとからいつでも変えられる</h2>
+      <p>ヘルスケア連携をオンにすると、iOSの標準的な許可画面が1回だけ表示されます。あとから許可を見直したいときは、ヘルスケア Appを開き、右上のプロフィールアイコンから「App」→「つづくToDo」を選ぶと、項目ごとに許可・不許可を切り替えられます。許可をオフにしても、つづくToDoの他の機能（タスクの記録・ウィジェット・バックアップなど）が制限されることはありません。その場合は、その項目のタスクを手動でチェックするだけです。</p>
+
+      <h2>目標に届いた直後に、必ずチェックが入るとは限らない</h2>
+      <p>ヘルスケアのデータは、iPhone本体やApple Watch、他の計測アプリから少し遅れてヘルスケアに集約される仕組みになっています。さらに、つづくToDoのようにヘルスケアを読み取る側のアプリがいつ最新の値を受け取るかは、iOS側のバックグラウンド処理のタイミングに委ねられており、アプリ側が直接「今すぐ反映する」と指定することはできません。歩数が目標に届いてから数分〜数時間ほど反映が遅れることがあるのは、こうした仕組みによるもので、つづくToDo固有の不具合ではありません。すぐに反映されているか確認したいときは、一度アプリを開き直すと、その時点までの最新の値で判定し直されます。</p>
+
+      <h2>対象になるのは、その日のうちに積み上がる項目</h2>
+      <p>ヘルスケア連携で目標にできるのは、歩数やエクササイズ時間のように、その日のうちに値が積み上がっていくタイプの項目です。設定できる具体的な項目は、タスク作成画面の「ヘルスケアと連携」から選べる一覧で確認できます。体重や睡眠時間のような、1日に何度も更新されない・積み上げ型でない項目は対象にしていません。</p>
+
+      <h2>手動で記録した日との違い</h2>
+      <p>ヘルスケア連携で自動完了した日も、手動でチェックした日も、記録としての扱いは同じです。連続日数・最長記録・月カレンダーの表示に差はありません。あとから「この日は歩いていなかった」と分かった場合は、通常の記録と同じようにスワイプして取り消せます。</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>つづくToDo</h2>
+        <p>つづくToDoは、上限のないタスクと取り消せる記録、ヘルスケア連携による自動完了を備えた習慣・ToDo管理アプリです。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6796174701?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/tsuzukutodo">つづくToDoについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/tsuzukutodo.png" width="290" height="290" alt="つづくToDo の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shimekiri">
+          <img src="/assets/icons/shimekiri.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>シメキリ逆算</b>
+            <span>間に合わないときは、延ばす日数・増やす分数・削る量を数字で出す。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/kinshuwatch">
+          <img src="/assets/icons/kinshuwatch.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>禁酒ウォッチ</b>
+            <span>本数・金額・カロリーに換算。飲んでも記録は消えない。</span>
+            <em>買い切り 100円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/dandorirecipe">
+          <img src="/assets/icons/dandorirecipe.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>だんどりレシピ</b>
+            <span>人数換算・売り場順の買い物リスト・同時タイマー。写真からレシピを取り込める。</span>
+            <em>買い切り 120円・準備中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/apps/itpassport">ITパスポート 過去問900 一問一答</a>
+        <a href="/apps/fe">基本情報技術者 過去問 科目A・B</a>
+        <a href="/apps/ap">応用情報 科目A・午前 過去問 全問解説</a>
+        <a href="/apps/ridetecho">ライド手帳</a>
+        <a href="/apps/parkshiori">パークしおり</a>
+        <a href="/apps/shifpon">シフポン</a>
+        <a href="/apps/reloban">リロ番</a>
+        <a href="/apps/mitaidake">ミタイダケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
