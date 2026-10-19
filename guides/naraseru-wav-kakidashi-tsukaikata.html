@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ナラセルで作ったループを、他のアプリで使う方法 ｜ 株式会社サウナ</title>
+<meta name="description" content="ナラセルのWAV書き出しは、ループ全体かパッド1枚を選んで書き出せ、再生と同じ仕組みを通るため音が食い違いません。1.0時点でのAUv3・Ableton非対応など、できることとできないことを説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/naraseru-wav-kakidashi-tsukaikata">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="ナラセルで作ったループを、他のアプリで使う方法">
+<meta property="og:description" content="ナラセルのWAV書き出しは、ループ全体かパッド1枚を選んで書き出せ、再生と同じ仕組みを通るため音が食い違いません。1.0時点でのAUv3・Ableton非対応など、できることとできないことを説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/naraseru-wav-kakidashi-tsukaikata">
+<meta property="og:image" content="https://tokyo357.com/assets/og/naraseru.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ナラセルで作ったループを、他のアプリで使う方法",
+  "description": "ナラセルのWAV書き出しは、ループ全体かパッド1枚を選んで書き出せ、再生と同じ仕組みを通るため音が食い違いません。1.0時点でのAUv3・Ableton非対応など、できることとできないことを説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-10-19",
+  "dateModified": "2026-10-19",
+  "image": "https://tokyo357.com/assets/og/naraseru.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/naraseru-wav-kakidashi-tsukaikata",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "ナラセルで作ったループを、他のアプリで使う方法" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-10-19 ／ 画面まわり・気晴らし</p>
+      <h1>ナラセルで作ったループを、他のアプリで使う方法</h1>
+      <p class="lede">ナラセルで鳴らした音を、他の音楽アプリでも使いたい。設定からのWAV書き出しで何ができて、何がまだできないのかを説明します。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>ナラセルで作ったループやパッド1枚の音は、<strong>設定からWAVで書き出せます</strong>。書き出しは再生とまったく同じ仕組みを通るため、アプリで聴いた音と書き出したファイルの中身は食い違いません。ただし<strong>バージョン1.0の時点では、AUv3としての読み込みやAbletonへの直接書き出しには対応していません</strong>。書き出したWAVファイルを他のアプリに読み込ませる、という形でなら今も使えます。</p>
+      </div>
+
+      <h2>書き出せる単位は2つ</h2>
+      <p>設定から、<strong>1〜8小節のループ全体</strong>を書き出すか、<strong>パッド1枚だけ</strong>を書き出すかを選べます。曲の土台として使いたいときはループ全体を、録った素材だけ別の場所で使い回したいときはパッド単位を書き出すと扱いやすくなります。</p>
+
+      <h2>なぜ「聴いた音」と「書き出した音」が食い違わないのか</h2>
+      <p>多くのサンプラーでは、画面上で鳴っている音と、書き出したファイルの中身が微妙にずれることがあります。再生のための仕組みと、書き出しのための仕組みが別々に作られていると、どちらかに調整が入っていてもう一方に反映されていない、という事故が起きやすいからです。</p>
+      <p>ナラセルは<a href="/apps/naraseru">1拍もずれない再生の仕組み</a>を、書き出しにもそのまま使っています。16ステップの発音位置をフレーム単位（1/44100秒の単位）で管理している同じ処理を通すため、アプリ内で聴こえていた通りの音がファイルになります。</p>
+
+      <h2>1.0の時点でできないこと</h2>
+      <ul>
+        <li><strong>AUv3（Audio Unit）としての読み込み</strong> — 他の音楽アプリの中にナラセルを部品として組み込み、画面を切り替えずに鳴らすような使い方には対応していません。</li>
+        <li><strong>Abletonへの直接書き出し</strong> — パソコンのDAWへワンタップで送る連携はありません。</li>
+      </ul>
+      <p>いずれも、要望を見ながら今後検討する機能です。現時点でできるのは、<strong>WAVファイルとして書き出し、それを他のアプリの「読み込む」「インポート」機能から選んでもらう</strong>という渡し方です。iPhone・iPadのアプリの多くは、ファイルアプリに保存したWAVや、共有操作で渡されたWAVを読み込む機能を持っています。</p>
+
+      <h2>渡す前に確認しておくこと</h2>
+      <ul>
+        <li><strong>小節数は書き出す前に決める</strong> — 1〜8小節の範囲で選べますが、書き出した後に長さだけを変えることはできないため、必要な小節数を打ち込んでから書き出してください。</li>
+        <li><strong>パッド単位で書き出すなら、加工を先に済ませる</strong> — 音程やループ、逆再生などの加工はパッドの設定として保存されているため、書き出す前に仕上げておくと、書き出したWAVにそのまま反映されます。</li>
+      </ul>
+
+      <h2>まとめ</h2>
+      <p>ナラセルのWAV書き出しは、「聴いた音がそのままファイルになる」ことを優先した作りです。他の音楽アプリへの直接連携はまだありませんが、WAVとして渡す分には音質も鳴らしたタイミングもそのまま持っていけます。</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>ナラセル</h2>
+        <p>ナラセルは、自分の声や身のまわりの音をその場で録ってパッドに載せるサンプラーです。書き出したWAVは再生と同じ音で持ち出せます。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6799580268?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/naraseru">ナラセルについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/naraseru.png" width="290" height="290" alt="ナラセル の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sukemaru">
+          <img src="/assets/icons/sukemaru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>透けマル</b>
+            <span>背景を消して透過PNGに。書き出したファイルを読み戻してアルファを実測する。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/othello">
+          <img src="/assets/icons/othello.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ぱすてるオセロ</b>
+            <span>レベル1〜10のCPUと対戦。オフラインで遊べる。</span>
+            <em>無料・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/apps/itpassport">ITパスポート 過去問900 一問一答</a>
+        <a href="/apps/fe">基本情報技術者 過去問 科目A・B</a>
+        <a href="/apps/ap">応用情報 科目A・午前 過去問 全問解説</a>
+        <a href="/apps/ridetecho">ライド手帳</a>
+        <a href="/apps/parkshiori">パークしおり</a>
+        <a href="/apps/shifpon">シフポン</a>
+        <a href="/apps/reloban">リロ番</a>
+        <a href="/apps/mitaidake">ミタイダケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
