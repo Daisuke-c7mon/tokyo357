@@ -225,6 +225,7 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       運用を続ける必要がある。
       **2026-10-13の実行でも detached HEAD が発生**（`HEAD` が `main`/`origin/main` より29コミット先。直前セッションの未反映分ではなく、`git fetch` で確認したところ `origin/main` 自体は既にそのコミットまで進んでいた＝push済みで実害なし）。`git checkout main && git merge --ff-only` でfast-forward復旧し、`git push` は `Everything up-to-date`。このパターン自体は8月から続く環境側の既知の仕様で、今回も「開始直後に `git status`/`git fetch` で確認してから復旧する」運用で対応できた。
       同日、`itunes.apple.com`（ランキング8ジャンル全滅に加え、審査中・申請準備中の11アプリ全件のlookupも個別に試行して全滅）・`https://tokyo357.netlify.app`（`/` `/apps/` `/guides/`）・`api.indexnow.org` への送信がいずれも `CONNECT tunnel failed, response 403` で失敗した一方、`api.github.com` は200で正常だった。長期化しているネットワーク遮断（itunes/netlify/indexnowの複数ホストが対象）が本日も継続しており、順位・評価数・公開状態の実測、本番URLの到達確認、IndexNow通知のいずれも今回はできなかった。記事は `SKIP_RANK_GUARD=1` で迂回して2本（起業おじさん・レポダス、いずれも最終更新日が最も古かったlive アプリ）を追加・生成・検証（内部リンク0件エラー・JSON-LD全件パース成功・sitemap216件・CSPハッシュ366件完全一致・非日本語文字0件）まで完了してpushした。
+      **2026-10-19の週次点検**（記事執筆回とは別セッション）：セッション開始時、ローカル`main`がdetached HEADより7コミット遅れた断面にいた（detached HEAD自体は`origin/main`と完全一致、実害なし）。`git checkout -B main`で復旧、pushは不要だった。`itunes.apple.com`・`tokyo357.netlify.app`とも引き続き`CONNECT`が403で拒否され（`$HTTPS_PROXY/__agentproxy/status`の`recentRelayFailures`で確認）、2026-08-20から起算して61日連続の全滅。本点検の本体（apps.pyとApp Storeの公開状態の突き合わせ）は実施できず「ローカルで確認が必要」とするほかなかった。`tools/apps.py`自体は2026-08-19時点のズレ（musuberu・kagikake・magedori・repodasuの4本）が既にliveに修正済みであることを確認した。`sync_index_cards.py`は実行したが差分なし。サイトの健全性チェックはすべてOK：`?v=`統一（`20260805`で1種類、site.js 87件・style.css 234件）、CSPハッシュは`netlify.toml`側390件とページ側再計算390件で完全一致（過不足0）、JSON-LD全382件のjson.loads成功、内部リンク全11,145件（`/t357`除く）が実在ファイルを指す、sitemap228件とページ数228件（404.html・Search Console確認用ファイル・go/*.html 8件を除く）が一致、非日本語文字（キリル・ハングル）0件（シェルの`grep`は本環境のPOSIXロケールでUTF-8を正しく扱えず誤検出するため、Pythonの`re`で全238ファイルを確認）、live16本すべてで`apple-itunes-app`meta・QR画像参照・`?ct=`付きリンクを確認、ローカルサーバーで主要ページ・全アプリページとも200。この回で見つけた唯一の実害ある問題：README「未確定・要対応」の`naraseru`の項目が、記事0本・state=prepareという古い情報のまま残っていた（実際は記事5本・state=live、`tools/article_queue.md`に未着手行もない）。該当項目を完了済みに修正した（この週次点検での変更はREADMEのみ）。順位（`tools/ranks.json`）・評価数（iTunes lookup）はネットワーク遮断のため61日間取得できておらず今回も測定不可、`checked`は8/19のまま。レビュー依頼の有無（禁酒ウォッチ・つづくToDo・シメキリ逆算の3本以外は未確認）とGoogle Search Consoleのインデックス状況は、いずれもこのリポジトリから取得できないため「ローカルで要確認」。
 - [ ] **`yamaguchi@tokyo357.com` を受信できるようにする**（最優先）。ドメインにメールが未設定なら、転送設定かGoogle Workspace等を用意する。受信できないサポートURLは審査で問題になる。
 - [ ] **DNSレコードの追加**（下記「独自ドメイン」参照）。Netlify側の接続とビルドは完了済み。
 - [ ] 代表者名を会社概要に載せるか決める（現状は未掲載）。
@@ -241,7 +242,7 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       ライセンサー提示用のTestFlight内部テスト限定デモで、同梱素材に未許諾の第三者IPを含む
       （`~/live-gacha/README.md` 参照）。公開素材へ差し替えて一般配信すると決まるまで掲載不可。
 - [ ] App Store の販売者表示は `Daisuke Yamaguchi`（個人名義）。サイト各所の「提供元 株式会社サウナ」と食い違うため、Apple Developer の法人アカウント移行かサイト表記のどちらに寄せるか決める。
-- [ ] `tools/naraseru`（サンプラー）はまだ記事が0本（`tools/article_queue.md` に未着手のまま1行残っている）。`state="prepare"` のため優先度は live アプリより低いが、キューが尽きたら着手する。
+- [x] ~~`tools/naraseru`（サンプラー）はまだ記事が0本~~ → **2026-10-19の週次点検で確認：この項目は既に実態と食い違っていた**。`naraseru` は `tools/apps.py` で `state="live"`（「prepare」ではない）、記事も5本（guides/naraseru-*.html）まで増えており、`tools/article_queue.md` に未着手行も残っていない。
 
 ### 完了済み
 
