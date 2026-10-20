@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>カギカケの暗号化の仕組み — AES-256-GCMと、鍵をKeychainに置く理由 ｜ 株式会社サウナ</title>
+<meta name="description" content="カギカケは写真・動画・ファイルをAES-256-GCMで暗号化し、鍵は端末のKeychainだけに保管します。パスコード画面でロックするだけの方式との違いと、ファイルの実体を直接取り出しても読めない理由を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/kagikake-angouka-aes-keychain">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="カギカケの暗号化の仕組み — AES-256-GCMと、鍵をKeychainに置く理由">
+<meta property="og:description" content="カギカケは写真・動画・ファイルをAES-256-GCMで暗号化し、鍵は端末のKeychainだけに保管します。パスコード画面でロックするだけの方式との違いと、ファイルの実体を直接取り出しても読めない理由を説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/kagikake-angouka-aes-keychain">
+<meta property="og:image" content="https://tokyo357.com/assets/og/kagikake.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "カギカケの暗号化の仕組み — AES-256-GCMと、鍵をKeychainに置く理由",
+  "description": "カギカケは写真・動画・ファイルをAES-256-GCMで暗号化し、鍵は端末のKeychainだけに保管します。パスコード画面でロックするだけの方式との違いと、ファイルの実体を直接取り出しても読めない理由を説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-10-20",
+  "dateModified": "2026-10-20",
+  "image": "https://tokyo357.com/assets/og/kagikake.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/kagikake-angouka-aes-keychain",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "カギカケの暗号化の仕組み — AES-256-GCMと、鍵をKeychainに置く理由" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-10-20 ／ 画像・写真</p>
+      <h1>カギカケの暗号化の仕組み — AES-256-GCMと、鍵をKeychainに置く理由</h1>
+      <p class="lede">カギカケは「パスコードを入れないと画面が開かない」だけのアプリではありません。写真・動画・ファイルそのものを暗号化して保管し、復号に必要な鍵は端末の決まった場所にしか置きません。何を、どこに、どう守っているかを説明します。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>カギカケにしまった写真・動画・ファイルは、<strong>AES-256-GCMという方式で暗号化</strong>してから保存されます。復号に必要な鍵は、データの実体とは別に<strong>端末のKeychain</strong>という領域だけに置かれます。暗号化されたファイルだけをどこかに取り出しても、鍵がなければ中身は読めません。</p>
+      </div>
+
+      <h2>「パスコードで隠す」と「暗号化する」は別の話</h2>
+      <p>写真を隠すアプリの作り方には、大きく2つの方向があります。</p>
+      <ul>
+        <li><strong>画面をロックするだけの方式</strong> — パスコードを入れないとアプリの画面が開かないという作りです。写真そのものは、ふだんと同じ形式でストレージに残っています。アプリの画面を経由せずにファイルの実体へ直接触れられる状況があると、パスコードを経由せずに写真が読めてしまう可能性が残ります。</li>
+        <li><strong>暗号化する方式</strong> — 保存する時点で、写真・動画・ファイルのデータそのものを読めない形に変換します。アプリの画面を経由しなくても、ファイルの実体を直接取り出しても、鍵がない限り元の画像には戻せません。</li>
+      </ul>
+      <p>カギカケは後者です。パスコードの入力画面は、暗号化されたデータを復号するための鍵を取り出す入口という位置づけになります。</p>
+
+      <h2>AES-256-GCMとは</h2>
+      <p>AESは、世界的に広く使われている標準の暗号化方式です。256は鍵の長さ（ビット数）を指し、数字が大きいほど総当たりで鍵を推測する手間が増えます。GCMは暗号化の「モード」の1つで、データを読めなくするだけでなく、<strong>復号するときに内容が途中で書き換えられていないかを同時に確認できる</strong>仕組みを持っています。壊れたり改ざんされたデータを、それと気づかずに元の写真として復号してしまう事故を防ぐ設計です。</p>
+
+      <h2>鍵を「どこに置くか」のほうが実は重要</h2>
+      <p>暗号化の方式そのものが強くても、鍵が簡単に取り出せる場所にあれば意味がありません。カギカケは鍵を<strong>端末のKeychain</strong>に置いています。Keychainは、iOSがパスワードや鍵といった機密情報を保管するために用意している専用の領域で、ふだんのファイルの並びとは別の仕組みで管理されます。暗号化されたデータそのものをどこかにコピーして持ち出しても、鍵はその端末のKeychainから出てこないため、コピー先では復号できません。</p>
+
+      <h2>長い動画でも、仕組みは変わらない</h2>
+      <p>カギカケは長い動画を<a href="/guides/kagikake-douga-ochiru-riyuu">4MBずつに区切って暗号化</a>します。この区切りは再生時にメモリを使い切らないための工夫で、暗号化そのものは1本の動画全体に対して同じAES-256-GCMの仕組みで行われます。区切りが増えても、鍵の管理場所（Keychain）が増えるわけではありません。</p>
+
+      <h2>バックアップだけは、別の鍵で守る</h2>
+      <p>金庫の中身をまるごと書き出す<a href="/guides/kagikake-backup-timing">暗号化バックアップ</a>は、アプリを開くパスコードとは別に決める「合言葉」で保護されます。バックアップファイルは別の端末やクラウドストレージに置くこともあるため、元の端末のKeychainに依存せず、合言葉さえ覚えていれば復元できるようにした、意図的に別の設計です。</p>
+
+      <h2>これで「絶対」とは言えない</h2>
+      <p>暗号化とKeychainでの鍵管理は、ファイルの実体を直接取り出された場合の対策です。パスコードそのものを人に教えてしまえば、正規の経路でアプリを開かれます。<a href="/guides/kagikake-dummy-passcode-misete">ダミーのパスコード</a>は、そのように「見せて」と言われた場面のための、また別の対策です。</p>
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>カギカケ</h2>
+        <p>写真・動画・ファイルをAES-256-GCMで暗号化し、鍵は端末のKeychainだけに置く金庫アプリです。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6799562522?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/kagikake">カギカケについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/kagikake.png" width="290" height="290" alt="カギカケ の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/kaeseru">
+          <img src="/assets/icons/kaeseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>カエセル</b>
+            <span>住宅ローンの計算。金利上昇と繰上返済の損得を金額で出す。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sagaseru">
+          <img src="/assets/icons/sagaseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>サガセル録音</b>
+            <span>文字起こしの1文をタップすると音声がその瞬間まで飛ぶボイスメモ。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/hitoriinvoice">
+          <img src="/assets/icons/hitoriinvoice.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ひとり請求書</b>
+            <span>見積・納品・請求・領収を同じ明細から1タップ。インボイス対応。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/apps/itpassport">ITパスポート 過去問900 一問一答</a>
+        <a href="/apps/fe">基本情報技術者 過去問 科目A・B</a>
+        <a href="/apps/ap">応用情報 科目A・午前 過去問 全問解説</a>
+        <a href="/apps/ridetecho">ライド手帳</a>
+        <a href="/apps/parkshiori">パークしおり</a>
+        <a href="/apps/shifpon">シフポン</a>
+        <a href="/apps/reloban">リロ番</a>
+        <a href="/apps/mitaidake">ミタイダケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
