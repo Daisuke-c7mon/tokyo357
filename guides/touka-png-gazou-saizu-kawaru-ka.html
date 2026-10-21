@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>透過PNGにすると、画像のサイズ（解像度）は変わるのか ｜ 株式会社サウナ</title>
+<meta name="description" content="透過処理のあと画像を開き直すと小さく見えることがありますが、原因は透過そのものではありません。アルファチャンネルがピクセル数に関与しない仕組みと、縮小が起きる本当の場所を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/touka-png-gazou-saizu-kawaru-ka">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="透過PNGにすると、画像のサイズ（解像度）は変わるのか">
+<meta property="og:description" content="透過処理のあと画像を開き直すと小さく見えることがありますが、原因は透過そのものではありません。アルファチャンネルがピクセル数に関与しない仕組みと、縮小が起きる本当の場所を説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/touka-png-gazou-saizu-kawaru-ka">
+<meta property="og:image" content="https://tokyo357.com/assets/og/sukemaru.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "透過PNGにすると、画像のサイズ（解像度）は変わるのか",
+  "description": "透過処理のあと画像を開き直すと小さく見えることがありますが、原因は透過そのものではありません。アルファチャンネルがピクセル数に関与しない仕組みと、縮小が起きる本当の場所を説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-10-21",
+  "dateModified": "2026-10-21",
+  "image": "https://tokyo357.com/assets/og/sukemaru.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/touka-png-gazou-saizu-kawaru-ka",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "透過PNGにすると、画像のサイズ（解像度）は変わるのか" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-10-21 ／ 画像・写真</p>
+      <h1>透過PNGにすると、画像のサイズ（解像度）は変わるのか</h1>
+      <p class="lede">透過処理をしたあと、画像を開き直すと最初より小さく見えることがあります。透過そのものがピクセル数を変えることはなく、別の処理が間に入っているのが原因です。どこで縮小が起きているかの切り分け方を説明します。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>透過処理（アルファチャンネルを追加する処理）は、<strong>各ピクセルに「不透明度」の値を1つ足すだけ</strong>で、縦横のピクセル数そのものには関与しません。画像が小さくなって見えるときは、透過の前後どこかで<strong>別のリサイズ処理</strong>（サムネイル生成・送信時の自動縮小・再圧縮など）が挟まっています。</p>
+      </div>
+
+      <h2>アルファチャンネルは「ピクセル数」を変えない</h2>
+      <p>画像の色は、ピクセルごとに赤・緑・青の3つの値（RGB）で表されます。透過に対応したPNGは、そこに「不透明度」を表す4つ目の値（アルファ）を足した形式です。これは各ピクセルが持つ値の種類が1つ増えるだけで、縦×横のピクセル数（画像の解像度）には関係しません。1000×1000ピクセルの画像を透過PNGにしても、1000×1000ピクセルのままです。</p>
+
+      <h2>では、どこで縮小が起きるのか</h2>
+      <p>「透過したら小さくなった」と感じるときの多くは、次のどこかでリサイズが入っています。</p>
+      <ul>
+        <li><strong>写真アプリの一覧表示</strong> — サムネイル（一覧用の縮小版）を表示しているだけで、元のファイルは変わっていません。</li>
+        <li><strong>メッセージアプリ・SNSでの送信・投稿</strong> — 通信量を減らすため、送信時や投稿時に自動で縮小されるアプリがあります。</li>
+        <li><strong>受け取った先のアプリの仕様</strong> — 画像を取り込む際に内部で決まった大きさへリサイズするアプリもあります。</li>
+      </ul>
+      <p>これらはいずれも透過処理そのものではなく、<strong>画像を渡した先・表示した先</strong>で起きている別の処理です。</p>
+
+      <h2>透けマルの「原寸ロック」</h2>
+      <p>透けマルは、読み込んだ画像のピクセル数のまま、可逆形式のPNGで書き出します。縮小も再圧縮も行わないため、編集前と編集後でピクセル数は変わりません。編集画面には常に元のピクセル数を表示しているので、作業中に画質が落ちていないかをその場で確認できます。</p>
+
+      <h2>確認の仕方</h2>
+      <p>書き出した直後の画像を「ファイル」アプリで開き、情報（詳細）を見るとピクセル数が表示されます。これを、渡した先のアプリで開いたときのピクセル数と比べてください。書き出した直後の数値と違っていれば、縮小が起きたのは渡した先の側だと切り分けられます。透けマルの「書き出し履歴」にも書き出し時のサイズが記録されるので、あとから見比べることもできます。</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>透けマル</h2>
+        <p>透けマルは、背景を消して透過PNGに。書き出したファイルを読み戻してアルファやピクセル数を実測し、原寸のまま可逆PNGで書き出します。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6796656589?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/sukemaru">透けマルについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/sukemaru.png" width="290" height="290" alt="透けマル の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/othello">
+          <img src="/assets/icons/othello.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ぱすてるオセロ</b>
+            <span>レベル1〜10のCPUと対戦。オフラインで遊べる。</span>
+            <em>無料・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/naraseru">
+          <img src="/assets/icons/naraseru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ナラセル</b>
+            <span>身のまわりの音をタップで録ってドラムパッドに載せるサンプラー。ビートメイク、WAV書き出し。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/apps/itpassport">ITパスポート 過去問900 一問一答</a>
+        <a href="/apps/fe">基本情報技術者 過去問 科目A・B</a>
+        <a href="/apps/ap">応用情報 科目A・午前 過去問 全問解説</a>
+        <a href="/apps/ridetecho">ライド手帳</a>
+        <a href="/apps/parkshiori">パークしおり</a>
+        <a href="/apps/shifpon">シフポン</a>
+        <a href="/apps/reloban">リロ番</a>
+        <a href="/apps/mitaidake">ミタイダケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
