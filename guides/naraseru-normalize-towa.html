@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ノーマライズとは — 録音した音の大きさが、自動でそろう仕組み ｜ 株式会社サウナ</title>
+<meta name="description" content="ナラセルが録音を止めた瞬間に自動でかける「ノーマライズ」が何をしているか、音量がそろう仕組みと、ノーマライズでは直らないことを整理しました。">
+<link rel="canonical" href="https://tokyo357.com/guides/naraseru-normalize-towa">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="ノーマライズとは — 録音した音の大きさが、自動でそろう仕組み">
+<meta property="og:description" content="ナラセルが録音を止めた瞬間に自動でかける「ノーマライズ」が何をしているか、音量がそろう仕組みと、ノーマライズでは直らないことを整理しました。">
+<meta property="og:url" content="https://tokyo357.com/guides/naraseru-normalize-towa">
+<meta property="og:image" content="https://tokyo357.com/assets/og/naraseru.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ノーマライズとは — 録音した音の大きさが、自動でそろう仕組み",
+  "description": "ナラセルが録音を止めた瞬間に自動でかける「ノーマライズ」が何をしているか、音量がそろう仕組みと、ノーマライズでは直らないことを整理しました。",
+  "inLanguage": "ja",
+  "datePublished": "2026-10-23",
+  "dateModified": "2026-10-23",
+  "image": "https://tokyo357.com/assets/og/naraseru.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/naraseru-normalize-towa",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "ノーマライズとは — 録音した音の大きさが、自動でそろう仕組み" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-10-23 ／ 画面まわり・気晴らし</p>
+      <h1>ノーマライズとは — 録音した音の大きさが、自動でそろう仕組み</h1>
+      <p class="lede">録音を止めた瞬間、ナラセルは音量を自動でそろえます。何をしている処理なのか、音質まで直るわけではない点を整理します。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>ナラセルの「ノーマライズ」は、録音を止めた瞬間に自動でかかる処理で、<strong>音の大きさ（ピーク）を一定の基準にそろえる</strong>ものです。小さい声で録っても大きい声で録っても、再生したときの音量差が気にならない範囲にそろいます。ただし、これは音量を持ち上げ下げするだけの処理で、<strong>録音時点ですでに割れていた音（クリッピング）を直すことはできません</strong>。</p>
+      </div>
+
+      <h2>ノーマライズが揃えるのは「音量」で、「音質」ではない</h2>
+      <p>ノーマライズ（正規化）は、録れた音のもっとも大きい部分（ピーク）を検出し、そのピークが一定の基準に達するように、波形全体を同じ比率で持ち上げるか下げるかするだけの処理です。音の大小関係（ダイナミクス）そのものを作り変えるわけではなく、強く叩いた音と弱く叩いた音の差は、処理後もそのまま残ります。音を歪ませたり、ノイズを除去したりする処理ではありません。</p>
+
+      <h2>なぜパッドごとに音量を揃える必要があるのか</h2>
+      <p>声や身のまわりの音をマイクで録る場合、口や楽器とマイクの距離、録るたびの力の入れ方によって、入ってくる音量は毎回ばらつきます。12枚のパッドを1枚ずつ別のタイミングで録っていくと、何も手を加えなければパッドによって音量差がはっきり出てしまい、打ち込みで鳴らしたときに一部の音だけ飛び出して聞こえたり埋もれたりします。録音を止めた瞬間にノーマライズが自動でかかることで、この音量差を気にせず録り進められます。</p>
+
+      <h2>前後の無音カットとフェードも同時に行われる</h2>
+      <p>ナラセルは録音を止めた瞬間に、ノーマライズと合わせて<strong>前後の無音を落とし、頭とお尻に短いフェードを入れる</strong>処理も行います。無音のカットは、録音開始・停止の操作に合わせて生じる余白を取り除くためのもので、フェードは音の始まりと終わりを滑らかにして「プチッ」というノイズ（波形が0でない位置で急に途切れることで出る音）を防ぐためのものです。音量をそろえるノーマライズと、始終を滑らかにするフェードは別の目的の処理ですが、どちらも設定項目はなく、録って止めるだけで自動的に完了します。</p>
+
+      <h2>ノーマライズで直らないこと</h2>
+      <p>録音の時点で音が大きすぎて、波形の上限・下限で切れてしまった「クリッピング」が起きていた場合、ノーマライズはその歪みを取り除くことはできません。ノーマライズはピークを基準に音量をそろえるだけなので、すでに割れてしまった波形はそのままの形で音量だけが変わります。録った音が歪んで聞こえるときは、音量そのものが処理で直るものではないため、マイクと音源の距離を離すなど、録り方を変えて録り直すことをおすすめします。</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>ナラセル</h2>
+        <p>録った音をそのまま使えるパッドに仕上げる処理は、設定なしで録って止めるだけで完了します。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6799580268?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/naraseru">ナラセルについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/naraseru.png" width="290" height="290" alt="ナラセル の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sukemaru">
+          <img src="/assets/icons/sukemaru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>透けマル</b>
+            <span>背景を消して透過PNGに。書き出したファイルを読み戻してアルファを実測する。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/othello">
+          <img src="/assets/icons/othello.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ぱすてるオセロ</b>
+            <span>レベル1〜10のCPUと対戦。オフラインで遊べる。</span>
+            <em>無料・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/apps/itpassport">ITパスポート 過去問900 一問一答</a>
+        <a href="/apps/fe">基本情報技術者 過去問 科目A・B</a>
+        <a href="/apps/ap">応用情報 科目A・午前 過去問 全問解説</a>
+        <a href="/apps/ridetecho">ライド手帳</a>
+        <a href="/apps/parkshiori">パークしおり</a>
+        <a href="/apps/shifpon">シフポン</a>
+        <a href="/apps/reloban">リロ番</a>
+        <a href="/apps/mitaidake">ミタイダケ</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
