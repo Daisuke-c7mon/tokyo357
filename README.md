@@ -240,6 +240,7 @@ Netlify で **Domain management → Add custom domain → `tokyo357.com`** を�
       **2026-10-24追記**: パークしおりは 1.0 が公開済みのため live に変更（17本目）。ライド手帳（USJ）は単体では出さず
       パークしおり 2.0（審査提出済み）に統合したため、台帳・ページ・FAQ・プライバシーポリシーの項・画像を削除し、
       `/apps/ridetecho` は `/apps/parkshiori` へ 301（`netlify.toml`）。パークしおりのページ・FAQ・プライバシーの項はUSJ対応の内容に更新。
+      **2026-10-25追記**: ミタイダケ（YouTube の表示を消す Safari 拡張、未公開）は単体では出さず、ケセル 1.0 (5) に統合した。台帳・ページ・FAQ・プライバシーポリシーの項・画像を削除し、`/apps/mitaidake` は `/keseru/` へ 301（`netlify.toml`）。ケセルは `tools/apps.py` の台帳に無く、紹介ページは手書きの `/keseru/`（App Store のサポートURL・マーケティングURL）なので、そちらに動画サイトの節とFAQを足し、プライバシーポリシーに「ケセルについて」の項を新設した。ルール配信 `keseru/rules/v1/` は 2026.10.16.0121（ポイ活ガード `guard.json` 追加）に更新。
       review状態の4本はREADMEにこれまで記載がなかったが、`apps/*.html`・`support.html`のFAQセクションは
       既に用意済み（いつ追加されたか、このセッションからは分からない）。iTunes lookup APIが遮断されているため
       このセッションからは各アプリの実際の審査状況を確認できず、`tools/apps.py`のstate表記をそのまま転記した。
