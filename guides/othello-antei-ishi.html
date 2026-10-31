@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>オセロの「安定石」とは — 二度とひっくり返らない石の見分け方 ｜ 株式会社サウナ</title>
+<meta name="description" content="オセロで、残りの対局でどう打たれても絶対にひっくり返らない石を「安定石」と呼びます。四隅がなぜ絶対に安全なのか、辺の石がどこまで安全と言えるのかを、ひっくり返るルールの仕組みから説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/othello-antei-ishi">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="オセロの「安定石」とは — 二度とひっくり返らない石の見分け方">
+<meta property="og:description" content="オセロで、残りの対局でどう打たれても絶対にひっくり返らない石を「安定石」と呼びます。四隅がなぜ絶対に安全なのか、辺の石がどこまで安全と言えるのかを、ひっくり返るルールの仕組みから説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/othello-antei-ishi">
+<meta property="og:image" content="https://tokyo357.com/assets/og/othello.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "オセロの「安定石」とは — 二度とひっくり返らない石の見分け方",
+  "description": "オセロで、残りの対局でどう打たれても絶対にひっくり返らない石を「安定石」と呼びます。四隅がなぜ絶対に安全なのか、辺の石がどこまで安全と言えるのかを、ひっくり返るルールの仕組みから説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-10-31",
+  "dateModified": "2026-10-31",
+  "image": "https://tokyo357.com/assets/og/othello.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/othello-antei-ishi",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "オセロの「安定石」とは — 二度とひっくり返らない石の見分け方" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-10-31 ／ 画面まわり・気晴らし</p>
+      <h1>オセロの「安定石」とは — 二度とひっくり返らない石の見分け方</h1>
+      <p class="lede">盤上の石の数が多くても、終盤で一気にひっくり返されることがあります。数より大事なのは「二度とひっくり返らないと決まっている石」がどれだけあるかです。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>「安定石」とは、残りの対局でどのように打たれても<strong>絶対にひっくり返らないと確定している石</strong>のことです。<strong>四隅（角）の石は、置いた時点で必ず安定石になります</strong>。角から辺に向かって同じ色を途切れずに並べていくと、その並びも多くの場合で安定しますが、途中に空きや相手の石があると成立しません。盤上の石の数そのものより、この「確定した石」の数こそが終盤の実力を表します。</p>
+      </div>
+
+      <h2>石がひっくり返るルールを、挟む側から見直す</h2>
+      <p>オセロで石がひっくり返るのは、新しく置いた石と、すでにある同じ色の石の間に、相手の色の石が連続して挟まれたときです。言い換えると、<strong>ある石がひっくり返るには、その石を通る一直線（たて・よこ・斜め）の両端に、将来いつか相手の色の石が置かれる必要がある</strong>ということです。両端のどちらかに、相手の色の石が絶対に置かれないと確定していれば、その石は安全です。</p>
+
+      <h2>なぜ四隅は絶対に安全なのか</h2>
+      <p>角のマスを通る3本の線（たて・よこ・斜め）は、どれも<strong>角の側がそのまま盤の外に出てしまう</strong>位置にあります。角をひっくり返すには、角を挟む相手の石をその先に置く必要がありますが、盤の外には石を置けません。そのため、<strong>角は一度自分の色で置いた瞬間から、対局が終わるまで絶対にひっくり返りません</strong>。これが安定石の中でも最も分かりやすい例です。</p>
+
+      <h2>辺の石は、どこまで安全と言えるか</h2>
+      <p>角を自分の色で確保したあと、そこから辺（たてまたはよこ）に向かって、途切れずに自分の色を並べていったとします。例えば左上の角（a1）が自分の色で、隣のb1も自分の色だとすると、b1をその辺の方向（a1からh1へ向かう行）でひっくり返すには、a1側に相手の色が置かれる必要があります。しかしa1は角であり、二度と色が変わりません。そのため、<strong>a1から途切れずに続く辺の石は、その辺の方向からは安全</strong>になります。</p>
+      <p>ただし、ここには注意点があります。辺の石は、辺の方向とは別に、盤の内側へ向かう斜めの線も通っています。その斜めの線が将来どうなるかまでは、辺を並べただけでは確定しません。そのため、辺の石を「完全に安定した」と言い切れるのは、実際には<strong>その斜めの線についても相手が挟めないと確定した場合</strong>に限られます。初心者向けの目安としては、「角は常に絶対安全」「角から続く辺の石は辺の方向では安全（ただし斜めの読みは別に必要）」という段階で理解しておくのが実用的です。</p>
+
+      <h2>石数との関係</h2>
+      <p>中盤までは石数で優勢に見えても、終盤に大きくひっくり返されることがあります。それは、並んでいる石の多くがまだ安定石になっていないためです。<a href="/guides/othello-ishikazu-yuuri-tokakiranai">石の数が多い方が勝っているとは限らない</a>で説明したとおり、盤面の優劣は石数そのものではなく、<strong>確定した石（安定石）と、相手の置ける場所の広さ</strong>で決まります。</p>
+
+      <h2>実戦での意識の仕方</h2>
+      <ul>
+        <li>角を取れる場面では、ほぼ取ってよい。角は置いた瞬間に安定石になります。</li>
+        <li>角を取った後は、辺に向かって途切れずに自分の色を伸ばすと、辺の方向からの安全な石が増えます。</li>
+        <li>角がまだ空いているうちは、<a href="/guides/othello-kado-x-uchi">X打ち・C打ち</a>のように、自分からその角の近くに石を置くことは避けます。角が相手に取られると、自分が置いたその石が逆に相手の安定石の足がかりになります。</li>
+      </ul>
+
+      <h2>まとめ</h2>
+      <p>安定石の考え方を知っておくと、「石数で勝っているから優勢」という見た目に惑わされにくくなります。角を取る、角から辺を伸ばす、という順番を意識するだけでも、終盤の逆転を減らせます。終盤の手番については<a href="/guides/othello-guusuu-riron">偶数理論</a>の記事も参考にしてください。</p>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>ぱすてるオセロ</h2>
+        <p>ぱすてるオセロのレベル1〜10のCPUは、レベルが上がるほど終盤の安定石まで見て打ってきます。角から辺へ、安全な石を実際に増やしていく練習に使えます。</p>
+        <p class="cmp-note">iOS 16+ ／ 無料</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6793739141?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/othello">ぱすてるオセロについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/othello.png" width="290" height="290" alt="ぱすてるオセロ の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/sukemaru">
+          <img src="/assets/icons/sukemaru.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>透けマル</b>
+            <span>背景を消して透過PNGに。書き出したファイルを読み戻してアルファを実測する。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/negotouranai">
+          <img src="/assets/icons/negotouranai.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ねごと占い</b>
+            <span>就寝中の寝言を自動録音し、端末内で文字起こしして夢占い風に読み解く。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/apps/itpassport">ITパスポート 過去問900 一問一答</a>
+        <a href="/apps/fe">基本情報技術者 過去問 科目A・B</a>
+        <a href="/apps/ap">応用情報 科目A・午前 過去問 全問解説</a>
+        <a href="/apps/parkshiori">パークしおり</a>
+        <a href="/apps/shifpon">シフポン</a>
+        <a href="/apps/reloban">リロ番</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
