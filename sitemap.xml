@@ -137,7 +137,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -608,6 +608,11 @@
   <url>
     <loc>https://tokyo357.com/guides/negoto-mojiokoshi-seido-fumeiryou</loc>
     <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/negoto-oogoe-hageshii-dousa-shinpai</loc>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -1133,6 +1138,11 @@
   <url>
     <loc>https://tokyo357.com/guides/touka-png-gazou-saizu-kawaru-ka</loc>
     <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/touka-png-hokano-app-de-kieru</loc>
+    <lastmod>2026-11-03</lastmod>
     <priority>0.7</priority>
   </url>
   <url>

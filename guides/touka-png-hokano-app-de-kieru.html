@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>透過PNGを他のアプリに渡すと、また白くなるのはなぜか ｜ 株式会社サウナ</title>
+<meta name="description" content="透けマルで透過が確認できたのに、別のアプリに渡すと白くなる現象は、多くが「写真に保存」を経由した変換が原因です。渡し方の違いと確認の手順を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/touka-png-hokano-app-de-kieru">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="透過PNGを他のアプリに渡すと、また白くなるのはなぜか">
+<meta property="og:description" content="透けマルで透過が確認できたのに、別のアプリに渡すと白くなる現象は、多くが「写真に保存」を経由した変換が原因です。渡し方の違いと確認の手順を説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/touka-png-hokano-app-de-kieru">
+<meta property="og:image" content="https://tokyo357.com/assets/og/sukemaru.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "透過PNGを他のアプリに渡すと、また白くなるのはなぜか",
+  "description": "透けマルで透過が確認できたのに、別のアプリに渡すと白くなる現象は、多くが「写真に保存」を経由した変換が原因です。渡し方の違いと確認の手順を説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-11-03",
+  "dateModified": "2026-11-03",
+  "image": "https://tokyo357.com/assets/og/sukemaru.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/touka-png-hokano-app-de-kieru",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "透過PNGを他のアプリに渡すと、また白くなるのはなぜか" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-11-03 ／ 画像・写真</p>
+      <h1>透過PNGを他のアプリに渡すと、また白くなるのはなぜか</h1>
+      <p class="lede">透けマルで「透過は有効です」と出たのに、別のアプリに渡すとまた白く見える——多くは渡し方が「写真に保存」経由になっていることが原因です。保存・書き出し・共有の違いを整理します。</p>
+    </div>
+
+    <div class="prose">
+
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>透けマルの透過チェックで「透過は有効です」と出ていれば、ファイルそのものは正しく透明になっています。それでも別のアプリに渡すとまた白く（または黒く）見える場合、多くは<strong>「写真に保存」を経由して渡している</strong>ことが原因です。写真ライブラリを経由せず、<strong>「ファイル」に書き出す</strong>か、<strong>共有シートから直接渡す</strong>方法に変えると、透過が保たれやすくなります。</p>
+      </div>
+
+      <h2>透過は残っているのに、渡した先で消えることがある</h2>
+      <p>透けマルで書き出した直後のPNGは、アプリ内の透過チェックで実際にアルファチャンネルの有無を調べています。「透過は有効です」と出た時点では、ファイルそのものに問題はありません。ところが、そのファイルを別のアプリに渡す経路によって、途中で透過情報が失われることがあります。これは透けマルの外側、つまり<strong>渡し方や渡した先のアプリの処理</strong>で起きている現象です。</p>
+
+      <h2>「写真に保存」が、変換の入り口になりやすい</h2>
+      <p>iOSの写真ライブラリは、取り込んだ画像を独自の形式で管理しています。PNGをいったん「写真に保存」してから別のアプリで選び直すと、そのアプリが写真ライブラリ経由の画像をJPEGとして読み込んでしまう場合があります。JPEGは透過を保持できない形式なので、この時点で透明だった部分が白または黒で塗りつぶされます。透けマル側で透過を保ったまま書き出していても、この変換は写真ライブラリと相手のアプリの間で起きるため、あとから透けマルで確認しても原因がわかりにくくなります。</p>
+
+      <h2>ファイルに書き出す・共有シートから直接渡す、という選び方</h2>
+      <p>写真ライブラリを経由しない渡し方には、大きく2つあります。</p>
+      <ul>
+        <li><strong>「ファイル」に書き出す</strong> — PNGファイルとしてそのまま保存されるため、相手のアプリが「ファイルを開く」「ファイルを読み込む」に対応していれば、透過を保ったまま渡せます。</li>
+        <li><strong>共有シートから直接渡す</strong> — 透けマルの共有メニューから渡したいアプリを選ぶと、写真ライブラリを経由せずそのアプリに直接ファイルが渡ります。相手のアプリが共有シート経由の受け取りに対応していれば、こちらも透過が保たれやすくなります。</li>
+      </ul>
+      <p>いずれも「写真に保存」を一度経由しない点が共通しています。渡したいアプリの取り込み方法に「ファイルから読み込む」「写真から読み込む」の両方がある場合は、ファイルから読み込む方を選んでください。</p>
+
+      <h2>それでも消える場合は、相手のアプリ側の可能性</h2>
+      <p>写真ライブラリを経由しない渡し方に変えても白くなる場合、相手のアプリ自体がPNGをそのまま扱えず、内部でJPEGに変換して保存する仕様になっていることがあります。この場合、送る側でどれだけ気をつけても透過は保持できません。透けマルの透過チェックで「渡す直前の透過は有効」と確認できていれば、それ以上は渡し方の問題ではなく、受け取り先のアプリの仕様である可能性が高いです。</p>
+
+      <h2>確認の手順</h2>
+      <ol>
+        <li>透けマルの透過チェックで「透過は有効です」の表示を確認する</li>
+        <li>「写真に保存」ではなく「ファイルに書き出す」か「共有シートから直接渡す」を使う</li>
+        <li>渡した先のアプリでも白くなる場合は、そのアプリ側がPNGの透過に対応しているかを確認する</li>
+      </ol>
+
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>透けマル</h2>
+        <p>書き出したPNGを自分で読み込み直し、透過が本当に残っているかを実測してからアプリへ渡せます。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6796656589?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/sukemaru">透けマルについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/sukemaru.png" width="290" height="290" alt="透けマル の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/othello">
+          <img src="/assets/icons/othello.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ぱすてるオセロ</b>
+            <span>レベル1〜10のCPUと対戦。オフラインで遊べる。</span>
+            <em>無料・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/negotouranai">
+          <img src="/assets/icons/negotouranai.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>ねごと占い</b>
+            <span>就寝中の寝言を自動録音し、端末内で文字起こしして夢占い風に読み解く。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/apps/itpassport">ITパスポート 過去問900 一問一答</a>
+        <a href="/apps/fe">基本情報技術者 過去問 科目A・B</a>
+        <a href="/apps/ap">応用情報 科目A・午前 過去問 全問解説</a>
+        <a href="/apps/parkshiori">パークしおり</a>
+        <a href="/apps/shifpon">シフポン</a>
+        <a href="/apps/reloban">リロ番</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
