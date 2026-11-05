@@ -137,7 +137,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -183,6 +183,11 @@
   <url>
     <loc>https://tokyo357.com/guides/densenkan-mage-keisan-genbutsu-zure</loc>
     <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/densenkan-mage-rireki-tsukaikata</loc>
+    <lastmod>2026-11-05</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -1048,6 +1053,11 @@
   <url>
     <loc>https://tokyo357.com/guides/shomeishashin-haikei-sashikae</loc>
     <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/shoukibo-kigyou-kyosai-towa</loc>
+    <lastmod>2026-11-05</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
