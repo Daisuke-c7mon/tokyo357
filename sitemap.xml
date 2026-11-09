@@ -137,7 +137,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/guides/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -153,6 +153,11 @@
   <url>
     <loc>https://tokyo357.com/guides/cd-kan-pf-kan-chigai</loc>
     <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/chouri-chuu-gamen-sawarazu</loc>
+    <lastmod>2026-11-09</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -1283,6 +1288,11 @@
   <url>
     <loc>https://tokyo357.com/guides/youbibetsu-kiken-do</loc>
     <lastmod>2026-11-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/zairyou-matomete-touroku</loc>
+    <lastmod>2026-11-09</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
