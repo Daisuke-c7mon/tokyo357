@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Postock｜SNSの投稿を保存して、あとで見返すアプリ ｜ 株式会社サウナ</title>
+<meta name="description" content="Postock（ポストック）は、X・Instagram・TikTok・YouTube・Threads・Pinterest・Bluesky・note・Reddit・Web の投稿リンクを、iPhone / iPad の共有ボタンから2タップで1か所に保存するアプリです。保存したままの投稿を「きょうの見返し」で毎日数枚カードで出し、スワイプで振り分けます。コレクションもタグも数の上限なし。120円の買い切り、広告なし、アカウント登録なし。株式会社サウナ（Sauna Inc.）が開発・サポートしています。">
+<link rel="canonical" href="https://tokyo357.com/apps/postock">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="Postock｜保存しっぱなしを、毎日3枚だけ見返す">
+<meta property="og:description" content="どのSNSの保存も、共有ボタンから2タップで1か所に。保存したままの投稿を毎日数枚、カードで見返すアプリ。120円の買い切り・広告なし。">
+<meta property="og:url" content="https://tokyo357.com/apps/postock">
+<meta property="og:locale" content="ja_JP">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+<!-- BUILD:head -->
+<meta property="og:image" content="https://tokyo357.com/assets/og/postock.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /BUILD:head -->
+<link rel="stylesheet" href="/assets/postock.css?v=20261110">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Postock",
+  "alternateName": "Postock - SNS投稿保存・あとで見る",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "iOS 17.0 or later",
+  "url": "https://tokyo357.com/apps/postock",
+  "image": "https://tokyo357.com/assets/icons/postock.png",
+  "description": "X・Instagram・TikTok・YouTube などの投稿リンクを共有ボタンから2タップで1か所に保存し、保存したままの投稿を毎日数枚カードで見返す iPhone / iPad アプリ。",
+  "offers": {
+    "@type": "Offer",
+    "price": "120",
+    "priceCurrency": "JPY"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "株式会社サウナ",
+    "url": "https://tokyo357.com/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "共有ボタンを押しても「Postock」が出てきません",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "共有シートのアプリが並ぶ列を右端までスクロールし、「その他」をタップしてください。一覧の中の Postock をオンにすると、次から並ぶようになります。「よく使う項目」に追加すると先頭に出せます。 それでも見つからないときは、元のアプリで「リンクをコピー」を選び、Postock を開いて「＋」から貼り付けても保存できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Instagram や TikTok の投稿は、どうやって保存しますか",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "投稿の「シェア」ボタン（紙飛行機や矢印の形）を押し、アプリの中に出る共有先の一覧から「その他」や「共有」など、iPhone の共有シートを開く項目を選んで Postock を選びます。項目の名前と位置は、それぞれのアプリのバージョンによって変わります。 共有シートが開かないときは、同じ一覧の「リンクをコピー」を選び、Postock の「＋」から貼り付けてください。どちらの方法でも、サムネイルとタイトルは端末からそのページに直接取りに行きます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "機種変更するとき、保存した投稿は移せますか",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "移せます。前の端末で Postock のバックアップ（JSONファイル）を書き出し、ファイルアプリや AirDrop などで新しい端末に渡して、新しい端末の Postock で読み込んでください。すでに入っている投稿と同じものは二重に増えません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "iCloud で同期できないのはなぜですか",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Postock は、保存したリンク・メモ・タグを端末の外に出さない作りにしています。そのため iCloud 同期の機能はありません。iPhone と iPad の両方で使いたいときや機種変更のときは、バックアップファイルを書き出して、もう一方の端末で読み込んでください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "通信がないところでも使えますか",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "保存した投稿の一覧・メモ・タグ・コレクションは端末の中にあるので、通信がなくても見返したり整理したりできます。サムネイルとタイトルを取りに行くことと、元の投稿を開くことには通信が必要です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "通知はどんなときに届きますか",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2種類あります。ひとつは「きょうの見返し」の通知で、届く曜日と時刻を自分で選べます。もうひとつは、投稿に付けた思い出の日付（行く日・ライブの日など）の通知で、日付ごとにオン・オフできます。届かないときは、iPhone の「設定」→「通知」→「Postock」で通知が許可されているかを確かめてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "「あとで」にした投稿はどうなりますか",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3日後に、また「きょうの見返し」に出てきます。右にスワイプすると「見た」、上にスワイプすると「しまう」になり、その投稿は見返しに出なくなります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "間違えて消した投稿は戻せますか",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "戻せます。削除した投稿は30日のあいだゴミ箱に残り、そこから元に戻せます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "保存できる数に上限はありますか。追加の課金は",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "保存する投稿の数、コレクションの数、タグの数のどれにも上限はありません。120円の買い切りで、アプリ内課金・広告・サブスクリプションはありません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "保存したリンクやメモは、どこかに送られますか",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "送られません。保存したリンク・メモ・タグは端末の外に出ません。改善のため、匿名の利用状況（どの画面を開いたか等）だけを Google Analytics で集計しています。アプリの設定にある「利用状況を送る（匿名）」をオフにすると、すぐに送信を止めます。"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc pk">
+  <div class="wrap">
+
+    <div class="doc-head doc-head--app pk-hero">
+      <img class="doc-icon" src="/assets/icons/postock.png" width="512" height="512" alt="Postock のアプリアイコン">
+      <div>
+        <p class="updated">IOS 17+ · IPHONE / IPAD · 買い切り 120円</p>
+        <h1>Postock</h1>
+        <p class="pk-catch">保存しっぱなしを、<em>毎日3枚だけ</em>見返す。</p>
+        <p class="lede">X・Instagram・TikTok・YouTube などで「あとで見よう」と保存した投稿を、共有ボタンから2タップで1か所に集めます。たまったままの投稿は「きょうの見返し」で毎日数枚ずつカードで出てくるので、指で振り分けるだけで片づきます。</p>
+        <p class="pk-status"><span class="pk-badge">App Store 準備中</span>公開されたら、このページからダウンロードできるようにします。</p>
+        <div class="actions mt-s">
+          <a class="btn" href="#features">できることを見る</a>
+          <a class="btn btn--ghost" href="#faq">よくある質問</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="pk-sec" aria-labelledby="pains">
+      <p class="pk-kicker">こんな不満、ありませんか</p>
+      <h2 class="pk-h2" id="pains">リンク保存アプリのレビューに多かった声から作りました</h2>
+      <p class="pk-intro">リンクをためておくアプリの低い評価を読み込むと、同じ不満が何度も出てきました。Postock はそこを最初から潰しています。</p>
+      <div class="pk-pains">
+        <div class="pk-pain">
+          <p class="q">無料だと保存は100件、コレクションもタグも5個まで。続けるにはサブスク。</p>
+          <p class="ans"><b>120円の買い切りで、上限なし</b>保存する数もコレクションもタグも、数の上限はありません。アプリ内課金も広告もありません。</p>
+        </div>
+        <div class="pk-pain">
+          <p class="q">件数が増えると重くなる、落ちる。</p>
+          <p class="ans"><b>端末の中だけで完結</b>自社のサーバーもアカウントもなく、保存した中身は端末の中にあります。サムネイルとタイトルは、端末からそのページに直接取りに行きます。</p>
+        </div>
+        <div class="pk-pain">
+          <p class="q">タグで探せない。並べ替えが弱い。</p>
+          <p class="ans"><b>検索・絞り込み・並べ替え</b>タイトル・メモ・タグ・コレクション名から検索。SNS別・タグ別に絞り込み、保存順・思い出の日付順・タイトル順・未読を先に、で並べ替えられます。</p>
+        </div>
+        <div class="pk-pain">
+          <p class="q">1件ずつしか動かせない。まとめて操作できない。</p>
+          <p class="ans"><b>複数選択でまとめて</b>選んだ投稿をまとめて移動・タグ付け・見た・しまう・削除。消しても30日はゴミ箱から戻せます。</p>
+        </div>
+        <div class="pk-pain">
+          <p class="q">コレクションが増えると、保存するとき選びにくい。</p>
+          <p class="ans"><b>検索できる縦のリスト</b>コレクションは横に並べず、縦のリストで出します。名前で検索して選べます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pk-sec" id="features" aria-labelledby="features-h">
+      <p class="pk-kicker">できること</p>
+      <h2 class="pk-h2" id="features-h">保存して、見返して、整える</h2>
+      <div class="pk-features">
+
+        <article class="pk-feat">
+          <figure class="pk-fig" aria-hidden="true">
+            <svg viewBox="0 0 220 170">
+              <rect class="f-line" x="58" y="34" width="104" height="116" rx="16" transform="rotate(-7 110 92)"/>
+              <rect class="f-card s-line" x="58" y="28" width="104" height="116" rx="16" stroke-width="1.5"/>
+              <rect class="f-coral-soft" x="68" y="38" width="84" height="56" rx="10"/>
+              <rect class="f-coral" x="134" y="28" width="14" height="22"/>
+              <path class="f-card" d="M134 50 l7 -6 l7 6z"/>
+              <rect class="f-ink" x="68" y="104" width="64" height="7" rx="3.5"/>
+              <rect class="f-line" x="68" y="118" width="44" height="6" rx="3"/>
+              <path class="s-sky" d="M46 86 H14 M24 76 l-10 10 l10 10" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="s-mint" d="M174 86 H206 M196 76 l10 10 l-10 10" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="s-sub" d="M110 18 V2 M101 10 l9 -9 l9 9" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <text class="t-svg f-sky" x="30" y="122" font-size="13" text-anchor="middle">あとで</text>
+              <text class="t-svg f-mint" x="190" y="122" font-size="13" text-anchor="middle">見た</text>
+              <text class="t-svg f-sub" x="146" y="14" font-size="12">しまう</text>
+            </svg>
+          </figure>
+          <div>
+            <h3>きょうの見返し — 毎日数枚だけ、指で振り分ける</h3>
+            <p>保存したままの投稿を、毎日1〜5枚（はじめは3枚）カードで出します。<strong>右にスワイプで「見た」、左で「あとで」（3日後にまた出ます）、上で「しまう」</strong>。全部を片づけようとしなくていい量だけ出します。</p>
+            <ul>
+              <li>出す順番は、行く日が近いもの → ちょうど1か月前に保存したもの → 未読 → ずっと見ていないもの</li>
+              <li>見返し率・今週の保存数・連続日数を表示</li>
+              <li>毎日の見返し通知は、曜日と時刻を選べます</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="pk-feat">
+          <figure class="pk-fig" aria-hidden="true">
+            <div class="pk-chips"><span>X</span><span>Instagram</span><span>TikTok</span><span>YouTube</span><span>Threads</span><span>Pinterest</span><span>Bluesky</span><span>note</span><span>Reddit</span><span>Web</span></div>
+          </figure>
+          <div>
+            <h3>どのSNSの保存も、ぜんぶ1か所に</h3>
+            <p>X・Instagram・TikTok・YouTube・Threads・Pinterest・Bluesky・note・Reddit、それにふつうの Web ページ。アプリごとにばらばらだった「保存」を、Postock の1つの一覧にまとめます。</p>
+            <p>サムネイルとタイトルは、端末からそのページに直接取りに行きます。間に自社のサーバーは挟みません。</p>
+          </div>
+        </article>
+
+        <article class="pk-feat">
+          <figure class="pk-fig" aria-hidden="true">
+            <svg viewBox="0 0 220 110">
+              <rect class="f-card s-line" x="6" y="22" width="56" height="56" rx="16" stroke-width="1.5"/>
+              <path class="s-ink" d="M34 36 v22 M26 44 l8 -8 l8 8 M24 52 v12 h20 v-12" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="s-sub" d="M70 50 l7 0 M74 45 l5 5 l-5 5" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect class="f-coral" x="82" y="22" width="56" height="56" rx="16"/>
+              <path class="f-card" d="M100 36 h20 v26 l-10 -7 l-10 7z"/>
+              <path class="s-sub" d="M146 50 l7 0 M150 45 l5 5 l-5 5" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect class="f-card s-line" x="158" y="22" width="56" height="56" rx="16" stroke-width="1.5"/>
+              <path class="s-mint" d="M174 50 l8 8 l16 -16" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <text class="t-svg f-sub" x="34" y="100" font-size="12" text-anchor="middle">共有</text>
+              <text class="t-svg f-ink" x="110" y="100" font-size="12" text-anchor="middle">Postock</text>
+              <text class="t-svg f-sub" x="186" y="100" font-size="12" text-anchor="middle">保存</text>
+            </svg>
+          </figure>
+          <div>
+            <h3>共有ボタンから2タップで保存</h3>
+            <p>見ているアプリで「共有」を押して、Postock を選んで保存。<strong>アカウント登録はいりません。</strong>保存するときに、コレクション・タグ・メモもその場で付けられます。</p>
+          </div>
+        </article>
+
+        <article class="pk-feat">
+          <figure class="pk-fig" aria-hidden="true">
+            <svg viewBox="0 0 220 150">
+              <rect class="f-card s-line" x="20" y="10" width="180" height="130" rx="18" stroke-width="1.5"/>
+              <rect class="f-coral-soft" x="34" y="24" width="152" height="44" rx="10"/>
+              <rect class="f-ink" x="34" y="78" width="96" height="7" rx="3.5"/>
+              <rect class="f-coral" x="34" y="96" width="44" height="18" rx="9"/>
+              <rect class="f-coral" x="84" y="96" width="44" height="18" rx="9"/>
+              <text class="t-svg f-card" x="56" y="109" font-size="10.5" text-anchor="middle">#12月</text>
+              <text class="t-svg f-card" x="106" y="109" font-size="10.5" text-anchor="middle">#ライブ</text>
+              <rect class="f-mint-soft" x="138" y="92" width="48" height="36" rx="9"/>
+              <rect class="f-mint" x="138" y="92" width="48" height="10" rx="4"/>
+              <text class="t-svg f-ink" x="162" y="123" font-size="14" text-anchor="middle">24</text>
+              <rect class="f-line" x="34" y="120" width="70" height="6" rx="3"/>
+            </svg>
+          </figure>
+          <div>
+            <h3>メモ・タグ・行く日まで、ひとつの投稿に</h3>
+            <p>「なぜ保存したか」を忘れないように、投稿ごとにメモとタグを付けられます。行く日・ライブの日などの<strong>思い出の日付</strong>を入れておけば、その日に通知でお知らせします。</p>
+            <ul>
+              <li>日付ごとの通知、よく見るものはピン留め</li>
+              <li>SNS別・タグ別の絞り込み、保存順・思い出の日付順・タイトル順・未読を先に、の並べ替え</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="pk-feat">
+          <figure class="pk-fig" aria-hidden="true">
+            <svg viewBox="0 0 220 150">
+              <rect class="f-card s-line" x="20" y="8" width="180" height="134" rx="18" stroke-width="1.5"/>
+              <rect class="f-coral-soft" x="34" y="20" width="26" height="26" rx="8"/>
+              <rect class="f-mint-soft" x="34" y="58" width="26" height="26" rx="8"/>
+              <rect class="f-sky-soft" x="34" y="96" width="26" height="26" rx="8"/>
+              <circle class="f-coral" cx="47" cy="33" r="5"/>
+              <circle class="f-mint" cx="47" cy="71" r="5"/>
+              <circle class="f-sky" cx="47" cy="109" r="5"/>
+              <rect class="f-ink" x="70" y="29" width="70" height="7" rx="3.5"/>
+              <rect class="f-ink" x="70" y="67" width="84" height="7" rx="3.5"/>
+              <rect class="f-ink" x="70" y="105" width="58" height="7" rx="3.5"/>
+              <text class="t-svg f-sub" x="186" y="38" font-size="18" text-anchor="end">∞</text>
+              <rect class="f-line" x="34" y="51" width="152" height="1"/>
+              <rect class="f-line" x="34" y="89" width="152" height="1"/>
+            </svg>
+          </figure>
+          <div>
+            <h3>コレクションもタグも、数の上限なし</h3>
+            <p>コレクションは絵文字と8色から選んで、いくつでも作れます。タグも上限なし。</p>
+            <ul>
+              <li>複数選択して、まとめて移動・タグ付け・見た・しまう・削除</li>
+              <li>削除しても30日はゴミ箱から戻せる</li>
+              <li>JSON でバックアップを書き出し・読み込み（読み込んでも同じ投稿は二重になりません）</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="pk-sec" aria-labelledby="screens">
+      <p class="pk-kicker">画面</p>
+      <h2 class="pk-h2" id="screens">スクリーンショット</h2>
+<!-- BUILD:shots -->
+    <section class="shots" aria-label="Postockの画面">
+      <div class="shots-strip">
+        <a href="/assets/shots/postock/01.jpg" target="_blank" rel="noopener"><img src="/assets/shots/postock/01.jpg" width="640" height="1386" alt="Postockの「保存しっぱなしを、毎日3枚だけ見返す」の見出しと、きょうの見返し画面。YouTube の投稿「冬のライブ、セトリ予想の生配信」のカードに「もうすぐの予定」の印と「あとで」「開く」「見た」のボタン、左右と上へのスワイプの案内、見返し率28%・今週保存5件・今週見返し5件・連続6日" loading="lazy" decoding="async"></a>
+        <a href="/assets/shots/postock/02.jpg" target="_blank" rel="noopener"><img src="/assets/shots/postock/02.jpg" width="640" height="1386" alt="Postockの「どのSNSの保存も、ぜんぶ1か所に」の見出しと、ぜんぶの画面。タイトル・メモ・タグ・コレクションの検索欄、保存中・未読・しまったの切り替え、X・Instagram・TikTok・YouTube の絞り込みとタグの一覧、サムネイル付きの投稿が2列で並んでいる" loading="lazy" decoding="async"></a>
+        <a href="/assets/shots/postock/03.jpg" target="_blank" rel="noopener"><img src="/assets/shots/postock/03.jpg" width="640" height="1386" alt="Postockの「共有ボタンから2タップで保存」の見出しと、はじめての説明の画面。「共有」→「Postock」→「保存」の流れと、コレクション・タグ・メモもその場で選べること、アカウント登録はいらないこと" loading="lazy" decoding="async"></a>
+        <a href="/assets/shots/postock/04.jpg" target="_blank" rel="noopener"><img src="/assets/shots/postock/04.jpg" width="640" height="1386" alt="Postockの「メモ・タグ・行く日までひとつの投稿に」の見出しと、投稿の詳細画面。YouTube の投稿のサムネイルと「YouTube で開く」ボタン、メモ欄、#12月・#ライブ のタグと候補のタグの一覧" loading="lazy" decoding="async"></a>
+        <a href="/assets/shots/postock/05.jpg" target="_blank" rel="noopener"><img src="/assets/shots/postock/05.jpg" width="640" height="1386" alt="Postockの「コレクションもタグも数の上限なし」の見出しと、コレクションの画面。行きたいカフェ・つくりたいごはん・推し活・秋冬のコーデ・あとで読むの一覧と未読の数、コレクションなし、30日で消えるゴミ箱" loading="lazy" decoding="async"></a>
+      </div>
+      <p class="shots-note">実際の画面です。App Store に掲載しているものと同じものを載せています。App Store 公開後、ここから直接開けるようにします</p>
+    </section>
+  <!-- /BUILD:shots -->
+    </section>
+
+    <section class="pk-sec" id="price" aria-labelledby="price-h">
+      <p class="pk-kicker">価格</p>
+      <h2 class="pk-h2" id="price-h">120円の買い切り。あとから増える料金はありません</h2>
+      <div class="pk-price">
+        <p class="pk-yen"><b>120</b><span>円</span><small>買い切り・1回だけ</small></p>
+        <ul class="pk-checks">
+          <li>アプリ内課金なし</li>
+          <li>サブスクリプションなし</li>
+          <li>広告なし</li>
+          <li>アカウント登録なし</li>
+          <li>保存数・コレクション・タグの上限なし</li>
+          <li>iPhone と iPad の両方で使える</li>
+        </ul>
+      </div>
+
+      <dl class="facts pk-facts">
+        <div><dt>対応OS</dt><dd>iOS 17.0 以降</dd></div>
+        <div><dt>対応端末</dt><dd>iPhone / iPad</dd></div>
+        <div><dt>価格</dt><dd>120円（買い切り）<span class="sub">アプリ内課金なし・広告なし・アカウント登録なし</span></dd></div>
+        <div><dt>保存できるもの</dt><dd>X・Instagram・TikTok・YouTube・Threads・Pinterest・Bluesky・note・Reddit・Web の投稿リンク</dd></div>
+        <div><dt>通信</dt><dd>サムネイルとタイトルを、端末からそのページに直接取りに行く<span class="sub">自社のサーバーはありません。匿名の利用状況のみ Google Analytics で集計（設定でオフ可）</span></dd></div>
+        <div><dt>同期</dt><dd>iCloud 同期なし<span class="sub">機種変更はバックアップファイル（JSON）で移せます</span></dd></div>
+        <div><dt>提供元</dt><dd>株式会社サウナ<span class="sub">Sauna Inc.</span></dd></div>
+      </dl>
+    </section>
+
+<!-- BUILD:install -->
+    <section class="install">
+      <div>
+        <h2>Postockは現在 App Store 申請の準備中です</h2>
+        <p>iOS 17+ ／ 買い切り 120円 で公開予定です。公開されしだい、このページにダウンロードのリンクを出します。先に中身を知りたい方は、上の説明とよくある質問をご覧ください。</p>
+        <div class="actions">
+          <a class="btn btn--ghost" href="/support#postock">よくある質問</a>
+          <a class="btn btn--ghost" href="/apps/">ほかのアプリを見る</a>
+        </div>
+      </div>
+    </section>
+  <!-- /BUILD:install -->
+<!-- BUILD:related -->
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/dandorirecipe">
+          <img src="/assets/icons/dandorirecipe.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>だんどりレシピ</b>
+            <span>人数で分量が変わるレシピ帳。献立から売り場順の買い物リスト、同時に動くタイマー。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/shizukatl">
+          <img src="/assets/icons/shizukatl.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>しずかTL for X</b>
+            <span>Safari で X を時系列・静かな画面で読む拡張機能。効いているかを診断できる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/tsuzukutodo">
+          <img src="/assets/icons/tsuzukutodo.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>つづくToDo</b>
+            <span>上限のないタスク、取り消せる記録、あとから付けられる日。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+  <!-- /BUILD:related -->
+
+    <div class="prose pk-sec">
+
+      <h2 id="faq">よくある質問</h2>
+      <div class="faq">
+        <details>
+          <summary>共有ボタンを押しても「Postock」が出てきません</summary>
+          <div class="a">
+            <p>共有シートのアプリが並ぶ列を右端までスクロールし、「その他」をタップしてください。一覧の中の Postock をオンにすると、次から並ぶようになります。「よく使う項目」に追加すると先頭に出せます。</p><p>それでも見つからないときは、元のアプリで「リンクをコピー」を選び、Postock を開いて「＋」から貼り付けても保存できます。</p>
+          </div>
+        </details>
+        <details>
+          <summary>Instagram や TikTok の投稿は、どうやって保存しますか</summary>
+          <div class="a">
+            <p>投稿の「シェア」ボタン（紙飛行機や矢印の形）を押し、アプリの中に出る共有先の一覧から「その他」や「共有」など、iPhone の共有シートを開く項目を選んで Postock を選びます。項目の名前と位置は、それぞれのアプリのバージョンによって変わります。</p><p>共有シートが開かないときは、同じ一覧の「リンクをコピー」を選び、Postock の「＋」から貼り付けてください。どちらの方法でも、サムネイルとタイトルは端末からそのページに直接取りに行きます。</p>
+          </div>
+        </details>
+        <details>
+          <summary>機種変更するとき、保存した投稿は移せますか</summary>
+          <div class="a">
+            <p>移せます。前の端末で Postock のバックアップ（JSONファイル）を書き出し、ファイルアプリや AirDrop などで新しい端末に渡して、新しい端末の Postock で読み込んでください。すでに入っている投稿と同じものは二重に増えません。</p>
+          </div>
+        </details>
+        <details>
+          <summary>iCloud で同期できないのはなぜですか</summary>
+          <div class="a">
+            <p>Postock は、保存したリンク・メモ・タグを端末の外に出さない作りにしています。そのため iCloud 同期の機能はありません。iPhone と iPad の両方で使いたいときや機種変更のときは、バックアップファイルを書き出して、もう一方の端末で読み込んでください。</p>
+          </div>
+        </details>
+        <details>
+          <summary>通信がないところでも使えますか</summary>
+          <div class="a">
+            <p>保存した投稿の一覧・メモ・タグ・コレクションは端末の中にあるので、通信がなくても見返したり整理したりできます。サムネイルとタイトルを取りに行くことと、元の投稿を開くことには通信が必要です。</p>
+          </div>
+        </details>
+        <details>
+          <summary>通知はどんなときに届きますか</summary>
+          <div class="a">
+            <p>2種類あります。ひとつは「きょうの見返し」の通知で、届く曜日と時刻を自分で選べます。もうひとつは、投稿に付けた思い出の日付（行く日・ライブの日など）の通知で、日付ごとにオン・オフできます。届かないときは、iPhone の「設定」→「通知」→「Postock」で通知が許可されているかを確かめてください。</p>
+          </div>
+        </details>
+        <details>
+          <summary>「あとで」にした投稿はどうなりますか</summary>
+          <div class="a">
+            <p>3日後に、また「きょうの見返し」に出てきます。右にスワイプすると「見た」、上にスワイプすると「しまう」になり、その投稿は見返しに出なくなります。</p>
+          </div>
+        </details>
+        <details>
+          <summary>間違えて消した投稿は戻せますか</summary>
+          <div class="a">
+            <p>戻せます。削除した投稿は30日のあいだゴミ箱に残り、そこから元に戻せます。</p>
+          </div>
+        </details>
+        <details>
+          <summary>保存できる数に上限はありますか。追加の課金は</summary>
+          <div class="a">
+            <p>保存する投稿の数、コレクションの数、タグの数のどれにも上限はありません。120円の買い切りで、アプリ内課金・広告・サブスクリプションはありません。</p>
+          </div>
+        </details>
+        <details>
+          <summary>保存したリンクやメモは、どこかに送られますか</summary>
+          <div class="a">
+            <p>送られません。保存したリンク・メモ・タグは端末の外に出ません。改善のため、匿名の利用状況（どの画面を開いたか等）だけを Google Analytics で集計しています。アプリの設定にある「利用状況を送る（匿名）」をオフにすると、すぐに送信を止めます。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="privacy">プライバシー</h2>
+      <p>ログインもアカウント連携もありません。<strong>保存したリンク・メモ・タグは端末の外に出ません。</strong>サムネイルとタイトルは、端末から保存したページに直接取りに行きます。</p>
+      <p>改善のため、匿名の利用状況（どの画面を開いたか等）だけを Google Analytics で集計しています。広告ID は使いません。アプリの設定にある「利用状況を送る（匿名）」をオフにすると、すぐに送信を止めます。詳しくは<a href="/privacy#postock">プライバシーポリシー</a>をご覧ください。</p>
+
+      <h2 id="help">困ったときは</h2>
+      <p>よくある質問は、このページと<a href="/support#postock">サポートページ</a>にまとめています。解決しない場合は <a href="mailto:yamaguchi@tokyo357.com">yamaguchi@tokyo357.com</a> までご連絡ください。平日 10:00–18:00（日本時間）に受け付け、2営業日以内に返信します。</p>
+      <p>不具合のご報告には、iOS のバージョン、端末の機種、保存しようとした投稿の SNS 名を添えていただけると、原因の切り分けが早くなります。</p>
+
+      <h2>商標について</h2>
+      <p>X・Instagram・TikTok・YouTube・Threads・Pinterest・Bluesky・note・Reddit は、それぞれの権利者の商標または登録商標です。Postock はこれらのサービスとは関係のない独立したアプリです。</p>
+
+      <div class="en-block">
+        <p class="flag">ENGLISH</p>
+        <h2 class="lead">Postock — stop hoarding, look back at three a day</h2>
+        <p>Postock gathers the posts you saved "for later" on X, Instagram, TikTok, YouTube, Threads, Pinterest, Bluesky, note, Reddit and the web into one place, in two taps from the iPhone / iPad share sheet. Each day, "Today's look-back" shows a few saved posts as cards: swipe right for seen, left for later (it comes back in 3 days), up to put it away.</p>
+        <ul>
+          <li>Requires iOS 17.0 or later. iPhone and iPad.</li>
+          <li>One-time purchase of ¥120. No in-app purchases, no ads, no account.</li>
+          <li>Unlimited posts, collections (emoji and 8 colors) and tags. Notes, dates with reminders, pins, search, filters, sorting and bulk actions. Deleted posts stay in the trash for 30 days.</li>
+          <li>Your links, notes and tags never leave your device. Thumbnails and titles are fetched by your device directly from each page. Anonymous usage is counted with Google Analytics; turn it off in Settings.</li>
+          <li>No iCloud sync. Move to a new device with a JSON backup file.</li>
+        </ul>
+        <p>Support: <a href="mailto:yamaguchi@tokyo357.com">yamaguchi@tokyo357.com</a> — see the <a href="/support#en">support page</a> and <a href="/privacy#postock-en">privacy policy</a>.</p>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/apps/itpassport">ITパスポート 過去問900 一問一答</a>
+        <a href="/apps/fe">基本情報技術者 過去問 科目A・B</a>
+        <a href="/apps/ap">応用情報 科目A・午前 過去問 全問解説</a>
+        <a href="/apps/parkshiori">パークしおり</a>
+        <a href="/apps/shifpon">シフポン</a>
+        <a href="/apps/reloban">リロ番</a>
+        <a href="/apps/flickey">FLICKEY</a>
+        <a href="/apps/postock">Postock</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js?v=20260805" defer></script>
+</body>
+</html>

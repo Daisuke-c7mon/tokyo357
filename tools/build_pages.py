@@ -130,9 +130,13 @@ def shots_block(a):
 def related_block(slug):
     """同じテーマ→公開中を優先して3件。回遊で他アプリのインストールにつなげる。"""
     me = BY_SLUG[slug]
-    others = [a for a in APPS if a["slug"] != slug]
-    others.sort(key=lambda a: (a["topic"] != me["topic"], a["state"] != "live"))
-    picks = others[:3]
+    if me.get("related"):
+        # apps.py で明示したもの（関連の近いアプリへ送る）を優先する
+        picks = [BY_SLUG[s] for s in me["related"]][:3]
+    else:
+        others = [a for a in APPS if a["slug"] != slug]
+        others.sort(key=lambda a: (a["topic"] != me["topic"], a["state"] != "live"))
+        picks = others[:3]
     cards = "\n".join(
         f'        <a class="related-card" href="/apps/{a["slug"]}">\n'
         f'          <img src="/assets/icons/{a["slug"]}.png" width="512" height="512" alt="" loading="lazy">\n'

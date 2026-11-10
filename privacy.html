@@ -59,6 +59,7 @@
       <p class="sub">※ <strong>シフポン</strong>は、匿名の利用状況に加えてクラッシュ情報を Google Firebase に送信します。送信する内容は<a href="#shifpon">「シフポンについて」</a>に個別に記載しています。</p>
 
       <p class="sub">※ <strong>ケセル</strong>は Safari の広告ブロッカーとして、ブロックルールのファイルを本ウェブサイトから取得し、Safari で開いた YouTube の上でも動きます。取り扱いは<a href="#keseru">「ケセルについて」</a>に個別に記載しています。</p>
+      <p class="sub">※ <strong>Postock</strong>は、保存した投稿のサムネイルとタイトルを、端末からそのページに直接取りに行きます。その通信の扱いは<a href="#postock">「Postockについて」</a>に個別に記載しています。</p>
       <p class="sub">※ <strong>リロ番</strong>は Safari 拡張機能として、利用者が開始したタブのページを読みます。読んだ内容の扱いと、送信する匿名の利用状況は<a href="#reloban">「リロ番について」</a>に個別に記載しています。</p>
       <p class="sub">※ <strong>FLICKEY</strong>はキーボードとして、利用者が打った文字を扱います。キーボードは通信せず、打った内容は端末の外に出ません。取り扱いと、アプリ本体が送信する匿名の利用状況は<a href="#flickey">「FLICKEYについて」</a>に個別に記載しています。</p>
 
@@ -85,6 +86,7 @@
       <p>本アプリは、当社のサーバーとは通信を行いません。オフライン環境でも全機能をご利用いただけます。外部との通信は次の4つに限られます。(0) 第1条の匿名の利用状況を Google Analytics for Firebase へ送信すること（設定でオフにした場合は送信しません）。以下の3つは、いずれも利用者の操作・設定によって初めて発生します。(1) iCloud同期を有効にした場合、Apple のiCloudとの同期が行われます。(2) アプリ内の商品紹介リンクやサポートのリンクをタップした場合、外部サイトがブラウザで開きます。リンク先での情報の取り扱いは、各サイトのプライバシーポリシーに従います。(3) アプリ内課金を行う場合、Apple の App Store との通信が発生します。決済情報は Apple が取り扱い、当社が取得することはありません。</p>
       <p>前述のとおり、<strong>起業おじさん</strong>は回答の生成に通信を必要とするため、本条の対象外です。同アプリの通信については<a href="https://kigyou-ojisan.netlify.app/privacy">起業おじさん専用のプライバシーポリシー</a>をご覧ください。</p>
       <p><strong>ケセル</strong>は、新しいブロックルールのファイルを本ウェブサイト（tokyo357.com）から取得するための通信を行います。取得の際に、閲覧したサイトや端末の情報は送りません。詳しくは<a href="#keseru">「ケセルについて」</a>をご覧ください。</p>
+      <p>また、<strong>Postock</strong>は保存した投稿のサムネイルとタイトルを表示するため、端末からそのリンク先のページに直接アクセスします（当社のサーバーは経由しません）。詳しくは<a href="#postock">「Postockについて」</a>をご覧ください。</p>
 
       <h2>4. 解析ツール（Google Analytics for Firebase）・広告・トラッキング</h2>
       <p>本アプリの改善（よく使われる画面・使われていない機能の把握、不具合の手がかり）のため、Google Analytics for Firebase を利用します。収集する情報は第1条のとおりで、利用者を特定する目的には使いません。当社は Google アナリティクスの User-ID 機能・Google シグナル・広告のパーソナライズ・広告ネットワークへの登録を使用しておらず、広告配信SDKも組み込んでいません。広告識別子（IDFA）を取得しないため、Appleの App Tracking Transparency に基づくトラッキング許可の要求も行いません。</p>
@@ -149,6 +151,11 @@
       </ul>
       <p>ケセルは、利用状況の集計（Google Analytics for Firebase）やクラッシュ情報の収集を使用していません。アカウント登録、広告、広告識別子（IDFA）の利用もありません。YouTube は Google LLC の商標です。ケセルは Google LLC・YouTube とは関係ありません。</p>
 
+      <h2 id="postock">Postockについて（ページの読み込み / Google Analytics）</h2>
+      <p><strong>Postock</strong>は、利用者が保存した投稿（X・Instagram・TikTok・YouTube などのリンク）のサムネイルとタイトルを表示するため、<strong>端末からそのリンク先のページに直接アクセス</strong>して取得します。当社のサーバーを経由することはなく、どのリンクを保存したかを当社が知ることはありません。リンク先での情報の取り扱いは、各サービスのプライバシーポリシーに従います。この項は Postock だけに適用され、ほかの本アプリの取り扱いは変わりません。</p>
+      <p><strong>送信しないもの：</strong>保存したリンク、タイトル、メモ、タグ、コレクションの名前、思い出の日付は、端末の外に出ません。氏名・メールアドレス・位置情報も取得しません。iCloud 同期の機能はなく、機種変更などのためのバックアップは、利用者が書き出したファイル（JSON）として利用者の手元に置かれます。</p>
+      <p>そのうえで、アプリの改善のため、第1条・第4条の<strong>匿名の利用状況</strong>（どの画面を開いたか、どの機能を使ったか）だけを Google Analytics for Firebase で集計します。広告識別子（IDFA）は使わず、App Tracking Transparency の許可も求めません。設定画面の「利用状況を送る（匿名）」をオフにすると、その時点から送信を停止します。オフにしても機能に制限はかかりません。</p>
+
       <h2>5. 第三者への提供</h2>
       <p>当社は、個人情報を第三者へ提供・販売・共有することはありません。第4条の匿名の利用状況は、集計のために Google LLC（Google Analytics for Firebase）が取り扱います。</p>
 
@@ -196,6 +203,7 @@
         <h3>3. Network access</h3>
         <p>Our apps never connect to our own servers, and all features work offline. The only network traffic is: sending the anonymous usage data described in section 1 to Google Analytics for Firebase (not sent if you switch it off), iCloud sync if you enable it, links you tap, and App Store purchases.</p>
         <p><strong>Keseru</strong> connects to this website (tokyo357.com) to download new blocking-rule files; no browsing or device information is sent. See <a href="#keseru-en">Keseru</a> below.</p>
+        <p>In addition, <strong>Postock</strong> fetches each saved link's page directly from your device to show its thumbnail and title (not through our servers). See <a href="#postock-en">Postock</a>.</p>
 
         <h3>4. Analytics, advertising, and tracking</h3>
         <p>We use Google Analytics for Firebase to understand which screens and features are used, so we can improve the apps. We do not use the Google Analytics User-ID feature, Google signals, ad personalization, or ad network registration, and we include no advertising SDKs. We do not access the IDFA, so we do not present an App Tracking Transparency prompt.</p>
@@ -251,6 +259,10 @@
           <li>Reporting an ad that wasn't blocked: we receive the email (page address, app and rule versions) only if you send it from your Mail app.</li>
         </ul>
         <p>Keseru does not use Google Analytics for Firebase or crash reporting, and has no account, no ads and no IDFA access. YouTube is a trademark of Google LLC. Keseru is not affiliated with Google LLC or YouTube.</p>
+
+        <h3 id="postock-en">Postock</h3>
+        <p>This section applies only to Postock. To show thumbnails and titles for the posts you save (links to X, Instagram, TikTok, YouTube and others), <strong>your device fetches each linked page directly</strong>. It does not go through our servers, and we never learn which links you saved. The linked services handle that access under their own privacy policies.</p>
+        <p><strong>Never sent:</strong> your saved links, titles, notes, tags, collection names or dates stay on your device. There is no iCloud sync; backups are JSON files that you export and keep yourself. To improve the app, only the anonymous usage data described in sections 1 and 4 (such as which screens were opened) is counted with Google Analytics for Firebase. The IDFA is not accessed. Turning off "利用状況を送る（匿名）" (Send anonymous usage data) in Settings stops sending from that point on; all features keep working.</p>
 
         <h3>5. Sharing with third parties</h3>
         <p>We do not sell, share, or otherwise disclose personal information to third parties. The anonymous usage data in section 4 is handled by Google LLC (Google Analytics for Firebase) to produce aggregate reports for us.</p>
@@ -319,6 +331,7 @@
         <a href="/apps/shifpon">シフポン</a>
         <a href="/apps/reloban">リロ番</a>
         <a href="/apps/flickey">FLICKEY</a>
+        <a href="/apps/postock">Postock</a>
         <a href="/support">サポート</a>
         <a href="/privacy">プライバシーポリシー</a>
         <a href="/terms">利用規約</a>

@@ -197,6 +197,9 @@ def main():
     OUT.mkdir(exist_ok=True)
     made = 0
     for a in APPS:
+        if not a.get("appid"):
+            print(f'{a["name"]:14} App ID 未定。とばします')
+            continue
         icon = ROOT / "assets" / "icons" / f'{a["slug"]}.png'
         if not icon.exists():
             print(f'{a["name"]:14} アイコンなし。とばします')

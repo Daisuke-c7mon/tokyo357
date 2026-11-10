@@ -1,0 +1,290 @@
+/* =========================================================
+   Postock の紹介ページ（/apps/postock）専用
+   共有の style.css の上に重ねる。ヘッダー・フッターはサイト共通のまま、
+   <main class="pk"> の中だけをアプリの配色（紙色の地・藍の文字・しおりコーラル）にする。
+   CSP が style-src 'self' なので、インラインの style は使わずここに書く。
+   ========================================================= */
+
+.pk {
+  --pk-coral: #F2643D;
+  --pk-coral-ink: #C8461F;   /* 紙の上の文字・リンク用（コントラスト確保） */
+  --pk-coral-soft: #FDE6DD;
+  --pk-paper: #F7F4EF;
+  --pk-card: #FFFFFF;
+  --pk-ink: #1E2740;
+  --pk-sub: #5E6478;
+  --pk-mint: #2FA58A;
+  --pk-mint-soft: #DDF2EC;
+  --pk-sky: #4C7BD9;
+  --pk-sky-soft: #E2EAFA;
+  --pk-line: rgba(30, 39, 64, .10);
+  --pk-shadow: 0 1px 2px rgba(30, 39, 64, .05), 0 10px 30px rgba(30, 39, 64, .08);
+  --pk-r: 24px;
+  --pk-font: "Hiragino Maru Gothic ProN", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, -apple-system, sans-serif;
+
+  background: var(--pk-paper);
+  color: var(--pk-ink);
+  position: relative;
+  z-index: 1;
+}
+@media (prefers-color-scheme: dark) {
+  .pk {
+    --pk-coral: #FF7A57;
+    --pk-coral-ink: #FF8E70;
+    --pk-coral-soft: rgba(255, 122, 87, .16);
+    --pk-paper: #141A2A;
+    --pk-card: #1C2337;
+    --pk-ink: #EEF0F6;
+    --pk-sub: #A4AABD;
+    --pk-mint: #4CC3A5;
+    --pk-mint-soft: rgba(76, 195, 165, .16);
+    --pk-sky: #7EA2EE;
+    --pk-sky-soft: rgba(126, 162, 238, .16);
+    --pk-line: rgba(238, 240, 246, .12);
+    --pk-shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 12px 32px rgba(0, 0, 0, .28);
+  }
+}
+
+.pk h1, .pk h2, .pk h3 { font-family: var(--pk-font); color: var(--pk-ink); letter-spacing: .02em; }
+.pk a { color: var(--pk-coral-ink); }
+.pk a:hover { color: var(--pk-coral); }
+.pk :focus-visible { outline-color: var(--pk-coral); }
+
+/* ---- 共通パーツの色をこのページだけ差し替える ---- */
+.pk .doc-head .updated, .pk .shots-note, .pk .related > p, .pk .related-card span,
+.pk .related-card em, .pk .install p, .pk .lede, .pk .facts dt, .pk .facts dd .sub { color: var(--pk-sub); }
+.pk .prose p, .pk .prose ul, .pk .prose ol { color: var(--pk-ink); }
+.pk .prose strong { color: var(--pk-ink); font-weight: 700; }
+.pk .prose h2, .pk .related h2, .pk .facts, .pk .facts div { border-color: var(--pk-line); }
+.pk .prose h3 { color: var(--pk-coral-ink); font-family: var(--pk-font); }
+
+.pk .btn {
+  font-family: var(--pk-font);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .04em;
+  border-radius: 999px;
+  background: var(--pk-coral);
+  border-color: var(--pk-coral);
+  color: #fff;
+  padding: 13px 24px;
+}
+.pk .btn:hover { background: var(--pk-coral-ink); border-color: var(--pk-coral-ink); color: #fff; }
+.pk .btn--ghost { background: var(--pk-card); color: var(--pk-ink); border-color: var(--pk-line); }
+.pk .btn--ghost:hover { background: var(--pk-card); color: var(--pk-coral-ink); border-color: var(--pk-coral); }
+
+.pk .doc-head--app .doc-icon { background: var(--pk-coral); box-shadow: var(--pk-shadow); }
+
+.pk .shots-strip img { background: var(--pk-card); box-shadow: 0 0 0 1px var(--pk-line), var(--pk-shadow); border-radius: 18px; }
+.pk .shots-strip a { border-radius: 18px; }
+
+.pk .install {
+  border: 0;
+  border-radius: var(--pk-r);
+  background: var(--pk-coral-soft);
+  grid-template-columns: minmax(0, 1fr);
+}
+.pk .install h2 { font-family: var(--pk-font); }
+
+.pk .related-card {
+  border: 1px solid var(--pk-line);
+  border-radius: 18px;
+  background: var(--pk-card);
+}
+.pk .related-card:hover { border-color: var(--pk-coral); background: var(--pk-card); }
+.pk .related-card img { box-shadow: 0 0 0 1px var(--pk-line); }
+.pk .related-card b { color: var(--pk-ink); }
+
+.pk .faq { border-color: var(--pk-line); }
+.pk .faq details { border-color: var(--pk-line); }
+.pk .faq summary { color: var(--pk-ink); font-weight: 600; }
+.pk .faq summary:hover { color: var(--pk-coral-ink); }
+.pk .faq summary::after { color: var(--pk-coral); }
+.pk .faq .a { color: var(--pk-sub); }
+
+.pk .en-block { border-top-color: var(--pk-coral); }
+.pk .en-block .flag { color: var(--pk-coral-ink); }
+
+/* ---- ヒーロー ---- */
+.pk-hero {
+  background: var(--pk-card);
+  border-radius: calc(var(--pk-r) + 8px);
+  box-shadow: var(--pk-shadow);
+  padding: clamp(24px, 5vw, 48px);
+  max-width: none;
+}
+.pk-hero h1 { font-size: clamp(34px, 6vw, 56px); margin-bottom: 6px; }
+.pk-catch {
+  font-family: var(--pk-font);
+  font-weight: 700;
+  font-size: clamp(20px, 3.2vw, 30px);
+  line-height: 1.5;
+  margin: 0 0 14px;
+  color: var(--pk-ink);
+}
+.pk-catch em { font-style: normal; color: var(--pk-coral-ink); }
+.pk-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin: 18px 0 0;
+  font-size: 14px;
+  color: var(--pk-sub);
+}
+.pk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--pk-coral-soft);
+  color: var(--pk-coral-ink);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .04em;
+}
+.pk-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--pk-coral); }
+
+/* ---- セクション見出し ---- */
+.pk-sec { margin: clamp(56px, 9vw, 96px) 0 0; }
+.pk-kicker {
+  font-family: var(--pk-font);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .12em;
+  color: var(--pk-coral-ink);
+  margin: 0 0 8px;
+}
+.pk-h2 { font-size: clamp(24px, 3.6vw, 34px); margin: 0 0 12px; line-height: 1.4; }
+.pk-intro { color: var(--pk-sub); margin: 0 0 28px; max-width: 46em; }
+
+/* ---- 不満 → 解決 ---- */
+.pk-pains { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.pk-pain {
+  background: var(--pk-card);
+  border-radius: var(--pk-r);
+  box-shadow: var(--pk-shadow);
+  padding: 22px 22px 20px;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+.pk-pain .q {
+  margin: 0;
+  color: var(--pk-sub);
+  font-size: 14.5px;
+  line-height: 1.75;
+  padding-left: 14px;
+  border-left: 3px solid var(--pk-line);
+}
+.pk-pain .ans { margin: 0; font-size: 15.5px; line-height: 1.8; }
+.pk-pain .ans b { display: block; font-family: var(--pk-font); font-size: 17px; margin-bottom: 2px; color: var(--pk-ink); }
+.pk-pain .ans b::before { content: "→ "; color: var(--pk-coral); }
+
+/* ---- 主要機能 ---- */
+.pk-features { display: grid; gap: 18px; }
+.pk-feat {
+  background: var(--pk-card);
+  border-radius: var(--pk-r);
+  box-shadow: var(--pk-shadow);
+  padding: clamp(22px, 4vw, 36px);
+  display: grid;
+  grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 40px);
+  align-items: center;
+}
+@media (max-width: 700px) { .pk-feat { grid-template-columns: minmax(0, 1fr); } }
+.pk-feat h3 { font-size: clamp(19px, 2.6vw, 24px); margin: 0 0 10px; line-height: 1.45; }
+.pk-feat p { margin: 0 0 12px; font-size: 15.5px; line-height: 1.85; }
+.pk-feat ul { margin: 0; padding-left: 1.2em; font-size: 15px; line-height: 1.8; color: var(--pk-ink); }
+.pk-feat li { margin-bottom: 4px; }
+.pk-feat li::marker { color: var(--pk-coral); }
+.pk-fig {
+  margin: 0;
+  background: var(--pk-paper);
+  border-radius: 20px;
+  padding: 18px;
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+}
+.pk-fig svg { width: 100%; max-width: 220px; height: auto; }
+
+/* SVG の塗り（属性に var() は書けないのでクラスで当てる） */
+.pk .f-card { fill: var(--pk-card); }
+.pk .f-paper { fill: var(--pk-paper); }
+.pk .f-coral { fill: var(--pk-coral); }
+.pk .f-coral-soft { fill: var(--pk-coral-soft); }
+.pk .f-mint { fill: var(--pk-mint); }
+.pk .f-mint-soft { fill: var(--pk-mint-soft); }
+.pk .f-sky { fill: var(--pk-sky); }
+.pk .f-sky-soft { fill: var(--pk-sky-soft); }
+.pk .f-ink { fill: var(--pk-ink); }
+.pk .f-sub { fill: var(--pk-sub); }
+.pk .f-line { fill: var(--pk-line); }
+.pk .s-line { stroke: var(--pk-line); }
+.pk .s-ink { stroke: var(--pk-ink); }
+.pk .s-sub { stroke: var(--pk-sub); }
+.pk .s-coral { stroke: var(--pk-coral); }
+.pk .s-mint { stroke: var(--pk-mint); }
+.pk .s-sky { stroke: var(--pk-sky); }
+.pk .s-card { stroke: var(--pk-card); }
+.pk .t-svg { font-family: var(--pk-font); font-weight: 700; }
+
+/* SNS のチップ（ロゴは使わず名前で並べる） */
+.pk-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.pk-chips span {
+  background: var(--pk-card);
+  border: 1px solid var(--pk-line);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--pk-ink);
+}
+.pk-chips span:nth-child(3n+1) { border-color: var(--pk-coral); }
+.pk-chips span:nth-child(3n+2) { border-color: var(--pk-mint); }
+.pk-chips span:nth-child(3n) { border-color: var(--pk-sky); }
+
+/* ---- 価格 ---- */
+.pk-price {
+  background: var(--pk-card);
+  border-radius: calc(var(--pk-r) + 8px);
+  box-shadow: var(--pk-shadow);
+  padding: clamp(24px, 5vw, 44px);
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  gap: clamp(20px, 5vw, 56px);
+  align-items: center;
+}
+@media (max-width: 640px) { .pk-price { grid-template-columns: minmax(0, 1fr); } }
+.pk-yen { margin: 0; font-family: var(--pk-font); font-weight: 800; line-height: 1; color: var(--pk-coral-ink); }
+.pk-yen b { font-size: clamp(56px, 10vw, 84px); letter-spacing: -.01em; }
+.pk-yen span { font-size: 22px; margin-left: 4px; }
+.pk-yen small { display: block; margin-top: 12px; font-size: 15px; color: var(--pk-ink); letter-spacing: .06em; }
+.pk-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+.pk-checks li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.pk-checks li::before {
+  content: "✓";
+  flex: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  background: var(--pk-mint-soft);
+  color: var(--pk-mint);
+  font-weight: 700;
+  font-size: 13px;
+  transform: translateY(2px);
+}
+
+.pk-facts { margin-top: 28px; }
+.pk .facts { max-width: none; }

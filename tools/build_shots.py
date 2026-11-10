@@ -27,6 +27,8 @@ SOURCES = {
     "tsuzukutodo":  ("tsuzuku-todo", ["iphone-ja", "ja/iphone", "store/iphone"]),
     "othello":      ("othello", ["iphone", "store"]),
     "kigyouojisan": ("kigyou-ojisan", ["iphone", "store", "screenshots"]),
+    # Postock は見出し入りの完成品が metadata/screenshots/iphone69_1〜5.png（1320x2868）
+    "postock":      ("postock", ["metadata/screenshots/iphone69_"]),
 }
 
 HOME = pathlib.Path.home()
@@ -68,7 +70,7 @@ def main():
             dst = d / f"{i:02d}.jpg"
             # 表示幅は約300px。倍密度ディスプレイ向けに640pxで持つ。
             r = subprocess.run(["sips", "-s", "format", "jpeg",
-                                "-s", "formatOptions", "78", "-Z", "640",
+                                "-s", "formatOptions", "78", "--resampleWidth", "640",
                                 str(src), "--out", str(dst)],
                                capture_output=True)
             if r.returncode == 0 and dst.exists():

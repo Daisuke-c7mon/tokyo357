@@ -135,6 +135,15 @@ APPS = [
          tagline="開いても、閉じても、親指が届く。",
          short="持ち方ごとに形を覚えて切り替わる日本語キーボード。片手は親指の弧に沿った扇形、折りたたみ・大画面を開けば候補と文字を左右の親指で。変換は端末の中だけ・フルアクセス不要。",
          topic="画面まわり・気晴らし"),
+    # App ID は App Store Connect にレコードを作るまで未定。appid が空のあいだは
+    # QR・/go/・A8素材・Smart App Banner を作らない（state を live にする前に必ず入れる）。
+    # related … アプリページ下部「ほかにもつくっています」に出す3本を明示する（省略時は topic で自動選択）
+    dict(slug="postock", name="Postock", appid="", state="prepare",
+         price="買い切り 120円", os="iOS 17+",
+         tagline="保存しっぱなしを、毎日3枚だけ見返す。",
+         short="X・Instagram・TikTokなどの投稿を共有ボタンから2タップで1か所に保存。保存したままの投稿を毎日数枚、カードで見返せる。",
+         topic="画面まわり・気晴らし",
+         related=["dandorirecipe", "shizukatl", "tsuzukutodo"]),
 ]
 
 BY_SLUG = {a["slug"]: a for a in APPS}
