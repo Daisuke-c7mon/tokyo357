@@ -46,81 +46,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tokyo357.com/apps/jft-basic/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jft-basic/en/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jft-basic/id/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jlpt-n1/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jlpt-n1/en/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jlpt-n1/zh-hant/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jlpt-n2/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jlpt-n2/en/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jlpt-n2/zh-hant/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jlpt-n3/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jlpt-n3/en/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jlpt-n3/zh-hant/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jlpt-n4/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jlpt-n4/en/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tokyo357.com/apps/jlpt-n4/zh-hant/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://tokyo357.com/apps/kaeseru</loc>
     <lastmod>2026-11-10</lastmod>
     <priority>0.8</priority>
@@ -483,6 +408,11 @@
   <url>
     <loc>https://tokyo357.com/guides/kakeibo-tsuzukanai</loc>
     <lastmod>2026-11-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/kariirekanou-gaku-gyakusan</loc>
+    <lastmod>2026-11-11</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -1076,6 +1006,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://tokyo357.com/guides/seikyusho-midashi-gyou-shouwake</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://tokyo357.com/guides/seikyusho-pdf-a4-insatsu</loc>
     <lastmod>2026-11-10</lastmod>
     <priority>0.7</priority>
@@ -1412,7 +1347,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/keseru/check/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
