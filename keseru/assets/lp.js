@@ -1,5 +1,5 @@
 // App Store の ID が決まったら APP_ID を入れる（空のあいだは「まもなく公開」）
-const APP_ID = "";
+const APP_ID = "6820722080";
 if (APP_ID) {
   const a = document.getElementById('appstore');
   a.href = "https://apps.apple.com/jp/app/id" + APP_ID;
