@@ -861,6 +861,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://tokyo357.com/guides/parkshiori-shiori-junban-kimekata</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://tokyo357.com/guides/parkshiori-shisetsu-tsuika-houhou</loc>
     <lastmod>2026-11-10</lastmod>
     <priority>0.7</priority>
@@ -898,6 +903,11 @@
   <url>
     <loc>https://tokyo357.com/guides/recipe-hozon-atode-sagasu</loc>
     <lastmod>2026-11-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tokyo357.com/guides/reitou-kaitou-jikan-dandori</loc>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -1407,7 +1417,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/keseru/check/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
@@ -1417,7 +1427,7 @@
   </url>
   <url>
     <loc>https://tokyo357.com/reloban/practice/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
