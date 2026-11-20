@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>電波が入らない現場で、マゲドリの曲げ計算は使えるか ｜ 株式会社サウナ</title>
+<meta name="description" content="地下や電気室、鉄骨に囲まれた現場では電波が入らないことがあります。マゲドリの曲げ計算・カタログ・履歴が端末内だけで動く仕組みと、通信が必要になる唯一の部分を説明します。">
+<link rel="canonical" href="https://tokyo357.com/guides/magedori-denpa-nai-genba-keisan">
+<meta name="theme-color" content="#14100E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社サウナ / Sauna Inc.">
+<meta property="og:title" content="電波が入らない現場で、マゲドリの曲げ計算は使えるか">
+<meta property="og:description" content="地下や電気室、鉄骨に囲まれた現場では電波が入らないことがあります。マゲドリの曲げ計算・カタログ・履歴が端末内だけで動く仕組みと、通信が必要になる唯一の部分を説明します。">
+<meta property="og:url" content="https://tokyo357.com/guides/magedori-denpa-nai-genba-keisan">
+<meta property="og:image" content="https://tokyo357.com/assets/og/magedori.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20260805">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "電波が入らない現場で、マゲドリの曲げ計算は使えるか",
+  "description": "地下や電気室、鉄骨に囲まれた現場では電波が入らないことがあります。マゲドリの曲げ計算・カタログ・履歴が端末内だけで動く仕組みと、通信が必要になる唯一の部分を説明します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-11-20",
+  "dateModified": "2026-11-20",
+  "image": "https://tokyo357.com/assets/og/magedori.png",
+  "mainEntityOfPage": "https://tokyo357.com/guides/magedori-denpa-nai-genba-keisan",
+  "author": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" },
+  "publisher": { "@type": "Organization", "name": "株式会社サウナ", "url": "https://tokyo357.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tokyo357.com/" },
+    { "@type": "ListItem", "position": 2, "name": "解決のヒント", "item": "https://tokyo357.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "電波が入らない現場で、マゲドリの曲げ計算は使えるか" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 20.5V13.5" stroke="#E4572E" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 20.5V8.5" stroke="#F2B544" stroke-width="2" stroke-linecap="square"/>
+        <path d="M17 20.5V16.5" stroke="#7FB0C0" stroke-width="2" stroke-linecap="square"/>
+        <path d="M7 10.2c0-2 2.4-2 2.4-4.1 0-1-.6-1.7-1.3-2.1" stroke="#E4572E" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 5.2c0-2 2.4-2 2.4-4.1" stroke="#F2B544" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+        <path d="M17 13.2c0-2 2.4-2 2.4-4.1" stroke="#7FB0C0" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <b>SAUNA INC.</b>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="/apps/">アプリ</a>
+      <a href="/guides/">解決のヒント</a>
+      <a href="/#build" class="opt">事業</a>
+      <a href="/support">サポート</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+
+    <p class="crumb"><a href="/">ホーム</a><span>／</span><a href="/guides/">解決のヒント</a></p>
+
+    <div class="doc-head">
+      <p class="updated">2026-11-20 ／ 仕事の道具</p>
+      <h1>電波が入らない現場で、マゲドリの曲げ計算は使えるか</h1>
+      <p class="lede">地下の電気室や鉄骨・鉄筋に囲まれた現場、山間部の仮設現場では、スマートフォンの電波が入らないことがあります。曲げ計算をその場でできるかどうかは、計算そのものがどこで行われているかで決まります。</p>
+    </div>
+
+    <div class="prose">
+
+      <div class="answer">
+        <p class="k">先に結論</p>
+        <p>使えます。マゲドリの<strong>曲げ計算・JIS管カタログの参照・ベンダーのキャリブレーション・履歴の記録と閲覧は、すべて端末内で行われ</strong>、いずれも通信を必要としません。アプリが通信するのは<strong>匿名の利用状況（どの画面を開いたか等）だけ</strong>で、入力した寸法や履歴そのものは送られません。この利用状況の送信は設定でオフにでき、オフにすれば通信そのものが発生しなくなります。</p>
+      </div>
+
+      <h2>通信しているのは「利用状況」だけ</h2>
+      <p>マゲドリのアプリ情報には、通信について次のように書かれています。</p>
+      <ul>
+        <li>通信：匿名の利用状況のみ（入力した寸法・履歴は送らない）</li>
+        <li>計算はすべて端末内で行う</li>
+        <li>設定でオフにできる</li>
+      </ul>
+      <p>つまり、曲げ計算という本体の機能はもともと通信を前提にしておらず、唯一の通信は改善のための匿名の利用状況だけです。これは曲げ寸法そのものとは無関係なデータで、設定からオフにすれば送信されなくなります。</p>
+
+      <h2>端末内で完結している機能</h2>
+      <p>次の機能は、通信をオフにしても引き続き使えます。</p>
+      <ul>
+        <li>E管・C管・G管・PF管・CD管の寸法を持つJIS管カタログの参照</li>
+        <li>オフセット曲げ・サドル曲げ・キック付き90°などの計算そのもの</li>
+        <li>試し曲げの結果から実効芯半径を逆算して保存する、ベンダーのキャリブレーション</li>
+        <li>計算した内容をあとから見返せる履歴</li>
+      </ul>
+      <p>カタログの寸法もキャリブレーションの値も、最初からアプリの中に保存されているデータです。クラウド上のデータベースを毎回取りに行く作りではないため、電波の有無に左右されません。</p>
+
+      <h2>電波が入りにくい現場の例</h2>
+      <p>電気室・機械室・エレベーターシャフトの中、鉄骨や鉄筋コンクリートに囲まれた地下階、山間部や郊外の仮設現場などは、携帯電波が弱くなりやすい場所です。ログインやクラウド同期を前提にしたアプリでは、こうした場所で起動できなかったり、データの読み込みで止まってしまったりすることがありますが、マゲドリはログインの仕組み自体を持っておらず、起動時に外部との通信を待つ処理もありません。</p>
+
+      <h2>機内モードでも計算できるか</h2>
+      <p>はい。本体の機能は端末内で完結しているため、機内モードのままでも曲げ計算・カタログの参照・キャリブレーション・履歴の記録と閲覧のいずれも行えます。通信が必要になる「匿名の利用状況」の送信だけが先延ばしになり、電波が戻ったとき、またはWi‑Fiにつないだときにまとめて送られます（設定でオフにしている場合は、そもそも送信されません）。</p>
+
+    </div>
+
+    <section class="install">
+      <div>
+        <h2>マゲドリ</h2>
+        <p>オフセットもサドルも、キック付き90°も、罫書き位置を管端からの距離で出します。</p>
+        <p class="cmp-note">iOS 17+ ／ 買い切り 120円</p>
+        <div class="actions">
+          <a class="btn" href="https://apps.apple.com/jp/app/id6798952257?ct=web_guide&amp;mt=8">App Store でダウンロード</a>
+          <a class="btn btn--ghost" href="/apps/magedori">マゲドリについて読む</a>
+        </div>
+      </div>
+      <div class="install-qr">
+        <img src="/assets/qr/magedori.png" width="290" height="290" alt="マゲドリ の App Store ページのQRコード" loading="lazy">
+        <span>スマートフォンの<br>カメラで読み取る</span>
+      </div>
+    </section>
+
+
+    <section class="related">
+      <h2>ほかにもつくっています</h2>
+      <p>どれも同じ考え方で、実際に困っている一点をひとつずつ潰しています。<a href="/apps/">アプリ一覧を見る</a></p>
+      <div class="related-grid">
+        <a class="related-card" href="/apps/tsuzukutodo">
+          <img src="/assets/icons/tsuzukutodo.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>つづくToDo</b>
+            <span>やることを並べ、終わったら右スワイプで消す。履歴は端末内に残る。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/kigyouojisan">
+          <img src="/assets/icons/kigyouojisan.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>起業おじさん</b>
+            <span>個人事業主・法人の開業に必要な手続きをチェックリストで進める。</span>
+            <em>無料・配信中</em>
+          </div>
+        </a>
+        <a class="related-card" href="/apps/repodasu">
+          <img src="/assets/icons/repodasu.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <b>レポダス</b>
+            <span>現場の指摘写真から、是正報告書をその場で組み立てる。</span>
+            <em>買い切り 120円・配信中</em>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-addr">
+        <b>SAUNA INC.</b>
+        株式会社サウナ<br>
+        〒105-0013 東京都港区浜松町2-2-15<br>
+        浜松町ダイヤビル2F<br>
+        yamaguchi@tokyo357.com
+      </p>
+      <nav class="foot-nav" aria-label="フッター">
+        <a href="/">ホーム</a>
+        <a href="/apps/">アプリ一覧</a>
+        <a href="/guides/">解決のヒント</a>
+        <a href="/apps/shizukatl">しずかTL for X</a>
+        <a href="/apps/sukemaru">透けマル</a>
+        <a href="/apps/kaeseru">カエセル</a>
+        <a href="/apps/sagaseru">サガセル録音</a>
+        <a href="/apps/hitoriinvoice">ひとり請求書</a>
+        <a href="/apps/tsuzukutodo">つづくToDo</a>
+        <a href="/apps/shimekiri">シメキリ逆算</a>
+        <a href="/apps/kinshuwatch">禁酒ウォッチ</a>
+        <a href="/apps/kigyouojisan">起業おじさん</a>
+        <a href="/apps/othello">ぱすてるオセロ</a>
+        <a href="/apps/dandorirecipe">だんどりレシピ</a>
+        <a href="/apps/hanalog">ハナログ</a>
+        <a href="/apps/oboerukakeibo">オボエル家計簿</a>
+        <a href="/apps/magedori">マゲドリ</a>
+        <a href="/apps/negotouranai">ねごと占い</a>
+        <a href="/apps/repodasu">レポダス</a>
+        <a href="/apps/naraseru">ナラセル</a>
+        <a href="/apps/musuberu">ムスベル</a>
+        <a href="/apps/kagikake">カギカケ</a>
+        <a href="/apps/itpassport">ITパスポート 過去問900 一問一答</a>
+        <a href="/apps/fe">基本情報技術者 過去問 科目A・B</a>
+        <a href="/apps/ap">応用情報 科目A・午前 過去問 全問解説</a>
+        <a href="/apps/parkshiori">パークしおり</a>
+        <a href="/apps/shifpon">シフポン</a>
+        <a href="/apps/reloban">リロ番</a>
+        <a href="/apps/flickey">FLICKEY</a>
+        <a href="/apps/postock">Postock</a>
+        <a href="/support">サポート</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/terms">利用規約</a>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <span>© 2020–2026 SAUNA INC.</span>
+      <span>TOKYO357.COM</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
