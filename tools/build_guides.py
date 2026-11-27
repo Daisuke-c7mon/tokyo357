@@ -1090,6 +1090,14 @@ GUIDES = [
          title="ナラセルは他のアプリの音と一緒に鳴らせるか",
          lead="DAWで使っているビートに、ナラセルで作った音を重ねて同時に鳴らせるか。AUv3（Audio Unit）に対応していない現状と、WAV書き出しで同じ目的に近づく方法を説明します。",
          app="naraseru"),
+    dict(slug="tsuzukutodo-tochu-kara-kaiko-hanei", topic="毎日の記録", date="2026-11-27",
+         title="途中から使い始めても、それまでの連続日数を反映できるか",
+         lead="紙のカレンダーなどで続けてきた習慣をつづくToDoに移すとき、連続日数が0から始まるのは気が引けます。開始日を過去にして記録を埋めると、連続日数は計算し直されます。",
+         app="tsuzukutodo"),
+    dict(slug="kagikake-douga-saisei-sokudo-skip", topic="画像・写真", date="2026-11-27",
+         title="しまった動画を、カギカケの中で快適に観る — 15秒送り戻しと再生速度",
+         lead="カギカケにしまった動画は取り出さずにアプリの中で観ます。15秒単位の早送り・早戻しと再生速度の変更に対応しています。",
+         app="kagikake"),
 ]
 
 
